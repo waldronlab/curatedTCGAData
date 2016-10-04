@@ -2,9 +2,9 @@
 #'
 #' @param object An object of class MultiAssayExperiment
 #' @param prepend A character string to pre-pend to the filename
-#' @param directory The directory where files containing serialized objects will
+#' @param directory The directory where files containing rda objects will
 #'   be written to
-#' @return A character vector of the filenames created
+#' @return A two-column matrix containing in its two columns 1) the filenames created and 2) the object names
 #' @examples
 #' example("MultiAssayExperiment")
 #' res <- disassemble(myMultiAssayExperiment, directory = tempdir())
@@ -12,38 +12,55 @@
 disassemble <- function(object,
                         prepend = "myMAE_",
                         directory = ".") {
-    pwd <- getwd()
+    if (!is(object, "MultiAssayExperiment"))
+        stop("`object` must be an object of class MultiAssayExperiment")
+    if (!is(prepend, "character"))
+        stop("`prepend` must be a non-null character vector")
+    if (!is(directory, "character"))
+        stop("`directory` must be a non-null character vector")
     if (!dir.exists(directory))
         dir.create(directory)
-    setwd(directory)
-    fnames <- paste0(prepend, names(experiments(object)), ".rda")
+    objnames <- paste0(prepend, names(experiments(object)))
+    fnames <- file.path(directory, paste0(objnames, ".rda"))
     for (i in 1:length(experiments(object))) {
         message(paste0("Writing: ", fnames[i]))
-        save(experiments(object)[[i]],
-                file = fnames[i],
-                compress = "bzip2")
+        objname <- objnames[i]
+        assign(x = objname, value = experiments(object)[[i]])
+        save(list = objname,
+             file = fnames[i],
+             compress = "bzip2")
     }
-    fnames <-
-        c(fnames,
-          paste0(prepend, "pData.rda"),
-          paste0(prepend, "sampleMap.rda"))
-    save(pData(object),
-            file = paste0(prepend, "pData.rda"),
-            compress = "bzip2")
+    fname <- file.path(directory, paste0(prepend, "pData.rda"))
+    fnames <- c(fnames, fname)
+    objname <- paste0(prepend, "pData")
+    objnames <- c(objnames, objname)
+    assign(x = objname, value = pData(object))
     save(
-        sampleMap(object),
-        file = paste0(prepend, "sampleMap.rda"),
+        list = objname,
+        file = fname,
+        compress = "bzip2"
+    )
+    fname <- file.path(directory, paste0(prepend, "sampleMap.rda"))
+    fnames <- c(fnames, fname)
+    objname <- paste0(prepend, "sampleMap")
+    objnames <- c(objnames, objname)
+    assign(x = objname, value = sampleMap(object))
+    save(
+        list = objname,
+        file = fname,
         compress = "bzip2"
     )
     if (!is.null(metadata(object))) {
-        fnames <- c(fnames, paste0(prepend, "metadata.rda"))
+        fname <- file.path(directory, paste0(prepend, "metadata.rda"))
+        fnames <- c(fnames, fname)
+        objname <- paste0(prepend, "metadata")
+        objnames <- c(objnames, objname)
+        assign(x = objname, value = metadata(object))
         save(
-            metadata(object),
-            file = paste0(prepend, "metadata.rda"),
+            list = objname,
+            file = fname,
             compress = "bzip2"
         )
     }
-    setwd(pwd)
-    fnames <- file.path(directory, fnames)
-    return(fnames)
+    return(cbind(fnames, objnames))
 }

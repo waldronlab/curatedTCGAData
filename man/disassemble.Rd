@@ -11,11 +11,11 @@ disassemble(object, prepend = "myMAE_", directory = ".")
 
 \item{prepend}{A character string to pre-pend to the filename}
 
-\item{directory}{The directory where files containing serialized objects will
+\item{directory}{The directory where files containing rda objects will
 be written to}
 }
 \value{
-A character vector of the filenames created
+A two-column matrix containing in its two columns 1) the filenames created and 2) the object names
 }
 \description{
 Decompose a MultiAssayExperiment object and write the components to disk
