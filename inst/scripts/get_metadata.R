@@ -19,5 +19,5 @@ get_metadata <- function(resource_name, resource_maintainer,
     data_frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
                SourceVersion, Species, TaxonomyId, Coordinate_1_based,
                DataProvider, Maintainer, RDataClass, DispatchClass,
-               ResourceName, Tags)
+               ResourceName)
 }

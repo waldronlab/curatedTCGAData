@@ -26,8 +26,10 @@ Depends:
     utils
 Suggests:
     BiocInstaller,
+    BiocParallel,
     BiocStyle,
     BiocCheck,
+    dplyr,
     readr,
     testthat,
     knitr,
