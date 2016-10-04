@@ -5,17 +5,17 @@ Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
 Version: 0.1.0
 Author: Levi Waldron <lwaldron.research@gmail.com>,
     Lucas Schiffer <schiffer.lucas@gmail.com>,
+    Marcel Ramos <mramos09@gmail.com>,
     Valerie Obenchain <valerie.obenchain@roswellpark.org>,
     Morgan Martin <martin.morgan@roswellpark.org>
 Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
-Description: As the assays of multi-omics experiments have grown in complexity
-    and number they have become more difficult to model in data structures, at
-    least for the case of unified analysis. Bioconductor's MultiAssayExperiment
-    class enables such unified analysis and the complexity of data from The
-    Cancer Genome Atlas (TCGA) represent a practical use case for the data
-    structre. As such, the curatedTCGAData package has assembled and curated the
-    entirety of the data from The Cancer Genome Atlas (TCGA) as
-    MultiAssayExperiment objects.
+Description: This package provides publicly available data from The Cancer
+    Genome Atlas (TCGA) Bioconductor MultiAssayExperiment class objects.
+    These objects integrate multiple assays (e.g. RNA-seq, copy number, mutation,
+    microRNA, protein, and others) with clinical / pathological data.  The
+    MultiAssayExperiment class links assay barcodes with patient IDs, enabling
+    harmonized subsetting of rows (features) and columns (patients / samples) across
+    the entire experiment.
 License: Artistic-2.0
 Depends:
     R (>= 3.3.0),
