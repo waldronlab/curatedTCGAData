@@ -5,18 +5,17 @@ get_metadata <- function(resource_name, resource_maintainer,
     Description <- get_Description(resource_name)
     BiocVersion <- as.character(resource_biocVersion)
     Genome <- as.character("")
-    SourceType <- as.character("FASTQ")
-    SourceUrl <- as.character("")
-    SourceVersion <- as.character("")
+    SourceType <- as.character("TXT")
+    SourceUrl <- as.character("http://gdac.broadinstitute.org/")
+    SourceVersion <- as.character("1.1.33")
     Species <- as.character("Homo Sapiens")
     TaxonomyId <- as.character("9606")
     Coordinate_1_based <- as.logical(NA)
-    DataProvider <- experimentData(resource_object)@lab
+    DataProvider <- as.character("Eli and Edythe L. Broad Institute of Harvard and MIT")
     Maintainer <- as.character(resource_maintainer)
     RDataClass <- class(resource_object)
     DispatchClass <- get_DispatchClass(resource_name)
     ResourceName <- as.character(resource_name)
-    Tags <- get_Tags(resource_name, resource_object)
     data_frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
                SourceVersion, Species, TaxonomyId, Coordinate_1_based,
                DataProvider, Maintainer, RDataClass, DispatchClass,
