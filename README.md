@@ -1,0 +1,3 @@
+# curatedTCGAData
+
+The goal of curatedTCGAData is to ...

@@ -1,0 +1,9 @@
+---
+title: "curatedTCGAData"
+output: BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{curatedTCGAData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
