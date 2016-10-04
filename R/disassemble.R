@@ -16,30 +16,30 @@ disassemble <- function(object,
     if (!dir.exists(directory))
         dir.create(directory)
     setwd(directory)
-    fnames <- paste0(prepend, names(experiments(object)), ".rds")
+    fnames <- paste0(prepend, names(experiments(object)), ".rda")
     for (i in 1:length(experiments(object))) {
         message(paste0("Writing: ", fnames[i]))
-        saveRDS(experiments(object)[[i]],
+        save(experiments(object)[[i]],
                 file = fnames[i],
                 compress = "bzip2")
     }
     fnames <-
         c(fnames,
-          paste0(prepend, "pData.rds"),
-          paste0(prepend, "sampleMap.rds"))
-    saveRDS(pData(object),
-            file = paste0(prepend, "pData.rds"),
+          paste0(prepend, "pData.rda"),
+          paste0(prepend, "sampleMap.rda"))
+    save(pData(object),
+            file = paste0(prepend, "pData.rda"),
             compress = "bzip2")
-    saveRDS(
+    save(
         sampleMap(object),
-        file = paste0(prepend, "sampleMap.rds"),
+        file = paste0(prepend, "sampleMap.rda"),
         compress = "bzip2"
     )
     if (!is.null(metadata(object))) {
-        fnames <- c(fnames, paste0(prepend, "metadata.rds"))
-        saveRDS(
+        fnames <- c(fnames, paste0(prepend, "metadata.rda"))
+        save(
             metadata(object),
-            file = paste0(prepend, "metadata.rds"),
+            file = paste0(prepend, "metadata.rda"),
             compress = "bzip2"
         )
     }
