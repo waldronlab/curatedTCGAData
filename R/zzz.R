@@ -1,6 +1,5 @@
 #' @keywords internal
 #' @importFrom utils read.csv
-
 # .onLoad <- function(libname, pkgname) {
 #     titles <- read.csv(system.file("extdata", "metadata.csv",
 #                                    package="PACKAGENAME"),
