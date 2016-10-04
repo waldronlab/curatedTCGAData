@@ -2,7 +2,7 @@
 #'
 #' @param object An object of class MultiAssayExperiment
 #' @param filename Full path of the filename of the .Rd man page to write
-#' @param name Name of the object being documented
+#' @param objname Name of the object being documented
 #' @param aliases A list of aliases
 #' @param descriptions A list of extra lines to be written to the Description
 #' @return The filename is returned after successfully writing the man file
@@ -48,30 +48,32 @@ mae2rd <- function(object,
         cat("}")
         cat("\n")
     }
-    cat(paste("\\usage{data(", cleanText(objname), ")}"))
-    cat("\n")
-    cat("\\format{")
-    cat("\n")
-    cat("\\preformatted{")
-    cat("\n")
-    object
-    cat("\n")
-    cat("}}")
     cat("\n")
     cat("\\details{")
     cat("\n")
-    cat("\\preformatted{")
+    cat("\\preformatted{\n")
+    cat("--------------------------- \n")
+    cat(paste("> experiments(", objname, ")"))
     cat("\n")
-    object
+    show(experiments(object))
+    cat("\n")
+    cat("--------------------------- \n")
+    cat(paste("> rownames(", objname, ")"))
+    cat("\n")
+    show(rownames(object))
+    cat("\n")
+    cat("--------------------------- \n")
+    cat(paste("> colnames(", objname, ")"))
+    cat("\n")
+    show(colnames(object))
     cat("\n")
     if (!all(is.na(object$vital_status) &
              is.na(object$vital_status))) {
         time <- object$days_to_death / 365
         cens <- ifelse(object$vital_status == "deceased", 1, 0)
-        library(survival)
         cat("Overall survival time-to-event summary (in years):")
         cat("\n")
-        print(survfit(Surv(time, cens) ~ -1))
+        print(survival::survfit(Surv(time, cens) ~ -1))
         cat("\n")
     }
     cat("--------------------------- \n")
@@ -79,12 +81,13 @@ mae2rd <- function(object,
     cat("--------------------------- \n")
     cat("\n")
     for (iCol in 1:ncol(pdata.nonblank)) {
-        if (length(unique(pdata.nonblank[, iCol])) < 6)
+        if (length(unique(pdata.nonblank[, iCol])) < 6) {
             pdata.nonblank[, iCol] <-
                 factor(pdata.nonblank[, iCol])
-        cat(paste(colnames(pdata.nonblank)[iCol], ": \n", sep = ""))
-        print(summary(pdata.nonblank[, iCol]))
-        cat("\n")
+            cat(paste(colnames(pdata.nonblank)[iCol], ": \n", sep = ""))
+            print(summary(pdata.nonblank[, iCol]))
+            cat("\n")
+        }
     }
     cat("}}")
     cat("\n")
