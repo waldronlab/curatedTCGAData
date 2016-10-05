@@ -76,13 +76,11 @@ mae2rd <- function(object,
     cat("\n")
     if (!all(is.na(object$vital_status) &
              is.na(object$vital_status))) {
-        time <- object$days_to_death / 365
-        cens <- object$vital_status
         cat("--------------------------- \n")
         cat("Overall survival time-to-event summary (in years):\n")
         cat("--------------------------- \n")
         cat("\n")
-        print(survival::survfit(survival::Surv(time, cens) ~ -1))
+        print(survival::survfit(survival::Surv(object$days_to_death / 365, object$vital_status) ~ -1))
         cat("\n")
     }
     cat("\n")
