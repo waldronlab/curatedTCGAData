@@ -27,24 +27,24 @@ See also: subsetByAssay(), subsetByRow(), subsetByColumn()
 
 > rownames( ACC )
 CharacterList of length 9
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 A2M ... ZYG11B ZYX ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 hsa-let-7a-3 ... hsa-mir-98 hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1 2 3 4 5 6 7 8 9 10 ... 79852 79853 79854 79855 79856 79857 79858 79859 79860 79861
-[["CNVSNP"]] 1 2 3 4 5 6 7 8 9 10 ... 21043 21044 21045 21046 21047 21048 21049 21050 21051 21052
-[["Methylation"]] cg00000029 cg00000108 cg00000109 cg00000165 ... rs951295 rs966367 rs9839873
-[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon 14-3-3_zeta ... p70S6K_pT389 p90RSK p90RSK_pT359_S363
-[["Mutations"]] PTCHD2 VPS13D PHC2 LCE1B LCE1A LCE1A ... SSUH2 FNIP1 FZD1 AGPAT2 C16orf3 ZNF814
-[["gistica"]] ACAP3 ACTRT2 AGRN ... WASH6P|ENSG00000182484.10 WASIR1|ENSG00000185203.7
-[["gistict"]] ACAP3 ACTRT2 AGRN ... WASH6P|ENSG00000182484.10 WASIR1|ENSG00000185203.7
+[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
+[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
+[["CNASNP"]] 1 2 3 4 5 6 7 8 ... 79855 79856 79857 79858 79859 79860 79861
+[["CNVSNP"]] 1 2 3 4 5 6 7 8 ... 21046 21047 21048 21049 21050 21051 21052
+[["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
+[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
+[["Mutations"]] PTCHD2 VPS13D PHC2 LCE1B LCE1A ... FZD1 AGPAT2 C16orf3 ZNF814
+[["gistica"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["gistict"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
 
 > colnames( ACC )
 CharacterList of length 9
-[["RNASeq2GeneNorm"]] TCGA-OR-A5J1-01A TCGA-OR-A5J2-01A ... TCGA-PK-A5HA-01A TCGA-PK-A5HB-01A
-[["miRNASeqGene"]] TCGA-OR-A5J1-01A TCGA-OR-A5J2-01A ... TCGA-PK-A5HA-01A TCGA-PK-A5HB-01A
+[["RNASeq2GeneNorm"]] TCGA-OR-A5J1-01A TCGA-OR-A5J2-01A ... TCGA-PK-A5HB-01A
+[["miRNASeqGene"]] TCGA-OR-A5J1-01A TCGA-OR-A5J2-01A ... TCGA-PK-A5HB-01A
 [["CNASNP"]] TCGA-OR-A5J1-01A-11D-A29H-01 ... TCGA-PK-A5HC-11A-11D-A309-01
 [["CNVSNP"]] TCGA-OR-A5J1-01A-11D-A29H-01 ... TCGA-PK-A5HC-11A-11D-A309-01
 [["Methylation"]] TCGA-OR-A5J1-01A-11D-A29J-05 ... TCGA-PK-A5HB-01A-11D-A29J-05
-[["RPPAArray"]] TCGA-OR-A5J2-01A TCGA-OR-A5J3-01A ... TCGA-PK-A5H9-01A TCGA-PK-A5HA-01A
+[["RPPAArray"]] TCGA-OR-A5J2-01A TCGA-OR-A5J3-01A ... TCGA-PK-A5HA-01A
 [["Mutations"]] TCGA-OR-A5J1-01A-11D-A29I-10 ... TCGA-PK-A5HC-01A-11D-A30A-10
 [["gistica"]] TCGA-OR-A5J1-01A-11D-A29H-01 ... TCGA-PK-A5HC-01A-11D-A309-01
 [["gistict"]] TCGA-OR-A5J1-01A-11D-A29H-01 ... TCGA-PK-A5HC-01A-11D-A309-01
@@ -66,11 +66,12 @@ Sizes of each ExperimentList element:
 Overall survival time-to-event summary (in years):
 --------------------------- 
 
-Call: survfit(formula = survival::Surv(time, cens) ~ -1)
+Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+    -1)
 
    58 observations deleted due to missingness 
       n  events  median 0.95LCL 0.95UCL 
-     34       0      NA      NA      NA 
+  34.00   34.00    1.51    1.34    3.03 
 
 
 --------------------------- 
@@ -81,9 +82,21 @@ Composite.Element.REF:
 value 
    92 
 
+years_to_birth: 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  14.00   35.50   48.50   47.16   60.00   83.00 
+
 vital_status: 
  0  1 
 58 34 
+
+days_to_death: 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    0.0   399.0   551.5   854.6  1202.0  2405.0      58 
+
+days_to_last_followup: 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    253     885    1414    1738    2331    4673      31 
 
 tumor_tissue_site: 
 adrenal 
@@ -105,19 +118,29 @@ gender:
 female   male 
     60     32 
 
+date_of_initial_pathologic_diagnosis: 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1997    2005    2008    2007    2011    2012 
+
 radiation_therapy: 
   no  yes NA's 
   71   18    3 
 
 histological_type: 
-   adrenocortical carcinoma- myxoid type adrenocortical carcinoma- oncocytic type 
-                                       1                                        4 
+   adrenocortical carcinoma- myxoid type 
+                                       1 
+adrenocortical carcinoma- oncocytic type 
+                                       4 
     adrenocortical carcinoma- usual type 
                                       87 
 
 residual_tumor: 
   r0   r1   r2   rx NA's 
   64    7   12    6    3 
+
+number_of_lymph_nodes: 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   0.000   0.000   2.548   0.500  52.000      61 
 
 race: 
                     asian black or african american                     white 
