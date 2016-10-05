@@ -31,7 +31,7 @@ mae2rd <- function(object,
         pdata.nonblank[, apply(pdata.nonblank, 2, function(x)
             sum(!is.na(x)) > 0)]
     obj.sizes <- lapply(experiments(object), object.size)
-    obj.sizes.f <- sapply(s1, format, units="Mb")
+    obj.sizes.f <- sapply(obj.sizes, format, units="Mb")
     obj.sizes.df <- data.frame(assay=names(obj.sizes.f), size.Mb=obj.sizes.f)
     rownames(obj.sizes.df) <- NULL
     sink(file = filename)
@@ -80,7 +80,7 @@ mae2rd <- function(object,
         cat("Overall survival time-to-event summary (in years):\n")
         cat("--------------------------- \n")
         cat("\n")
-        print(survival::survfit(Surv(time, cens) ~ -1))
+        print(survival::survfit(survival::Surv(time, cens) ~ -1))
         cat("\n")
     }
     cat("\n")
