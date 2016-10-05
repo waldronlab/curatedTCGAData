@@ -9,6 +9,7 @@
 #' example("MultiAssayExperiment")
 #' res <- disassemble(myMultiAssayExperiment, directory = tempdir())
 #' res
+#' @export disassemble
 disassemble <- function(object,
                         prepend = "myMAE_",
                         directory = ".") {

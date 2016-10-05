@@ -10,6 +10,7 @@
 #' example("MultiAssayExperiment")
 #' res <- mae2rd(myMultiAssayExperiment, filename = file.path(tempdir(), "MyMAE.Rd"), objname="MyMAE")
 #' res
+#' @export mae2rd
 mae2rd <- function(object,
                    filename,
                    objname,
@@ -48,6 +49,7 @@ mae2rd <- function(object,
         cat("\n")
         for (i in 1:length(descriptions)) {
             cat(descriptions[[i]])
+            cat("\n")
         }
         cat("}")
         cat("\n")
@@ -75,7 +77,7 @@ mae2rd <- function(object,
     if (!all(is.na(object$vital_status) &
              is.na(object$vital_status))) {
         time <- object$days_to_death / 365
-        cens <- ifelse(object$vital_status == "deceased", 1, 0)
+        cens <- object$vital_status
         cat("--------------------------- \n")
         cat("Overall survival time-to-event summary (in years):\n")
         cat("--------------------------- \n")
@@ -94,8 +96,11 @@ mae2rd <- function(object,
                 factor(pdata.nonblank[, iCol])
             cat(paste(colnames(pdata.nonblank)[iCol], ": \n", sep = ""))
             print(summary(pdata.nonblank[, iCol]))
-            cat("\n")
+        }else if(is(pdata.nonblank[, iCol], "numeric")){
+            cat(paste(colnames(pdata.nonblank)[iCol], ": \n", sep = ""))
+            print(summary(pdata.nonblank[, iCol]))
         }
+    cat("\n")
     }
     cat("}}")
     cat("\n")
