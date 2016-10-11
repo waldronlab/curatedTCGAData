@@ -1,7 +1,7 @@
 #' @keywords internal
 source_scripts <- function() {
-    dir("./inst/scripts") %>%
-    paste0("./inst/scripts/", .) %>%
-    lapply(., source)
+    list.files("./inst/scripts",
+               full.names = TRUE) %>%
+    lapply(., source) %>% invisible()
     invisible(NULL)
 }
