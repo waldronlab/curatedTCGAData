@@ -3,4 +3,3 @@
 export(disassemble)
 export(getCuratedTCGAData)
 export(mae2rd)
-importFrom(BiocInstaller,biocLite)

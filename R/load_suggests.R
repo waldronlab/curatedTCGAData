@@ -1,4 +1,3 @@
-#' @importFrom BiocInstaller biocLite
 #' @keywords internal
 load_suggests <- function() {
     read.dcf("DESCRIPTION", "Suggests") %>%
@@ -7,7 +6,7 @@ load_suggests <- function() {
     unlist() %>%
     for (i in .) {
         if(!require(i, character.only = TRUE)) {
-            biocLite(i)
+            BiocInstaller::biocLite(i)
             require(i, character.only = TRUE)
         }
     }
