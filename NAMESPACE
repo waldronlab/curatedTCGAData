@@ -2,4 +2,3 @@
 
 export(disassemble)
 export(mae2rd)
-importFrom(BiocInstaller,biocLite)

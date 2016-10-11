@@ -10,9 +10,9 @@ Author: Levi Waldron <lwaldron.research@gmail.com>,
     Morgan Martin <martin.morgan@roswellpark.org>
 Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
 Description: This package provides publicly available data from The Cancer
-    Genome Atlas (TCGA) Bioconductor MultiAssayExperiment class objects.
-    These objects integrate multiple assays (e.g. RNA-seq, copy number, mutation,
-    microRNA, protein, and others) with clinical / pathological data.  The
+    Genome Atlas (TCGA) Bioconductor MultiAssayExperiment class objects. These
+    objects integrate multiple assays (e.g. RNA-seq, copy number, mutation,
+    microRNA, protein, and others) with clinical / pathological data. The
     MultiAssayExperiment class links assay barcodes with patient IDs, enabling
     harmonized subsetting of rows (features) and columns (patients / samples) across
     the entire experiment.
@@ -37,3 +37,11 @@ Suggests:
 VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
 RoxygenNote: 5.0.1
+Collate:
+    'curatedTCGAData-package.R'
+    'disassemble.R'
+    'dummy.R'
+    'load_suggests.R'
+    'mae2rd.R'
+    'source_scripts.R'
+    'zzz.R'
