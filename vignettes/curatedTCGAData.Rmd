@@ -7,17 +7,17 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r}
+```{r, eval = FALSE}
 library(MultiAssayExperiment)
 rdadir <- "~/Documents/maeo"
-if(!file.exists(file.path(rdadir, "accMAEO.rds"))){
+if (!file.exists(file.path(rdadir, "accMAEO.rds"))) {
    download.file("http://s3.amazonaws.com/multiassayexperiments/accMAEO.rds", 
                  destfile = file.path(rdadir, "accMAEO.rds"))
 }
 acc <- readRDS(file.path(rdadir, "accMAEO.rds"))
 ```
 
-```{r}
+```{r, eval = FALSE}
 library(GenomicRanges)
 acc
 summary(isDisjoint(experiments(acc)$CNASNP))
