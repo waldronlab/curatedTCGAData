@@ -7,3 +7,21 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r}
+library(MultiAssayExperiment)
+rdadir <- "~/Documents/maeo"
+if(!file.exists(file.path(rdadir, "accMAEO.rds"))){
+   download.file("http://s3.amazonaws.com/multiassayexperiments/accMAEO.rds", 
+                 destfile = file.path(rdadir, "accMAEO.rds"))
+}
+acc <- readRDS(file.path(rdadir, "accMAEO.rds"))
+```
+
+```{r}
+library(GenomicRanges)
+acc
+summary(isDisjoint(experiments(acc)$CNASNP))
+summary(isDisjoint(experiments(acc)$CNVSNP))
+summary(isDisjoint(experiments(acc)$Mutations))
+```
+
