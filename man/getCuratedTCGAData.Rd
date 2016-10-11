@@ -2,17 +2,25 @@
 % Please edit documentation in R/getCuratedTCGAData.R
 \name{getCuratedTCGAData}
 \alias{getCuratedTCGAData}
-\title{Download TCGA data types from ExperimentHub}
+\title{Create a MultiAssayExperiment from specific assays and cohorts}
 \usage{
-getCuratedTCGAData(cohort = "ACC", RNASeqGene = TRUE,
-  RNASeq2GeneNorm = TRUE, miRNASeqGene = TRUE, CNASNP = TRUE,
-  CNVSNP = TRUE, CNAseq = TRUE, Methylation = TRUE, RPPAArray = TRUE,
-  Mutations = TRUE, gistica = TRUE, gistict = TRUE)
+getCuratedTCGAData(cohort = "ACC", assays = c("RNASeqGene",
+  "RNASeq2GeneNorm", "miRNASeqGene", "CNASNP", "CNVSNP", "CNAseq",
+  "Methylation", "RPPAArray", "Mutations", "gistica", "gistict"))
 }
 \arguments{
-\item{cohort}{TCGA cohort disease code (e.g., COAD)}
+\item{cohort}{a character vector containing the name(s) of TCGA cohorts}
+
+\item{assays}{a character vector containing the name(s) of TCGA assays}
+}
+\value{
+a MultiAssayExperiment of the specified assays and cohorts
 }
 \description{
-Download TCGA data types from ExperimentHub
+Create a MultiAssayExperiment from specific assays and cohorts
+}
+\examples{
+get_curatedTCGAData(cohort = "ACC", assays = c("RNASeqGene",
+"RNASeq2GeneNorm"))
 }
 

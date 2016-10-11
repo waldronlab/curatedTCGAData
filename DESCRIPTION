@@ -40,8 +40,6 @@ RoxygenNote: 5.0.1
 Collate:
     'curatedTCGAData-package.R'
     'disassemble.R'
-    'load_suggests.R'
     'getCuratedTCGAData.R'
     'mae2rd.R'
-    'source_scripts.R'
     'zzz.R'
