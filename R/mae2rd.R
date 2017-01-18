@@ -8,7 +8,8 @@
 #' @return The filename is returned after successfully writing the man file
 #' @examples
 #' example("MultiAssayExperiment")
-#' res <- mae2rd(myMultiAssayExperiment, filename = file.path(tempdir(), "MyMAE.Rd"), objname="MyMAE")
+#' res <- mae2rd(myMultiAssayExperiment, filename = file.path(tempdir(),
+#'     "MyMAE.Rd"), objname="MyMAE")
 #' res
 #' @export mae2rd
 mae2rd <- function(object,
@@ -19,9 +20,9 @@ mae2rd <- function(object,
                    descriptions = NULL) {
     if (!is(object, "MultiAssayExperiment"))
         stop("`object` must be an object of class MultiAssayExperiment")
-    if (!is(filename, "character"))
+    if (!is.character(filename))
         stop("`filename` must be a non-null character vector")
-    if (!is(objname, "character"))
+    if (!is.character(objname))
         stop("`objname` must be a non-null character vector")
     cleanText <- function(x) {
         gsub("%", "\\%", iconv(x, "latin1", "ASCII", sub = "?"), fixed = TRUE)
@@ -80,7 +81,8 @@ mae2rd <- function(object,
         cat("Overall survival time-to-event summary (in years):\n")
         cat("--------------------------- \n")
         cat("\n")
-        print(survival::survfit(survival::Surv(object$days_to_death / 365, object$vital_status) ~ -1))
+        print(survival::survfit(survival::Surv(object$days_to_death / 365,
+                                object$vital_status) ~ -1))
         cat("\n")
     }
     cat("\n")
@@ -107,3 +109,4 @@ mae2rd <- function(object,
     sink(NULL)
     return(filename)
 }
+
