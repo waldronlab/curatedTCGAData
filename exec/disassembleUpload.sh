@@ -1,4 +1,6 @@
 #!/bin/bash
 
-/home/$USER/src/svn/r-devel/R/bin/Rscript ../inst/scripts/disassembleUpload.R --verbose
+REPO='/home/$USER/Documents/github/curatedTCGAData/'
+
+/home/$USER/src/svn/r-devel/R/bin/Rscript $REPO/inst/scripts/disassembleUpload.R --verbose
 

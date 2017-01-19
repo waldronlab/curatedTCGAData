@@ -3,14 +3,17 @@
 library(curatedTCGAData)
 library(MultiAssayExperiment)
 library(AnnotationHubData)
+library(magrittr)
 
-dataDir <- file.path("data")
+
+repoDir <- normalizePath(Sys.getenv("REPO"))
+dataDir <- file.path(repoDir, "data")
 
 if (!dir.exists(dataDir))
-    dir.create(dataDir))
+    dir.create(dataDir)
 
 rdsFiles <-
-    file.path("~/Documents/github/MultiAssayExperiment-TCGA/data/built")
+    file.path(repoDir, "../MultiAssayExperiment-TCGA/data/built")
 rdsDir <- dirname(rdsFiles)
 manDir <- file.path("man")
 
@@ -20,21 +23,22 @@ for (singleFile in rdsFiles) {
         paste0(., "_")
 
     readRDS(singleFile) %>% disassemble(., prepend = prepend,
-                                        directory = "./data")
+                                        directory = dataDir) 
 
 }
 
 makeDocumentation <- function(rdsDirectory, manDirectory) {
     fileNames <- list.files(rdsDirectory, full.names = TRUE,
                             pattern = "*MAEO\\.rds$")
-    cancerCode <- toupper(sub("MAEO.rds", "", basename(fnames), fixed = TRUE))
+    cancerCode <- toupper(sub("MAEO.rds", "", basename(fileNames),
+                              fixed = TRUE))
     manNames <- file.path(manDirectory, paste0(cancerCode, ".Rd"))
     for (i in seq_along(fileNames)) {
         obj <- readRDS(fileNames[i])
         message(paste("Documenting:", cancerCode[i]))
-        curatedTCGAData::mae2rd(object = obj,
-                                filename = manNames[i],
-                                objname = cancerCode[i])
+        mae2rd(object = obj,
+               filename = manNames[i],
+               objname = cancerCode[i])
     }
 }
 
@@ -49,4 +53,5 @@ for (singleFile in dataFiles) {
 AnnotationHubData:::upload_to_S3(file = singleFile,
                          remotename = basename(singleFile),
                          bucket = "experimenthub/curatedTCGAData")
+}
 
