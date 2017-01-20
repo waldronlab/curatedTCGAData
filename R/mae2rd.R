@@ -77,27 +77,27 @@ mae2rd <- function(object,
     cat("\n")
     if (!all(is.na(object$vital_status) &
              is.na(object$vital_status))) {
-        cat("--------------------------- \n")
+        cat("---------------------------\n")
         cat("Overall survival time-to-event summary (in years):\n")
-        cat("--------------------------- \n")
+        cat("---------------------------\n")
         cat("\n")
         print(survival::survfit(survival::Surv(object$days_to_death / 365,
                                 object$vital_status) ~ -1))
         cat("\n")
     }
     cat("\n")
-    cat("--------------------------- \n")
-    cat("Available sample meta-data: \n")
-    cat("--------------------------- \n")
+    cat("---------------------------\n")
+    cat("Available sample meta-data:\n")
+    cat("---------------------------\n")
     cat("\n")
     for (iCol in 1:ncol(pdata.nonblank)) {
         if (length(unique(pdata.nonblank[, iCol])) < 6) {
             pdata.nonblank[, iCol] <-
                 factor(pdata.nonblank[, iCol])
-            cat(paste(colnames(pdata.nonblank)[iCol], ":\n", sep = ""))
+            cat(paste0(colnames(pdata.nonblank)[iCol], ":\n"))
             print(summary(pdata.nonblank[, iCol]))
-        }else if(is(pdata.nonblank[, iCol], "numeric")){
-            cat(paste(colnames(pdata.nonblank)[iCol], ":\n", sep = ""))
+        } else if (is(pdata.nonblank[, iCol], "numeric")) {
+            cat(paste0(colnames(pdata.nonblank)[iCol], ":\n"))
             print(summary(pdata.nonblank[, iCol]))
         }
     cat("\n")
