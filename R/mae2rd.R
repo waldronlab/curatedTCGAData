@@ -94,10 +94,10 @@ mae2rd <- function(object,
         if (length(unique(pdata.nonblank[, iCol])) < 6) {
             pdata.nonblank[, iCol] <-
                 factor(pdata.nonblank[, iCol])
-            cat(paste(colnames(pdata.nonblank)[iCol], ": \n", sep = ""))
+            cat(paste(colnames(pdata.nonblank)[iCol], ":\n", sep = ""))
             print(summary(pdata.nonblank[, iCol]))
         }else if(is(pdata.nonblank[, iCol], "numeric")){
-            cat(paste(colnames(pdata.nonblank)[iCol], ": \n", sep = ""))
+            cat(paste(colnames(pdata.nonblank)[iCol], ":\n", sep = ""))
             print(summary(pdata.nonblank[, iCol]))
         }
     cat("\n")

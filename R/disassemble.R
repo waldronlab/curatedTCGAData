@@ -23,7 +23,7 @@ disassemble <- function(object,
         dir.create(directory)
     objnames <- paste0(prepend, names(experiments(object)))
     fnames <- file.path(directory, paste0(objnames, ".rda"))
-    for (i in 1:length(experiments(object))) {
+    for (i in seq_along(experiments(object))) {
         message(paste0("Writing: ", fnames[i]))
         objname <- objnames[i]
         assign(x = objname, value = experiments(object)[[i]])
@@ -65,3 +65,4 @@ disassemble <- function(object,
     }
     return(cbind(fnames, objnames))
 }
+
