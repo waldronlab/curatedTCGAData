@@ -13,17 +13,19 @@ if (!dir.exists(dataDir))
     dir.create(dataDir)
 
 rdsFiles <-
-    file.path(repoDir, "../MultiAssayExperiment-TCGA/data/built")
-rdsDir <- dirname(rdsFiles)
-manDir <- file.path("man")
+    list.files(file.path(repoDir,
+                         "../MultiAssayExperiment-TCGA/data/built/"),
+               full.names = TRUE, pattern = "*MAEO\\.rds$")
+rdsDir <- dirname(rdsFiles[[1L]])
+manDir <- file.path("../man")
 
 ## For loop for disassembly
 for (singleFile in rdsFiles) {
     prepend <- basename(singleFile) %>% gsub("MAEO.rds", "", .) %>%
         paste0(., "_")
 
-    readRDS(singleFile) %>% disassemble(., prepend = prepend,
-                                        directory = dataDir) 
+    readRDS(singleFile) %>%
+         disassemble(., prepend = prepend, directory = dataDir)
 
 }
 
