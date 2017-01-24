@@ -25,7 +25,7 @@ for (singleFile in rdsFiles) {
         paste0(., "_")
 
     readRDS(singleFile) %>%
-         disassemble(., prepend = prepend, directory = dataDir)
+        disassemble(., prepend = prepend, directory = dataDir)
 
 }
 
@@ -48,7 +48,7 @@ makeDocumentation <- function(rdsDirectory, manDirectory) {
 makeDocumentation(rdsDir, manDir)
 
 ## Upload files in folder
-dataFiles <- list.files(file = dataDir, full.names = TRUE)
+dataFiles <- list.files(path = dataDir, full.names = TRUE)
 
 for (singleFile in dataFiles) {
 
