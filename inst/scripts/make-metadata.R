@@ -1,12 +1,15 @@
 make_metadata <- function() {
-    create_dir("./inst/extdata")
-    col_names <- !file.exists("./inst/extdata/metadata.csv")
-    resource_list <- dir("./data")
-    resource_maintainer <- read.dcf("DESCRIPTION", "Maintainer")
-    resource_biocVersion <- biocVersion()
+    if (!dir.exists("inst/extdata"))
+        dir.create("inst/extdata")
+    if (file.exists("inst/extdata/metadata.csv"))
+    file.remove("inst/extdata/metadata.csv")
+    resource_list <- dir("data")
+    resource_maintainer <- read.dcf("DESCRIPTION", "Maintainer")[[1]]
+    resource_biocVersion <- BiocInstaller::biocVersion()
     bplapply(resource_list, get_metadata, resource_maintainer,
              resource_biocVersion) %>%
-    Reduce(bind_rows, .) %>%
-    write_csv(., "./inst/extdata/metadata.csv", append = TRUE,
-              col_names = col_names)
+    Reduce(dplyr::bind_rows, .) %>%
+    readr::write_csv(., "inst/extdata/metadata.csv", append = TRUE,
+              col_names = TRUE)
 }
+
