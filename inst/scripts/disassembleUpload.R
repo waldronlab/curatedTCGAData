@@ -22,11 +22,10 @@ manDir <- file.path("../man")
 ## `for` loop for disassembly
 for (singleFile in rdsFiles) {
     prepend <- basename(singleFile) %>% gsub("MAEO.rds", "", .) %>%
-        paste0(toupper(.), "_")
+        toupper() %>% paste0(., "_")
 
     readRDS(singleFile) %>%
         disassemble(., prepend = prepend, directory = dataDir)
-
 }
 
 makeDocumentation <- function(rdsDirectory, manDirectory) {
@@ -56,4 +55,9 @@ AnnotationHubData:::upload_to_S3(file = singleFile,
                          remotename = basename(singleFile),
                          bucket = "experimenthub/curatedTCGAData")
 }
+
+## Create metadata.csv file from data
+source("inst/scripts/get_metadata.R")
+source("inst/scripts/make-metadata.R")
+make_metadata()
 
