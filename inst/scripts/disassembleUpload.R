@@ -19,10 +19,10 @@ rdsFiles <-
 rdsDir <- dirname(rdsFiles[[1L]])
 manDir <- file.path("../man")
 
-## For loop for disassembly
+## `for` loop for disassembly
 for (singleFile in rdsFiles) {
     prepend <- basename(singleFile) %>% gsub("MAEO.rds", "", .) %>%
-        paste0(., "_")
+        paste0(toupper(.), "_")
 
     readRDS(singleFile) %>%
         disassemble(., prepend = prepend, directory = dataDir)

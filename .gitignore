@@ -5,3 +5,5 @@
 inst/doc
 data
 tmp
+missingDataOut.Rds
+
