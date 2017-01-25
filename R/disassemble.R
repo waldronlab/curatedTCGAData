@@ -11,7 +11,7 @@
 #' res
 #' @export disassemble
 disassemble <- function(object,
-                        prepend = "myMAE_",
+                        prepend = "",
                         directory = ".") {
     if (!is(object, "MultiAssayExperiment"))
         stop("`object` must be an object of class MultiAssayExperiment")
