@@ -1,5 +1,5 @@
 ## Load helper function for collecting metadata
-source("getMetadata.R")
+source("inst/scripts/getMetadata.R")
 
 make_metadata <- function() {
     if (!dir.exists("inst/extdata"))
