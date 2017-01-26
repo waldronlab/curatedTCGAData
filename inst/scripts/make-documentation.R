@@ -1,5 +1,5 @@
 ## Source the converter function (MultiAssayExperiment RDS to Rd)
-source("mae2rd.R")
+source("../inst/scripts/mae2rd.R")
 
 rdsDir <- dirname(rdsFiles[[1L]])
 manDir <- file.path("../man")

@@ -1,5 +1,5 @@
 ## Disassemble serialized MultiAssayExperiment files
-source("disassemble.R")
+source("../inst/scripts/disassemble.R")
 
 ## Find the RDS files in MultiAssayExperiment-TCGA
 rdsFiles <-
