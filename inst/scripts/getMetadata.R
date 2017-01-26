@@ -19,7 +19,7 @@
     }
 }
 
-get_metadata <- function(resource_name, resource_maintainer,
+getMetadata <- function(resource_name, resource_maintainer,
                          resource_biocVersion) {
     stopifnot(is.character(resource_maintainer) &&
               is.character(resource_name))
