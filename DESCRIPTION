@@ -2,10 +2,10 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 0.1.0
+Version: 0.2.0
 Author: Levi Waldron <lwaldron.research@gmail.com>,
-    Lucas Schiffer <schiffer.lucas@gmail.com>,
     Marcel Ramos <mramos09@gmail.com>,
+    Lucas Schiffer <schiffer.lucas@gmail.com>,
     Valerie Obenchain <valerie.obenchain@roswellpark.org>,
     Morgan Martin <martin.morgan@roswellpark.org>
 Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
@@ -14,8 +14,8 @@ Description: This package provides publicly available data from The Cancer
     objects integrate multiple assays (e.g. RNA-seq, copy number, mutation,
     microRNA, protein, and others) with clinical / pathological data. The
     MultiAssayExperiment class links assay barcodes with patient IDs, enabling
-    harmonized subsetting of rows (features) and columns (patients / samples) across
-    the entire experiment.
+    harmonized subsetting of rows (features) and columns (patients / samples)
+    across the entire experiment.
 License: Artistic-2.0
 Depends:
     R (>= 3.3.0),

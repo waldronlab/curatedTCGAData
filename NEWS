@@ -1,3 +1,8 @@
+# curatedTCGAData 0.2.0
+
+* Updated `DESCRIPTION` file to reflect authorship.
+* Progress towards submission to ExperimentHub
+
 # curatedTCGAData 0.1.0
 
 * Added a `NEWS` file to track changes to the package.
