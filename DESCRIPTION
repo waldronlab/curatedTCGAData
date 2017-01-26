@@ -39,9 +39,3 @@ biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
 LazyData: true
 LazyLoad: yes
 RoxygenNote: 5.0.1.9000
-Collate:
-    'curatedTCGAData-package.R'
-    'disassemble.R'
-    'getCuratedTCGAData.R'
-    'mae2rd.R'
-    'zzz.R'
