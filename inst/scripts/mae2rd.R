@@ -11,7 +11,7 @@
 #' res <- mae2rd(myMultiAssayExperiment, filename = file.path(tempdir(),
 #'     "MyMAE.Rd"), objname="MyMAE")
 #' res
-#' @export mae2rd
+#' @keywords internal
 mae2rd <- function(object,
                    filename,
                    objname,
