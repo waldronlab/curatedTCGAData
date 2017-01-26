@@ -37,9 +37,3 @@ Suggests:
 VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
 RoxygenNote: 5.0.1
-Collate:
-    'curatedTCGAData-package.R'
-    'disassemble.R'
-    'getCuratedTCGAData.R'
-    'mae2rd.R'
-    'zzz.R'
