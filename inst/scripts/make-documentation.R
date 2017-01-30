@@ -1,8 +1,8 @@
 ## Source the converter function (MultiAssayExperiment RDS to Rd)
-source("../inst/scripts/mae2rd.R")
+source("inst/scripts/mae2rd.R")
 
 rdsDir <- dirname(rdsFiles[[1L]])
-manDir <- file.path("../man")
+manDir <- file.path("man")
 
 makeDocumentation <- function(rdsDirectory, manDirectory) {
     fileNames <- list.files(rdsDirectory, full.names = TRUE,
@@ -21,3 +21,4 @@ makeDocumentation <- function(rdsDirectory, manDirectory) {
 
 ## Document
 makeDocumentation(rdsDir, manDir)
+

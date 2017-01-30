@@ -1,11 +1,5 @@
 ## Disassemble serialized MultiAssayExperiment files
-source("../inst/scripts/disassemble.R")
-
-## Find the RDS files in MultiAssayExperiment-TCGA
-rdsFiles <-
-    list.files(file.path(repoDir,
-                         "../MultiAssayExperiment-TCGA/data/built/"),
-               full.names = TRUE, pattern = "*MAEO\\.rds$")
+source("inst/scripts/disassemble.R")
 
 ## Use a `for` loop for disassembly
 for (singleFile in rdsFiles) {

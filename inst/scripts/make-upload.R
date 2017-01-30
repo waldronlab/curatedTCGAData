@@ -7,3 +7,4 @@ AnnotationHubData:::upload_to_S3(file = singleFile,
                          remotename = basename(singleFile),
                          bucket = "experimenthub/curatedTCGAData/")
 }
+
