@@ -3,22 +3,32 @@
 library(curatedTCGAData)
 library(MultiAssayExperiment)
 library(AnnotationHubData)
+library(BiocParallel)
 library(magrittr)
 
 repoDir <- normalizePath(Sys.getenv("REPO"))
 dataDir <- file.path(repoDir, "data")
 
+setwd(repoDir)
+
 if (!dir.exists(dataDir))
     dir.create(dataDir)
 
+## Find the RDS files in MultiAssayExperiment-TCGA
+rdsFiles <-
+    list.files(file.path(repoDir,
+                         "../MultiAssayExperiment-TCGA/data/built/"),
+               full.names = TRUE, pattern = "*MAEO\\.rds$")
+
 # Disassemble
-source("make-data.R")
+# source("inst/scripts/make-data.R")
 
 # Document
-source("make-documentation.R")
+source("inst/scripts/make-documentation.R")
 
 # Upload
-source("make-upload.R")
+source("inst/scripts/make-upload.R")
 
 # Create metadata.csv
-source("make-metadata.R")
+source("inst/scripts/make-metadata.R")
+
