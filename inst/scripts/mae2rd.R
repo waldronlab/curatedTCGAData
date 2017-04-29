@@ -1,3 +1,7 @@
+.cleanText <- function(x) {
+    gsub("%", "\\%", iconv(x, "latin1", "ASCII", sub = "?"), fixed = TRUE)
+}
+
 #' Write a .Rd man page for a MultiAssayExperiment object
 #'
 #' @param object An object of class MultiAssayExperiment
@@ -24,9 +28,6 @@ mae2rd <- function(object,
         stop("`filename` must be a non-null character vector")
     if (!is.character(objname))
         stop("`objname` must be a non-null character vector")
-    cleanText <- function(x) {
-        gsub("%", "\\%", iconv(x, "latin1", "ASCII", sub = "?"), fixed = TRUE)
-    }
     aliases <- paste(aliases, sep = ", ")
     pdata.nonblank <- pData(object)
     pdata.nonblank <-
@@ -43,7 +44,7 @@ mae2rd <- function(object,
     cat("\n")
     cat(paste("\\docType{data}"))
     cat("\n")
-    cat(paste("\\title{", cleanText(title), "}"))
+    cat(paste("\\title{", .cleanText(title), "}"))
     cat("\n")
     if (!is.null(descriptions)) {
         cat("\\description{")

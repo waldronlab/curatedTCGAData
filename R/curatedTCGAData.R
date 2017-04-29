@@ -69,3 +69,4 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
     MultiAssayExperiment(experiments = eh_experiments, pData = eh_pData,
                          sampleMap = eh_sampleMap, metadata = eh_metadata)
 }
+

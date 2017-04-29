@@ -15,10 +15,10 @@ if (!dir.exists(dataDir))
     dir.create(dataDir)
 
 ## Find the RDS files in MultiAssayExperiment-TCGA
-rdsFiles <-
+rdaFiles <-
     list.files(file.path(repoDir,
-                         "../MultiAssayExperiment-TCGA/data/built/"),
-               full.names = TRUE, pattern = "*MAEO\\.rds$")
+                         "../MultiAssayExperiment-TCGA/data/bits/"),
+               full.names = TRUE, recursive = TRUE, pattern = "*\\.rda$")
 
 # Disassemble
 # source("inst/scripts/make-data.R")
