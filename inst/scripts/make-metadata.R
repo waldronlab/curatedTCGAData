@@ -9,10 +9,10 @@ make_metadata <- function() {
     resource_list <- dir("data")
     resource_maintainer <- read.dcf("DESCRIPTION", "Maintainer")[[1]]
     resource_biocVersion <- BiocInstaller::biocVersion()
-    bplapply(resource_list, getMetadata, resource_maintainer,
-             resource_biocVersion) %>%
-    Reduce(dplyr::bind_rows, .) %>%
-    readr::write_csv(., "inst/extdata/metadata.csv", append = TRUE,
+    metadat <- Reduce(dplyr::bind_rows,
+           bplapply(resource_list, getMetadata,
+                    resource_maintainer, resource_biocVersion))
+    readr::write_csv(metadat, "inst/extdata/metadata.csv", append = TRUE,
                      col_names = TRUE)
 }
 
