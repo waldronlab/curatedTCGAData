@@ -36,9 +36,9 @@ getMetadata <- function(resource_name, resource_maintainer,
     RDataClass <- .get_ResourceClass(resource_name)
     DispatchClass <- .get_DispatchClass(resource_name)
     ResourceName <- resource_name
-    dplyr::data_frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
+    data.frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
                SourceVersion, Species, TaxonomyId, Coordinate_1_based,
                DataProvider, Maintainer, RDataClass, DispatchClass,
-               ResourceName)
+               ResourceName, stringsAsFactors = FALSE)
 }
 
