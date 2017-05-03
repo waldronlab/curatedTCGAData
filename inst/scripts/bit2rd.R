@@ -28,28 +28,45 @@ bit2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     fileNames <- list.files(file.path(dataDirs, cancerFolder),
                             full.names = TRUE, all.files = TRUE,
                             pattern = "*\\.rda$")
-    objectName <- gsub(".rda", "", basename(fileNames))
-    dataType <- gsub("^[A-Z]*_", "", objectName)
-    names(fileNames) <- dataType
+    objectNames <- gsub(".rda", "", basename(fileNames))
+    dataTypes <- gsub("^[A-Z]*_", "", objectNames)
+    names(fileNames) <- dataTypes
 
     slots <- c("metadata", "colData", "sampleMap")
     stdObjSlots <- paste0(cancerFolder, "_", slots)
     names(stdObjSlots) <- slots
 
-    coldataIdx <- match(stdObjSlots[["colData"]], objectName)
+    coldataIdx <- match(stdObjSlots[["colData"]], objectNames)
     stopifnot(S4Vectors::isSingleInteger(coldataIdx))
 
     colDat <- .loadEnvObj(fileNames[coldataIdx])
-
     colDataNonblank <- colDat[, vapply(colDat, 2,
         function(x) { sum(!is.na(x)) > 0 }, logical(length(colDat)))]
 
-    objSizes <- Filter(function(x)
-        { !names(x) %in% slots }, lapply(fileNames, function(file) {
-            format(object.size(.loadEnvObj(file)), units = "Mb")
-            }))
+    dataInfo <- vector(mode = "list", length(fileNames))
+    dataList <- vector(mode = "list", length(fileNames))
+    names(dataInfo) <- dataTypes
+
+    .getDataOnlyL <- function(x) {
+        !names(x) %in% c("metadata", "colData", "sampleMap")
+    }
+
+    for (i in seq_along(dataInfo)) {
+        object <- .loadEnvObj(filenames[[i]])
+        dims <- dim(object)
+        dataInfo[[i]] <- list(size = format(object.size(object), units = "Mb"),
+                              rows = dims[[1L]], columns = dims[[2L]],
+                              colnames = colnames(object),
+                              rownames = rownames(object),
+                              class = class(object),
+                              length = length(object))
+        dataList[[i]] <- Filter(.getDataOnlyL, object)
+    }
+    objSizes <- vapply(Filter(.getDataOnlyL, dataInfo),
+                       function(datType) { datType$size }, integer(1L))
     objSizesdf <- data.frame(assay = dataType, size.Mb = objSizes,
                              row.names = NULL)
+    expList <- ExperimentList(dataList)
     sink(file = filename)
     cat(paste("\\name{", cancerFolder, "}"))
     cat("\n")
@@ -75,16 +92,15 @@ bit2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     cat("\\preformatted{\n")
     cat(paste(">", cancerFolder))
     cat("\n")
-    # TODO: replace with bit assembly
-    # show(object)
+    show(expList)
     cat("\n")
     cat(paste("> rownames(", cancerFolder, ")"))
     cat("\n")
-    show(rownames(object))
+    show(rownames(expList))
     cat("\n")
     cat(paste("> colnames(", cancerFolder, ")"))
     cat("\n")
-    # show(colnames(object))
+    show(colnames(expList))
     cat("\n")
     cat("Sizes of each ExperimentList element:\n")
     cat("\n")
