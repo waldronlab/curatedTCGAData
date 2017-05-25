@@ -19,7 +19,7 @@
 #' bit2rd(rdaFolder)
 #'
 #' @keywords internal
-bit2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
+bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
 {
     stopifnot(S4Vectors::isSingleString(cancerFolder))
     if (is.null(aliases))
