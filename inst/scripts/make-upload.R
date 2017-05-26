@@ -1,10 +1,4 @@
-## Upload files in folder
-dataFiles <- list.files(path = dataDir, full.names = TRUE)
-
-for (singleFile in dataFiles) {
-
-AnnotationHubData:::upload_to_S3(file = singleFile,
-                         remotename = basename(singleFile),
-                         bucket = "experimenthub/curatedTCGAData/")
-}
-
+## Files are uploaded as part of the MultiAssayExperiment-TCGA pipeline
+## Please see the following script for more details:
+# browseURL("https://github.com/WaldronLab/MultiAssayExperiment-TCGA/blob/master/R/saveNupload.R")
+## The above script is a function for uploading data pieces to the S3 repository
