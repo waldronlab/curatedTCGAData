@@ -25,7 +25,8 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     if (is.null(aliases))
         aliases <- paste(aliases, sep = ", ")
     dataDirs <- "data/bits"
-    fileNames <- list.files(file.path(dataDirs, cancerFolder),
+    fileNames <- list.files(file.path("../MultiAssayExperiment-TCGA",
+                            dataDirs, cancerFolder),
                             full.names = TRUE, all.files = TRUE,
                             pattern = "*\\.rda$")
     objectNames <- gsub(".rda", "", basename(fileNames))
