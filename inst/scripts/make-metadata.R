@@ -1,12 +1,9 @@
-## Load helper function for collecting metadata
-source("inst/scripts/getMetadata.R")
-
-make_metadata <- function() {
+make_metadata <- function(bitsFolder) {
     if (!dir.exists("inst/extdata"))
         dir.create("inst/extdata")
     if (file.exists("inst/extdata/metadata.csv"))
         file.remove("inst/extdata/metadata.csv")
-    resource_list <- dir("data")
+    resource_list <- list.files(bitsFolder, recursive = TRUE)
     resource_maintainer <- read.dcf("DESCRIPTION", "Maintainer")[[1]]
     resource_biocVersion <- BiocInstaller::biocVersion()
     metadat <- Reduce(dplyr::bind_rows,
@@ -15,6 +12,3 @@ make_metadata <- function() {
     readr::write_csv(metadat, "inst/extdata/metadata.csv", append = TRUE,
                      col_names = TRUE)
 }
-
-make_metadata()
-
