@@ -21,4 +21,3 @@ Create a MultiAssayExperiment from specific assays and cohorts
 get_curatedTCGAData(cohort = "ACC", assays = c("RNASeqGene",
 "RNASeq2GeneNorm"))
 }
-

@@ -18,7 +18,8 @@
     if(0 == 1) {
         loadResources(eh, eh_pkg, eh_names)[[1]]
     } else {
-        message("The", cohort, "cohort does not have the", assay_name, "assay\n")
+        message("The", cohort, "cohort does not have the", assay_name,
+                "assay\n")
     }
 }
 

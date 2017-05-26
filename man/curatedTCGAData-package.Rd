@@ -48,4 +48,3 @@ The following are the TCGA cancer codes and full names.
 34                UVM                                                   Uveal Melanoma
 }
 }
-

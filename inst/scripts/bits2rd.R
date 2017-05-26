@@ -8,8 +8,8 @@
 
 #' Write an Rd man page for a collection of MultiAssayExperiment bits
 #'
-#' @param cancerFolder Usually saved in 'MultiAssayExperiment-TCGA/data/bits/' and
-#' contains several 'rda' files. The folder name denotes the cancer code
+#' @param cancerFolder Usually saved in 'MultiAssayExperiment-TCGA/data/bits/'
+#' and contains several 'rda' files. The folder name denotes the cancer code
 #' @param filename Full path of the filename of the .Rd man page to write
 #' @param aliases A list of aliases
 #' @param descriptions A list of extra lines to be written to the Description

@@ -2,7 +2,7 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 0.2.4
+Version: 0.2.5
 Author: Levi Waldron <lwaldron.research@gmail.com>,
     Marcel Ramos <marcel.ramos@roswellpark.org>,
     Lucas Schiffer <schiffer.lucas@gmail.com>,
@@ -40,4 +40,4 @@ VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
 LazyData: true
 LazyLoad: yes
-RoxygenNote: 5.0.1.9000
+RoxygenNote: 6.0.1

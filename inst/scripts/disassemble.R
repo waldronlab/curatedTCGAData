@@ -4,7 +4,8 @@
 #' @param prepend A character string to pre-pend to the filename
 #' @param directory The directory where files containing rda objects will
 #'   be written to
-#' @return A two-column matrix containing in its two columns 1) the filenames created and 2) the object names
+#' @return A two-column matrix containing in its two columns 1) the filenames
+#' created and 2) the object names
 #' @examples
 #' example("MultiAssayExperiment")
 #' res <- disassemble(myMultiAssayExperiment, directory = tempdir())

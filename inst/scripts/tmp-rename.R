@@ -3,7 +3,8 @@ dataFiles <- dir("data", full.names = TRUE)
 
 newFileNames <- vapply(strsplit(basename(dataFiles), "_"),
                        function(fileName) {
-                           fileName <- paste0(toupper(fileName[[1]]), "_", fileName[[2]])
+                           fileName <- paste0(toupper(fileName[[1]]), "_",
+                                              fileName[[2]])
                            file.path("data", fileName)
                        }, character(1L))
 
