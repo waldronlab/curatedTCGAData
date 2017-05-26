@@ -1,15 +1,3 @@
-## Disassemble serialized MultiAssayExperiment files
-source("inst/scripts/disassemble.R")
-
-## Use a `for` loop for disassembly
-for (singleFile in rdsFiles) {
-    fileName <- basename(singleFile)
-    prepend <-paste0(toupper(gsub("MAEO.rds", "", .)), "_")
-
-    dataObject <- readRDS(singleFile)
-    disassemble(dataObject, prepend = prepend, directory = dataDir)
-}
-
 ## The code used to run this TCGA pipeline and to create all the data objects
 ## can be found in this GitHub repository:
 # browseURL("https://github.com/waldronlab/MultiAssayExperiment-TCGA")
