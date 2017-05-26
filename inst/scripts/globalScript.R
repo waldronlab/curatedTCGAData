@@ -6,6 +6,11 @@ library(AnnotationHubData)
 library(BiocParallel)
 library(magrittr)
 
+repoDir <- normalizePath(Sys.getenv("REPO"))
+manDir <- file.path("man")
+
+setwd(repoDir)
+
 ## Get all compatible TCGA disease codes
 source("inst/scripts/getDiseaseCodes.R")
 ## Source the converter function (MultiAssayExperiment RDS to Rd)
@@ -16,14 +21,6 @@ source("inst/scripts/make-documentation.R")
 source("inst/scripts/getMetadata.R")
 # Load metadata function
 source("inst/scripts/make-metadata.R")
-
-repoDir <- normalizePath(Sys.getenv("REPO"))
-manDir <- file.path("man")
-
-setwd(repoDir)
-
-if (!dir.exists(dataDir))
-    dir.create(dataDir)
 
 TCGAcodes <- getDiseaseCodes()
 
