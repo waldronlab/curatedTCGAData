@@ -6,29 +6,33 @@ library(AnnotationHubData)
 library(BiocParallel)
 library(magrittr)
 
+## Get all compatible TCGA disease codes
+source("inst/scripts/getDiseaseCodes.R")
+## Source the converter function (MultiAssayExperiment RDS to Rd)
+source("inst/scripts/bits2rd.R")
+# Load document generation function
+source("inst/scripts/make-documentation.R")
+## Load helper function for collecting metadata
+source("inst/scripts/getMetadata.R")
+# Load metadata function
+source("inst/scripts/make-metadata.R")
+
 repoDir <- normalizePath(Sys.getenv("REPO"))
-dataDir <- file.path(repoDir, "data")
+manDir <- file.path("man")
 
 setwd(repoDir)
 
 if (!dir.exists(dataDir))
     dir.create(dataDir)
 
-## Find the RDS files in MultiAssayExperiment-TCGA
-rdaFiles <-
-    list.files(file.path(repoDir,
-                         "../MultiAssayExperiment-TCGA/data/bits/"),
-               full.names = TRUE, recursive = TRUE, pattern = "*\\.rda$")
+TCGAcodes <- getDiseaseCodes()
 
-# Disassemble
-# source("inst/scripts/make-data.R")
+## Folder containing cancer folders
+dataBitsLocation <- file.path(repoDir,
+                              "../MultiAssayExperiment-TCGA/data/bits/")
 
-# Document
-source("inst/scripts/make-documentation.R")
+## Document by cancer folder
+cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
+lapply(cancerFolders, make_documentation, manDir)
 
-# Upload
-source("inst/scripts/make-upload.R")
-
-# Create metadata.csv
-source("inst/scripts/make-metadata.R")
-
+make_metadata(dataBitsLocation)

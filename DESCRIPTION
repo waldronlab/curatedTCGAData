@@ -2,13 +2,13 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 0.2.3
+Version: 0.2.4
 Author: Levi Waldron <lwaldron.research@gmail.com>,
     Marcel Ramos <marcel.ramos@roswellpark.org>,
     Lucas Schiffer <schiffer.lucas@gmail.com>,
     Valerie Obenchain <valerie.obenchain@roswellpark.org>,
     Morgan Martin <martin.morgan@roswellpark.org>
-Maintainer: Marcel Ramos <mramos09@gmail.com>
+Maintainer: Marcel Ramos <marcel.ramos@roswellpark.org>
 Description: This package provides publicly available data from The Cancer
     Genome Atlas (TCGA) Bioconductor MultiAssayExperiment class objects. These
     objects integrate multiple assays (e.g. RNA-seq, copy number, mutation,
@@ -29,6 +29,7 @@ Suggests:
     BiocStyle,
     BiocCheck,
     dplyr,
+    RaggedExperiment,
     MultiAssayExperiment,
     readr,
     testthat,
