@@ -1,12 +1,13 @@
-.get_ResourceClass <- function(resource_name) {
-    resource_path <- paste0("./data/", resource_name)
-    load(resource_path)
-    objName <- gsub(".rda", "", resource_name)
+.get_ResourceClass <- function(resource_location) {
+    load(resource_location)
+    objName <- gsub(".rda", "", ignore.case = TRUE,
+        basename(resource_location))
     as.character(class(get(objName)))
 }
 
 .get_Description <- function(resource_name) {
-    dataName <- unlist(strsplit(gsub(".rda", "", resource_name), "_"))
+    dataName <- unlist(strsplit(gsub(".rda", "", ignore.case = TRUE,
+        resource_name), "_"))
     paste(dataName[2], "data specific to the", toupper(dataName[1]),
            "cohort of the TCGA project")
 }
@@ -17,12 +18,13 @@
     }
 }
 
-getMetadata <- function(resource_name, resource_maintainer,
+getMetadata <- function(resource_location, resource_maintainer,
                          resource_biocVersion) {
     stopifnot(is.character(resource_maintainer) &&
-              is.character(resource_name))
-    Title <- gsub(".rda", "", resource_name)
-    Description <- .get_Description(resource_name)
+              is.character(resource_location))
+    ResourceName <- basename(resource_location)
+    Title <- gsub(".rda", "", ignore.case = TRUE, ResourceName)
+    Description <- .get_Description(ResourceName)
     BiocVersion <- as.character(resource_biocVersion)
     Genome <- ""
     SourceType <- "TXT"
@@ -33,9 +35,8 @@ getMetadata <- function(resource_name, resource_maintainer,
     Coordinate_1_based <- as.logical(NA)
     DataProvider <- "Eli and Edythe L. Broad Institute of Harvard and MIT"
     Maintainer <- resource_maintainer
-    RDataClass <- .get_ResourceClass(resource_name)
-    DispatchClass <- .get_DispatchClass(resource_name)
-    ResourceName <- resource_name
+    RDataClass <- .get_ResourceClass(resource_location)
+    DispatchClass <- .get_DispatchClass(ResourceName)
     data.frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
                SourceVersion, Species, TaxonomyId, Coordinate_1_based,
                DataProvider, Maintainer, RDataClass, DispatchClass,
