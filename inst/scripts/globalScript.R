@@ -30,6 +30,9 @@ dataBitsLocation <- file.path(repoDir,
 
 ## Document by cancer folder
 cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
+
+## create metadata.csv in inst/extdata folder
+make_metadata(dataBitsLocation)
+
 lapply(cancerFolders, make_documentation, manDir)
 
-make_metadata(dataBitsLocation)
