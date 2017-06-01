@@ -22,7 +22,7 @@
 bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
 {
     stopifnot(S4Vectors::isSingleString(cancerFolder))
-    if (is.null(aliases))
+    if (!is.null(aliases))
         aliases <- paste(aliases, sep = ", ")
     dataDirs <- "data/bits"
     fileNames <- list.files(file.path("../MultiAssayExperiment-TCGA",
@@ -41,19 +41,22 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     stopifnot(S4Vectors::isSingleInteger(coldataIdx))
 
     colDat <- .loadEnvObj(fileNames[coldataIdx])
-    colDataNonblank <- colDat[, vapply(colDat, 2,
-        function(x) { sum(!is.na(x)) > 0 }, logical(length(colDat)))]
-
-    dataInfo <- vector(mode = "list", length(fileNames))
-    dataList <- vector(mode = "list", length(fileNames))
-    names(dataInfo) <- dataTypes
+    colDataNonblank <- colDat[, apply(colDat, 2, function(x) {
+            !all(is.na(x)) })]
 
     .getDataOnlyL <- function(x) {
-        !names(x) %in% c("metadata", "colData", "sampleMap")
+        !(x %in% c("metadata", "colData", "sampleMap"))
     }
 
-    for (i in seq_along(dataInfo)) {
-        object <- .loadEnvObj(filenames[[i]])
+    dataFiles <- fileNames[Filter(.getDataOnlyL, names(fileNames))]
+
+    dataInfo <- vector(mode = "list", length(dataFiles))
+    dataList <- vector(mode = "list", length(dataFiles))
+    names(dataList) <- names(dataFiles)
+    names(dataInfo) <- names(dataFiles)
+
+    for (i in seq_along(dataFiles)) {
+        object <- .loadEnvObj(dataFiles[[i]])
         dims <- dim(object)
         dataInfo[[i]] <- list(size = format(object.size(object), units = "Mb"),
                               rows = dims[[1L]], columns = dims[[2L]],
@@ -61,11 +64,14 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
                               rownames = rownames(object),
                               class = class(object),
                               length = length(object))
-        dataList[[i]] <- Filter(.getDataOnlyL, object)
+        dataList[[i]] <- object
     }
-    objSizes <- vapply(Filter(.getDataOnlyL, dataInfo),
-                       function(datType) { datType$size }, integer(1L))
-    objSizesdf <- data.frame(assay = dataType, size.Mb = objSizes,
+
+    objSizes <- vapply(dataInfo, function(datType) {
+        datType$size }, character(1L))
+
+    stopifnot(identical(names(dataFiles), names(objSizes)))
+    objSizesdf <- data.frame(assay = names(dataFiles), size.Mb = objSizes,
                              row.names = NULL)
     expList <- ExperimentList(dataList)
     sink(file = filename)
@@ -75,7 +81,7 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     cat("\n")
     cat(paste("\\docType{data}"))
     cat("\n")
-    cat(paste("\\title{", .cleanText(cancerFolder), "}"))
+    cat(paste("\\title{", cancerFolder, "}"))
     cat("\n")
     if (!is.null(descriptions)) {
         cat("\\description{")

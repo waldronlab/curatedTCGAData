@@ -1,10 +1,13 @@
 ## Script to disassemble and upload MultiAssayExperiment pieces
 ## Run script from project folder (curatedTCGAdata)
-library(curatedTCGAData)
-library(MultiAssayExperiment)
-library(AnnotationHubData)
-library(BiocParallel)
-library(magrittr)
+suppressPackageStartupMessages({
+    library(curatedTCGAData)
+    library(RaggedExperiment)
+    library(MultiAssayExperiment)
+    library(AnnotationHubData)
+    library(BiocParallel)
+    library(magrittr)
+})
 
 repoDir <- normalizePath(Sys.getenv("REPO"))
 manDir <- file.path("man")
