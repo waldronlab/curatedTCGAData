@@ -19,15 +19,17 @@
 #' bit2rd(rdaFolder)
 #'
 #' @keywords internal
-bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
-{
+bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
+        descriptions = NULL) {
     stopifnot(S4Vectors::isSingleString(cancerFolder))
-    if (!is.null(aliases))
+    stopifnot(S4Vectors::isSingleString(filename))
+    filename <- file.path("man", paste0(cancerFolder, ".Rd"))
+    if (length(aliases) > 1L)
         aliases <- paste(aliases, sep = ", ")
     dataDirs <- "data/bits"
     fileNames <- list.files(file.path("../MultiAssayExperiment-TCGA",
                             dataDirs, cancerFolder),
-                            full.names = TRUE, all.files = TRUE,
+                            full.names = TRUE,
                             pattern = "*\\.rda$")
     objectNames <- gsub(".rda", "", basename(fileNames))
     dataTypes <- gsub("^[A-Z]*_", "", objectNames)
@@ -44,16 +46,11 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     colDataNonblank <- colDat[, apply(colDat, 2, function(x) {
             !all(is.na(x)) })]
 
-    .getDataOnlyL <- function(x) {
-        !(x %in% c("metadata", "colData", "sampleMap"))
-    }
+    dataFiles <- fileNames[!(names(fileNames) %in%
+        names(stdObjSlots))]
 
-    dataFiles <- fileNames[Filter(.getDataOnlyL, names(fileNames))]
-
-    dataInfo <- vector(mode = "list", length(dataFiles))
-    dataList <- vector(mode = "list", length(dataFiles))
-    names(dataList) <- names(dataFiles)
-    names(dataInfo) <- names(dataFiles)
+    dataList <- dataInfo <- vector(mode = "list", length(dataFiles))
+    names(dataList) <- names(dataInfo) <- names(dataFiles)
 
     for (i in seq_along(dataFiles)) {
         object <- .loadEnvObj(dataFiles[[i]])
