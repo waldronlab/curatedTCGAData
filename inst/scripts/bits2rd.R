@@ -23,7 +23,7 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
         descriptions = NULL) {
     stopifnot(S4Vectors::isSingleString(cancerFolder))
     stopifnot(S4Vectors::isSingleString(filename))
-    filename <- file.path("man", paste0(cancerFolder, ".Rd"))
+
     if (length(aliases) > 1L)
         aliases <- paste(aliases, sep = ", ")
     dataDirs <- "data/bits"
