@@ -70,6 +70,10 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     stopifnot(identical(names(dataFiles), names(objSizes)))
     objSizesdf <- data.frame(assay = names(dataFiles), size.Mb = objSizes,
                              row.names = NULL)
+
+    studyIdx <- which(diseaseCodes[["Study.Abbreviation"]] %in% cancerFolder)
+    studyName <- diseaseCodes[["Study.Name"]][studyIdx]
+
     expList <- ExperimentList(dataList)
     sink(file = filename)
     cat(paste("\\name{", cancerFolder, "}"))
@@ -78,7 +82,7 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     cat("\n")
     cat(paste("\\docType{data}"))
     cat("\n")
-    cat(paste("\\title{", cancerFolder, "}"))
+    cat(paste("\\title{", studyName, "}"))
     cat("\n")
     if (!is.null(descriptions)) {
         cat("\\description{")
@@ -94,7 +98,7 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     cat("\\details{")
     cat("\n")
     cat("\\preformatted{\n")
-    cat(paste(">", cancerFolder))
+    cat(paste("> experiments(", cancerFolder, ")"))
     cat("\n")
     show(expList)
     cat("\n")
