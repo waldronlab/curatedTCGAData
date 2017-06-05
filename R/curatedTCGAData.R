@@ -1,13 +1,6 @@
-.codesAvailable <- function() {
-    dxcodeEnv <- new.env(parent = emptyenv())
-    data("diseaseCodes", envir = dxcodeEnv)
-    diseaseCodes <- dxcodeEnv[["diseaseCodes"]]
-    diseaseCodes
-}
-
 .assaysAvailable <- function() {
     assaysAvailable <- c("RNASeqGene", "RNASeq2GeneNorm", "miRNASeqGene",
-                         "CNASNP", "CNVSNP", "CNAseq", "Methylation",
+                         "CNASNP", "CNVSNP", "CNAseq", "CNACGH", "Methylation",
                          "RPPAArray", "Mutations", "gistica", "gistict")
     assaysAvailable
 }
@@ -35,24 +28,28 @@
 #' get_curatedTCGAData(cohort = "ACC", assays = c("RNASeqGene",
 #' "RNASeq2GeneNorm"))
 curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
-    assaysAvailable <- .assaysAvailable()
-    eh_assays <- readr::read_csv("inst/extdata/metadata.csv",
-                          col_types = cols_only(ResourceName = col_character()))
+    assaysAvail <- .assaysAvailable()
+    tcgaCodes <- diseaseCodes[["Study.Abbreviation"]]
+    eh_assays <- system.file("extdata", "metadata.csv",
+        package = "curatedTCGAData", mustWork = TRUE)
+    eh_assays <- read.csv(eh_assays)[["ResourceName"]]
     if (diseaseCode == "*" && assays == "*" && dry.run) {
         message("Please see the list below for available cohorts and assays")
         return(list(
-            diseaseCodes = .codesAvailable(),
-            assays = assaysAvailable()))
+            diseaseCodes = matrix(tcgaCodes, ncol = 3L, byrow = TRUE),
+            assays = matrix(assaysAvail, ncol = 3L, byrow = TRUE))
+        )
     }
     regCode <- glob2rx(diseaseCode)
-    resultCodes <- grep(regCode, diseaseCodes[["Study.Abbreviation"]],
+    resultCodes <- grep(regCode, tcgaCodes,
                        ignore.case = TRUE, value = TRUE)
     regAssay <- glob2rx(assays)
-    resultAssays <- grep(regAssay, assaysAvailable,
+    resultAssays <- grep(regAssay, assaysAvail,
                        ignore.case = TRUE, value = TRUE)
-    eh_names <- lapply(resultCodes, function(code) {
-        return(paste0(code, "_", resultAssays, ".rda"))
-    })
+    eh_names <- vapply(resultCodes, function(code) {
+        paste0(code, "_", resultAssays, ".rda")},
+        character(length(resultAssays)))
+    eh_names <- as.vector(eh_names)
     eh <- ExperimentHub()
     eh_pkg <- "curatedTCGAData"
 
@@ -61,7 +58,7 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
     names(assay_list) <- assays
     assay_list <- assay_list[!sapply(assay_list, is.null)]
     eh_experiments <- ExperimentList(assay_list)
-    chr_pData <- paste0(cohort, "_pData", ".rda")
+    chr_pData <- paste0(cohort, "_colData", ".rda")
     chr_sampleMap <- paste0(cohort, "_sampleMap", ".rda")
     chr_metadata <- paste0(cohort, "_metadata", ".rda")
     eh_pData <- loadResources(eh, eh_pkg, chr_pData)[[1]]
