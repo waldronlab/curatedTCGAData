@@ -5,28 +5,24 @@
     assaysAvailable
 }
 
-.getAssay <- function(resouceName, eh, eh_pkg, eh_assays) {
-        loadResources(eh, eh_pkg, eh_names)[[1]]
-    # if (is.element(eh_name, eh_assays$ResourceName))
-    if(0 == 1) {
-        loadResources(eh, eh_pkg, eh_names)[[1]]
-    } else {
-        message("The", cohort, "cohort does not have the", assay_name,
-                "assay\n")
-    }
+.getAssay <- function(resourceName, eh, eh_pkg, eh_assays) {
+        if (!all(resourceName %in% eh_assays))
+        stop("Requested ExperimentHub resource not found in repository")
+    else
+        lapply(resourceName, function(file) loadResources(eh, eh_pkg, file))
 }
 
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
-#' @param cohort a character vector containing the name(s) of TCGA cohorts
+#' @param diseaseCode a character vector containing the name(s) of TCGA cohorts
 #' @param assays a character vector containing the name(s) of TCGA assays
 #'
 #' @return a MultiAssayExperiment of the specified assays and cohorts
 #' @export curatedTCGAData
 #'
 #' @examples
-#' get_curatedTCGAData(cohort = "ACC", assays = c("RNASeqGene",
-#' "RNASeq2GeneNorm"))
+#' curatedTCGAData(diseaseCode = "TH*", assays = "CN*")
+#'
 curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
     assaysAvail <- .assaysAvailable()
     tcgaCodes <- diseaseCodes[["Study.Abbreviation"]]
@@ -48,23 +44,25 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
                        ignore.case = TRUE, value = TRUE)
     eh_names <- vapply(resultCodes, function(code) {
         paste0(code, "_", resultAssays, ".rda")},
-        character(length(resultAssays)))
+            character(length(resultAssays)))
     eh_names <- as.vector(eh_names)
     eh <- ExperimentHub()
     eh_pkg <- "curatedTCGAData"
 
     assay_list <- lapply(eh_names, .getAssay, eh, eh_pkg, eh_assays)
-    assay_list <- .getAssay(resultAssays, resultCodes, eh, eh_pkg, eh_assays)
-    names(assay_list) <- assays
-    assay_list <- assay_list[!sapply(assay_list, is.null)]
+    names(assay_list) <- gsub(".rda", "", eh_names)
+    assay_list <- Filter(function(x) !is.null(x), assay_list)
     eh_experiments <- ExperimentList(assay_list)
-    chr_pData <- paste0(cohort, "_colData", ".rda")
-    chr_sampleMap <- paste0(cohort, "_sampleMap", ".rda")
-    chr_metadata <- paste0(cohort, "_metadata", ".rda")
-    eh_pData <- loadResources(eh, eh_pkg, chr_pData)[[1]]
-    eh_sampleMap <- loadResources(eh, eh_pkg, chr_sampleMap)[[1]]
-    eh_metadata <- loadResources(eh, eh_pkg, chr_metadata)[[1]]
-    MultiAssayExperiment(experiments = eh_experiments, pData = eh_pData,
-                         sampleMap = eh_sampleMap, metadata = eh_metadata)
+    chr_colData <- paste0(resultCodes, "_colData", ".rda")
+    chr_sampleMap <- paste0(resultCodes, "_sampleMap", ".rda")
+    chr_metadata <- paste0(resultCodes, "_metadata", ".rda")
+#    eh_colData <- loadResources(eh, eh_pkg, chr_colData)[[1]]
+#    eh_sampleMap <- loadResources(eh, eh_pkg, chr_sampleMap)[[1]]
+#    eh_metadata <- loadResources(eh, eh_pkg, chr_metadata)[[1]]
+# TODO: Test creation of MultiAssayExperiment with merged colData and
+# sampleMaps
+#    MultiAssayExperiment(experiments = eh_experiments, colData = eh_colData,
+#                         sampleMap = eh_sampleMap, metadata = eh_metadata)
+    return(NULL)
 }
 
