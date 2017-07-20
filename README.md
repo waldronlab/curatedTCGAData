@@ -6,11 +6,16 @@ will use `ExperimentHub` to access pre-processed and curated data from
 
 ## Clinical Curation
 
-(under maintenance)
+The clinical datasets taken from `TCGA` include a number of variables including
+demographic and pathology variables. Curation was done to merge additional
+level one data and subtype information. Any empty variables were removed and
+their names were saved in the `colData` metadata. Ongoing efforts include merging
+the different levels of variables in the `colData` and thus reducing the
+repetition of some clinical variables.
 
 ## Subtype Curation
 
-Among the different TCGA cohorts (n = 33) there were various molecular subtypes
+Among the different *TCGA* cohorts (n = 33) there were various molecular subtypes
 detailed (methylation, mRNA, etc.) in the [primary publications][]. Currently,
 no publicly available datasets contain clinical subtype information. As such,
 we have integrated both clinical and molecular subtype information by curating
@@ -24,7 +29,7 @@ oncogenisis.
 
 ## Getting Started
 
-For now, install `curatedTCGAData` via `GitHub` using devtools.
+For now, install `curatedTCGAData` via `GitHub` using `devtools`.
 
 ```
 devtools::install_github("waldronlab/curatedTCGAData")

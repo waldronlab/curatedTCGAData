@@ -17,15 +17,11 @@
 }
 
 ## CHANGE to use REGEX
-.getAssay <- function(resouceName, eh, eh_pkg, eh_assays) {
-    loadResources(eh, eh_pkg, eh_names)[[1]]
-    # if (is.element(eh_name, eh_assays$ResourceName))
-    if(0 == 1) {
-        loadResources(eh, eh_pkg, eh_names)[[1]]
-    } else {
-        message("The", cohort, "cohort does not have the", assay_name,
-                "assay\n")
-    }
+.getResource <- function(resourceName, eh, eh_assays) {
+    if (!all(resourceName %in% eh_assays))
+        stop("Requested ExperimentHub resource not found in repository")
+    else
+        loadResources(eh, "curatedTCGAData", resourceName)
 }
 
 #' Create a MultiAssayExperiment from specific assays and cohorts
@@ -41,41 +37,48 @@
 #' @export curatedTCGAData
 #'
 #' @examples
-#' get_curatedTCGAData(cohort = "ACC", assays = c("RNASeqGene",
-#' "RNASeq2GeneNorm"))
+#' curatedTCGAData(diseaseCode = "TH*", assays = "CN*")
+#'
 curatedTCGAData <- function(diseaseCode = "*", assays = "*",
                             runDate = "20160128", dry.run = TRUE) {
-    assaysAvailable <- .assaysAvailable()
-    diseaseCodes <- .codesAvailable()
-    eh_assays <- readr::read_csv("inst/extdata/metadata.csv",
-                          col_types = cols_only(ResourceName = col_character()))
+    assaysAvail <- .assaysAvailable()
+    tcgaCodes <- diseaseCodes[["Study.Abbreviation"]]
+    eh_assays <- system.file("extdata", "metadata.csv",
+        package = "curatedTCGAData", mustWork = TRUE)
+    eh_assays <- read.csv(eh_assays)[["ResourceName"]]
     if (diseaseCode == "*" && assays == "*" && dry.run) {
         message("Please see the list below for available cohorts and assays")
-        return(list(diseaseCodes = diseaseCodes, assays = assaysAvailable))
+        return(list(
+            diseaseCodes = matrix(tcgaCodes, ncol = 3L, byrow = TRUE),
+            assays = matrix(assaysAvail, ncol = 3L, byrow = TRUE))
+        )
     }
     regCode <- glob2rx(diseaseCode)
-    resultCodes <- grep(regCode, diseaseCodes[["Study.Abbreviation"]],
+    resultCodes <- grep(regCode, tcgaCodes,
                        ignore.case = TRUE, value = TRUE)
     regAssay <- glob2rx(assays)
-    resultAssays <- grep(regAssay, assaysAvailable,
+    resultAssays <- grep(regAssay, assaysAvail,
                        ignore.case = TRUE, value = TRUE)
-    eh_reg <- lapply(resultCodes, function(code) {
-        return(paste0("^", code, "_", resultAssays))
-    })
+    eh_names <- vapply(resultCodes, function(code) {
+        paste0("^", code, "_", resultAssays)},
+            character(length(resultAssays)))
+    eh_names <- as.vector(eh_names)
     eh <- ExperimentHub()
     eh_pkg <- "curatedTCGAData"
-    assay_list <- lapply(eh_reg, .getAssay, eh, eh_pkg, eh_assays)
-    assay_list <- .getAssay(resultAssays, resultCodes, eh, eh_pkg, eh_assays)
-    names(assay_list) <- assays
-    assay_list <- assay_list[!sapply(assay_list, is.null)]
+    assay_list <- lapply(eh_reg, .getResource, eh, eh_assays)
+    names(assay_list) <- gsub(".rda", "", eh_names)
+    assay_list <- Filter(function(x) !is.null(x), assay_list)
     eh_experiments <- ExperimentList(assay_list)
-    chr_pData <- paste0(cohort, "_pData", ".rda")
-    chr_sampleMap <- paste0(cohort, "_sampleMap", ".rda")
-    chr_metadata <- paste0(cohort, "_metadata", ".rda")
-    eh_pData <- loadResources(eh, eh_pkg, chr_pData)[[1]]
-    eh_sampleMap <- loadResources(eh, eh_pkg, chr_sampleMap)[[1]]
-    eh_metadata <- loadResources(eh, eh_pkg, chr_metadata)[[1]]
-    MultiAssayExperiment(experiments = eh_experiments, pData = eh_pData,
-                         sampleMap = eh_sampleMap, metadata = eh_metadata)
+    chr_colData <- paste0(resultCodes, "_colData", ".rda")
+    chr_sampleMap <- paste0(resultCodes, "_sampleMap", ".rda")
+    chr_metadata <- paste0(resultCodes, "_metadata", ".rda")
+#    eh_colData <- loadResources(eh, eh_pkg, chr_colData)[[1]]
+#    eh_sampleMap <- loadResources(eh, eh_pkg, chr_sampleMap)[[1]]
+#    eh_metadata <- loadResources(eh, eh_pkg, chr_metadata)[[1]]
+# TODO: Test creation of MultiAssayExperiment with merged colData and
+# sampleMaps
+#    MultiAssayExperiment(experiments = eh_experiments, colData = eh_colData,
+#                         sampleMap = eh_sampleMap, metadata = eh_metadata)
+    return(NULL)
 }
 

@@ -1,9 +1,27 @@
-.Rproj.user
+# Backup files
+*~
+*.bak
+*.swp
 .Rhistory
+*.vim
+*.swo
+
+# RStudio
+.Rproj.user
+
+# Data Files
 .RData
 .Ruserdata
-inst/doc
-data
+data/*
 tmp
-missingDataOut.Rds
+*.Rds
+
+# News/doc Files
+NEWS
+*.md
+inst/doc
+
+
+# Don't ignore
+!data/diseaseCodes.rda
 

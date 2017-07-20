@@ -19,15 +19,17 @@
 #' bit2rd(rdaFolder)
 #'
 #' @keywords internal
-bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
-{
+bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
+        descriptions = NULL) {
     stopifnot(S4Vectors::isSingleString(cancerFolder))
-    if (!is.null(aliases))
+    stopifnot(S4Vectors::isSingleString(filename))
+
+    if (length(aliases) > 1L)
         aliases <- paste(aliases, sep = ", ")
     dataDirs <- "data/bits"
     fileNames <- list.files(file.path("../MultiAssayExperiment-TCGA",
                             dataDirs, cancerFolder),
-                            full.names = TRUE, all.files = TRUE,
+                            full.names = TRUE,
                             pattern = "*\\.rda$")
     objectNames <- gsub(".rda", "", basename(fileNames))
     dataTypes <- gsub("^[A-Z]*_", "", objectNames)
@@ -44,16 +46,11 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     colDataNonblank <- colDat[, apply(colDat, 2, function(x) {
             !all(is.na(x)) })]
 
-    .getDataOnlyL <- function(x) {
-        !(x %in% c("metadata", "colData", "sampleMap"))
-    }
+    dataFiles <- fileNames[!(names(fileNames) %in%
+        names(stdObjSlots))]
 
-    dataFiles <- fileNames[Filter(.getDataOnlyL, names(fileNames))]
-
-    dataInfo <- vector(mode = "list", length(dataFiles))
-    dataList <- vector(mode = "list", length(dataFiles))
-    names(dataList) <- names(dataFiles)
-    names(dataInfo) <- names(dataFiles)
+    dataList <- dataInfo <- vector(mode = "list", length(dataFiles))
+    names(dataList) <- names(dataInfo) <- names(dataFiles)
 
     for (i in seq_along(dataFiles)) {
         object <- .loadEnvObj(dataFiles[[i]])
@@ -73,6 +70,10 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     stopifnot(identical(names(dataFiles), names(objSizes)))
     objSizesdf <- data.frame(assay = names(dataFiles), size.Mb = objSizes,
                              row.names = NULL)
+
+    studyIdx <- which(diseaseCodes[["Study.Abbreviation"]] %in% cancerFolder)
+    studyName <- diseaseCodes[["Study.Name"]][studyIdx]
+
     expList <- ExperimentList(dataList)
     sink(file = filename)
     cat(paste("\\name{", cancerFolder, "}"))
@@ -81,7 +82,7 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     cat("\n")
     cat(paste("\\docType{data}"))
     cat("\n")
-    cat(paste("\\title{", cancerFolder, "}"))
+    cat(paste("\\title{", studyName, "}"))
     cat("\n")
     if (!is.null(descriptions)) {
         cat("\\description{")
@@ -97,7 +98,7 @@ bits2rd <- function(cancerFolder, filename, aliases = NULL, descriptions = NULL)
     cat("\\details{")
     cat("\n")
     cat("\\preformatted{\n")
-    cat(paste(">", cancerFolder))
+    cat(paste("> experiments(", cancerFolder, ")"))
     cat("\n")
     show(expList)
     cat("\n")
