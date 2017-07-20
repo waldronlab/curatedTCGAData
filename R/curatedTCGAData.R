@@ -30,16 +30,21 @@
 
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
-#' @param cohort a character vector containing the name(s) of TCGA cohorts
+#' @param diseaseCode a character vector containing the name(s) of TCGA cohorts
 #' @param assays a character vector containing the name(s) of TCGA assays
+#' @param runDate a single string of the TCGA firehose running date
+#' @param dry.run logical (default TRUE) whether to return the dataset names
+#' before actual download
 #'
-#' @return a MultiAssayExperiment of the specified assays and cohorts
+#' @return a \linkS4class{MultiAssayExperiment} of the specified assays and
+#' cancer codes
 #' @export curatedTCGAData
 #'
 #' @examples
 #' get_curatedTCGAData(cohort = "ACC", assays = c("RNASeqGene",
 #' "RNASeq2GeneNorm"))
-curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
+curatedTCGAData <- function(diseaseCode = "*", assays = "*",
+                            runDate = "20160128", dry.run = TRUE) {
     assaysAvailable <- .assaysAvailable()
     diseaseCodes <- .codesAvailable()
     eh_assays <- readr::read_csv("inst/extdata/metadata.csv",
