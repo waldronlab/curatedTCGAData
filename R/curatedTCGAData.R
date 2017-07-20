@@ -16,8 +16,9 @@
     assaysAvailable
 }
 
+## CHANGE to use REGEX
 .getAssay <- function(resouceName, eh, eh_pkg, eh_assays) {
-        loadResources(eh, eh_pkg, eh_names)[[1]]
+    loadResources(eh, eh_pkg, eh_names)[[1]]
     # if (is.element(eh_name, eh_assays$ResourceName))
     if(0 == 1) {
         loadResources(eh, eh_pkg, eh_names)[[1]]
@@ -53,13 +54,12 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
     regAssay <- glob2rx(assays)
     resultAssays <- grep(regAssay, assaysAvailable,
                        ignore.case = TRUE, value = TRUE)
-    eh_names <- lapply(resultCodes, function(code) {
-        return(paste0(code, "_", resultAssays, ".rda"))
+    eh_reg <- lapply(resultCodes, function(code) {
+        return(paste0("^", code, "_", resultAssays))
     })
     eh <- ExperimentHub()
     eh_pkg <- "curatedTCGAData"
-
-    assay_list <- lapply(eh_names, .getAssay, eh, eh_pkg, eh_assays)
+    assay_list <- lapply(eh_reg, .getAssay, eh, eh_pkg, eh_assays)
     assay_list <- .getAssay(resultAssays, resultCodes, eh, eh_pkg, eh_assays)
     names(assay_list) <- assays
     assay_list <- assay_list[!sapply(assay_list, is.null)]
