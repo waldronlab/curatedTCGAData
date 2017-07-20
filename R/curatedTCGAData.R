@@ -2,6 +2,10 @@
     dxcodeEnv <- new.env(parent = emptyenv())
     data("diseaseCodes", envir = dxcodeEnv)
     diseaseCodes <- dxcodeEnv[["diseaseCodes"]]
+    excludedCodes <- c("COADREAD", "GBMLGG", "KIPAN", "STES", "FPPP", "CNTL",
+                       "LCML", "MISC")
+    diseaseCodes <-
+        diseaseCodes[!diseaseCodes[["Study.Abbreviation"]] %in% excludedCodes, ]
     diseaseCodes
 }
 
