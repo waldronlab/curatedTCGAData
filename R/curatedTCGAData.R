@@ -11,8 +11,8 @@
 
 .assaysAvailable <- function() {
     assaysAvailable <- c("RNASeqGene", "RNASeq2GeneNorm", "miRNASeqGene",
-                         "CNASNP", "CNVSNP", "CNAseq", "Methylation",
-                         "RPPAArray", "Mutations", "gistica", "gistict")
+                         "CNASNP", "CNVSNP", "CNASeq", "Methylation",
+                         "RPPAArray", "Mutation", "GISTICA", "GISTICT")
     assaysAvailable
 }
 
@@ -40,13 +40,12 @@
 #' "RNASeq2GeneNorm"))
 curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
     assaysAvailable <- .assaysAvailable()
+    diseaseCodes <- .codesAvailable()
     eh_assays <- readr::read_csv("inst/extdata/metadata.csv",
                           col_types = cols_only(ResourceName = col_character()))
     if (diseaseCode == "*" && assays == "*" && dry.run) {
         message("Please see the list below for available cohorts and assays")
-        return(list(
-            diseaseCodes = .codesAvailable(),
-            assays = assaysAvailable()))
+        return(list(diseaseCodes = diseaseCodes, assays = assaysAvailable))
     }
     regCode <- glob2rx(diseaseCode)
     resultCodes <- grep(regCode, diseaseCodes[["Study.Abbreviation"]],
