@@ -42,7 +42,7 @@
 curatedTCGAData <- function(diseaseCode = "*", assays = "*",
                             runDate = "20160128", dry.run = TRUE) {
     assaysAvail <- .assaysAvailable()
-    tcgaCodes <- diseaseCodes[["Study.Abbreviation"]]
+    tcgaCodes <- .codesAvailable()[["Study.Abbreviation"]]
     eh_assays <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
     eh_assays <- read.csv(eh_assays)[["ResourceName"]]
