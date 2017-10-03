@@ -39,15 +39,15 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     stdObjSlots <- paste0(cancerFolder, "_", slots)
     names(stdObjSlots) <- slots
 
-    coldataIdx <- match(stdObjSlots[["colData"]], objectNames)
+    coldataIdx <- grep(stdObjSlots[["colData"]], objectNames, fixed = TRUE)
     stopifnot(S4Vectors::isSingleInteger(coldataIdx))
 
     colDat <- .loadEnvObj(fileNames[coldataIdx])
     colDataNonblank <- colDat[, apply(colDat, 2, function(x) {
             !all(is.na(x)) })]
 
-    dataFiles <- fileNames[!(names(fileNames) %in%
-        names(stdObjSlots))]
+    dataFiles <- fileNames[!(vapply(strsplit(names(fileNames), "_|-"),
+            `[`, character(1L), 1L) %in% names(stdObjSlots))]
 
     dataList <- dataInfo <- vector(mode = "list", length(dataFiles))
     names(dataList) <- names(dataInfo) <- names(dataFiles)
