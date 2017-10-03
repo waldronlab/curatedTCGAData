@@ -1,4 +1,4 @@
-## Compare AWS to on disk
+## Script to compare AWS to on disk
 aws_files <- system("aws s3 ls s3://experimenthub/curatedTCGAData/",
                     intern = TRUE)
 aws_files <- aws_files[-1]

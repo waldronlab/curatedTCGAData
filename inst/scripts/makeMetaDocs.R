@@ -29,13 +29,15 @@ TCGAcodes <- getDiseaseCodes()
 
 ## Folder containing cancer folders
 dataBitsLocation <- file.path(repoDir,
-                              "../MultiAssayExperiment-TCGA/data/bits/")
+    "../MultiAssayExperiment-TCGA/data/bits")
 
 ## Document by cancer folder
 cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
 
 ## create metadata.csv in inst/extdata folder
-make_metadata(dataBitsLocation)
+# message("Generating metadata...")
+# make_metadata(dataBitsLocation)
 
+message("Creating documentation pages")
 lapply(cancerFolders, make_documentation, manDir)
 
