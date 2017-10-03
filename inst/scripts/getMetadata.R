@@ -19,9 +19,11 @@
 }
 
 getMetadata <- function(resource_location, resource_maintainer,
-                         resource_biocVersion) {
+                         resource_biocVersion, verbose = TRUE) {
     stopifnot(is.character(resource_maintainer) &&
               is.character(resource_location))
+    if (verbose)
+        message("Working on: ", resource_location)
     ResourceName <- basename(resource_location)
     Title <- gsub(".rda", "", ignore.case = TRUE, ResourceName)
     Description <- .get_Description(ResourceName)
