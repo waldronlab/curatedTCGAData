@@ -1,19 +1,8 @@
-.codesAvailable <- function() {
-    dxcodeEnv <- new.env(parent = emptyenv())
-    data("diseaseCodes", envir = dxcodeEnv)
-    diseaseCodes <- dxcodeEnv[["diseaseCodes"]]
-    excludedCodes <- c("COADREAD", "GBMLGG", "KIPAN", "STES", "FPPP", "CNTL",
-                       "LCML", "MISC")
-    diseaseCodes <-
-        diseaseCodes[!diseaseCodes[["Study.Abbreviation"]] %in% excludedCodes, ]
-    diseaseCodes
-}
-
 .assaysAvailable <- function() {
     assaysAvailable <- c("RNASeqGene", "RNASeq2GeneNorm", "miRNASeqGene",
         "CNASNP", "CNVSNP", "CNASeq", "Methylation", "CNACGH", "RPPAArray",
         "Mutation", "GISTICA", "GISTICT")
-    assaysAvailable
+    sort(assaysAvailable)
 }
 
 ## CHANGE to use REGEX
@@ -42,16 +31,24 @@
 curatedTCGAData <- function(diseaseCode = "*", assays = "*",
                             runDate = "20160128", dry.run = TRUE) {
     assaysAvail <- .assaysAvailable()
-    tcgaCodes <- .codesAvailable()[["Study.Abbreviation"]]
+    tcgaCodes <- diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
+    tcgaCodes <- sort(tcgaCodes)
+browser()
     eh_assays <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
     eh_assays <- read.csv(eh_assays)[["ResourceName"]]
     if (diseaseCode == "*" && assays == "*" && dry.run) {
         message("Please see the list below for available cohorts and assays")
-        return(list(
-            diseaseCodes = matrix(tcgaCodes, ncol = 3L, byrow = TRUE),
-            assays = matrix(assaysAvail, ncol = 3L, byrow = TRUE))
-        )
+    browser()
+        return(
+            list(
+            diseaseCodes = data.frame(
+                matrix(tcgaCodes, ncol = 4L, byrow = FALSE),
+                stringsAsFactors = FALSE),
+            assays = data.frame(matrix(assaysAvail, ncol = 3L, byrow = TRUE),
+                stringsAsFactors = FALSE)
+                )
+            )
     }
     regCode <- glob2rx(diseaseCode)
     resultCodes <- grep(regCode, tcgaCodes,
