@@ -1,89 +1,89 @@
 \name{ GBM }
 \alias{ GBM }
 \docType{data}
-\title{ GBM }
+\title{ Glioblastoma multiforme }
 
 \details{
 \preformatted{
-> GBM
-A MultiAssayExperiment object of 12 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 12: 
- [1] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 166 columns 
- [2] miRNASeqGene: ExpressionSet with 1046 rows and 0 columns 
- [3] CNASNP: RangedRaggedAssay with 602338 rows and 1104 columns 
- [4] CNVSNP: RangedRaggedAssay with 146852 rows and 1104 columns 
- [5] CNACGH: RangedRaggedAssay with 81512 rows and 438 columns 
- [6] Methylation: SummarizedExperiment with 27578 rows and 285 columns 
- [7] mRNAArray: ExpressionSet with 12042 rows and 528 columns 
- [8] miRNAArray: ExpressionSet with 534 rows and 565 columns 
- [9] RPPAArray: ExpressionSet with 208 rows and 244 columns 
- [10] Mutations: RangedRaggedAssay with 22073 rows and 290 columns 
- [11] gistica: SummarizedExperiment with 24776 rows and 577 columns 
- [12] gistict: SummarizedExperiment with 24776 rows and 577 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( GBM )
+ExperimentList class object of length 16: 
+ [1] CNACGH_CGH_hg_244a-20160128: RaggedExperiment with 81512 rows and 438 columns 
+ [2] CNACGH_CGH_hg_415k_g4124a-20160128: RaggedExperiment with 57975 rows and 338 columns 
+ [3] CNASNP-20160128: RaggedExperiment with 602338 rows and 1104 columns 
+ [4] CNVSNP-20160128: RaggedExperiment with 146852 rows and 1104 columns 
+ [5] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 577 columns 
+ [6] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 577 columns 
+ [7] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 285 columns 
+ [8] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 154 columns 
+ [9] miRNAArray-20160128: SummarizedExperiment with 534 rows and 565 columns 
+ [10] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 0 columns 
+ [11] mRNAArray_huex-20160128: SummarizedExperiment with 18632 rows and 431 columns 
+ [12] mRNAArray_TX_g4502a-20160128: SummarizedExperiment with 17814 rows and 502 columns 
+ [13] mRNAArray_TX_ht_hg_u133a-20160128: SummarizedExperiment with 12042 rows and 528 columns 
+ [14] Mutation-20160128: RaggedExperiment with 22073 rows and 290 columns 
+ [15] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 166 columns 
+ [16] RPPAArray-20160128: SummarizedExperiment with 208 rows and 244 columns 
 
 > rownames( GBM )
-CharacterList of length 12
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1:61735-25418699 1:25423401-25424322 ... 24:2650438-59018259
-[["CNVSNP"]] 1:3218610-3586250 1:3586450-3589709 ... 23:3157107-154905589
-[["CNACGH"]] 1:554267-72533855 1:72550247-72568008 ... 24:27193423-57440808
-[["Methylation"]] cg00000292 cg00002426 cg00003994 ... cg27662877 cg27665659
-[["mRNAArray"]] AACS FSTL1 ELMO2 CREB3L1 RPS11 ... SNRPD2 SLC39A6 CTSC AQP7
-[["miRNAArray"]] ebv-miR-BART1-3p ebv-miR-BART1-5p ... kshv-miR-K12-9*
-[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
-[["Mutations"]] ATAD3B TPM3 NR1I3 AGT TACC2 ... MAGT1 RHOXF1 RAP2C F9 FATE1
+CharacterList of length 16
+[["CNACGH_CGH_hg_244a-20160128"]] character(0)
+[["CNACGH_CGH_hg_415k_g4124a-20160128"]] character(0)
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
+[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["miRNAArray-20160128"]] ebv-miR-BART1-3p ebv-miR-BART1-5p ... kshv-miR-K12-9*
+[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 ...
-<2 more elements>
+<6 more elements>
 
 > colnames( GBM )
-CharacterList of length 12
-[["RNASeq2GeneNorm"]] TCGA-02-0047-01A-01R-1849-01 ...
-[["miRNASeqGene"]] character(0)
-[["CNASNP"]] TCGA-02-0001-01C-01D-0182-01 ... TCGA-RR-A6KC-10A-01D-A33V-01
-[["CNVSNP"]] TCGA-02-0001-01C-01D-0182-01 ... TCGA-RR-A6KC-10A-01D-A33V-01
-[["CNACGH"]] TCGA-02-0001-01C-01D-0185-02 ... TCGA-16-0861-10A-01D-0387-02
-[["Methylation"]] TCGA-02-0001-01C-01D-0186-05 ... TCGA-41-4097-01A-01D-1228-05
-[["mRNAArray"]] TCGA-02-0001-01C-01R-0177-01 ... TCGA-87-5896-01A-01R-1698-01
-[["miRNAArray"]] TCGA-02-0001-01C-01T-0179-07 ... TCGA-87-5896-01A-01H-1701-07
-[["RPPAArray"]] TCGA-02-0003-01A-21-1898-20 ... TCGA-RR-A6KC-01A-21-A44T-20
-[["Mutations"]] TCGA-02-0003-01A-01D-1490-08 ... TCGA-87-5896-01A-01D-1696-08
+CharacterList of length 16
+[["CNACGH_CGH_hg_244a-20160128"]] TCGA-02-0001-01C-01D-0185-02 ...
+[["CNACGH_CGH_hg_415k_g4124a-20160128"]] TCGA-02-2466-01A-01D-0787-02 ...
+[["CNASNP-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["CNVSNP-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["GISTIC_AllByGene-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["GISTIC_ThresholdedByGene-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["Methylation_methyl27-20160128"]] TCGA-02-0001-01C-01D-0186-05 ...
+[["Methylation_methyl450-20160128"]] TCGA-06-0125-01A-01D-A45W-05 ...
+[["miRNAArray-20160128"]] TCGA-02-0001-01C-01T-0179-07 ...
+[["miRNASeqGene-20160128"]] character(0)
 ...
-<2 more elements>
+<6 more elements>
 
 Sizes of each ExperimentList element:
 
-             assay size.Mb
-1  RNASeq2GeneNorm  1.2 Mb
-2     miRNASeqGene  0.1 Mb
-3           CNASNP   45 Mb
-4           CNVSNP 13.1 Mb
-5           CNACGH    6 Mb
-6      Methylation  4.4 Mb
-7        mRNAArray  0.7 Mb
-8       miRNAArray  0.1 Mb
-9        RPPAArray  0.1 Mb
-10       Mutations 29.2 Mb
-11         gistica  4.4 Mb
-12         gistict  4.4 Mb
+                                assay size.Mb
+1         CNACGH_CGH_hg_244a-20160128  2.3 Mb
+2  CNACGH_CGH_hg_415k_g4124a-20160128  1.7 Mb
+3                     CNASNP-20160128 16.4 Mb
+4                     CNVSNP-20160128  4.2 Mb
+5           GISTIC_AllByGene-20160128  4.4 Mb
+6   GISTIC_ThresholdedByGene-20160128  4.4 Mb
+7       Methylation_methyl27-20160128  4.4 Mb
+8      Methylation_methyl450-20160128 67.4 Mb
+9                 miRNAArray-20160128  0.1 Mb
+10              miRNASeqGene-20160128  0.1 Mb
+11            mRNAArray_huex-20160128  1.1 Mb
+12       mRNAArray_TX_g4502a-20160128    1 Mb
+13  mRNAArray_TX_ht_hg_u133a-20160128  0.7 Mb
+14                  Mutation-20160128 29.2 Mb
+15           RNASeq2GeneNorm-20160128  1.1 Mb
+16                 RPPAArray-20160128    0 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
-   108 observations deleted due to missingness 
+   109 observations deleted due to missingness 
       n  events  median 0.95LCL 0.95UCL 
-491.000 491.000   1.047   0.978   1.156 
+490.000 490.000   1.047   0.981   1.156 
 
 
 ---------------------------
@@ -101,11 +101,11 @@ vital_status:
 
 days_to_death:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    3.0   170.5   382.0   503.8   607.5  3881.0     108 
+    3.0   170.5   382.0   504.5   609.2  3881.0     109 
 
 days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    0.0   142.2   314.5   440.3   541.0  3881.0      37 
+    0.0   156.2   261.0   479.4   628.0  2818.0     497 
 
 tumor_tissue_site:
 brain  NA's 

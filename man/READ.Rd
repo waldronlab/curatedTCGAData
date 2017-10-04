@@ -1,89 +1,83 @@
 \name{ READ }
 \alias{ READ }
 \docType{data}
-\title{ READ }
+\title{ Rectum adenocarcinoma }
 
 \details{
 \preformatted{
-> READ
-A MultiAssayExperiment object of 12 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 12: 
- [1] RNASeqGene: ExpressionSet with 20502 rows and 72 columns 
- [2] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 72 columns 
- [3] miRNASeqGene: ExpressionSet with 705 rows and 76 columns 
- [4] CNASNP: RangedRaggedAssay with 156806 rows and 316 columns 
- [5] CNVSNP: RangedRaggedAssay with 35765 rows and 316 columns 
- [6] CNAseq: RangedRaggedAssay with 56380 rows and 70 columns 
- [7] Methylation: SummarizedExperiment with 485577 rows and 106 columns 
- [8] mRNAArray: ExpressionSet with 17814 rows and 72 columns 
- [9] RPPAArray: ExpressionSet with 208 rows and 131 columns 
- [10] Mutations: RangedRaggedAssay with 22075 rows and 69 columns 
- [11] gistica: SummarizedExperiment with 24776 rows and 165 columns 
- [12] gistict: SummarizedExperiment with 24776 rows and 165 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( READ )
+ExperimentList class object of length 13: 
+ [1] CNASeq-20160128: RaggedExperiment with 56380 rows and 70 columns 
+ [2] CNASNP-20160128: RaggedExperiment with 156806 rows and 316 columns 
+ [3] CNVSNP-20160128: RaggedExperiment with 35765 rows and 316 columns 
+ [4] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 165 columns 
+ [5] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 165 columns 
+ [6] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 73 columns 
+ [7] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 106 columns 
+ [8] miRNASeqGene-20160128: SummarizedExperiment with 705 rows and 76 columns 
+ [9] mRNAArray-20160128: SummarizedExperiment with 17814 rows and 72 columns 
+ [10] Mutation-20160128: RaggedExperiment with 22075 rows and 69 columns 
+ [11] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 72 columns 
+ [12] RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 72 columns 
+ [13] RPPAArray-20160128: SummarizedExperiment with 208 rows and 131 columns 
 
 > rownames( READ )
-CharacterList of length 12
-[["RNASeqGene"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZYX ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1:61735-2069681 1:2071738-2082814 ... 24:2650438-59018259
-[["CNVSNP"]] 1:3218610-50789051 1:50790927-50791766 ... 23:101287053-154905589
-[["CNAseq"]] 1:132-5213442 1:5213443-30448843 ... 24:17884001-57322000
-[["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
-[["mRNAArray"]] ELMO2 CREB3L1 RPS11 PNMA1 MMP2 ... SLC39A6 SNRPD2 AQP7 CTSC
-[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
-[["Mutations"]] WNK3 IFRD1 PPP1R3A FAM71F1 ... LRRC14B ADAMTS16 MARVELD2
+CharacterList of length 13
+[["CNASeq-20160128"]] character(0)
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
+[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 PNMA1 ... SLC39A6 SNRPD2 AQP7 CTSC
+[["Mutation-20160128"]] character(0)
 ...
-<2 more elements>
+<3 more elements>
 
 > colnames( READ )
-CharacterList of length 12
-[["RNASeqGene"]] TCGA-AF-2691-01A-01R-0821-07 ... TCGA-AG-A036-01A-12R-A083-07
-[["RNASeq2GeneNorm"]] TCGA-AF-2691-01A-01R-0821-07 ...
-[["miRNASeqGene"]] TCGA-AF-2687-01A-02T-1735-13 ...
-[["CNASNP"]] TCGA-AF-2687-01A-02D-1732-01 ... TCGA-G5-6641-10A-01D-1825-01
-[["CNVSNP"]] TCGA-AF-2687-01A-02D-1732-01 ... TCGA-G5-6641-10A-01D-1825-01
-[["CNAseq"]] TCGA-AF-2691-01A-01D-1167-02 ... TCGA-AG-A032-10A-01D-A078-02
-[["Methylation"]] TCGA-AF-2687-01A-02D-1734-05 ... TCGA-G5-6641-01A-11D-1828-05
-[["mRNAArray"]] TCGA-AF-2689-11A-01R-1758-07 ... TCGA-AG-A032-01A-01R-A00A-07
-[["RPPAArray"]] TCGA-AF-2689-01A-21-1932-20 ... TCGA-G5-6641-01A-13-1935-20
-[["Mutations"]] TCGA-AF-2689-01A-01W-0831-10 ... TCGA-AG-A036-01
+CharacterList of length 13
+[["CNASeq-20160128"]] TCGA-AF-2691-01A-01D-1167-02 ...
+[["CNASNP-20160128"]] TCGA-AF-2687-01A-02D-1732-01 ...
+[["CNVSNP-20160128"]] TCGA-AF-2687-01A-02D-1732-01 ...
+[["GISTIC_AllByGene-20160128"]] TCGA-AF-2687-01A-02D-1732-01 ...
+[["GISTIC_ThresholdedByGene-20160128"]] TCGA-AF-2687-01A-02D-1732-01 ...
+[["Methylation_methyl27-20160128"]] TCGA-AF-2689-11A-01D-1552-05 ...
+[["Methylation_methyl450-20160128"]] TCGA-AF-2687-01A-02D-1734-05 ...
+[["miRNASeqGene-20160128"]] TCGA-AF-2687-01A-02T-1735-13 ...
+[["mRNAArray-20160128"]] TCGA-AF-2689-11A-01R-1758-07 ...
+[["Mutation-20160128"]] TCGA-AF-2689-01A-01W-0831-10 ... TCGA-AG-A036-01
 ...
-<2 more elements>
+<3 more elements>
 
 Sizes of each ExperimentList element:
 
-             assay size.Mb
-1       RNASeqGene  1.1 Mb
-2  RNASeq2GeneNorm  1.1 Mb
-3     miRNASeqGene  0.1 Mb
-4           CNASNP 12.6 Mb
-5           CNVSNP  3.3 Mb
-6           CNAseq  3.6 Mb
-7      Methylation 67.4 Mb
-8        mRNAArray    1 Mb
-9        RPPAArray    0 Mb
-10       Mutations    9 Mb
-11         gistica  4.3 Mb
-12         gistict  4.3 Mb
+                               assay size.Mb
+1                    CNASeq-20160128  1.5 Mb
+2                    CNASNP-20160128  4.3 Mb
+3                    CNVSNP-20160128  1.1 Mb
+4          GISTIC_AllByGene-20160128  4.3 Mb
+5  GISTIC_ThresholdedByGene-20160128  4.3 Mb
+6      Methylation_methyl27-20160128  4.4 Mb
+7     Methylation_methyl450-20160128 67.4 Mb
+8              miRNASeqGene-20160128  0.1 Mb
+9                 mRNAArray-20160128    1 Mb
+10                 Mutation-20160128  9.1 Mb
+11          RNASeq2GeneNorm-20160128  1.1 Mb
+12               RNASeqGene-20160128  1.1 Mb
+13                RPPAArray-20160128    0 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
    142 observations deleted due to missingness 
       n  events  median 0.95LCL 0.95UCL 
-  27.00   26.00    2.00    1.44    3.29 
+  27.00   27.00    2.00    1.44    3.25 
 
 
 ---------------------------
@@ -97,7 +91,7 @@ years_to_birth:
 
 vital_status:
   0   1 
-142  27 
+141  28 
 
 days_to_death:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -105,7 +99,7 @@ days_to_death:
 
 days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    0.0   257.0   579.0   712.4  1035.0  3932.0       6 
+    0.0   366.0   625.0   779.5  1096.0  3932.0      28 
 
 tumor_tissue_site:
 rectum   NA's 
@@ -116,7 +110,7 @@ rectum   NA's
 
 pathology_M_stage:
   m0   m1  m1a   mx NA's 
- 129   22    2   14    2 
+ 128   22    2   14    3 
 
 gender:
 female   male 
@@ -140,6 +134,10 @@ histological_type:
                           NA's 
                              6 
 
+tumor_stage:
+stage iia      NA's 
+        1       168 
+
 residual_tumor:
   r0   r1   r2   rx NA's 
  126    2   12    5   24 
@@ -147,12 +145,6 @@ residual_tumor:
 number_of_lymph_nodes:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
   0.000   0.000   0.000   2.692   3.000  31.000      10 
-
-race:
-                    asian black or african american                     white 
-                        1                         6                        83 
-                     NA's 
-                       79 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

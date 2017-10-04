@@ -1,73 +1,65 @@
 \name{ SKCM }
 \alias{ SKCM }
 \docType{data}
-\title{ SKCM }
+\title{ Skin Cutaneous Melanoma }
 
 \details{
 \preformatted{
-> SKCM
-A MultiAssayExperiment object of 8 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 8: 
- [1] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 473 columns 
- [2] miRNASeqGene: ExpressionSet with 1046 rows and 452 columns 
- [3] CNASNP: RangedRaggedAssay with 452114 rows and 938 columns 
- [4] CNVSNP: RangedRaggedAssay with 108084 rows and 937 columns 
- [5] CNAseq: RangedRaggedAssay with 31416 rows and 238 columns 
- [6] Methylation: SummarizedExperiment with 485577 rows and 475 columns 
- [7] RPPAArray: ExpressionSet with 181 rows and 206 columns 
- [8] Mutations: RangedRaggedAssay with 290322 rows and 345 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( SKCM )
+ExperimentList class object of length 8: 
+ [1] CNASeq: RaggedExperiment with 31416 rows and 238 columns 
+ [2] CNASNP: RaggedExperiment with 452114 rows and 938 columns 
+ [3] CNVSNP: RaggedExperiment with 108084 rows and 937 columns 
+ [4] Methylation: SummarizedExperiment with 485577 rows and 475 columns 
+ [5] miRNASeqGene: SummarizedExperiment with 1046 rows and 452 columns 
+ [6] Mutation: RaggedExperiment with 290322 rows and 345 columns 
+ [7] RNASeq2GeneNorm: SummarizedExperiment with 20501 rows and 473 columns 
+ [8] RPPAArray: SummarizedExperiment with 208 rows and 355 columns 
 
 > rownames( SKCM )
 CharacterList of length 8
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1:61735-229677 1:235670-235938 ... 24:28438116-59018259
-[["CNVSNP"]] 1:3218610-36474198 1:36475406-36477996 ... 23:3157107-154905589
-[["CNAseq"]] 1:10208-72766248 1:72766249-72812119 ... 24:2649474-28783838
+[["CNASeq"]] character(0)
+[["CNASNP"]] character(0)
+[["CNVSNP"]] character(0)
 [["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
-[["RPPAArray"]] 14-3-3_epsilon 4E-BP1 4E-BP1_pS65 ... p90RSK p90RSK_pT359_S363
-[["Mutations"]] EPHB6 BC101079 LYPD6B AK8 FAM123C ... CDKN2A CCDC90B RYR3 UBFD1
+[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
+[["Mutation"]] character(0)
+[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
+[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
 
 > colnames( SKCM )
 CharacterList of length 8
-[["RNASeq2GeneNorm"]] TCGA-3N-A9WB-06A-11R-A38C-07 ...
-[["miRNASeqGene"]] TCGA-3N-A9WC-06A-11R-A38N-13 ...
+[["CNASeq"]] TCGA-BF-A1PU-01A-11D-A18Z-02 ... TCGA-HR-A2OH-10A-01D-A190-02
 [["CNASNP"]] TCGA-3N-A9WB-06A-11D-A38F-01 ... TCGA-Z2-AA3V-10A-01D-A399-01
 [["CNVSNP"]] TCGA-3N-A9WB-06A-11D-A38F-01 ... TCGA-Z2-AA3V-10A-01D-A399-01
-[["CNAseq"]] TCGA-BF-A1PU-01A-11D-A18Z-02 ... TCGA-HR-A2OH-10A-01D-A190-02
 [["Methylation"]] TCGA-3N-A9WB-06A-11D-A38H-05 ... TCGA-Z2-AA3V-06A-11D-A398-05
-[["RPPAArray"]] TCGA-BF-A1PU-01A-21-A20M-20 ... TCGA-IH-A3EA-01A-21-A241-20
-[["Mutations"]] TCGA-BF-A1PU-01A-11D-A19A-08 ... TCGA-RP-A695-06A-11D-A30X-08
+[["miRNASeqGene"]] TCGA-3N-A9WC-06A-11R-A38N-13 ...
+[["Mutation"]] TCGA-BF-A1PU-01A-11D-A19A-08 ... TCGA-RP-A695-06A-11D-A30X-08
+[["RNASeq2GeneNorm"]] TCGA-3N-A9WB-06A-11R-A38C-07 ...
+[["RPPAArray"]] TCGA-3N-A9WC-06A-21-A444-20 ... TCGA-Z2-AA3V-06A-21-A444-20
 
 Sizes of each ExperimentList element:
 
             assay  size.Mb
-1 RNASeq2GeneNorm   1.2 Mb
-2    miRNASeqGene   0.1 Mb
-3          CNASNP  32.8 Mb
-4          CNVSNP   9.7 Mb
-5          CNAseq     2 Mb
-6     Methylation  67.5 Mb
-7       RPPAArray   0.1 Mb
-8       Mutations 289.5 Mb
+1          CNASeq   0.9 Mb
+2          CNASNP  12.3 Mb
+3          CNVSNP   3.1 Mb
+4     Methylation  67.5 Mb
+5    miRNASeqGene   0.1 Mb
+6        Mutation 290.6 Mb
+7 RNASeq2GeneNorm   1.2 Mb
+8       RPPAArray     0 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
    249 observations deleted due to missingness 
       n  events  median 0.95LCL 0.95UCL 
- 221.00  219.00    2.99    2.40    3.92 
+ 221.00  221.00    2.99    2.40    3.90 
 
 
 ---------------------------
@@ -81,7 +73,7 @@ years_to_birth:
 
 vital_status:
   0   1 
-249 221 
+247 223 
 
 days_to_death:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -89,7 +81,7 @@ days_to_death:
 
 days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-     -3     422    1010    1763    2359   11252     161 
+   -2.0   477.5  1146.0  1885.3  2658.8 11252.0     230 
 
 days_to_submitted_specimen_dx:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 

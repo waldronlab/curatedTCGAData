@@ -1,73 +1,69 @@
 \name{ SARC }
 \alias{ SARC }
 \docType{data}
-\title{ SARC }
+\title{ Sarcoma }
 
 \details{
 \preformatted{
-> SARC
-A MultiAssayExperiment object of 8 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 8: 
- [1] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 265 columns 
- [2] miRNASeqGene: ExpressionSet with 1046 rows and 263 columns 
- [3] CNASNP: RangedRaggedAssay with 337377 rows and 516 columns 
- [4] CNVSNP: RangedRaggedAssay with 106739 rows and 513 columns 
- [5] Methylation: SummarizedExperiment with 485577 rows and 269 columns 
- [6] RPPAArray: ExpressionSet with 192 rows and 226 columns 
- [7] gistica: SummarizedExperiment with 24776 rows and 256 columns 
- [8] gistict: SummarizedExperiment with 24776 rows and 256 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( SARC )
+ExperimentList class object of length 9: 
+ [1] CNASNP-20160128: RaggedExperiment with 337377 rows and 516 columns 
+ [2] CNVSNP-20160128: RaggedExperiment with 106739 rows and 513 columns 
+ [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 257 columns 
+ [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 257 columns 
+ [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 269 columns 
+ [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 263 columns 
+ [7] Mutation-20160128: RaggedExperiment with 20376 rows and 247 columns 
+ [8] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 265 columns 
+ [9] RPPAArray-20160128: SummarizedExperiment with 192 rows and 226 columns 
 
 > rownames( SARC )
-CharacterList of length 8
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1:61735-229075 1:229158-813318 ... 24:2650438-59018259
-[["CNVSNP"]] 1:3218610-14668768 1:14671052-14673271 ... 23:142928411-154905589
-[["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
-[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
-[["gistica"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["gistict"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+CharacterList of length 9
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
+[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["Mutation-20160128"]] character(0)
+[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
+[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
 
 > colnames( SARC )
-CharacterList of length 8
-[["RNASeq2GeneNorm"]] TCGA-3B-A9HI-01A-11R-A38C-07 ...
-[["miRNASeqGene"]] TCGA-3B-A9HI-01A-11R-A38N-13 ...
-[["CNASNP"]] TCGA-3B-A9HI-01A-11D-A386-01 ... TCGA-Z4-AAPG-10A-01D-A38Y-01
-[["CNVSNP"]] TCGA-3B-A9HI-01A-11D-A386-01 ... TCGA-Z4-AAPG-10A-01D-A38Y-01
-[["Methylation"]] TCGA-3B-A9HI-01A-11D-A388-05 ... TCGA-Z4-AAPG-01A-11D-A39H-05
-[["RPPAArray"]] TCGA-3B-A9HI-01A-21-A456-20 ... TCGA-Z4-AAPG-01A-21-A454-20
-[["gistica"]] TCGA-3B-A9HI-01A-11D-A386-01 ... TCGA-Z4-AAPG-01A-11D-A38Y-01
-[["gistict"]] TCGA-3B-A9HI-01A-11D-A386-01 ... TCGA-Z4-AAPG-01A-11D-A38Y-01
+CharacterList of length 9
+[["CNASNP-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
+[["CNVSNP-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
+[["GISTIC_AllByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
+[["GISTIC_ThresholdedByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
+[["Methylation-20160128"]] TCGA-3B-A9HI-01A-11D-A388-05 ...
+[["miRNASeqGene-20160128"]] TCGA-3B-A9HI-01A-11R-A38N-13 ...
+[["Mutation-20160128"]] TCGA-3B-A9HI-01A-11D-A387-09 ...
+[["RNASeq2GeneNorm-20160128"]] TCGA-3B-A9HI-01A-11R-A38C-07 ...
+[["RPPAArray-20160128"]] TCGA-3B-A9HI-01A-21-A456-20 ...
 
 Sizes of each ExperimentList element:
 
-            assay size.Mb
-1 RNASeq2GeneNorm  1.2 Mb
-2    miRNASeqGene  0.1 Mb
-3          CNASNP 27.8 Mb
-4          CNVSNP 10.1 Mb
-5     Methylation 67.4 Mb
-6       RPPAArray  0.1 Mb
-7         gistica  4.3 Mb
-8         gistict  4.3 Mb
+                              assay size.Mb
+1                   CNASNP-20160128  9.2 Mb
+2                   CNVSNP-20160128    3 Mb
+3         GISTIC_AllByGene-20160128  4.3 Mb
+4 GISTIC_ThresholdedByGene-20160128  4.3 Mb
+5              Methylation-20160128 67.4 Mb
+6             miRNASeqGene-20160128  0.1 Mb
+7                 Mutation-20160128 17.2 Mb
+8          RNASeq2GeneNorm-20160128  1.1 Mb
+9                RPPAArray-20160128    0 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
-   165 observations deleted due to missingness 
+   162 observations deleted due to missingness 
       n  events  median 0.95LCL 0.95UCL 
-  96.00   96.00    1.83    1.51    2.46 
+  99.00   99.00    1.78    1.51    2.46 
 
 
 ---------------------------
@@ -81,15 +77,15 @@ years_to_birth:
 
 vital_status:
   0   1 
-165  96 
+162  99 
 
 days_to_death:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   17.0   319.5   668.0   851.5  1166.8  2694.0     165 
+   17.0   322.5   648.0   863.6  1169.5  2694.0     162 
 
 days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-      2     499     881    1197    1585    5723      76 
+   15.0   585.8  1092.0  1391.1  1891.8  5723.0      99 
 
 
 gender:
@@ -102,7 +98,7 @@ date_of_initial_pathologic_diagnosis:
 
 radiation_therapy:
   no  yes NA's 
- 184   71    6 
+ 181   74    6 
 
 
 residual_tumor:

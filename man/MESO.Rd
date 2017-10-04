@@ -1,73 +1,65 @@
 \name{ MESO }
 \alias{ MESO }
 \docType{data}
-\title{ MESO }
+\title{ Mesothelioma }
 
 \details{
 \preformatted{
-> MESO
-A MultiAssayExperiment object of 8 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 8: 
- [1] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 87 columns 
- [2] miRNASeqGene: ExpressionSet with 1046 rows and 87 columns 
- [3] CNASNP: RangedRaggedAssay with 90003 rows and 173 columns 
- [4] CNVSNP: RangedRaggedAssay with 18335 rows and 172 columns 
- [5] Methylation: SummarizedExperiment with 485577 rows and 87 columns 
- [6] RPPAArray: ExpressionSet with 193 rows and 63 columns 
- [7] gistica: SummarizedExperiment with 24776 rows and 87 columns 
- [8] gistict: SummarizedExperiment with 24776 rows and 87 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( MESO )
+ExperimentList class object of length 8: 
+ [1] CNASNP-20160128: RaggedExperiment with 90003 rows and 173 columns 
+ [2] CNVSNP-20160128: RaggedExperiment with 18335 rows and 172 columns 
+ [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 87 columns 
+ [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 87 columns 
+ [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 87 columns 
+ [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 87 columns 
+ [7] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 87 columns 
+ [8] RPPAArray-20160128: SummarizedExperiment with 193 rows and 63 columns 
 
 > rownames( MESO )
 CharacterList of length 8
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1:61735-86341 1:98588-17182437 ... 24:28353043-59018259
-[["CNVSNP"]] 1:3218610-74997750 1:75000838-100223933 ... 23:3157107-154905589
-[["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
-[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
-[["gistica"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["gistict"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
+[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
+[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
 
 > colnames( MESO )
 CharacterList of length 8
-[["RNASeq2GeneNorm"]] TCGA-3H-AB3K-01A-11R-A40A-07 ...
-[["miRNASeqGene"]] TCGA-3H-AB3K-01A-11R-A404-13 ...
-[["CNASNP"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ... TCGA-ZN-A9VW-10A-01D-A39T-01
-[["CNVSNP"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ... TCGA-ZN-A9VW-10A-01D-A39T-01
-[["Methylation"]] TCGA-3H-AB3K-01A-11D-A39S-05 ... TCGA-ZN-A9VW-01A-11D-A39S-05
-[["RPPAArray"]] TCGA-3H-AB3K-01A-21-A45O-20 ... TCGA-ZN-A9VW-01A-21-A45O-20
-[["gistica"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ... TCGA-ZN-A9VW-01A-11D-A39Q-01
-[["gistict"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ... TCGA-ZN-A9VW-01A-11D-A39Q-01
+[["CNASNP-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
+[["CNVSNP-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
+[["GISTIC_AllByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
+[["GISTIC_ThresholdedByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
+[["Methylation-20160128"]] TCGA-3H-AB3K-01A-11D-A39S-05 ...
+[["miRNASeqGene-20160128"]] TCGA-3H-AB3K-01A-11R-A404-13 ...
+[["RNASeq2GeneNorm-20160128"]] TCGA-3H-AB3K-01A-11R-A40A-07 ...
+[["RPPAArray-20160128"]] TCGA-3H-AB3K-01A-21-A45O-20 ...
 
 Sizes of each ExperimentList element:
 
-            assay size.Mb
-1 RNASeq2GeneNorm  1.1 Mb
-2    miRNASeqGene  0.1 Mb
-3          CNASNP  7.4 Mb
-4          CNVSNP  1.7 Mb
-5     Methylation 67.4 Mb
-6       RPPAArray    0 Mb
-7         gistica  4.3 Mb
-8         gistict  4.3 Mb
+                              assay size.Mb
+1                   CNASNP-20160128  2.5 Mb
+2                   CNVSNP-20160128  0.6 Mb
+3         GISTIC_AllByGene-20160128  4.3 Mb
+4 GISTIC_ThresholdedByGene-20160128  4.3 Mb
+5              Methylation-20160128 67.4 Mb
+6             miRNASeqGene-20160128  0.1 Mb
+7          RNASeq2GeneNorm-20160128  1.1 Mb
+8                RPPAArray-20160128    0 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
-   16 observations deleted due to missingness 
+   14 observations deleted due to missingness 
       n  events  median 0.95LCL 0.95UCL 
-  71.00   71.00    1.23    1.05    1.57 
+  73.00   73.00    1.25    1.11    1.67 
 
 
 ---------------------------
@@ -81,15 +73,15 @@ years_to_birth:
 
 vital_status:
  0  1 
-16 71 
+13 74 
 
 days_to_death:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   20.0   243.5   449.0   567.2   749.0  2790.0      16 
+   20.0   253.0   457.0   584.1   789.0  2790.0      14 
 
 days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   -8.0   256.0   501.0   690.1   977.0  2024.0      58 
+     -8     499    1168    1091    1490    2359      74 
 
 tumor_tissue_site:
 pleura 
@@ -115,7 +107,7 @@ date_of_initial_pathologic_diagnosis:
 
 radiation_therapy:
   no  yes NA's 
-  59   24    4 
+  62   24    1 
 
 karnofsky_performance_score:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 

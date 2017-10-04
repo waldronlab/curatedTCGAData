@@ -1,72 +1,64 @@
 \name{ DLBC }
 \alias{ DLBC }
 \docType{data}
-\title{ DLBC }
+\title{ Lymphoid Neoplasm Diffuse Large B-cell Lymphoma }
 
 \details{
 \preformatted{
-> DLBC
-A MultiAssayExperiment object of 9 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 9: 
- [1] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 15 columns 
- [2] miRNASeqGene: ExpressionSet with 1046 rows and 47 columns 
- [3] CNASNP: RangedRaggedAssay with 44227 rows and 94 columns 
- [4] CNVSNP: RangedRaggedAssay with 9251 rows and 94 columns 
- [5] Methylation: SummarizedExperiment with 485577 rows and 48 columns 
- [6] RPPAArray: ExpressionSet with 192 rows and 33 columns 
- [7] Mutations: RangedRaggedAssay with 16918 rows and 48 columns 
- [8] gistica: SummarizedExperiment with 24776 rows and 48 columns 
- [9] gistict: SummarizedExperiment with 24776 rows and 48 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( DLBC )
+ExperimentList class object of length 9: 
+ [1] CNASNP-20160128: RaggedExperiment with 44725 rows and 94 columns 
+ [2] CNVSNP-20160128: RaggedExperiment with 9343 rows and 94 columns 
+ [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 48 columns 
+ [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 48 columns 
+ [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 48 columns 
+ [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 47 columns 
+ [7] Mutation-20160128: RaggedExperiment with 16918 rows and 48 columns 
+ [8] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 48 columns 
+ [9] RPPAArray-20160128: SummarizedExperiment with 192 rows and 33 columns 
 
 > rownames( DLBC )
 CharacterList of length 9
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1:61735-86341 1:98588-72768498 ... 24:2650438-59018259
-[["CNVSNP"]] 1:3218610-247813706 2:484222-67613884 ... 23:103085474-154905589
-[["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
-[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
-[["Mutations"]] SGK1 TOP2B ITPKB BNC2 TET2 ... PAQR9 KRAS PPP1R3A DIP2B
-[["gistica"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["gistict"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
+[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["Mutation-20160128"]] character(0)
+[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
+[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
 
 > colnames( DLBC )
 CharacterList of length 9
-[["RNASeq2GeneNorm"]] TCGA-FA-A7DS-01A-11R-A38C-07 ...
-[["miRNASeqGene"]] TCGA-FA-8693-01A-11R-2401-13 ...
-[["CNASNP"]] TCGA-FA-8693-01A-11D-2389-01 ... TCGA-VB-A8QN-10A-01D-A384-01
-[["CNVSNP"]] TCGA-FA-8693-01A-11D-2389-01 ... TCGA-VB-A8QN-10A-01D-A384-01
-[["Methylation"]] TCGA-FA-8693-01A-11D-2399-05 ... TCGA-VB-A8QN-01A-11D-A383-05
-[["RPPAArray"]] TCGA-FA-8693-01A-21-A45K-20 ... TCGA-VB-A8QN-01A-21-A45K-20
-[["Mutations"]] TCGA-FA-8693-01A-11D-2397-10 ... TCGA-VB-A8QN-01A-11D-A382-10
-[["gistica"]] TCGA-FA-8693-01A-11D-2389-01 ... TCGA-VB-A8QN-01A-11D-A381-01
-[["gistict"]] TCGA-FA-8693-01A-11D-2389-01 ... TCGA-VB-A8QN-01A-11D-A381-01
+[["CNASNP-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
+[["CNVSNP-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
+[["GISTIC_AllByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
+[["GISTIC_ThresholdedByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
+[["Methylation-20160128"]] TCGA-FA-8693-01A-11D-2399-05 ...
+[["miRNASeqGene-20160128"]] TCGA-FA-8693-01A-11R-2401-13 ...
+[["Mutation-20160128"]] TCGA-FA-8693-01A-11D-2397-10 ...
+[["RNASeq2GeneNorm-20160128"]] TCGA-FA-8693-01A-11R-2404-07 ...
+[["RPPAArray-20160128"]] TCGA-FA-8693-01A-21-A45K-20 ...
 
 Sizes of each ExperimentList element:
 
-            assay size.Mb
-1 RNASeq2GeneNorm  1.1 Mb
-2    miRNASeqGene  0.1 Mb
-3          CNASNP  3.7 Mb
-4          CNVSNP  0.9 Mb
-5     Methylation 67.4 Mb
-6       RPPAArray    0 Mb
-7       Mutations 11.8 Mb
-8         gistica  4.3 Mb
-9         gistict  4.3 Mb
+                              assay size.Mb
+1                   CNASNP-20160128  1.2 Mb
+2                   CNVSNP-20160128  0.3 Mb
+3         GISTIC_AllByGene-20160128  4.3 Mb
+4 GISTIC_ThresholdedByGene-20160128  4.3 Mb
+5              Methylation-20160128 67.4 Mb
+6             miRNASeqGene-20160128  0.1 Mb
+7                 Mutation-20160128 11.9 Mb
+8          RNASeq2GeneNorm-20160128  1.1 Mb
+9                RPPAArray-20160128    0 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
    39 observations deleted due to missingness 
@@ -93,7 +85,8 @@ days_to_death:
 
 days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    0.0   441.5   832.0  1291.0  1581.0  5980.0       5 
+      0     616     946    1328    1581    5980       9 
+
 
 gender:
 female   male 

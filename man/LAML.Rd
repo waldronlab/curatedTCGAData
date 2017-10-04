@@ -1,56 +1,56 @@
 \name{ LAML }
 \alias{ LAML }
 \docType{data}
-\title{ LAML }
+\title{ Acute Myeloid Leukemia }
 
 \details{
 \preformatted{
-> LAML
-A MultiAssayExperiment object of 5 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 5: 
- [1] RNASeqGene: ExpressionSet with 19990 rows and 179 columns 
- [2] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 173 columns 
- [3] CNASNP: RangedRaggedAssay with 874897 rows and 392 columns 
- [4] CNVSNP: RangedRaggedAssay with 28324 rows and 380 columns 
- [5] Methylation: SummarizedExperiment with 27578 rows and 194 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( LAML )
+ExperimentList class object of length 7: 
+ [1] CNASNP-20160128: RaggedExperiment with 874897 rows and 392 columns 
+ [2] CNVSNP-20160128: RaggedExperiment with 28324 rows and 380 columns 
+ [3] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 194 columns 
+ [4] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 194 columns 
+ [5] Mutation-20160128: RaggedExperiment with 2585 rows and 197 columns 
+ [6] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 173 columns 
+ [7] RNASeqGene-20160128: SummarizedExperiment with 19990 rows and 179 columns 
 
 > rownames( LAML )
-CharacterList of length 5
-[["RNASeqGene"]] AADACL3 AADACL4 ABCA4 ABCB10 ABCD3 ... UTY VCY XGPY2 XKRY2 ZFY
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["CNASNP"]] 1:61735-804456 1:809773-1478153 ... 24:24316276-59018259
-[["CNVSNP"]] 1:3218610-36867234 1:36872665-36873318 ... 23:144250912-154905589
-[["Methylation"]] cg00000292 cg00002426 cg00003994 ... cg27662877 cg27665659
+CharacterList of length 7
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
+[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["Mutation-20160128"]] character(0)
+[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
+[["RNASeqGene-20160128"]] AADACL3 AADACL4 ABCA4 ABCB10 ... VCY XGPY2 XKRY2 ZFY
 
 > colnames( LAML )
-CharacterList of length 5
-[["RNASeqGene"]] TCGA-AB-2803-03A-01T-0734-13 ... TCGA-AB-3012-03A-01T-0736-13
-[["RNASeq2GeneNorm"]] TCGA-AB-2803-03A-01T-0734-13 ...
-[["CNASNP"]] TCGA-AB-2802-03A-01D-0756-21 ... TCGA-AB-3012-11A-01D-0756-21
-[["CNVSNP"]] TCGA-AB-2803-03A-01D-0756-21 ... TCGA-AB-3012-11A-01D-0756-21
-[["Methylation"]] TCGA-AB-2802-03A-01D-0741-05 ... TCGA-AB-3012-03A-01D-0741-05
+CharacterList of length 7
+[["CNASNP-20160128"]] TCGA-AB-2802-03A-01D-0756-21 ...
+[["CNVSNP-20160128"]] TCGA-AB-2803-03A-01D-0756-21 ...
+[["Methylation_methyl27-20160128"]] TCGA-AB-2802-03A-01D-0741-05 ...
+[["Methylation_methyl450-20160128"]] TCGA-AB-2802-03A-01D-0741-05 ...
+[["Mutation-20160128"]] TCGA-AB-2802-03B-01W-0728-08 ...
+[["RNASeq2GeneNorm-20160128"]] TCGA-AB-2803-03A-01T-0734-13 ...
+[["RNASeqGene-20160128"]] TCGA-AB-2803-03A-01T-0734-13 ...
 
 Sizes of each ExperimentList element:
 
-            assay size.Mb
-1      RNASeqGene  1.1 Mb
-2 RNASeq2GeneNorm  1.2 Mb
-3          CNASNP 73.5 Mb
-4          CNVSNP  2.4 Mb
-5     Methylation  4.4 Mb
+                           assay size.Mb
+1                CNASNP-20160128 23.5 Mb
+2                CNVSNP-20160128  0.9 Mb
+3  Methylation_methyl27-20160128  4.4 Mb
+4 Methylation_methyl450-20160128 67.4 Mb
+5              Mutation-20160128  2.4 Mb
+6       RNASeq2GeneNorm-20160128  1.1 Mb
+7            RNASeqGene-20160128  1.1 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
    80 observations deleted due to missingness 

@@ -1,84 +1,78 @@
 \name{ BRCA }
 \alias{ BRCA }
 \docType{data}
-\title{ BRCA }
+\title{ Breast invasive carcinoma }
 
 \details{
 \preformatted{
-> BRCA
-A MultiAssayExperiment object of 12 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 12: 
- [1] RNASeqGene: ExpressionSet with 20502 rows and 878 columns 
- [2] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 1212 columns 
- [3] miRNASeqGene: ExpressionSet with 1046 rows and 849 columns 
- [4] CNASNP: RangedRaggedAssay with 1132786 rows and 2209 columns 
- [5] CNVSNP: RangedRaggedAssay with 284458 rows and 2199 columns 
- [6] CNAseq: RangedRaggedAssay with 5298 rows and 38 columns 
- [7] Methylation: SummarizedExperiment with 485577 rows and 885 columns 
- [8] mRNAArray: ExpressionSet with 17814 rows and 590 columns 
- [9] RPPAArray: ExpressionSet with 142 rows and 410 columns 
- [10] Mutations: RangedRaggedAssay with 90490 rows and 993 columns 
- [11] gistica: SummarizedExperiment with 24776 rows and 1080 columns 
- [12] gistict: SummarizedExperiment with 24776 rows and 1080 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( BRCA )
+ExperimentList class object of length 13: 
+ [1] CNASeq-20160128: RaggedExperiment with 5298 rows and 38 columns 
+ [2] CNASNP-20160128: RaggedExperiment with 1132786 rows and 2209 columns 
+ [3] CNVSNP-20160128: RaggedExperiment with 284458 rows and 2199 columns 
+ [4] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 1080 columns 
+ [5] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 1080 columns 
+ [6] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 343 columns 
+ [7] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 885 columns 
+ [8] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 849 columns 
+ [9] mRNAArray-20160128: SummarizedExperiment with 17814 rows and 590 columns 
+ [10] Mutation-20160128: RaggedExperiment with 90490 rows and 993 columns 
+ [11] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 1212 columns 
+ [12] RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 878 columns 
+ [13] RPPAArray-20160128: SummarizedExperiment with 226 rows and 937 columns 
 
 > rownames( BRCA )
-CharacterList of length 12
-[["RNASeqGene"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZYX ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1:61735-1510801 1:1627918-1672603 ... 24:28514121-59018259
-[["CNVSNP"]] 1:3218610-63469503 1:63471492-63472103 ... 23:143612268-154905589
-[["CNAseq"]] 1:10209-2583075 1:2583076-249240606 ... 24:2649450-28784074
-[["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
-[["mRNAArray"]] ELMO2 CREB3L1 RPS11 PNMA1 MMP2 ... SLC39A6 SNRPD2 AQP7 CTSC
-[["RPPAArray"]] 14-3-3_epsilon 4E-BP1 ... p70S6K_pT389 p90RSK_pT359_S363
-[["Mutations"]] ABLIM1 ADAMTS20 CADM2 DTNB ... ZNF649 ZNF768 ZNF792 ZNF813
+CharacterList of length 13
+[["CNASeq-20160128"]] character(0)
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
+[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 PNMA1 ... SLC39A6 SNRPD2 AQP7 CTSC
+[["Mutation-20160128"]] character(0)
 ...
-<2 more elements>
+<3 more elements>
 
 > colnames( BRCA )
-CharacterList of length 12
-[["RNASeqGene"]] TCGA-A1-A0SB-01A-11R-A144-07 ... TCGA-GM-A2DK-01A-21R-A180-07
-[["RNASeq2GeneNorm"]] TCGA-3C-AAAU-01A-11R-A41B-07 ...
-[["miRNASeqGene"]] TCGA-3C-AAAU-01A-11R-A41G-13 ...
-[["CNASNP"]] TCGA-3C-AAAU-01A-11D-A41E-01 ... TCGA-Z7-A8R6-10A-01D-A41E-01
-[["CNVSNP"]] TCGA-3C-AAAU-01A-11D-A41E-01 ... TCGA-Z7-A8R6-10A-01D-A41E-01
-[["CNAseq"]] TCGA-A2-A0EU-01A-22D-A060-02 ... TCGA-BH-A0W5-10A-01D-A106-02
-[["Methylation"]] TCGA-3C-AAAU-01A-11D-A41Q-05 ... TCGA-Z7-A8R6-01A-11D-A41Q-05
-[["mRNAArray"]] TCGA-A1-A0SD-01A-11R-A115-07 ... TCGA-E2-A1BD-01A-11R-A12P-07
-[["RPPAArray"]] TCGA-A1-A0SH-01A-21-A13A-20 ... TCGA-E2-A1BD-01A-21-A13E-20
-[["Mutations"]] TCGA-A1-A0SB-01A-11D-A142-09 ... TCGA-PE-A5DE-01A-11D-A27P-09
+CharacterList of length 13
+[["CNASeq-20160128"]] TCGA-A2-A0EU-01A-22D-A060-02 ...
+[["CNASNP-20160128"]] TCGA-3C-AAAU-01A-11D-A41E-01 ...
+[["CNVSNP-20160128"]] TCGA-3C-AAAU-01A-11D-A41E-01 ...
+[["GISTIC_AllByGene-20160128"]] TCGA-3C-AAAU-01A-11D-A41E-01 ...
+[["GISTIC_ThresholdedByGene-20160128"]] TCGA-3C-AAAU-01A-11D-A41E-01 ...
+[["Methylation_methyl27-20160128"]] TCGA-A1-A0SD-01A-11D-A112-05 ...
+[["Methylation_methyl450-20160128"]] TCGA-3C-AAAU-01A-11D-A41Q-05 ...
+[["miRNASeqGene-20160128"]] TCGA-3C-AAAU-01A-11R-A41G-13 ...
+[["mRNAArray-20160128"]] TCGA-A1-A0SD-01A-11R-A115-07 ...
+[["Mutation-20160128"]] TCGA-A1-A0SB-01A-11D-A142-09 ...
 ...
-<2 more elements>
+<3 more elements>
 
 Sizes of each ExperimentList element:
 
-             assay size.Mb
-1       RNASeqGene  1.3 Mb
-2  RNASeq2GeneNorm  1.3 Mb
-3     miRNASeqGene  0.2 Mb
-4           CNASNP 80.6 Mb
-5           CNVSNP 25.3 Mb
-6           CNAseq  0.4 Mb
-7      Methylation 67.5 Mb
-8        mRNAArray  1.1 Mb
-9        RPPAArray  0.1 Mb
-10       Mutations 64.2 Mb
-11         gistica  4.4 Mb
-12         gistict  4.4 Mb
+                               assay size.Mb
+1                    CNASeq-20160128  0.2 Mb
+2                    CNASNP-20160128 30.9 Mb
+3                    CNVSNP-20160128  8.2 Mb
+4          GISTIC_AllByGene-20160128  4.4 Mb
+5  GISTIC_ThresholdedByGene-20160128  4.4 Mb
+6      Methylation_methyl27-20160128  4.4 Mb
+7     Methylation_methyl450-20160128 67.5 Mb
+8              miRNASeqGene-20160128  0.1 Mb
+9                 mRNAArray-20160128    1 Mb
+10                 Mutation-20160128 64.6 Mb
+11          RNASeq2GeneNorm-20160128  1.2 Mb
+12               RNASeqGene-20160128  1.2 Mb
+13                RPPAArray-20160128  0.1 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
    947 observations deleted due to missingness 
@@ -93,38 +87,38 @@ Available sample meta-data:
 
 years_to_birth:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  26.00   49.00   59.00   58.58   68.00   90.00      15 
+   26.0    49.0    59.0    58.6    68.0    90.0      16 
 
 vital_status:
-  0   1 
-946 152 
+   0    1 NA's 
+ 945  152    1 
 
 days_to_death:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  116.0   700.5  1272.0  1644.6  2367.0  7455.0     947 
+  116.0   700.5  1272.0  1644.7  2367.0  7455.0     947 
 
 days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  -31.0   434.2   761.5  1186.5  1583.2  8605.0     104 
+     -7     440     761    1183    1572    8605     153 
 
 tumor_tissue_site:
-breast 
-  1098 
+breast   NA's 
+  1097      1 
 
 
 
 
 pathology_M_stage:
-cm0 (i+)       m0       m1       mx 
-       6      907       22      163 
+cm0 (i+)       m0       m1       mx     NA's 
+       6      906       22      163        1 
 
 gender:
-female   male 
-  1086     12 
+female   male   NA's 
+  1085     12      1 
 
 date_of_initial_pathologic_diagnosis:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1988    2007    2009    2008    2010    2013       2 
+   1988    2007    2009    2008    2010    2013       3 
 
 days_to_last_known_alive:
  735 2576 NA's 
@@ -137,48 +131,48 @@ radiation_therapy:
 
 number_of_lymph_nodes:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00    0.00    1.00    2.36    2.00   35.00     168 
+  0.000   0.000   1.000   2.363   2.000  35.000     169 
 
 race:
 american indian or alaska native                            asian 
                                1                               61 
        black or african american                            white 
-                             183                              758 
+                             183                              757 
                             NA's 
-                              95 
+                              96 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 
-                    39                    885                    174 
+                    39                    884                    175 
 
 admin.bcr:
-nationwide children's hospital 
-                          1098 
+nationwide children's hospital                           NA's 
+                          1097                              1 
 
 admin.day_of_dcc_upload:
-   1   27 
+   1 NA's 
 1097    1 
 
 admin.disease_code:
-brca 
-1098 
+brca NA's 
+1097    1 
 
 
 admin.month_of_dcc_upload:
-   2   10 
-   1 1097 
+  10 NA's 
+1097    1 
 
 admin.patient_withdrawal.withdrawn:
-false 
- 1098 
+false  NA's 
+ 1097     1 
 
 admin.project_code:
 tcga NA's 
 1097    1 
 
 admin.year_of_dcc_upload:
-2014 2015 
-   1 1097 
+2015 NA's 
+1097    1 
 
 patient.additional_studies.additional_study.disease_code:
 fppp NA's 
@@ -189,8 +183,8 @@ tcga NA's
    5 1093 
 
 patient.age_at_initial_pathologic_diagnosis:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  26.00   49.00   58.00   58.45   67.00   90.00 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  26.00   49.00   58.00   58.46   67.00   90.00       1 
 
 
 
@@ -213,7 +207,7 @@ patient.breast_cancer_surgery_margin_status:
 
 patient.breast_carcinoma_estrogen_receptor_status:
 indeterminate      negative      positive          NA's 
-            2           238           809            49 
+            2           238           808            50 
 
 patient.breast_carcinoma_immunohistochemistry_er_pos_finding_scale:
 3 point scale 4 point scale          NA's 
@@ -234,25 +228,25 @@ modified radical mastectomy                       other
 
 patient.breast_carcinoma_progesterone_receptor_status:
 indeterminate      negative      positive          NA's 
-            4           344           700            50 
+            4           344           699            51 
 
 patient.breast_carcinoma_surgical_procedure_name:
                  lumpectomy modified radical mastectomy 
                         247                         322 
                       other           simple mastectomy 
-                        273                         200 
+                        272                         200 
                        NA's 
-                         56 
+                         57 
 
 
 patient.clinical_cqcf.consent_or_death_status:
-consented  deceased    waiver 
-     1056        41         1 
+consented  deceased    waiver      NA's 
+     1055        41         1         1 
 
 
 patient.clinical_cqcf.days_to_consent:
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
--1452.00     0.00    15.00    84.68    34.00  6029.00       44 
+-1452.00     0.00    15.00    84.77    34.00  6029.00       45 
 
 patient.clinical_cqcf.days_to_death:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -261,52 +255,52 @@ patient.clinical_cqcf.days_to_death:
 
 patient.clinical_cqcf.history_of_neoadjuvant_treatment:
                                               no 
-                                            1094 
+                                            1093 
 yes, pharmaceutical treatment prior to resection 
                                                3 
                                             NA's 
-                                               1 
+                                               2 
 
 patient.clinical_cqcf.normal_tissue_anatomic_site:
 breast  other   NA's 
-   282     27    789 
+   281     27    790 
 
 patient.clinical_cqcf.normal_tissue_proximity:
 distal (>2cm)          NA's 
-          284           814 
+          283           815 
 
 
 patient.clinical_cqcf.tumor_type:
-primary 
-   1098 
+primary    NA's 
+   1097       1 
 
 patient.cytokeratin_immunohistochemistry_staining_method_micrometastasis_indicator:
   no  yes NA's 
  467  263  368 
 
 patient.day_of_form_completion:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   1.00    9.00   15.00   16.31   26.00   31.00 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.00    9.00   15.00   16.31   26.00   31.00       1 
 
 patient.days_to_birth:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- -32873  -24862  -21559  -21582  -18023   -9706      15 
+ -32873  -24869  -21560  -21587  -18028   -9706      16 
 
 patient.days_to_death:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
   116.0   752.8  1409.0  1617.3  2384.0  4456.0     994 
 
 patient.days_to_initial_pathologic_diagnosis:
-   0 
-1098 
+   0 NA's 
+1097    1 
 
 patient.days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   -7.0   109.0   361.5   730.7  1052.8  7067.0     104 
+   -7.0   109.0   360.0   730.1  1034.0  7067.0     105 
 
 patient.distant_metastasis_present_ind2:
   no  yes NA's 
- 382   12  704 
+ 381   12  705 
 
 patient.drugs.drug.10.bcr_drug_barcode:
 tcga-a2-a0ew-d59521 tcga-ao-a03n-d20931 tcga-e2-a107-d17174 tcga-gm-a2da-d47223 
@@ -1796,7 +1790,7 @@ patient.drugs.drug.year_of_form_completion:
 
 patient.ethnicity:
     hispanic or latino not hispanic or latino                   NA's 
-                    39                    885                    174 
+                    39                    884                    175 
 
 patient.first_nonlymph_node_metastasis_anatomic_sites.first_nonlymph_node_metastasis_anatomic_site:
           bone          liver           lung other, specify           NA's 
@@ -2869,8 +2863,8 @@ patient.follow_ups.follow_up.year_of_form_completion:
    2010    2011    2012    2012    2014    2015      99 
 
 patient.gender:
-female   male 
-  1086     12 
+female   male   NA's 
+  1085     12      1 
 
 patient.her2_and_centromere_17_positive_finding_other_measurement_scale_text:
                 >2.2 positive                             1 
@@ -2900,21 +2894,21 @@ patient.her2_neu_chromosone_17_signal_ratio_value:
 
 patient.history_of_neoadjuvant_treatment:
   no  yes NA's 
-1084   13    1 
+1083   13    2 
 
 
 
 
 
 patient.informed_consent_verified:
- yes 
-1098 
+ yes NA's 
+1097    1 
 
 
 
 patient.lab_proc_her2_neu_immunohistochemistry_receptor_status:
     equivocal indeterminate      negative      positive          NA's 
-          179            12           565           164           178 
+          179            12           564           164           179 
 
 patient.lab_procedure_her2_neu_in_situ_hybrid_outcome_type:
     equivocal indeterminate      negative      positive          NA's 
@@ -2922,11 +2916,11 @@ patient.lab_procedure_her2_neu_in_situ_hybrid_outcome_type:
 
 patient.lymph_node_examined_count:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00    3.00    9.00   10.64   16.00   44.00     126 
+   0.00    3.00    9.00   10.65   16.00   44.00     127 
 
 patient.margin_status:
    close negative positive     NA's 
-      31      920       79       68 
+      31      919       79       69 
 
 patient.menopause_status:
                                                indeterminate (neither pre or postmenopausal) 
@@ -2936,9 +2930,9 @@ patient.menopause_status:
            post (prior bilateral ovariectomy or >12 mo since lmp with no prior hysterectomy) 
                                                                                          705 
 pre (<6 months since lmp and no prior bilateral ovariectomy and not on estrogen replacement) 
-                                                                                         230 
+                                                                                         229 
                                                                                         NA's 
-                                                                                          90 
+                                                                                          91 
 
 patient.metastatic_breast_carcinoma_erbb2_immunohistochemistry_level_result:
   1+   2+ NA's 
@@ -2985,8 +2979,8 @@ negative positive     NA's
        7        4     1087 
 
 patient.month_of_form_completion:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   4.000   6.000   6.674   9.000  12.000 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   4.000   6.000   6.674   9.000  12.000       1 
 
 patient.new_tumor_events.new_tumor_event.2.additional_pharmaceutical_therapy:
  yes NA's 
@@ -3182,7 +3176,7 @@ patient.new_tumor_events.new_tumor_event_after_initial_treatment:
 
 patient.number_of_lymphnodes_positive_by_he:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00    0.00    1.00    2.36    2.00   35.00     168 
+  0.000   0.000   1.000   2.363   2.000  35.000     169 
 
 patient.number_of_lymphnodes_positive_by_ihc:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -3191,7 +3185,7 @@ patient.number_of_lymphnodes_positive_by_ihc:
 
 patient.person_neoplasm_cancer_status:
 tumor free with tumor       NA's 
-       879         94        125 
+       878         94        126 
 
 
 
@@ -3207,20 +3201,20 @@ patient.postoperative_rx_tx:
 
 patient.primary_lymph_node_presentation_assessment:
   no  yes NA's 
-  33  693  372 
+  33  692  373 
 
 patient.prior_dx:
   no  yes NA's 
-1028   69    1 
+1028   68    2 
 
 
 patient.race:
 american indian or alaska native                            asian 
                                1                               61 
        black or african american                            white 
-                             183                              758 
+                             183                              757 
                             NA's 
-                              95 
+                              96 
 
 patient.radiation_therapy:
   no  yes NA's 
@@ -3522,36 +3516,36 @@ patient.radiations.radiation.year_of_form_completion:
 
 
 patient.stage_event.tnm_categories.pathologic_categories.pathologic_m:
-cm0 (i+)       m0       m1       mx 
-       6      907       22      163 
+cm0 (i+)       m0       m1       mx     NA's 
+       6      906       22      163        1 
 
 
 
 
 patient.tissue_prospective_collection_indicator:
   no  yes NA's 
- 732  362    4 
+ 731  362    5 
 
 patient.tissue_retrospective_collection_indicator:
   no  yes NA's 
- 362  732    4 
+ 362  731    5 
 
 
 patient.tumor_tissue_site:
-breast 
-  1098 
+breast   NA's 
+  1097      1 
 
 patient.vital_status:
-alive  dead 
-  994   104 
+alive  dead  NA's 
+  993   104     1 
 
 patient.year_of_form_completion:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   2010    2011    2011    2011    2011    2015 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   2010    2011    2011    2011    2011    2015       1 
 
 patient.year_of_initial_pathologic_diagnosis:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1988    2007    2009    2008    2010    2013       2 
+   1988    2007    2009    2008    2010    2013       3 
 
 
 patient.bcr_canonical_check.bcr_patient_canonical_reasons.bcr_canonical_reason.2:
@@ -3565,8 +3559,8 @@ germline comparison                NA's
                  33                1065 
 
 patient.bcr_canonical_check.bcr_patient_canonical_status:
-       canonical canonical - plus 
-             943              155 
+       canonical canonical - plus             NA's 
+             943              154                1 
 
 patient.biospecimen_cqcf.consent_or_death_status:
 consented  deceased    waiver      NA's 
@@ -3575,15 +3569,15 @@ consented  deceased    waiver      NA's
 
 patient.biospecimen_cqcf.days_to_pathology_review:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- -256.0    63.0   295.0   979.6  1313.0  7852.0       9 
+ -256.0    63.0   294.5   979.6  1313.8  7852.0      10 
 
 patient.biospecimen_cqcf.days_to_sample_procurement:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- -57.00    1.00   21.00   33.75   36.00 2253.00       3 
+ -57.00    1.00   21.00   33.77   36.00 2253.00       4 
 
 patient.biospecimen_cqcf.digital_image_submitted:
   no  yes NA's 
- 882   43  173 
+ 881   43  174 
 
 patient.biospecimen_cqcf.ethnicity:
     hispanic or latino not hispanic or latino                   NA's 
@@ -3726,33 +3720,33 @@ patient.biospecimen_cqcf.normal_controls.normal_control.extracted_dna.ncedna_dna
 
 patient.biospecimen_cqcf.normal_controls.normal_control.normal_tissue.normal_tissue_anatomic_site:
 breast  other   NA's 
-   188     25    885 
+   187     25    886 
 
 patient.biospecimen_cqcf.normal_controls.normal_control.normal_tissue.normal_tissue_proximity:
 distal (>2cm)          NA's 
-          188           910 
+          187           911 
 
 patient.biospecimen_cqcf.normal_controls.normal_control.vial_number:
    1    2    3 NA's 
- 956   58    3   81 
+ 955   58    3   82 
 
 
 
 patient.biospecimen_cqcf.path_confirm_diagnosis_matching:
   no  yes NA's 
-   1 1096    1 
+   1 1095    2 
 
 patient.biospecimen_cqcf.path_confirm_report_attached:
-  no  yes 
-  66 1032 
+  no  yes NA's 
+  66 1031    1 
 
 patient.biospecimen_cqcf.path_confirm_tumor_necrosis_metrics:
- yes 
-1098 
+ yes NA's 
+1097    1 
 
 patient.biospecimen_cqcf.path_confirm_tumor_nuclei_metrics:
-  no  yes 
-   1 1097 
+  no  yes NA's 
+   1 1096    1 
 
 patient.biospecimen_cqcf.race:
                     asian black or african american                     white 
@@ -3770,7 +3764,7 @@ pathology review of frozen section for tcga determined histological subtype diff
 
 patient.biospecimen_cqcf.sample_prescreened:
  yes NA's 
-1096    2 
+1095    3 
 
 patient.biospecimen_cqcf.site_of_disease:
 breast   NA's 
@@ -3778,7 +3772,7 @@ breast   NA's
 
 patient.biospecimen_cqcf.top_slide_submitted:
   no  yes NA's 
- 119  807  172 
+ 119  806  173 
 
 
 patient.biospecimen_cqcf.tumor_samples.tumor_sample.2.tumor_necrosis_percent:
@@ -3820,24 +3814,24 @@ patient.biospecimen_cqcf.tumor_samples.tumor_sample.3.vial_number:
 
 patient.biospecimen_cqcf.tumor_samples.tumor_sample.tumor_necrosis_percent:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   0.000   6.162   9.500  30.000       3 
+  0.000   0.000   0.000   6.145   9.000  30.000       5 
 
 patient.biospecimen_cqcf.tumor_samples.tumor_sample.tumor_nuclei_percent:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  20.00   70.00   75.00   77.69   85.00  100.00       3 
+  20.00   70.00   75.00   77.69   85.00  100.00       4 
 
 patient.biospecimen_cqcf.tumor_samples.tumor_sample.tumor_weight:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   31.0   175.8   216.5   369.0   418.2  2990.0      58 
+   31.0   175.5   217.0   369.2   418.5  2990.0      59 
 
 patient.biospecimen_cqcf.tumor_samples.tumor_sample.vial_number:
    1    2 NA's 
-1095    1    2 
+1094    1    3 
 
 
 patient.days_to_index:
    0 NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.2.bcr_biospecimen_canonical_reasons.bcr_canonical_reason:
 primary tumor and metastatic tumor(s)                                  NA's 
@@ -3847,7 +3841,7 @@ primary tumor and metastatic tumor(s)                                  NA's
 
 patient.samples.sample.2.days_to_collection:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   16.0   155.8   463.0  1070.7  1378.8  7858.0       2 
+   16.0   155.5   461.0  1070.8  1379.5  7858.0       3 
 
 patient.samples.sample.2.initial_weight:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -3858,8 +3852,8 @@ patient.samples.sample.2.is_ffpe:
 1085   12    1 
 
 patient.samples.sample.2.oct_embedded:
-false  true 
- 1050    48 
+false  true  NA's 
+ 1049    48     1 
 
 
 
@@ -4493,10 +4487,6 @@ patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.ad
 tcga NA's 
    3 1095 
 
-patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.amount:
-  80 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.bcr_biospecimen_canonical_reasons.bcr_canonical_reason:
@@ -4505,19 +4495,19 @@ ffpe validation            NA's
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 97500631 100479047 108432544 113035736 113420338 174165689        38 
+ 97500631 100479046 108432545 113043285 113420339 174165689        39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.center_id:
    7    8    9   13 NA's 
-  14  138  847   61   38 
+  14  138  846   61   39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.130   0.500   0.500   0.476   0.500   0.500      38 
+  0.130   0.500   0.500   0.476   0.500   0.500      39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00    8.00   16.00   16.22   23.00   31.00      38 
+   1.00    8.00   16.00   16.21   23.00   31.00      39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.is_derived_from_ffpe:
   no  yes NA's 
@@ -4525,11 +4515,11 @@ patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.is
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   5.000   6.000   6.144   9.000  11.000      38 
+  1.000   5.000   6.000   6.149   9.000  11.000      39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   6.000   8.000   7.203   9.000  12.000      38 
+  1.000   6.000   8.000   7.203   9.000  12.000      39 
 
 
 
@@ -4539,7 +4529,7 @@ patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.qu
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.source_center:
   23 NA's 
-1060   38 
+1059   39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -4547,7 +4537,7 @@ patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.vo
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014      38 
+   2010    2010    2011    2011    2011    2014      39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.amount:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -4555,13 +4545,13 @@ patient.samples.sample.2.portions.portion.analytes.analyte.2.amount:
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.analyte_type:
   repli-g (qiagen) dna repli-g x (qiagen) dna                    rna 
-                   946                     39                     75 
+                   945                     39                     75 
                   NA's 
-                    38 
+                    39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.analyte_type_id:
    r    w    x NA's 
-  75  946   39   38 
+  75  945   39   39 
 
 
 
@@ -4571,17 +4561,17 @@ patient.samples.sample.2.portions.portion.analytes.analyte.2.concentration:
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.dna.normal_tumor_genotype_match:
  yes NA's 
- 985  113 
+ 984  114 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.dna.pcr_amplification_successful:
  yes NA's 
- 985  113 
+ 984  114 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.gel_image_file:
 https://sharedoc.nchri.org/tcga-bcr/default.aspx 
-                                            1060 
+                                            1059 
                                             NA's 
-                                              38 
+                                              39 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.is_derived_from_ffpe:
   no  yes NA's 
@@ -4741,7 +4731,7 @@ patient.samples.sample.2.portions.portion.analytes.analyte.3.subportion_sequence
 
 patient.samples.sample.2.portions.portion.analytes.analyte.a260_a280_ratio:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.480   1.880   1.940   1.927   2.000   2.500     308 
+  0.480   1.880   1.940   1.927   2.000   2.500     309 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.additional_studies.additional_study.disease_code:
 fppp NA's 
@@ -4751,10 +4741,6 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.ad
 tcga NA's 
    2 1096 
 
-patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.amount:
-6.67 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.bcr_biospecimen_canonical_reasons.bcr_canonical_reason:
@@ -4763,19 +4749,19 @@ ffpe validation            NA's
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99015309  99059842 100489175 112556805 113423288 174191431         5 
+ 99015309  99059836 100489176 112567870 113423289 174191431         6 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.center_id:
    1    2    9 NA's 
- 545   47  501    5 
+ 544   47  501    6 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.050   0.080   0.140   0.121   0.160   0.250       5 
+  0.050   0.080   0.140   0.121   0.160   0.250       6 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00   12.00   18.00   18.93   28.00   31.00       5 
+   1.00   12.00   18.00   18.94   28.00   31.00       6 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.is_derived_from_ffpe:
   no  yes NA's 
@@ -4783,11 +4769,11 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.is
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.446   7.000  12.000       5 
+   1.00    3.00    5.00    5.44    7.00   12.00       6 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   6.000   8.000   7.274   9.000  12.000       5 
+  1.000   6.000   8.000   7.275   9.000  12.000       6 
 
 
 
@@ -4797,7 +4783,7 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.qu
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.source_center:
   23 NA's 
-1093    5 
+1092    6 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -4805,7 +4791,7 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.vo
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.2.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014       5 
+   2010    2010    2011    2011    2011    2014       6 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.additional_studies.additional_study.disease_code:
 fppp NA's 
@@ -4815,10 +4801,6 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.ad
 tcga NA's 
    2 1096 
 
-patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.amount:
-  26 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.bcr_biospecimen_canonical_reasons.bcr_canonical_reason:
@@ -4827,19 +4809,19 @@ ffpe validation            NA's
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99013502  99051448 100488944 104224539 108474412 167787828       284 
+ 99013502  99051438 100488944 104229152 108474412 167787828       285 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.center_id:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   8.000   9.000   7.419   9.000   9.000     284 
+  1.000   8.000   9.000   7.417   9.000   9.000     285 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0600  0.0800  0.0800  0.0926  0.0900  0.2400     284 
+0.06000 0.08000 0.08000 0.09263 0.09000 0.24000     285 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   6.00    9.00   14.00   16.92   23.00   31.00     284 
+   6.00    9.00   14.00   16.92   23.00   31.00     285 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.is_derived_from_ffpe:
   no  yes NA's 
@@ -4847,11 +4829,11 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.is
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.485   8.000  12.000     284 
+  1.000   3.000   5.000   5.477   8.000  12.000     285 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   6.000   8.000   7.608  10.000  12.000     284 
+  1.000   6.000   8.000   7.609  10.000  12.000     285 
 
 
 
@@ -4861,7 +4843,7 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.qu
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.source_center:
   23 NA's 
- 814  284 
+ 813  285 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -4869,7 +4851,7 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.vo
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.3.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014     284 
+   2010    2010    2011    2011    2011    2014     285 
 
 
 
@@ -5043,10 +5025,6 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.addi
 tcga NA's 
    5 1093 
 
-patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.amount:
-  13 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.bcr_biospecimen_canonical_reasons.bcr_canonical_reason:
@@ -5054,32 +5032,32 @@ ffpe validation            NA's
               7            1091 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.biospecimen_barcode_bottom:
-     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
- 99014640 100474571 100492162 112751013 113421586 174191240 
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
+ 99014640 100474581 100492165 112762204 113421587 174191240         1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.center_id:
-  1   2   9 
-432 654  12 
+   1    2    9 NA's 
+ 432  653   12    1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.concentration:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.0400  0.1500  0.1600  0.1552  0.1700  0.2500 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.0400  0.1500  0.1600  0.1552  0.1700  0.2500       1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.day_of_shipment:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   1.00   12.00   16.00   17.84   25.00   31.00 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.00   12.00   16.00   17.85   25.00   31.00       1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.is_derived_from_ffpe:
   no  yes NA's 
 1085   12    1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.month_of_shipment:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   3.000   5.000   5.339   7.000  12.000 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   3.000   5.000   5.333   7.000  12.000       1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.plate_column:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   6.000   8.000   7.249   9.000  12.000 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   6.000   8.000   7.249   9.000  12.000       1 
 
 
 
@@ -5088,46 +5066,48 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.quan
   0.400   1.070   1.950   1.657   2.080   3.250       1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.source_center:
-  23 
-1098 
+  23 NA's 
+1097    1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
    6.67    6.70   13.00   10.78   13.00   56.00       1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.year_of_shipment:
-2010 2011 2012 2013 2014 
- 342  496   88  117   55 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   2010    2010    2011    2011    2011    2014       1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.amount:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.11   14.57   23.14   30.09   37.20  338.66       3 
+   1.11   14.55   23.14   30.09   37.20  338.66       4 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.analyte_type:
- dna 
-1098 
+ dna NA's 
+1097    1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.analyte_type_id:
-   d 
-1098 
+   d NA's 
+1097    1 
 
 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.concentration:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.0600  0.1500  0.1600  0.1559  0.1700  0.2500 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.060   0.150   0.160   0.156   0.170   0.250       1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.dna.normal_tumor_genotype_match:
- yes 
-1098 
+ yes NA's 
+1097    1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.dna.pcr_amplification_successful:
- yes 
-1098 
+ yes NA's 
+1097    1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.gel_image_file:
 https://sharedoc.nchri.org/tcga-bcr/default.aspx 
-                                            1098 
+                                            1097 
+                                            NA's 
+                                               1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.is_derived_from_ffpe:
   no  yes NA's 
@@ -5135,13 +5115,13 @@ patient.samples.sample.2.portions.portion.analytes.analyte.is_derived_from_ffpe:
 
 patient.samples.sample.2.portions.portion.analytes.analyte.protocols.protocol.experimental_protocol_type:
             adna preparation type                  allprep ffpe dna 
-                              701                                12 
+                              700                                12 
 pre-extracted dna received by tss                              NA's 
-                              382                                 3 
+                              382                                 4 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.spectrophotometer_method:
-picogreen   uv spec 
-      304       794 
+picogreen   uv spec      NA's 
+      304       793         1 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.subportion_sequence:
    1    2    3    4 NA's 
@@ -5150,20 +5130,20 @@ patient.samples.sample.2.portions.portion.analytes.analyte.subportion_sequence:
 
 
 patient.samples.sample.2.portions.portion.day_of_creation:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   1.00    9.00   16.00   15.97   23.00   31.00 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.00    9.00   16.00   15.97   23.00   31.00       1 
 
 patient.samples.sample.2.portions.portion.is_ffpe:
   no  yes NA's 
 1085   12    1 
 
 patient.samples.sample.2.portions.portion.month_of_creation:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   4.000   5.000   6.093   8.000  12.000 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   4.000   5.000   6.095   8.000  12.000       1 
 
 patient.samples.sample.2.portions.portion.portion_number:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   1.000   1.000   3.259   1.000  94.000 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   1.000   1.000   3.261   1.000  94.000       1 
 
 patient.samples.sample.2.portions.portion.portion_sequence:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -5432,11 +5412,11 @@ bottom    top   NA's
 
 patient.samples.sample.2.portions.portion.weight:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00    2.00    2.00   92.71  150.00 1000.00     500 
+    1.0     2.0     2.0    92.7   150.0  1000.0     501 
 
 patient.samples.sample.2.portions.portion.year_of_creation:
-2010 2011 2012 2013 2014 
- 500  362   91  114   31 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   2010    2010    2011    2011    2011    2014       1 
 
 
 patient.samples.sample.2.portions.shipment_portion.center_id:
@@ -5474,17 +5454,17 @@ patient.samples.sample.2.portions.shipment_portion.shipment_portion_year_of_ship
 
 patient.samples.sample.2.sample_type:
 blood derived normal           metastatic        primary tumor 
-                 993                    7                   15 
- solid tissue normal 
-                  83 
+                 992                    7                   15 
+ solid tissue normal                 NA's 
+                  83                    1 
 
 patient.samples.sample.2.sample_type_id:
-  1   6  10  11 
- 15   7 993  83 
+   1    6   10   11 NA's 
+  15    7  992   83    1 
 
 patient.samples.sample.2.vial_number:
-   a    b    c    d 
-1029   57   11    1 
+   a    b    c    d NA's 
+1028   57   11    1    1 
 
 patient.samples.sample.3.bcr_biospecimen_canonical_reasons.bcr_canonical_reason:
 germline comparison                NA's 
@@ -5494,11 +5474,11 @@ germline comparison                NA's
 
 patient.samples.sample.3.days_to_collection:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   30.0    98.0   291.0   709.7   983.5  7498.0    1002 
+   30.0    91.0   289.0   706.3   950.0  7498.0    1003 
 
 patient.samples.sample.3.initial_weight:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   50.0   200.0   330.0   461.3   640.0  1830.0    1023 
+   50.0   202.5   335.0   465.8   640.0  1830.0    1024 
 
 patient.samples.sample.3.is_ffpe:
   no NA's 
@@ -5506,11 +5486,7 @@ patient.samples.sample.3.is_ffpe:
 
 patient.samples.sample.3.oct_embedded:
 false  true  NA's 
-   51    45  1002 
-
-patient.samples.sample.3.pathology_report_uuid:
-2466f145-9621-4bd7-9b3f-04f0f810df94                                 NA's 
-                                   1                                 1097 
+   51    44  1003 
 
 patient.samples.sample.3.portions.portion.2.analytes.analyte.aliquots.aliquot.additional_studies.additional_study.disease_code:
 fppp NA's 
@@ -5680,29 +5656,25 @@ patient.samples.sample.3.portions.portion.2.year_of_creation:
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.a260_a280_ratio:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.380   1.750   1.790   1.743   1.830   2.100    1045 
-
-patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.amount:
-26.7 NA's 
-   1 1097 
+  0.380   1.750   1.790   1.742   1.833   2.100    1046 
 
 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 94929329  99034272 100471717 102346801 100477333 167812914      1048 
+ 94929329  99033502 100471589 102385044 100477579 167812914      1049 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.center_id:
    7    8   13 NA's 
-  32    2   16 1048 
+  31    2   16 1049 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1300  0.1500  0.1600  0.1696  0.1675  0.5000    1048 
+   0.13    0.15    0.16    0.17    0.17    0.50    1049 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   6.00   12.00   22.50   20.48   29.00   31.00    1048 
+   6.00   12.00   23.00   20.61   29.00   31.00    1049 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.is_derived_from_ffpe:
   no NA's 
@@ -5710,11 +5682,11 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00    3.00    5.00    5.52    9.00   12.00    1048 
+  1.000   3.000   5.000   5.388   9.000  12.000    1049 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00    2.00    5.00    4.66    6.00   11.00    1048 
+  1.000   2.000   5.000   4.633   6.000  11.000    1049 
 
 
 
@@ -5724,7 +5696,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.source_center:
   23 NA's 
-  50 1048 
+  49 1049 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.volume:
  6.6   20 26.7   80 NA's 
@@ -5732,7 +5704,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.2.year_of_shipment:
 2010 2011 2014 NA's 
-  19   30    1 1048 
+  18   30    1 1049 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.3.bcr_aliquot_barcode:
 tcga-bh-a0ba-11a-22r-a19e-07                         NA's 
@@ -5794,27 +5766,23 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.3.
 2011 NA's 
    1 1097 
 
-patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.amount:
-  20 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99014248 100471174 100477173 108275995 108455182 167804413      1011 
+ 99014248 100471161 100477175 108366744 108466252 167804413      1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.center_id:
    7    9   13 NA's 
-  22   34   31 1011 
+  22   34   30 1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1000  0.1500  0.1700  0.2887  0.5000  0.5000    1011 
+ 0.1000  0.1500  0.1700  0.2903  0.5000  0.5000    1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   3.00    8.00   22.00   18.63   29.00   31.00    1011 
+   3.00    8.00   22.50   18.69   29.00   31.00    1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.is_derived_from_ffpe:
   no NA's 
@@ -5822,11 +5790,11 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.is
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.494   9.000  12.000    1011 
+  1.000   3.000   5.000   5.419   9.000  11.000    1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   4.000   6.000   5.828   7.500  12.000    1011 
+  1.000   4.000   6.000   5.826   7.750  12.000    1012 
 
 
 
@@ -5836,7 +5804,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.qu
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.source_center:
   23 NA's 
-  87 1011 
+  86 1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.volume:
   20 26.7   80 NA's 
@@ -5844,25 +5812,25 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.vo
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014    1011 
+   2010    2010    2011    2011    2011    2014    1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.amount:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   4.47   10.19   15.78   27.95   23.40  214.20    1045 
+   4.47   10.17   14.87   28.04   24.07  214.20    1046 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.analyte_type:
 repli-g (qiagen) dna                  rna                 NA's 
-                  34                   53                 1011 
+                  34                   52                 1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.analyte_type_id:
    r    w NA's 
-  53   34 1011 
+  52   34 1012 
 
 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1000  0.1500  0.1600  0.1532  0.1600  0.1800    1045 
+ 0.1000  0.1500  0.1600  0.1533  0.1600  0.1800    1046 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.dna.normal_tumor_genotype_match:
  yes NA's 
@@ -5874,9 +5842,9 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.dna.pcr_amplificati
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.gel_image_file:
 https://sharedoc.nchri.org/tcga-bcr/default.aspx 
-                                              87 
+                                              86 
                                             NA's 
-                                            1011 
+                                            1012 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.is_derived_from_ffpe:
   no NA's 
@@ -5884,21 +5852,21 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.is_derived_from_ffp
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.protocols.protocol.experimental_protocol_type:
    allprep rna extraction mirvana (allprep dna) rna                   repli-g 
-                        2                        51                        32 
+                        2                        50                        32 
                      NA's 
-                     1013 
+                     1014 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.rna.ratio_28s_18s:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.100   1.300   1.500   1.494   1.700   2.100    1045 
+  1.100   1.300   1.500   1.486   1.700   2.100    1046 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.rna.rinvalue:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  6.500   7.500   8.100   8.077   8.600   9.600    1045 
+  6.500   7.500   8.100   8.088   8.600   9.600    1046 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.spectrophotometer_method:
 uv spec    NA's 
-     53    1045 
+     52    1046 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.2.subportion_sequence:
    1    2    3    4 NA's 
@@ -6141,11 +6109,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.4.subportion_sequence
 
 patient.samples.sample.3.portions.portion.analytes.analyte.a260_a280_ratio:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.590   1.890   1.935   1.945   1.995   2.440    1016 
-
-patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.amount:
-6.67 NA's 
-   1 1097 
+  1.590   1.890   1.940   1.946   2.000   2.440    1017 
 
 
 
@@ -6155,19 +6119,19 @@ germline comparison                NA's
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99015308 100471156 100489952 109568891 108477522 174189221      1025 
+ 99015308 100471205 100490103 109715448 109704572 174189221      1026 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.center_id:
    1    5    7    9 NA's 
-  42    6    1   24 1025 
+  41    6    1   24 1026 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0700  0.0800  0.1500  0.1307  0.1600  0.1800    1025 
+ 0.0700  0.0800  0.1500  0.1307  0.1600  0.1800    1026 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   4.00   12.00   25.00   21.37   29.00   31.00    1025 
+   4.00   12.00   26.00   21.47   29.00   31.00    1026 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.is_derived_from_ffpe:
   no NA's 
@@ -6175,11 +6139,11 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.is
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   3.000   4.863   9.000  12.000    1025 
+  1.000   2.000   3.000   4.764   9.000  10.000    1026 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   6.000   6.356  11.000  12.000    1025 
+  1.000   3.000   6.500   6.361  11.000  12.000    1026 
 
 
 
@@ -6189,7 +6153,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.qu
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.source_center:
   23 NA's 
-  73 1025 
+  72 1026 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -6197,29 +6161,25 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.vo
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.2.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014    1025 
-
-patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.amount:
-  26 NA's 
-   1 1097 
+   2010    2010    2011    2011    2011    2014    1026 
 
 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 89490684  99017983 100471213 102044182 106446222 113423695      1040 
+ 89490684  99017209 100471179 102071737 108431820 113423695      1041 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.center_id:
    1    5    8    9 NA's 
-   8   16    2   32 1040 
+   8   16    2   31 1041 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.070   0.080   0.085   0.111   0.150   0.170    1040 
+ 0.0700  0.0800  0.0900  0.1118  0.1500  0.1700    1041 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   8.00    8.00   22.00   18.98   29.00   31.00    1040 
+   8.00    8.00   22.00   19.07   29.00   31.00    1041 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.is_derived_from_ffpe:
   no NA's 
@@ -6227,11 +6187,11 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.is
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   4.000   5.328   9.000  12.000    1040 
+   1.00    2.00    3.00    5.21    9.00   11.00    1041 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   1.250   6.000   5.845  11.000  12.000    1040 
+  1.000   1.000   6.000   5.842  11.000  12.000    1041 
 
 
 
@@ -6241,7 +6201,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.qu
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.source_center:
   23 NA's 
-  58 1040 
+  57 1041 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -6249,7 +6209,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.vo
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.3.year_of_shipment:
 2010 2011 NA's 
-  25   33 1040 
+  24   33 1041 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.additional_studies.additional_study.disease_code:
 fppp NA's 
@@ -6259,10 +6219,6 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.ad
 tcga NA's 
    3 1095 
 
-patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.amount:
-26.7 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.bcr_biospecimen_canonical_reasons.bcr_canonical_reason:
@@ -6271,19 +6227,19 @@ ffpe validation            NA's
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99015292 100119968 100488842 105009798 108431634 153879469      1050 
+ 99015292 100471201 100488843 105137309 108431640 153879469      1051 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.center_id:
    2    5    9 NA's 
-   1   25   22 1050 
+   1   24   22 1051 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0700  0.0800  0.1400  0.1208  0.1525  0.1800    1050 
+ 0.0700  0.0800  0.1500  0.1206  0.1550  0.1800    1051 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2.00   12.00   12.00   13.38   13.25   31.00    1050 
+   2.00   12.00   12.00   13.36   13.00   31.00    1051 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.is_derived_from_ffpe:
   no NA's 
@@ -6291,11 +6247,11 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.is
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   4.500   6.062  10.000  12.000    1050 
+  1.000   2.000   3.000   5.936  10.000  12.000    1051 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   4.750   6.500   7.125  11.250  12.000    1050 
+  1.000   4.500   7.000   7.149  11.500  12.000    1051 
 
 
 
@@ -6305,7 +6261,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.qu
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.source_center:
   23 NA's 
-  48 1050 
+  47 1051 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -6313,7 +6269,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.vo
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.4.year_of_shipment:
 2010 2011 2013 NA's 
-  21   23    4 1050 
+  20   23    4 1051 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.5.additional_studies.additional_study.disease_code:
 fppp NA's 
@@ -6502,10 +6458,6 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.7.ye
 2011 NA's 
    1 1097 
 
-patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.amount:
-  13 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.bcr_biospecimen_canonical_reasons.bcr_canonical_reason:
@@ -6514,19 +6466,19 @@ germline comparison                NA's
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99014649 100120254 100488584 107889314 108475066 174191241      1002 
+ 99014649  99768949 100488585 107967364 108475078 174191241      1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.center_id:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   2.000   2.688   2.750  13.000    1002 
+  1.000   2.000   2.000   2.695   3.500  13.000    1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0800  0.1500  0.1600  0.1568  0.1700  0.1800    1002 
+ 0.0800  0.1500  0.1600  0.1571  0.1700  0.1800    1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   4.00   11.00   22.00   19.82   29.00   31.00    1002 
+   4.00   10.00   22.00   19.88   29.00   31.00    1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.is_derived_from_ffpe:
   no NA's 
@@ -6534,11 +6486,11 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.is_d
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   4.000   4.677   9.000  12.000    1002 
+    1.0     2.0     4.0     4.6     7.5    10.0    1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   7.000   6.406   8.000  12.000    1002 
+   1.00    3.00    7.00    6.41    8.00   12.00    1003 
 
 
 
@@ -6548,7 +6500,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.quan
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.source_center:
   23 NA's 
-  96 1002 
+  95 1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -6556,39 +6508,39 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.volu
 
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014    1002 
+   2010    2010    2011    2011    2011    2014    1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.amount:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   5.25   11.94   19.09   27.31   32.28  210.45    1002 
+   5.25   11.74   18.97   27.35   32.34  210.45    1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.analyte_type:
  dna  rna NA's 
-  95    1 1002 
+  94    1 1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.analyte_type_id:
    d    r NA's 
-  95    1 1002 
+  94    1 1003 
 
 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1300  0.1500  0.1600  0.1583  0.1700  0.1800    1002 
+ 0.1300  0.1500  0.1600  0.1586  0.1700  0.1800    1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.dna.normal_tumor_genotype_match:
  yes NA's 
-  95 1003 
+  94 1004 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.dna.pcr_amplification_successful:
  yes NA's 
-  95 1003 
+  94 1004 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.gel_image_file:
 https://sharedoc.nchri.org/tcga-bcr/default.aspx 
-                                              96 
+                                              95 
                                             NA's 
-                                            1002 
+                                            1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.is_derived_from_ffpe:
   no NA's 
@@ -6596,9 +6548,9 @@ patient.samples.sample.3.portions.portion.analytes.analyte.is_derived_from_ffpe:
 
 patient.samples.sample.3.portions.portion.analytes.analyte.protocols.protocol.experimental_protocol_type:
             adna preparation type         mirvana (allprep dna) rna 
-                               88                                 1 
+                               87                                 1 
 pre-extracted dna received by tss                              NA's 
-                                5                              1004 
+                                5                              1005 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.rna.ratio_28s_18s:
  1.3 NA's 
@@ -6610,7 +6562,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.rna.rinvalue:
 
 patient.samples.sample.3.portions.portion.analytes.analyte.spectrophotometer_method:
 picogreen   uv spec      NA's 
-       14        82      1002 
+       14        81      1003 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.subportion_sequence:
    1    2    3    4 NA's 
@@ -6620,7 +6572,7 @@ patient.samples.sample.3.portions.portion.analytes.analyte.subportion_sequence:
 
 patient.samples.sample.3.portions.portion.day_of_creation:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2.00   10.00   17.00   16.33   23.25   30.00    1002 
+   2.00   10.00   17.00   16.42   23.50   30.00    1003 
 
 patient.samples.sample.3.portions.portion.is_ffpe:
   no NA's 
@@ -6628,11 +6580,11 @@ patient.samples.sample.3.portions.portion.is_ffpe:
 
 patient.samples.sample.3.portions.portion.month_of_creation:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.792   8.000  12.000    1002 
+  1.000   3.000   5.000   5.779   8.000  12.000    1003 
 
 patient.samples.sample.3.portions.portion.portion_number:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00   11.75   22.00   24.46   33.00   73.00    1002 
+    1.0    12.0    22.0    24.6    33.0    73.0    1003 
 
 patient.samples.sample.3.portions.portion.portion_sequence:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -6647,39 +6599,39 @@ patient.samples.sample.3.portions.portion.slides.slide.2.is_derived_from_ffpe:
 
 patient.samples.sample.3.portions.portion.slides.slide.2.percent_lymphocyte_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   1.000   2.138   2.000  20.000    1040 
+  0.000   0.000   1.000   2.035   2.000  20.000    1041 
 
 patient.samples.sample.3.portions.portion.slides.slide.2.percent_monocyte_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0000  0.0000  0.0000  0.3276  0.0000  5.0000    1040 
+ 0.0000  0.0000  0.0000  0.3333  0.0000  5.0000    1041 
 
 patient.samples.sample.3.portions.portion.slides.slide.2.percent_necrosis:
    0 NA's 
-  43 1055 
+  42 1056 
 
 patient.samples.sample.3.portions.portion.slides.slide.2.percent_neutrophil_infiltration:
    0    1    5 NA's 
-  56    1    1 1040 
+  55    1    1 1041 
 
 patient.samples.sample.3.portions.portion.slides.slide.2.percent_normal_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00   11.50  100.00   68.23  100.00  100.00    1038 
+   0.00   11.00  100.00   67.78  100.00  100.00    1039 
 
 patient.samples.sample.3.portions.portion.slides.slide.2.percent_stromal_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00    0.00    0.00   43.28   96.00  100.00    1055 
+   0.00    0.00    5.00   44.31   96.50  100.00    1056 
 
 patient.samples.sample.3.portions.portion.slides.slide.2.percent_tumor_cells:
    0  100 NA's 
-  59    1 1038 
+  58    1 1039 
 
 patient.samples.sample.3.portions.portion.slides.slide.2.percent_tumor_nuclei:
    0 NA's 
-  43 1055 
+  42 1056 
 
 patient.samples.sample.3.portions.portion.slides.slide.2.section_location:
 bottom    top   NA's 
-     2     58   1038 
+     2     57   1039 
 
 
 
@@ -6873,47 +6825,47 @@ patient.samples.sample.3.portions.portion.slides.slide.is_derived_from_ffpe:
 
 patient.samples.sample.3.portions.portion.slides.slide.percent_lymphocyte_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   1.000   3.286   1.750  70.000    1028 
+  0.000   0.000   1.000   3.217   1.000  70.000    1029 
 
 patient.samples.sample.3.portions.portion.slides.slide.percent_monocyte_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0000  0.0000  0.0000  0.3857  0.0000 10.0000    1028 
+ 0.0000  0.0000  0.0000  0.3913  0.0000 10.0000    1029 
 
 patient.samples.sample.3.portions.portion.slides.slide.percent_necrosis:
    0 NA's 
-  52 1046 
+  51 1047 
 
 patient.samples.sample.3.portions.portion.slides.slide.percent_neutrophil_infiltration:
    0    1   10 NA's 
-  67    2    1 1028 
+  66    2    1 1029 
 
 patient.samples.sample.3.portions.portion.slides.slide.percent_normal_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00    5.50  100.00   60.63  100.00  100.00    1027 
+   0.00    5.25  100.00   60.07  100.00  100.00    1028 
 
 patient.samples.sample.3.portions.portion.slides.slide.percent_stromal_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00    0.00   72.50   49.92   99.25  100.00    1046 
+    0.0     0.0    75.0    50.9    99.5   100.0    1047 
 
 patient.samples.sample.3.portions.portion.slides.slide.percent_tumor_cells:
    0  100 NA's 
-  71    1 1026 
+  70    1 1027 
 
 patient.samples.sample.3.portions.portion.slides.slide.percent_tumor_nuclei:
    0 NA's 
-  52 1046 
+  51 1047 
 
 patient.samples.sample.3.portions.portion.slides.slide.section_location:
 bottom    top   NA's 
-    19     57   1022 
+    18     57   1023 
 
 patient.samples.sample.3.portions.portion.weight:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    1.5    20.0    80.0   118.2   230.0   300.0    1010 
+    1.5    20.0    80.0   119.2   230.0   300.0    1011 
 
 patient.samples.sample.3.portions.portion.year_of_creation:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014    1002 
+   2010    2010    2011    2011    2011    2014    1003 
 
 
 patient.samples.sample.3.portions.shipment_portion.center_id:
@@ -6951,15 +6903,15 @@ patient.samples.sample.3.portions.shipment_portion.shipment_portion_year_of_ship
 
 patient.samples.sample.3.sample_type:
 blood derived normal  solid tissue normal                 NA's 
-                  20                   76                 1002 
+                  20                   75                 1003 
 
 patient.samples.sample.3.sample_type_id:
   10   11 NA's 
-  20   76 1002 
+  20   75 1003 
 
 patient.samples.sample.3.vial_number:
    a    b NA's 
-  92    4 1002 
+  91    4 1003 
 
 patient.samples.sample.4.bcr_sample_barcode:
 tcga-a7-a0db-11a tcga-a7-a0dc-11a tcga-a7-a13e-11a tcga-e2-a15k-11a 
@@ -8029,7 +7981,7 @@ patient.samples.sample.4.vial_number:
 
 patient.samples.sample.days_to_collection:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-     16     149     447    1064    1374    7858       2 
+     16     149     447    1064    1375    7858       3 
 
 
 
@@ -8047,15 +7999,15 @@ patient.samples.sample.diagnostic_slides.ffpe_slide_uuid.4:
 
 patient.samples.sample.initial_weight:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    5.0   130.0   210.0   300.1   370.0  2190.0       1 
+    5.0   130.0   210.0   300.2   370.0  2190.0       2 
 
 patient.samples.sample.is_ffpe:
   no NA's 
 1097    1 
 
 patient.samples.sample.oct_embedded:
-false  true 
-  416   682 
+false  true  NA's 
+  416   681     1 
 
 
 
@@ -8597,29 +8549,25 @@ patient.samples.sample.portions.portion.3.year_of_creation:
 
 patient.samples.sample.portions.portion.analytes.analyte.2.a260_a280_ratio:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.880   1.780   1.830   1.834   1.880   2.270       5 
-
-patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.amount:
-26.7 NA's 
-   1 1097 
+  0.880   1.780   1.830   1.834   1.880   2.270       6 
 
 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 94929000  99051282 100477341 111737902 113423300 174189887         2 
+ 94929000  99051282 100477345 111748191 113423300 174189887         3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.center_id:
    7   13 NA's 
- 669  427    2 
+ 668  427    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1300  0.1500  0.1600  0.1585  0.1700  0.1800       2 
+ 0.1300  0.1500  0.1600  0.1585  0.1700  0.1800       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00   12.00   16.00   17.93   25.00   31.00       2 
+   1.00   12.00   16.00   17.94   25.00   31.00       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.is_derived_from_ffpe:
   no NA's 
@@ -8627,11 +8575,11 @@ patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.is
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.433   7.000  12.000       2 
+  1.000   3.000   5.000   5.427   7.000  12.000       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   3.000   4.078   6.000  12.000       2 
+  1.000   2.000   3.000   4.081   6.000  12.000       3 
 
 
 
@@ -8641,7 +8589,7 @@ patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.qu
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.source_center:
   23 NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.volume:
   13   20 26.7 NA's 
@@ -8649,7 +8597,7 @@ patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.vo
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.2.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014       2 
+   2010    2010    2011    2011    2011    2014       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.3.additional_studies.additional_study.disease_code:
 fppp NA's 
@@ -8834,27 +8782,23 @@ patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.5.ye
 2015 NA's 
    1 1097 
 
-patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.amount:
-  20 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99011371  99051790 100477635 112146732 113423384 174191615         2 
+ 99011371  99051790 100477636 112157394 113423387 174191615         3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.center_id:
    7   13 NA's 
- 427  669    2 
+ 427  668    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1300  0.1500  0.1600  0.1585  0.1700  0.1800       2 
+ 0.1300  0.1500  0.1600  0.1585  0.1700  0.1800       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00   12.00   16.00   17.85   25.00   31.00       2 
+   1.00   12.00   16.00   17.86   25.00   31.00       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.is_derived_from_ffpe:
   no NA's 
@@ -8862,11 +8806,11 @@ patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.is_d
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.433   7.000  12.000       2 
+  1.000   3.000   5.000   5.427   7.000  12.000       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   3.000   4.078   6.000  12.000       2 
+  1.000   2.000   3.000   4.081   6.000  12.000       3 
 
 
 
@@ -8876,7 +8820,7 @@ patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.quan
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.source_center:
   23 NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.volume:
   13   20 26.7 NA's 
@@ -8884,31 +8828,31 @@ patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.volu
 
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014       2 
+   2010    2010    2011    2011    2011    2014       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.amount:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   5.14   17.32   29.67   33.69   46.58  120.39       5 
+   5.14   17.32   29.73   33.70   46.60  120.39       6 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.analyte_type:
  rna NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.analyte_type_id:
    r NA's 
-1096    2 
+1095    3 
 
 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1300  0.1500  0.1600  0.1585  0.1700  0.1800       2 
+ 0.1300  0.1500  0.1600  0.1585  0.1700  0.1800       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.gel_image_file:
 https://sharedoc.nchri.org/tcga-bcr/default.aspx 
-                                            1096 
+                                            1095 
                                             NA's 
-                                               2 
+                                               3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.is_derived_from_ffpe:
   no NA's 
@@ -8916,19 +8860,19 @@ patient.samples.sample.portions.portion.analytes.analyte.2.is_derived_from_ffpe:
 
 patient.samples.sample.portions.portion.analytes.analyte.2.protocols.protocol.experimental_protocol_type:
    allprep rna extraction mirvana (allprep dna) rna                      NA's 
-                        6                      1089                         3 
+                        6                      1088                         4 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.rna.ratio_28s_18s:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   1.400   1.600   1.641   1.800   3.500       2 
+  0.000   1.400   1.600   1.641   1.800   3.500       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.rna.rinvalue:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  7.000   8.000   8.700   8.581   9.200  10.000       2 
+  7.000   8.000   8.700   8.581   9.200  10.000       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.spectrophotometer_method:
 uv spec    NA's 
-   1096       2 
+   1095       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.subportion_sequence:
    1    2    3 NA's 
@@ -9049,27 +8993,23 @@ patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.3.ye
 2010 NA's 
    2 1096 
 
-patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.amount:
-  80 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 89490683 100476731 108432441 112664518 113420304 167803513        37 
+ 89490683 100476730 108432442 112676006 113420304 167803513        38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.center_id:
    8    9 NA's 
-  46 1015   37 
+  46 1014   38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.concentration:
  0.5 NA's 
-1061   37 
+1060   38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    1.0     8.0    15.0    15.7    23.0    30.0      37 
+   1.00    8.00   15.00   15.69   23.00   30.00      38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.is_derived_from_ffpe:
   no NA's 
@@ -9077,11 +9017,11 @@ patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.is_d
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00    5.00    6.00    6.26    9.00   11.00      37 
+  1.000   5.000   6.000   6.265   9.000  11.000      38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   3.000   3.721   5.000  12.000      37 
+  1.000   2.000   3.000   3.724   5.000  12.000      38 
 
 
 
@@ -9091,7 +9031,7 @@ patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.quan
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.source_center:
   23 NA's 
-1061   37 
+1060   38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.volume:
   13   80 NA's 
@@ -9099,31 +9039,31 @@ patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.volu
 
 patient.samples.sample.portions.portion.analytes.analyte.3.aliquots.aliquot.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014      37 
+   2010    2010    2011    2011    2011    2014      38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.analyte_type:
   repli-g (qiagen) dna repli-g x (qiagen) dna                   NA's 
-                  1022                     39                     37 
+                  1021                     39                     38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.analyte_type_id:
    w    x NA's 
-1022   39   37 
+1021   39   38 
 
 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.dna.normal_tumor_genotype_match:
  yes NA's 
-1061   37 
+1060   38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.dna.pcr_amplification_successful:
  yes NA's 
-1061   37 
+1060   38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.gel_image_file:
 https://sharedoc.nchri.org/tcga-bcr/default.aspx 
-                                            1061 
+                                            1060 
                                             NA's 
-                                              37 
+                                              38 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.is_derived_from_ffpe:
   no NA's 
@@ -9131,7 +9071,7 @@ patient.samples.sample.portions.portion.analytes.analyte.3.is_derived_from_ffpe:
 
 patient.samples.sample.portions.portion.analytes.analyte.3.protocols.protocol.experimental_protocol_type:
   repli-g repli-g x      NA's 
-      929        39       130 
+      928        39       131 
 
 patient.samples.sample.portions.portion.analytes.analyte.3.subportion_sequence:
    1    2    3 NA's 
@@ -9391,30 +9331,26 @@ patient.samples.sample.portions.portion.analytes.analyte.5.subportion_sequence:
    1 1097 
 
 patient.samples.sample.portions.portion.analytes.analyte.a260_a280_ratio:
-    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
-   0.710    1.880    1.940    4.137    2.000 1761.000      297 
-
-patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.amount:
-6.67 NA's 
-   1 1097 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   0.71    1.88    1.94    4.14    2.00 1761.00     298 
 
 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99015303  99054750 100490520 112412430 113423242 174191459         2 
+ 99015303  99054750 100490520 112423333 113423242 174191459         3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.center_id:
    1    2    5    9 NA's 
- 595   92   17  392    2 
+ 594   92   17  392    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.06    0.08    0.15    0.13    0.16    0.18       2 
+   0.06    0.08    0.15    0.13    0.16    0.18       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00   12.00   16.00   17.88   25.00   31.00       2 
+   1.00   12.00   16.00   17.89   25.00   31.00       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.is_derived_from_ffpe:
   no NA's 
@@ -9422,11 +9358,11 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.is_d
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.446   7.000  12.000       2 
+   1.00    3.00    5.00    5.44    7.00   12.00       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   3.000   3.699   5.000  12.000       2 
+  1.000   2.000   3.000   3.701   5.000  12.000       3 
 
 
 
@@ -9436,7 +9372,7 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.quan
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.source_center:
   23 NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -9444,29 +9380,25 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.volu
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.2.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014       2 
-
-patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.amount:
-  26 NA's 
-   1 1097 
+   2010    2010    2011    2011    2011    2014       3 
 
 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99013582 100471165 100487632 112270830 113423672 174190374         2 
+ 99013582 100471164 100487633 112281604 113423676 174190374         3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.center_id:
    1    2    5    9 NA's 
- 206   55  429  406    2 
+ 206   55  429  405    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0700  0.0800  0.1500  0.1287  0.1600  0.2100       2 
+ 0.0700  0.0800  0.1500  0.1287  0.1600  0.2100       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00   12.00   19.00   19.04   28.00   31.00       2 
+   1.00   12.00   19.00   19.05   28.00   31.00       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.is_derived_from_ffpe:
   no NA's 
@@ -9474,11 +9406,11 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.is_d
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.446   7.000  12.000       2 
+   1.00    3.00    5.00    5.44    7.00   12.00       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   3.000   3.701   5.000  12.000       2 
+  1.000   2.000   3.000   3.703   5.000  12.000       3 
 
 
 
@@ -9488,7 +9420,7 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.quan
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.source_center:
   23 NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -9496,29 +9428,25 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.volu
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.3.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014       2 
-
-patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.amount:
-26.7 NA's 
-   1 1097 
+   2010    2010    2011    2011    2011    2014       3 
 
 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 89490670  99050898 100478900 103646632 108474665 153879512       284 
+ 89490670  99050899 100478900 103652328 108474665 153879512       285 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.center_id:
    1    5    8    9 NA's 
-   1  420  230  163  284 
+   1  419  230  163  285 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0700  0.0800  0.1400  0.1213  0.1600  0.1900     284 
+ 0.0700  0.0800  0.1400  0.1213  0.1600  0.1900     285 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   6.00    9.00   14.00   16.99   23.00   31.00     284 
+      6       9      14      17      23      31     285 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.is_derived_from_ffpe:
   no NA's 
@@ -9526,11 +9454,11 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.is_d
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.506   8.000  12.000     284 
+  1.000   3.000   5.000   5.498   8.000  12.000     285 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   4.000   4.275   6.000  12.000     284 
+  1.000   2.000   4.000   4.279   6.000  12.000     285 
 
 
 
@@ -9540,7 +9468,7 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.quan
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.source_center:
   23 NA's 
- 814  284 
+ 813  285 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.volume:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -9548,7 +9476,7 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.volu
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.4.year_of_shipment:
 2010 2011 2013 NA's 
- 344  469    1  284 
+ 343  469    1  285 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.5.additional_studies.additional_study.disease_code:
 fppp NA's 
@@ -9794,27 +9722,23 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.8.year
 2015 NA's 
    2 1096 
 
-patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.amount:
-  13 NA's 
-   1 1097 
-
 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.biospecimen_barcode_bottom:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
- 99014634 100473754 100490542 112034526 113421550 174191244         2 
+ 99014634 100473754 100490542 112045083 113421550 174191244         3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.center_id:
    1    2    5 NA's 
- 295  570  231    2 
+ 295  569  231    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1200  0.1500  0.1600  0.1582  0.1700  0.2100       2 
+ 0.1200  0.1500  0.1600  0.1582  0.1700  0.2100       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00   12.00   16.00   17.86   25.00   31.00       2 
+   1.00   12.00   16.00   17.86   25.00   31.00       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.is_derived_from_ffpe:
   no NA's 
@@ -9822,11 +9746,11 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.is_der
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   3.000   5.000   5.346   7.000  12.000       2 
+   1.00    3.00    5.00    5.34    7.00   12.00       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.plate_column:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   2.000   3.000   3.699   5.000  12.000       2 
+  1.000   2.000   3.000   3.701   5.000  12.000       3 
 
 
 
@@ -9836,7 +9760,7 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.quanti
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.source_center:
   23 NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.volume:
  6.7    7   13 26.7 NA's 
@@ -9844,39 +9768,39 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.volume
 
 patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.year_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014       2 
+   2010    2010    2011    2011    2011    2014       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.amount:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   6.95   22.75   36.45   40.80   56.99  116.67       6 
+   6.95   22.75   36.43   40.80   57.02  116.67       7 
 
 patient.samples.sample.portions.portion.analytes.analyte.analyte_type:
  dna NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.analyte_type_id:
    d NA's 
-1096    2 
+1095    3 
 
 
 
 patient.samples.sample.portions.portion.analytes.analyte.concentration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.1200  0.1500  0.1600  0.1582  0.1700  0.2100       2 
+ 0.1200  0.1500  0.1600  0.1582  0.1700  0.2100       3 
 
 patient.samples.sample.portions.portion.analytes.analyte.dna.normal_tumor_genotype_match:
  yes NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.dna.pcr_amplification_successful:
  yes NA's 
-1096    2 
+1095    3 
 
 patient.samples.sample.portions.portion.analytes.analyte.gel_image_file:
 https://sharedoc.nchri.org/tcga-bcr/default.aspx 
-                                            1096 
+                                            1095 
                                             NA's 
-                                               2 
+                                               3 
 
 patient.samples.sample.portions.portion.analytes.analyte.is_derived_from_ffpe:
   no NA's 
@@ -9884,11 +9808,11 @@ patient.samples.sample.portions.portion.analytes.analyte.is_derived_from_ffpe:
 
 patient.samples.sample.portions.portion.analytes.analyte.protocols.protocol.experimental_protocol_type:
 adna preparation type                  NA's 
-                 1096                     2 
+                 1095                     3 
 
 patient.samples.sample.portions.portion.analytes.analyte.spectrophotometer_method:
 picogreen   uv spec      NA's 
-      291       805         2 
+      291       804         3 
 
 patient.samples.sample.portions.portion.analytes.analyte.subportion_sequence:
    1    2    3 NA's 
@@ -9898,7 +9822,7 @@ patient.samples.sample.portions.portion.analytes.analyte.subportion_sequence:
 
 patient.samples.sample.portions.portion.day_of_creation:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00    8.00   12.00   13.84   21.00   31.00       2 
+   1.00    8.00   12.00   13.85   21.00   31.00       3 
 
 patient.samples.sample.portions.portion.is_ffpe:
   no NA's 
@@ -9906,11 +9830,11 @@ patient.samples.sample.portions.portion.is_ffpe:
 
 patient.samples.sample.portions.portion.month_of_creation:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   4.000   6.000   6.259   9.000  12.000       2 
+  1.000   4.000   6.000   6.259   9.000  12.000       3 
 
 patient.samples.sample.portions.portion.portion_number:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00   11.00   11.00   13.98   12.00   81.00       2 
+   1.00   11.00   11.00   13.99   12.00   81.00       3 
 
 patient.samples.sample.portions.portion.portion_sequence:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -9925,39 +9849,39 @@ patient.samples.sample.portions.portion.slides.slide.2.is_derived_from_ffpe:
 
 patient.samples.sample.portions.portion.slides.slide.2.percent_lymphocyte_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   1.000   2.000   6.794   6.000 100.000     651 
+  0.000   1.000   2.000   6.789   6.000 100.000     652 
 
 patient.samples.sample.portions.portion.slides.slide.2.percent_monocyte_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   0.000   1.054   0.000  30.000     651 
+  0.000   0.000   0.000   1.056   0.000  30.000     652 
 
 patient.samples.sample.portions.portion.slides.slide.2.percent_necrosis:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   1.000   1.877   2.000  30.000     651 
+  0.000   0.000   1.000   1.879   2.000  30.000     652 
 
 patient.samples.sample.portions.portion.slides.slide.2.percent_neutrophil_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0000  0.0000  0.0000  0.9933  0.0000 30.0000     651 
+ 0.0000  0.0000  0.0000  0.9955  0.0000 30.0000     652 
 
 patient.samples.sample.portions.portion.slides.slide.2.percent_normal_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   0.000   4.548   5.000  79.000     651 
+  0.000   0.000   0.000   4.513   4.750  79.000     652 
 
 patient.samples.sample.portions.portion.slides.slide.2.percent_stromal_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00   10.00   18.00   20.85   25.50   90.00     651 
+   0.00   10.00   18.00   20.88   25.75   90.00     652 
 
 patient.samples.sample.portions.portion.slides.slide.2.percent_tumor_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    0.0    69.5    78.0    72.9    85.0   100.0     651 
+   0.00   69.25   78.00   72.91   85.00  100.00     652 
 
 patient.samples.sample.portions.portion.slides.slide.2.percent_tumor_nuclei:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00   70.00   80.00   77.51   85.00   98.00     651 
+    0.0    70.0    80.0    77.5    85.0    98.0     652 
 
 patient.samples.sample.portions.portion.slides.slide.2.section_location:
 bottom    top   NA's 
-    28    419    651 
+    28    418    652 
 
 
 
@@ -9968,47 +9892,47 @@ patient.samples.sample.portions.portion.slides.slide.is_derived_from_ffpe:
 
 patient.samples.sample.portions.portion.slides.slide.percent_lymphocyte_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   1.000   6.151   4.000 100.000       6 
+  0.000   0.000   1.000   6.138   4.000 100.000       7 
 
 patient.samples.sample.portions.portion.slides.slide.percent_monocyte_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   0.000   1.604   0.000  30.000       6 
+  0.000   0.000   0.000   1.606   0.000  30.000       7 
 
 patient.samples.sample.portions.portion.slides.slide.percent_necrosis:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   0.000   1.771   2.000  35.000       6 
+  0.000   0.000   0.000   1.772   2.000  35.000       7 
 
 patient.samples.sample.portions.portion.slides.slide.percent_neutrophil_infiltration:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  0.000   0.000   0.000   1.629   0.000  50.000       6 
+  0.000   0.000   0.000   1.631   0.000  50.000       7 
 
 patient.samples.sample.portions.portion.slides.slide.percent_normal_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00    0.00    0.00    3.86    3.25   89.00       6 
+  0.000   0.000   0.000   3.836   3.000  89.000       7 
 
 patient.samples.sample.portions.portion.slides.slide.percent_stromal_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00   10.00   20.00   21.05   30.00   95.00       6 
+   0.00   10.00   20.00   21.07   30.00   95.00       7 
 
 patient.samples.sample.portions.portion.slides.slide.percent_tumor_cells:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00   64.75   75.00   73.28   85.00  100.00       6 
+   0.00   65.00   75.00   73.29   85.00  100.00       7 
 
 patient.samples.sample.portions.portion.slides.slide.percent_tumor_nuclei:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    0.0    70.0    80.0    77.3    85.0    98.0       6 
+   0.00   70.00   80.00   77.32   85.00   98.00       7 
 
 patient.samples.sample.portions.portion.slides.slide.section_location:
 bottom    top   NA's 
-   420    675      3 
+   419    675      4 
 
 patient.samples.sample.portions.portion.weight:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  10.00   30.00   30.00   29.29   30.00  100.00       3 
+  10.00   30.00   30.00   29.29   30.00  100.00       4 
 
 patient.samples.sample.portions.portion.year_of_creation:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2010    2010    2011    2011    2011    2014       2 
+   2010    2010    2011    2011    2011    2014       3 
 
 
 patient.samples.sample.portions.shipment_portion.2.center_id:
@@ -10044,7 +9968,7 @@ patient.samples.sample.portions.shipment_portion.2.shipment_portion_year_of_ship
 
 patient.samples.sample.portions.shipment_portion.center_id:
   20   30 NA's 
- 873   14  211 
+ 872   14  212 
 
 patient.samples.sample.portions.shipment_portion.is_ffpe:
   no NA's 
@@ -10053,7 +9977,7 @@ patient.samples.sample.portions.shipment_portion.is_ffpe:
 
 patient.samples.sample.portions.shipment_portion.portion_number:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  11.00   21.00   21.00   20.42   21.00   91.00     211 
+  11.00   21.00   21.00   20.42   21.00   91.00     212 
 
 patient.samples.sample.portions.shipment_portion.portion_sequence:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -10062,27 +9986,27 @@ patient.samples.sample.portions.shipment_portion.portion_sequence:
 
 patient.samples.sample.portions.shipment_portion.shipment_portion_day_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   2.00    2.00   22.00   14.85   22.00   24.00     211 
+   2.00    2.00   22.00   14.85   22.00   24.00     212 
 
 patient.samples.sample.portions.shipment_portion.shipment_portion_month_of_shipment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  3.000   3.000   6.000   5.944   8.000  11.000     211 
+  3.000   3.000   6.000   5.947   8.000  11.000     212 
 
 patient.samples.sample.portions.shipment_portion.shipment_portion_year_of_shipment:
 2011 2012 2013 2014 NA's 
- 648   99   79   61  211 
+ 647   99   79   61  212 
 
 patient.samples.sample.sample_type:
-primary tumor 
-         1098 
+primary tumor          NA's 
+         1097             1 
 
 patient.samples.sample.sample_type_id:
-   1 
-1098 
+   1 NA's 
+1097    1 
 
 patient.samples.sample.vial_number:
-   a    b 
-1088   10 
+   a    b NA's 
+1087   10    1 
 
 Gender:
 FEMALE   MALE   NA's 

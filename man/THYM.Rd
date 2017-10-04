@@ -1,68 +1,64 @@
 \name{ THYM }
 \alias{ THYM }
 \docType{data}
-\title{ THYM }
+\title{ Thymoma }
 
 \details{
 \preformatted{
-> THYM
-A MultiAssayExperiment object of 8 listed
- experiments with user-defined names and respective classes. 
- Containing an ExperimentList class object of length 8: 
- [1] RNASeq2GeneNorm: ExpressionSet with 20501 rows and 122 columns 
- [2] miRNASeqGene: ExpressionSet with 1046 rows and 126 columns 
- [3] CNASNP: RangedRaggedAssay with 105646 rows and 248 columns 
- [4] CNVSNP: RangedRaggedAssay with 15571 rows and 248 columns 
- [5] Methylation: SummarizedExperiment with 485577 rows and 126 columns 
- [6] RPPAArray: ExpressionSet with 192 rows and 90 columns 
- [7] gistica: SummarizedExperiment with 24776 rows and 123 columns 
- [8] gistict: SummarizedExperiment with 24776 rows and 123 columns 
-To access: 
- experiments() - to obtain the ExperimentList instance 
- pData() - for the primary/phenotype DataFrame 
- sampleMap() - for the sample availability DataFrame 
- metadata() - for the metadata object of ANY class 
-See also: subsetByAssay(), subsetByRow(), subsetByColumn()
+> experiments( THYM )
+ExperimentList class object of length 9: 
+ [1] CNASNP-20160128: RaggedExperiment with 105646 rows and 248 columns 
+ [2] CNVSNP-20160128: RaggedExperiment with 15571 rows and 248 columns 
+ [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 123 columns 
+ [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 123 columns 
+ [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 126 columns 
+ [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 126 columns 
+ [7] Mutation-20160128: RaggedExperiment with 3064 rows and 123 columns 
+ [8] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 122 columns 
+ [9] RPPAArray-20160128: SummarizedExperiment with 192 rows and 90 columns 
 
 > rownames( THYM )
-CharacterList of length 8
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["CNASNP"]] 1:61735-17012314 1:17012422-17258139 ... 24:28438116-59018259
-[["CNVSNP"]] 1:3218610-247813706 2:484222-222471013 ... 23:115821166-154905589
-[["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
-[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
-[["gistica"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["gistict"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+CharacterList of length 9
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
+[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["Mutation-20160128"]] character(0)
+[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
+[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
 
 > colnames( THYM )
-CharacterList of length 8
-[["RNASeq2GeneNorm"]] TCGA-3G-AB0O-01A-22R-A42C-07 ...
-[["miRNASeqGene"]] TCGA-3G-AB0O-01A-22R-A42W-13 ...
-[["CNASNP"]] TCGA-3G-AB0O-01A-22D-A422-01 ... TCGA-ZT-A8OM-10A-01D-A42A-01
-[["CNVSNP"]] TCGA-3G-AB0O-01A-22D-A422-01 ... TCGA-ZT-A8OM-10A-01D-A42A-01
-[["Methylation"]] TCGA-3G-AB0O-01A-22D-A424-05 ... TCGA-ZT-A8OM-01A-11D-A429-05
-[["RPPAArray"]] TCGA-3G-AB0O-01A-11-A45R-20 ... TCGA-ZL-A9V6-01A-21-A45R-20
-[["gistica"]] TCGA-3G-AB0O-01A-22D-A422-01 ... TCGA-ZT-A8OM-01A-11D-A427-01
-[["gistict"]] TCGA-3G-AB0O-01A-22D-A422-01 ... TCGA-ZT-A8OM-01A-11D-A427-01
+CharacterList of length 9
+[["CNASNP-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01 ...
+[["CNVSNP-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01 ...
+[["GISTIC_AllByGene-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01 ...
+[["GISTIC_ThresholdedByGene-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01 ...
+[["Methylation-20160128"]] TCGA-3G-AB0O-01A-22D-A424-05 ...
+[["miRNASeqGene-20160128"]] TCGA-3G-AB0O-01A-22R-A42W-13 ...
+[["Mutation-20160128"]] TCGA-3G-AB0O-01A-22D-A423-09 ...
+[["RNASeq2GeneNorm-20160128"]] TCGA-3G-AB0O-01A-22R-A42C-07 ...
+[["RPPAArray-20160128"]] TCGA-3G-AB0O-01A-11-A45R-20 ...
 
 Sizes of each ExperimentList element:
 
-            assay size.Mb
-1 RNASeq2GeneNorm  1.1 Mb
-2    miRNASeqGene  0.1 Mb
-3          CNASNP  7.8 Mb
-4          CNVSNP  1.3 Mb
-5     Methylation 67.4 Mb
-6       RPPAArray    0 Mb
-7         gistica  4.3 Mb
-8         gistict  4.3 Mb
+                              assay size.Mb
+1                   CNASNP-20160128  2.9 Mb
+2                   CNVSNP-20160128  0.5 Mb
+3         GISTIC_AllByGene-20160128  4.3 Mb
+4 GISTIC_ThresholdedByGene-20160128  4.3 Mb
+5              Methylation-20160128 67.4 Mb
+6             miRNASeqGene-20160128  0.1 Mb
+7                 Mutation-20160128    3 Mb
+8          RNASeq2GeneNorm-20160128  1.1 Mb
+9                RPPAArray-20160128    0 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
 ---------------------------
 
-Call: survfit(formula = survival::Surv(object$days_to_death/365, object$vital_status) ~ 
+Call: survfit(formula = survival::Surv(colDat$days_to_death/365, colDat$vital_status) ~ 
     -1)
 
    115 observations deleted due to missingness 
@@ -89,7 +85,7 @@ days_to_death:
 
 days_to_last_followup:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-      4     714    1253    1476    1960    4575       7 
+   14.0   725.2  1267.5  1486.3  1947.0  4575.0      10 
 
 tumor_tissue_site:
 anterior mediastinum               thymus 
