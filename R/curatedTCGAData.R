@@ -5,12 +5,11 @@
     sort(assaysAvailable)
 }
 
-.getResources <- function(regNames, eh_assays, eh) {
-    ## loop over loadResources for file names
-    if (!all(resourceName %in% eh_assays))
-        stop("Requested ExperimentHub resource not found in repository")
-    else
-        loadResources(eh, "curatedTCGAData", resourceName)
+.getResources <- function(ExperimentHub, files) {
+    resources <- lapply(files, function(res) {
+        loadResources(ExperimentHub, "curatedTCGAData", res)
+    })
+    unlist(resources)
 }
 
 #' Create a MultiAssayExperiment from specific assays and cohorts
@@ -66,7 +65,6 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
     names(reg_names) <- codeAssay
 
     eh <- ExperimentHub()
-    eh_pkg <- "curatedTCGAData"
     fileMatches <- lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE))
     noMatch <- lengths(fileMatches) == 0L
     if (any(noMatch)) {
