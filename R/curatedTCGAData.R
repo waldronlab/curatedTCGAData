@@ -47,15 +47,24 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
         return(NULL)
     }
     regCode <- glob2rx(diseaseCode)
+    ## TODO: loop over regCode/regAssay in grep call
     resultCodes <- grep(regCode, tcgaCodes,
                        ignore.case = TRUE, value = TRUE)
     regAssay <- glob2rx(assays)
     resultAssays <- grep(regAssay, assaysAvail,
                        ignore.case = TRUE, value = TRUE)
-    eh_names <- vapply(resultCodes, function(code) {
-        paste0("^", code, "_", resultAssays)},
-            character(length(resultAssays)))
-    eh_names <- as.vector(eh_names)
+    isGISTIC <- grepl("^GISTIC", resultAssays)
+    if (any(isGISTIC)) {
+        fullG <- vapply(resultAssays[isGISTIC], function(x)
+            switch(x, GISTICT = "GISTIC_ThresholdedByGene",
+                   GISTICA = "GISTIC_AllByGene"), character(1L))
+        resultAssays <- replace(resultAssays, isGISTIC, fullG)
+    }
+    codeAssay <- sort(apply(expand.grid(resultCodes, resultAssays),
+        1L, paste, collapse = "_"))
+    reg_names <- paste0("^", codeAssay, ".*", runDate, ".rda$")
+    names(reg_names) <- codeAssay
+
     eh <- ExperimentHub()
     eh_pkg <- "curatedTCGAData"
     assay_list <- lapply(eh_reg, .getResource, eh, eh_assays)
