@@ -4,15 +4,22 @@
 \alias{curatedTCGAData}
 \title{Create a MultiAssayExperiment from specific assays and cohorts}
 \usage{
-curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE)
+curatedTCGAData(diseaseCode = "*", assays = "*", runDate = "20160128",
+  dry.run = TRUE)
 }
 \arguments{
+\item{diseaseCode}{a character vector containing the name(s) of TCGA cohorts}
+
 \item{assays}{a character vector containing the name(s) of TCGA assays}
 
-\item{cohort}{a character vector containing the name(s) of TCGA cohorts}
+\item{runDate}{a single string of the TCGA firehose running date}
+
+\item{dry.run}{logical (default TRUE) whether to return the dataset names
+before actual download}
 }
 \value{
-a MultiAssayExperiment of the specified assays and cohorts
+a \linkS4class{MultiAssayExperiment} of the specified assays and
+cancer codes
 }
 \description{
 Create a MultiAssayExperiment from specific assays and cohorts

@@ -1,10 +1,22 @@
+.codesAvailable <- function() {
+    dxcodeEnv <- new.env(parent = emptyenv())
+    data("diseaseCodes", envir = dxcodeEnv)
+    diseaseCodes <- dxcodeEnv[["diseaseCodes"]]
+    excludedCodes <- c("COADREAD", "GBMLGG", "KIPAN", "STES", "FPPP", "CNTL",
+                       "LCML", "MISC")
+    diseaseCodes <-
+        diseaseCodes[!diseaseCodes[["Study.Abbreviation"]] %in% excludedCodes, ]
+    diseaseCodes
+}
+
 .assaysAvailable <- function() {
     assaysAvailable <- c("RNASeqGene", "RNASeq2GeneNorm", "miRNASeqGene",
-                         "CNASNP", "CNVSNP", "CNAseq", "CNACGH", "Methylation",
-                         "RPPAArray", "Mutations", "gistica", "gistict")
+                         "CNASNP", "CNVSNP", "CNASeq", "Methylation",
+                         "RPPAArray", "Mutation", "GISTICA", "GISTICT")
     assaysAvailable
 }
 
+## CHANGE to use REGEX
 .getResource <- function(resourceName, eh, eh_assays) {
     if (!all(resourceName %in% eh_assays))
         stop("Requested ExperimentHub resource not found in repository")
@@ -16,16 +28,21 @@
 #'
 #' @param diseaseCode a character vector containing the name(s) of TCGA cohorts
 #' @param assays a character vector containing the name(s) of TCGA assays
+#' @param runDate a single string of the TCGA firehose running date
+#' @param dry.run logical (default TRUE) whether to return the dataset names
+#' before actual download
 #'
-#' @return a MultiAssayExperiment of the specified assays and cohorts
+#' @return a \linkS4class{MultiAssayExperiment} of the specified assays and
+#' cancer codes
 #' @export curatedTCGAData
 #'
 #' @examples
 #' curatedTCGAData(diseaseCode = "TH*", assays = "CN*")
 #'
-curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
+curatedTCGAData <- function(diseaseCode = "*", assays = "*",
+                            runDate = "20160128", dry.run = TRUE) {
     assaysAvail <- .assaysAvailable()
-    tcgaCodes <- diseaseCodes[["Study.Abbreviation"]]
+    tcgaCodes <- .codesAvailable()[["Study.Abbreviation"]]
     eh_assays <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
     eh_assays <- read.csv(eh_assays)[["ResourceName"]]
@@ -43,12 +60,12 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
     resultAssays <- grep(regAssay, assaysAvail,
                        ignore.case = TRUE, value = TRUE)
     eh_names <- vapply(resultCodes, function(code) {
-        paste0(code, "_", resultAssays, ".rda")},
+        paste0("^", code, "_", resultAssays)},
             character(length(resultAssays)))
     eh_names <- as.vector(eh_names)
     eh <- ExperimentHub()
-
-    assay_list <- lapply(eh_names, .getResource, eh, eh_assays)
+    eh_pkg <- "curatedTCGAData"
+    assay_list <- lapply(eh_reg, .getResource, eh, eh_assays)
     names(assay_list) <- gsub(".rda", "", eh_names)
     assay_list <- Filter(function(x) !is.null(x), assay_list)
     eh_experiments <- ExperimentList(assay_list)
