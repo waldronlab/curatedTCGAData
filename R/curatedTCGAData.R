@@ -73,10 +73,12 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
                 width = 46))
     }
     fileMatches <- unlist(fileMatches)
-    assay_list <- lapply(eh_reg, .getResource, eh, eh_assays)
-    names(assay_list) <- gsub(".rda", "", eh_names)
-    assay_list <- Filter(function(x) !is.null(x), assay_list)
+
+    assay_list <- .getResources(eh, files)
+    names(assay_list) <- gsub(".rda", "", fileMatches)
+
     eh_experiments <- ExperimentList(assay_list)
+
     chr_colData <- paste0(resultCodes, "_colData", "-", runDate, ".rda")
     chr_sampleMap <- paste0(resultCodes, "_sampleMap", "-", runDate, ".rda")
     chr_metadata <- paste0(resultCodes, "_metadata", "-", runDate, ".rda")
