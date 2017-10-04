@@ -79,9 +79,9 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
     names(assay_list) <- gsub(".rda", "", eh_names)
     assay_list <- Filter(function(x) !is.null(x), assay_list)
     eh_experiments <- ExperimentList(assay_list)
-    chr_colData <- paste0(resultCodes, "_colData", ".rda")
-    chr_sampleMap <- paste0(resultCodes, "_sampleMap", ".rda")
-    chr_metadata <- paste0(resultCodes, "_metadata", ".rda")
+    chr_colData <- paste0(resultCodes, "_colData", "-", runDate, ".rda")
+    chr_sampleMap <- paste0(resultCodes, "_sampleMap", "-", runDate, ".rda")
+    chr_metadata <- paste0(resultCodes, "_metadata", "-", runDate, ".rda")
 #    eh_colData <- loadResources(eh, eh_pkg, chr_colData)[[1]]
 #    eh_sampleMap <- loadResources(eh, eh_pkg, chr_sampleMap)[[1]]
 #    eh_metadata <- loadResources(eh, eh_pkg, chr_metadata)[[1]]
