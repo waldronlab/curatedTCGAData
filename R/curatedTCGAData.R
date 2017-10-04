@@ -32,23 +32,19 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
                             runDate = "20160128", dry.run = TRUE) {
     assaysAvail <- .assaysAvailable()
     tcgaCodes <- diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
-    tcgaCodes <- sort(tcgaCodes)
-browser()
+
     eh_assays <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
     eh_assays <- read.csv(eh_assays)[["ResourceName"]]
     if (diseaseCode == "*" && assays == "*" && dry.run) {
         message("Please see the list below for available cohorts and assays")
-    browser()
-        return(
-            list(
-            diseaseCodes = data.frame(
-                matrix(tcgaCodes, ncol = 4L, byrow = FALSE),
-                stringsAsFactors = FALSE),
-            assays = data.frame(matrix(assaysAvail, ncol = 3L, byrow = TRUE),
-                stringsAsFactors = FALSE)
-                )
-            )
+        cat("Available Cancer codes:\n",
+            paste(strwrap(paste(tcgaCodes, collapse = " "),
+                          width = 55), collapse = "\n "), "\n")
+        cat("Available Data Types:\n",
+            paste(strwrap(paste(assaysAvail, collapse = " "),
+                          width = 46), collapse = "\n "))
+        return(NULL)
     }
     regCode <- glob2rx(diseaseCode)
     resultCodes <- grep(regCode, tcgaCodes,
