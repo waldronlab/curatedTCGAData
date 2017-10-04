@@ -5,8 +5,8 @@
     sort(assaysAvailable)
 }
 
-## CHANGE to use REGEX
-.getResource <- function(resourceName, eh, eh_assays) {
+.getResources <- function(regNames, eh_assays, eh) {
+    ## loop over loadResources for file names
     if (!all(resourceName %in% eh_assays))
         stop("Requested ExperimentHub resource not found in repository")
     else
@@ -67,6 +67,14 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
 
     eh <- ExperimentHub()
     eh_pkg <- "curatedTCGAData"
+    fileMatches <- lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE))
+    noMatch <- lengths(fileMatches) == 0L
+    if (any(noMatch)) {
+        warning("Cancer and data type combination(s) not available:\n",
+            strwrap(paste(names(fileMatches)[noMatch], collapse = ", "),
+                width = 46))
+    }
+    fileMatches <- unlist(fileMatches)
     assay_list <- lapply(eh_reg, .getResource, eh, eh_assays)
     names(assay_list) <- gsub(".rda", "", eh_names)
     assay_list <- Filter(function(x) !is.null(x), assay_list)
