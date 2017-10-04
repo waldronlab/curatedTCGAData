@@ -33,9 +33,9 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
     assaysAvail <- .assaysAvailable()
     tcgaCodes <- diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
 
-    eh_assays <- system.file("extdata", "metadata.csv",
+    assays_file <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
-    eh_assays <- read.csv(eh_assays)[["ResourceName"]]
+    eh_assays <- as.character(read.csv(assays_file)[["ResourceName"]])
     if (diseaseCode == "*" && assays == "*" && dry.run) {
         message("Please see the list below for available cohorts and assays")
         cat("Available Cancer codes:\n",
