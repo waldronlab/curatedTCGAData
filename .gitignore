@@ -12,16 +12,13 @@
 # Data Files
 .RData
 .Ruserdata
-data/*
-tmp
-*.Rds
+*.[Rr][Dd][Ss]
+*.[Rr][Dd][Aa]
 
 # News/doc Files
 NEWS
 *.md
 inst/doc
 
-
 # Don't ignore
-!data/diseaseCodes.rda
-
+!R/sysdata.rda
