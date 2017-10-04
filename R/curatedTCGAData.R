@@ -11,8 +11,8 @@
 
 .assaysAvailable <- function() {
     assaysAvailable <- c("RNASeqGene", "RNASeq2GeneNorm", "miRNASeqGene",
-                         "CNASNP", "CNVSNP", "CNASeq", "Methylation",
-                         "RPPAArray", "Mutation", "GISTICA", "GISTICT")
+        "CNASNP", "CNVSNP", "CNASeq", "Methylation", "CNACGH", "RPPAArray",
+        "Mutation", "GISTICA", "GISTICT")
     assaysAvailable
 }
 
