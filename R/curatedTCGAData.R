@@ -69,12 +69,10 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
                    GISTICA = "GISTIC_AllByGene"), character(1L))
         resultAssays <- replace(resultAssays, isGISTIC, fullG)
     }
-    codeAssay <- sort(apply(expand.grid(resultCodes, resultAssays),
-        1L, paste, collapse = "_"))
+    codeAssay <- .getComboSort(resultCodes, resultAssays)
     reg_names <- paste0("^", codeAssay, ".*", runDate, ".rda$")
     names(reg_names) <- codeAssay
 
-    eh <- ExperimentHub()
     fileMatches <- lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE))
     noMatch <- lengths(fileMatches) == 0L
     if (any(noMatch)) {
@@ -84,8 +82,9 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
     }
     fileMatches <- unlist(fileMatches)
 
-    assay_list <- .getResources(eh, files)
-    names(assay_list) <- gsub(".rda", "", fileMatches)
+    eh <- ExperimentHub()
+    assay_list <- .getResources(eh, fileMatches)
+    names(assay_list) <- .removeExt(fileMatches)
 
     eh_experiments <- ExperimentList(assay_list)
 
