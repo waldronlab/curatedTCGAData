@@ -88,14 +88,12 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
 
     eh_experiments <- ExperimentList(assay_list)
 
-    chr_colData <- paste0(resultCodes, "_colData", "-", runDate, ".rda")
-    chr_sampleMap <- paste0(resultCodes, "_sampleMap", "-", runDate, ".rda")
-    chr_metadata <- paste0(resultCodes, "_metadata", "-", runDate, ".rda")
-#    eh_colData <- loadResources(eh, eh_pkg, chr_colData)[[1]]
-#    eh_sampleMap <- loadResources(eh, eh_pkg, chr_sampleMap)[[1]]
-#    eh_metadata <- loadResources(eh, eh_pkg, chr_metadata)[[1]]
+    ess_names <- c("colData", "sampleMap", "metadata")
+    ess_resources <- paste0(.getComboSort(resultCodes, ess_names), "-",
+        runDate, ".rda")
+    ess_list <- .getResources(eh, ess_resources)
 # TODO: Test creation of MultiAssayExperiment with merged colData and
-# sampleMaps
+# sampleMaps, support multiple cancers
 #    MultiAssayExperiment(experiments = eh_experiments, colData = eh_colData,
 #                         sampleMap = eh_sampleMap, metadata = eh_metadata)
     return(NULL)
