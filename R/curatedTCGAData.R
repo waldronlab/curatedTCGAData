@@ -55,13 +55,17 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
                           width = 46), collapse = "\n "))
         return(NULL)
     }
+
     regCode <- glob2rx(diseaseCode)
-    ## TODO: loop over regCode/regAssay in grep call
-    resultCodes <- grep(regCode, tcgaCodes,
-                       ignore.case = TRUE, value = TRUE)
+    resultCodes <- unlist(lapply(regCode, function(x) {
+        grep(x, tcgaCodes, ignore.case = TRUE, value = TRUE)
+        }))
+
     regAssay <- glob2rx(assays)
-    resultAssays <- grep(regAssay, assaysAvail,
-                       ignore.case = TRUE, value = TRUE)
+    resultAssays <- unlist(lapply(regAssay, function(x) {
+        grep(x, assaysAvail, ignore.case = TRUE, value = TRUE)
+        }))
+
     isGISTIC <- grepl("^GISTIC", resultAssays)
     if (any(isGISTIC)) {
         fullG <- vapply(resultAssays[isGISTIC], function(x)
