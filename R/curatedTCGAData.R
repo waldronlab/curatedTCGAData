@@ -22,6 +22,13 @@
     unlist(resources)
 }
 
+.searchFromInputs <- function(glob, searchFields) {
+    regGlob <- glob2rx(glob)
+    unlist(lapply(regGlob, function(x) {
+        grep(x, searchFields, ignore.case = TRUE, value = TRUE)
+        }))
+}
+
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
 #' @param diseaseCode a character vector containing the name(s) of TCGA cohorts
@@ -56,15 +63,8 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
         return(NULL)
     }
 
-    regCode <- glob2rx(diseaseCode)
-    resultCodes <- unlist(lapply(regCode, function(x) {
-        grep(x, tcgaCodes, ignore.case = TRUE, value = TRUE)
-        }))
-
-    regAssay <- glob2rx(assays)
-    resultAssays <- unlist(lapply(regAssay, function(x) {
-        grep(x, assaysAvail, ignore.case = TRUE, value = TRUE)
-        }))
+    resultCodes <- .searchFromInputs(diseaseCode, tcgaCodes)
+    resultAssays <- .searchFromInputs(assays, assaysAvail)
 
     isGISTIC <- grepl("^GISTIC", resultAssays)
     if (any(isGISTIC)) {
