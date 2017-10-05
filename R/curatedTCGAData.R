@@ -5,8 +5,18 @@
     sort(assaysAvailable)
 }
 
-.getResources <- function(ExperimentHub, files) {
-    resources <- lapply(files, function(res) {
+.removeExt <- function(fileNames) {
+    gsub(".rda", "", fileNames, fixed = TRUE)
+}
+
+.getComboSort <- function(...) {
+    sort(apply(expand.grid(..., stringsAsFactors = FALSE), MARGIN = 1L,
+               FUN = paste, collapse = "_"))
+}
+
+.getResources <- function(ExperimentHub, fileNames) {
+    resourceName <- .removeExt(fileNames)
+    resources <- lapply(resourceName, function(res) {
         loadResources(ExperimentHub, "curatedTCGAData", res)
     })
     unlist(resources)
