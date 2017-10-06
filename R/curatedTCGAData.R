@@ -29,6 +29,22 @@
         }))
 }
 
+.resolveNames <- function(datList) {
+    commonNames <- Reduce(intersect, lapply(datList, names))
+    mLogic <- vapply(commonNames, function(y) {
+        classes <- unlist(lapply(datList, function(x) class(x[[y]])))
+        length(unique(classes)) == 1L
+    }, logical(1L))
+    unMergeable <- names(which(!mLogic))
+    lapply(seq_along(datList), function(i, x) {
+        varIdx <- match(unMergeable, names(x[[i]]))
+        DFnames <- names(x[[i]])
+        DFnames[varIdx] <- paste0(unMergeable, ".", i)
+        names(x[[i]]) <- DFnames
+        x[[i]]
+    }, x = datList)
+}
+
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
 #' @param diseaseCode a character vector containing the name(s) of TCGA cohorts
