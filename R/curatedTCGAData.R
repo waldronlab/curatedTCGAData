@@ -108,14 +108,31 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
 
     eh_experiments <- ExperimentList(assay_list)
 
-    ess_names <- c("colData", "sampleMap", "metadata")
-    ess_resources <- paste0(.getComboSort(resultCodes, ess_names), "-",
+    ess_names <- c(colData = 1L, sampleMap = 2L, metadata = 3L)
+    ess_resources <- paste0(.getComboSort(resultCodes, names(ess_names)), "-",
         runDate, ".rda")
+
     ess_list <- .getResources(eh, ess_resources)
-# TODO: Test creation of MultiAssayExperiment with merged colData and
-# sampleMaps, support multiple cancers
-#    MultiAssayExperiment(experiments = eh_experiments, colData = eh_colData,
-#                         sampleMap = eh_sampleMap, metadata = eh_metadata)
-    return(NULL)
+
+    if (length(resultCodes) > 1L) {
+        ess_list <- lapply(ess_names, function(i, grp, funs) {
+            grpd <- grepl(grp[i], ess_resources, fixed = TRUE)
+            dats <- ess_list[grpd]
+            if (identical(funs[[i]], merge)) {
+                dats <- .resolveNames(dats)
+                mObj <- Reduce(function(x, y) {
+                    merge(x, y, by = "row.names", all = TRUE, sort = FALSE)
+                    }, dats)
+                    rNames <- mObj[["Row.names"]]
+                    mObj <-  mObj[, -which(names(mObj) == "Row.names")]
+                    rownames(mObj) <- rNames
+                } else {
+                mObj <- Reduce(funs[[i]], dats)
+                }
+            return(mObj)
+            }, grp = names(ess_names), funs = list(merge, rbind, c))
+    }
+
+   do.call(MultiAssayExperiment, c(list(experiments = eh_experiments), ess_list))
 }
 
