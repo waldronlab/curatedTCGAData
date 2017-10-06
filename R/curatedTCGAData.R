@@ -58,7 +58,7 @@
 #' @export curatedTCGAData
 #'
 #' @examples
-#' curatedTCGAData(diseaseCode = "TH*", assays = "CN*")
+#' curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
 #'
 curatedTCGAData <- function(diseaseCode = "*", assays = "*",
                             runDate = "20160128", dry.run = TRUE) {

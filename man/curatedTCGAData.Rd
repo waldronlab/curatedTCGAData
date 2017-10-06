@@ -25,6 +25,6 @@ cancer codes
 Create a MultiAssayExperiment from specific assays and cohorts
 }
 \examples{
-curatedTCGAData(diseaseCode = "TH*", assays = "CN*")
+curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
 
 }
