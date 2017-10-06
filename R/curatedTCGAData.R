@@ -23,7 +23,7 @@
 }
 
 .searchFromInputs <- function(glob, searchFields) {
-    regGlob <- glob2rx(glob)
+    regGlob <- glob2rx(unique(glob))
     unlist(lapply(regGlob, function(x) {
         grep(x, searchFields, ignore.case = TRUE, value = TRUE)
         }))
