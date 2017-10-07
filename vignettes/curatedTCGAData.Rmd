@@ -7,21 +7,37 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, eval = FALSE}
-library(MultiAssayExperiment)
-rdadir <- "~/Documents/maeo"
-if (!file.exists(file.path(rdadir, "accMAEO.rds"))) {
-   download.file("http://s3.amazonaws.com/multiassayexperiments/accMAEO.rds", 
-                 destfile = file.path(rdadir, "accMAEO.rds"))
-}
-acc <- readRDS(file.path(rdadir, "accMAEO.rds"))
+```{r, echo = FALSE, warning = FALSE}
+suppressPackageStartupMessages({
+    library(MultiAssayExperiment)
+})
+
 ```
 
-```{r, eval = FALSE}
-library(GenomicRanges)
-acc
-summary(isDisjoint(experiments(acc)$CNASNP))
-summary(isDisjoint(experiments(acc)$CNVSNP))
-summary(isDisjoint(experiments(acc)$Mutations))
+# Installation
+
+```{r, eval=FALSE}
+source("https://bioconductor.org/biocLite.R")
+BiocInstaller::biocLite("curatedTCGAData")
 ```
+
+Load packages:
+
+```{r, eval = FALSE}
+library(curatedTCGAData)
+library(MultiAssayExperiment)
+```
+
+Checking available cancer codes and assays:
+
+```{r}
+curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE)
+```
+
+Check potential files to be downloaded:
+
+```{r}
+curatedTCGAData(diseaseCode = "COAD", assays = "RPPA*", dry.run = TRUE)
+```
+
 
