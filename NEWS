@@ -1,3 +1,19 @@
+# curatedTCGAData 0.99.38
+
+## New features
+
+* Updated `curatedTCGAData` function
+* Supports multiple cancers
+* Includes curated `colData` datasets
+* Updated vignette, documentation from new builds
+* Updated metadata from pipeline
+
+## Bug fixes and minor improvements
+
+* Updated NAMESPACE and DESCRIPTION
+* Included test for number of resources in EH and in metadata
+* Improved input handling of main function
+
 # curatedTCGAData 0.2.0
 
 * Updated `DESCRIPTION` file to reflect authorship.

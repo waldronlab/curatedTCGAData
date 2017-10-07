@@ -1,8 +1,9 @@
 # curatedTCGAData
 
-`curatedTCGAData` is soon to be a `Bioconductor` experiment data package that
-will use `ExperimentHub` to access pre-processed and curated data from
-**T**he **C**ancer **G**enome **A**tlas (**TCGA**) as MultiAssayExperiment objects.
+`curatedTCGAData` is slated as a `Bioconductor` release version 3.6 experiment
+data package that will use `ExperimentHub` internally to access pre-processed
+and curated data from **T**he **C**ancer **G**enome **A**tlas (**TCGA**) as
+MultiAssayExperiment objects.
 
 ## Clinical Curation
 
@@ -35,12 +36,6 @@ For now, install `curatedTCGAData` via `GitHub` using `devtools`.
 devtools::install_github("waldronlab/curatedTCGAData")
 browseVignettes("curatedTCGAData")
 ```
-
-## Pardon our appearance
-
-This package is under active development and is transitioning it's functionality
-to bite-size data objects in preparation for `ExperimentHub`. If you would like
-to file an issue, see below. 
 
 ## Reporting Bugs
 
