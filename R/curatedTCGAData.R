@@ -97,13 +97,16 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
     names(reg_names) <- codeAssay
 
     fileMatches <- lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE))
-    noMatch <- lengths(fileMatches) == 0L
-    if (any(noMatch)) {
-        warning("Cancer and data type combination(s) not available:\n",
-            strwrap(paste(names(fileMatches)[noMatch], collapse = ", "),
-                width = 46))
-    }
+    # noMatch <- lengths(fileMatches) == 0L
+    # if (any(noMatch)) {
+    #     warning("Cancer and data type combination(s) not available:\n",
+    #         strwrap(paste(names(fileMatches)[noMatch], collapse = ", "),
+    #             width = 46))
+    # }
     fileMatches <- unlist(fileMatches)
+    if (dry.run) {
+        return(fileMatches)
+    }
 
     eh <- ExperimentHub()
     assay_list <- .getResources(eh, fileMatches)
