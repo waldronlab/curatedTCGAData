@@ -1,3 +1,8 @@
+#' @importFrom ExperimentHub loadResources ExperimentHub
+#' @importFrom utils glob2rx read.csv
+#' @importFrom MultiAssayExperiment ExperimentList MultiAssayExperiment
+NULL
+
 #' curatedTCGAData
 #'
 #' @description
