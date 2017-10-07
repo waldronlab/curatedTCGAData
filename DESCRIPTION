@@ -2,7 +2,7 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 0.99.34
+Version: 0.99.35
 Author: Levi Waldron <lwaldron.research@gmail.com>,
     Marcel Ramos <marcel.ramos@roswellpark.org>,
     Lucas Schiffer <schiffer.lucas@gmail.com>,

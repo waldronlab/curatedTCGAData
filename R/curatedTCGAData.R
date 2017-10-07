@@ -24,9 +24,12 @@
 
 .searchFromInputs <- function(glob, searchFields) {
     regGlob <- glob2rx(unique(glob))
-    unlist(lapply(regGlob, function(x) {
+    res <- unlist(lapply(regGlob, function(x) {
         grep(x, searchFields, ignore.case = TRUE, value = TRUE)
         }))
+    if (!length(res))
+        stop("No matches found, modify search criteria")
+    res
 }
 
 .resolveNames <- function(datList) {
