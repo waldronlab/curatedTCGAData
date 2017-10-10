@@ -37,11 +37,12 @@ getMetadata <- function(resource_location, resource_maintainer,
     Coordinate_1_based <- as.logical(NA)
     DataProvider <- "Eli and Edythe L. Broad Institute of Harvard and MIT"
     Maintainer <- resource_maintainer
+    RDataPath <- file.path("curatedTCGAData", ResourceName)
     RDataClass <- .get_ResourceClass(resource_location)
     DispatchClass <- .get_DispatchClass(ResourceName)
     data.frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
                SourceVersion, Species, TaxonomyId, Coordinate_1_based,
                DataProvider, Maintainer, RDataClass, DispatchClass,
-               ResourceName, stringsAsFactors = FALSE)
+               ResourceName, RDataPath, stringsAsFactors = FALSE)
 }
 
