@@ -3,7 +3,9 @@
 #' @importFrom MultiAssayExperiment ExperimentList MultiAssayExperiment
 NULL
 
-#' curatedTCGAData
+#' curatedTCGAData-package
+#'
+#' @aliases NULL curatedTCGAData-package
 #'
 #' @description
 #' The following are the TCGA cancer codes and full names.
@@ -47,4 +49,7 @@ NULL
 #' 33                UCS                                           Uterine Carcinosarcoma
 #' 34                UVM                                                   Uveal Melanoma
 #' }
+#' @examples
+#' help(package = "curatedTCGAData")
+#'
 "_PACKAGE"

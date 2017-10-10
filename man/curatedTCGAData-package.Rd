@@ -2,9 +2,8 @@
 % Please edit documentation in R/curatedTCGAData-package.R
 \docType{package}
 \name{curatedTCGAData-package}
-\alias{curatedTCGAData}
 \alias{curatedTCGAData-package}
-\title{curatedTCGAData}
+\title{curatedTCGAData-package}
 \description{
 The following are the TCGA cancer codes and full names.
 
@@ -47,4 +46,8 @@ The following are the TCGA cancer codes and full names.
 33                UCS                                           Uterine Carcinosarcoma
 34                UVM                                                   Uveal Melanoma
 }
+}
+\examples{
+help(package = "curatedTCGAData")
+
 }
