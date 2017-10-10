@@ -10,6 +10,7 @@ vignette: >
 ```{r, echo = FALSE, warning = FALSE}
 suppressPackageStartupMessages({
     library(MultiAssayExperiment)
+    library(curatedTCGAData)
 })
 
 ```
