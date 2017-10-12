@@ -15,7 +15,8 @@ manDir <- file.path("man")
 setwd(repoDir)
 
 ## Get all compatible TCGA disease codes
-source("inst/scripts/getDiseaseCodes.R")
+load("R/sysdata.rda")
+
 ## Source the converter function (MultiAssayExperiment RDS to Rd)
 source("inst/scripts/bits2rd.R")
 # Load document generation function
@@ -24,20 +25,4 @@ source("inst/scripts/make-documentation.R")
 source("inst/scripts/getMetadata.R")
 # Load metadata function
 source("inst/scripts/make-metadata.R")
-
-TCGAcodes <- getDiseaseCodes()
-
-## Folder containing cancer folders
-dataBitsLocation <- file.path(repoDir,
-    "../MultiAssayExperiment-TCGA/data/bits")
-
-## Document by cancer folder
-cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
-
-## create metadata.csv in inst/extdata folder
-# message("Generating metadata...")
-# make_metadata(dataBitsLocation)
-
-message("Creating documentation pages")
-lapply(cancerFolders, make_documentation, manDir)
 

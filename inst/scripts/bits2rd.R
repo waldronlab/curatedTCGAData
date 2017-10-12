@@ -6,6 +6,10 @@
     object
 }
 
+.cleanText <- function(x) {
+    gsub("%", "\\%", iconv(x, "latin1", "ASCII", sub = "?"), fixed = TRUE)
+}
+
 #' Write an Rd man page for a collection of MultiAssayExperiment bits
 #'
 #' @param cancerFolder Usually saved in 'MultiAssayExperiment-TCGA/data/bits/'
@@ -82,7 +86,7 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     cat("\n")
     cat(paste("\\docType{data}"))
     cat("\n")
-    cat(paste("\\title{", studyName, "}"))
+    cat(paste("\\title{", .cleanText(studyName), "}"))
     cat("\n")
     if (!is.null(descriptions)) {
         cat("\\description{")
