@@ -1,5 +1,6 @@
 ## Get codes from loaded function
-TCGAcodes <- getDiseaseCodes()
+TCGAcodes <-
+    diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
 
 ## Folder containing cancer folders
 dataBitsLocation <- file.path(repoDir,
