@@ -1,10 +1,14 @@
 ---
 title: "curatedTCGAData"
-output: BiocStyle::html_document
-vignette: >
+date: "`r BiocStyle::doc_date()`"
+vignette: |
   %\VignetteIndexEntry{curatedTCGAData}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+output:
+  BiocStyle::html_document:
+    toc_float: true
+Package: curatedTCGAData
 ---
 
 ```{r, echo = FALSE, warning = FALSE}
@@ -12,7 +16,6 @@ suppressPackageStartupMessages({
     library(MultiAssayExperiment)
     library(curatedTCGAData)
 })
-
 ```
 
 # Installation
