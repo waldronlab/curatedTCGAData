@@ -20,7 +20,7 @@
 #'
 #' @keywords internal
 bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
-        descriptions = NULL) {
+        descriptions = "A document describing the TCGA cancer code") {
     stopifnot(S4Vectors::isSingleString(cancerFolder))
     stopifnot(S4Vectors::isSingleString(filename))
 
