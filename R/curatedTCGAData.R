@@ -117,6 +117,7 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
     ess_names <- c(colData = 1L, sampleMap = 2L, metadata = 3L)
     ess_resources <- paste0(.getComboSort(resultCodes, names(ess_names)), "-",
         runDate, ".rda")
+    names(ess_resources) <- gsub("\\.rda", "", ess_resources)
 
     ess_list <- .getResources(eh, ess_resources)
 
