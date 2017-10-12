@@ -17,9 +17,9 @@
 .getResources <- function(ExperimentHub, fileNames) {
     resourceName <- .removeExt(fileNames)
     resources <- lapply(resourceName, function(res) {
-        loadResources(ExperimentHub, "curatedTCGAData", res)
+        loadResources(ExperimentHub, "curatedTCGAData", res)[[1L]]
     })
-    unlist(resources)
+    resources
 }
 
 .searchFromInputs <- function(glob, searchFields) {
