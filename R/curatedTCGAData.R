@@ -120,6 +120,8 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
     names(ess_resources) <- gsub("\\.rda", "", ess_resources)
 
     ess_list <- .getResources(eh, ess_resources)
+    names(ess_list) <- vapply(strsplit(ess_resources, "_|-"), `[`,
+        character(1L), 2L)
 
     if (length(resultCodes) > 1L) {
         ess_list <- lapply(ess_names, function(i, grp, funs) {
