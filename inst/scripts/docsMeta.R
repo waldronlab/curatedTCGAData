@@ -26,3 +26,22 @@ source("inst/scripts/getMetadata.R")
 # Load metadata function
 source("inst/scripts/make-metadata.R")
 
+## Generate documents
+## Get codes from loaded function
+TCGAcodes <-
+    diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
+
+## Folder containing cancer folders
+dataBitsLocation <- file.path(repoDir,
+    "../MultiAssayExperiment-TCGA/data/bits")
+
+## Document by cancer folder
+cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
+
+## create metadata.csv in inst/extdata folder
+# message("Generating metadata...")
+# make_metadata(dataBitsLocation)
+
+message("Creating documentation pages")
+lapply(cancerFolders, make_documentation, manDir)
+
