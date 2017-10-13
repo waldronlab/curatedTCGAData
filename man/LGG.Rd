@@ -2,6 +2,9 @@
 \alias{ LGG }
 \docType{data}
 \title{ Brain Lower Grade Glioma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

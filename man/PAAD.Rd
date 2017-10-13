@@ -2,6 +2,9 @@
 \alias{ PAAD }
 \docType{data}
 \title{ Pancreatic adenocarcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

@@ -2,6 +2,9 @@
 \alias{ STAD }
 \docType{data}
 \title{ Stomach adenocarcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

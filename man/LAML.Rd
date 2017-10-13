@@ -2,6 +2,9 @@
 \alias{ LAML }
 \docType{data}
 \title{ Acute Myeloid Leukemia }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

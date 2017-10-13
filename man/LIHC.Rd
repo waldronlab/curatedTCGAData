@@ -2,6 +2,9 @@
 \alias{ LIHC }
 \docType{data}
 \title{ Liver hepatocellular carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

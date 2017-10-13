@@ -2,6 +2,9 @@
 \alias{ LUAD }
 \docType{data}
 \title{ Lung adenocarcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

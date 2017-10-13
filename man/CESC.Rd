@@ -2,6 +2,9 @@
 \alias{ CESC }
 \docType{data}
 \title{ Cervical squamous cell carcinoma and endocervical adenocarcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

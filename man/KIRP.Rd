@@ -2,6 +2,9 @@
 \alias{ KIRP }
 \docType{data}
 \title{ Kidney renal papillary cell carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

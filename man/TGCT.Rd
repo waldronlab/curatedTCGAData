@@ -2,6 +2,9 @@
 \alias{ TGCT }
 \docType{data}
 \title{ Testicular Germ Cell Tumors }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

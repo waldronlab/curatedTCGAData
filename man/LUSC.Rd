@@ -2,6 +2,9 @@
 \alias{ LUSC }
 \docType{data}
 \title{ Lung squamous cell carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

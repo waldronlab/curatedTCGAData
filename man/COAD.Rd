@@ -2,6 +2,9 @@
 \alias{ COAD }
 \docType{data}
 \title{ Colon adenocarcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

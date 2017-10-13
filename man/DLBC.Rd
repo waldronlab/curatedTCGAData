@@ -2,6 +2,9 @@
 \alias{ DLBC }
 \docType{data}
 \title{ Lymphoid Neoplasm Diffuse Large B-cell Lymphoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

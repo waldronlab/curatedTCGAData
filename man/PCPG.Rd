@@ -2,6 +2,9 @@
 \alias{ PCPG }
 \docType{data}
 \title{ Pheochromocytoma and Paraganglioma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

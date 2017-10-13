@@ -2,6 +2,9 @@
 \alias{ GBM }
 \docType{data}
 \title{ Glioblastoma multiforme }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

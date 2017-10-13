@@ -2,6 +2,9 @@
 \alias{ KIRC }
 \docType{data}
 \title{ Kidney renal clear cell carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

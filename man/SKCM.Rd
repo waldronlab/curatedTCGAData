@@ -2,6 +2,9 @@
 \alias{ SKCM }
 \docType{data}
 \title{ Skin Cutaneous Melanoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

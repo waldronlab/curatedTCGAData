@@ -2,6 +2,9 @@
 \alias{ UVM }
 \docType{data}
 \title{ Uveal Melanoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

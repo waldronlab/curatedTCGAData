@@ -2,6 +2,9 @@
 \alias{ BRCA }
 \docType{data}
 \title{ Breast invasive carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

@@ -2,6 +2,9 @@
 \alias{ KICH }
 \docType{data}
 \title{ Kidney Chromophobe }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

@@ -2,6 +2,9 @@
 \alias{ READ }
 \docType{data}
 \title{ Rectum adenocarcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

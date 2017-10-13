@@ -2,6 +2,9 @@
 \alias{ THYM }
 \docType{data}
 \title{ Thymoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

@@ -2,6 +2,9 @@
 \alias{ OV }
 \docType{data}
 \title{ Ovarian serous cystadenocarcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

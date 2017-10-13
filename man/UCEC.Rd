@@ -2,6 +2,9 @@
 \alias{ UCEC }
 \docType{data}
 \title{ Uterine Corpus Endometrial Carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

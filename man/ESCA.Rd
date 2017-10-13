@@ -2,6 +2,9 @@
 \alias{ ESCA }
 \docType{data}
 \title{ Esophageal carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

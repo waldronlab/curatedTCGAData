@@ -2,6 +2,9 @@
 \alias{ HNSC }
 \docType{data}
 \title{ Head and Neck squamous cell carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

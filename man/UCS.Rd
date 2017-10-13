@@ -2,6 +2,9 @@
 \alias{ UCS }
 \docType{data}
 \title{ Uterine Carcinosarcoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

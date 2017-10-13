@@ -2,6 +2,9 @@
 \alias{ BLCA }
 \docType{data}
 \title{ Bladder Urothelial Carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

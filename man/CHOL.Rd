@@ -2,6 +2,9 @@
 \alias{ CHOL }
 \docType{data}
 \title{ Cholangiocarcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

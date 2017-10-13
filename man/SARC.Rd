@@ -2,6 +2,9 @@
 \alias{ SARC }
 \docType{data}
 \title{ Sarcoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{

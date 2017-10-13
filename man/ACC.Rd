@@ -2,6 +2,9 @@
 \alias{ ACC }
 \docType{data}
 \title{ Adrenocortical carcinoma }
+\description{
+A document describing the TCGA cancer code
+}
 
 \details{
 \preformatted{
