@@ -441,7 +441,7 @@ patient.drugs.drug.6.days_to_drug_therapy_start:
    1    1    1    1  466 
 
 patient.drugs.drug.6.drug_name:
-   dacarbazine erythropoietin  interferon-α2           NA's 
+   dacarbazine erythropoietin  interferon-alpha2       NA's 
              1              1              1            467 
 
 patient.drugs.drug.6.measure_of_response:
