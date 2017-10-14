@@ -50,9 +50,13 @@
 
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
+#' @details This function will check against available resources in
+#' ExperimentHub. Currently, only the latest runDate ("2016-01-28") is
+#' supported. Use the \code{dry.run = FALSE} to download remote datasets and
+#' build an integrative \linkS4class{MultiAssayExperiment} object.
+#'
 #' @param diseaseCode a character vector containing the name(s) of TCGA cohorts
 #' @param assays a character vector containing the name(s) of TCGA assays
-#' @param runDate a single string of the TCGA firehose running date
 #' @param dry.run logical (default TRUE) whether to return the dataset names
 #' before actual download
 #'
@@ -63,8 +67,8 @@
 #' @examples
 #' curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
 #'
-curatedTCGAData <- function(diseaseCode = "*", assays = "*",
-                            runDate = "20160128", dry.run = TRUE) {
+curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
+    runDate <- "20160128"
     assaysAvail <- .assaysAvailable()
     tcgaCodes <- diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
 
@@ -96,14 +100,12 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*",
     reg_names <- paste0("^", codeAssay, ".*", runDate, ".rda$")
     names(reg_names) <- codeAssay
 
-    fileMatches <- lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE))
-    # noMatch <- lengths(fileMatches) == 0L
-    # if (any(noMatch)) {
-    #     warning("Cancer and data type combination(s) not available:\n",
-    #         strwrap(paste(names(fileMatches)[noMatch], collapse = ", "),
-    #             width = 46))
-    # }
-    fileMatches <- unlist(fileMatches)
+    fileMatches <- unlist(
+        lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE)))
+
+    if (!length(fileMatches)) {
+        stop("Cancer and data type combination(s) not available")
+    }
     if (dry.run) {
         return(fileMatches)
     }

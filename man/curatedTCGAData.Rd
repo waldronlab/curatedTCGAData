@@ -4,15 +4,12 @@
 \alias{curatedTCGAData}
 \title{Create a MultiAssayExperiment from specific assays and cohorts}
 \usage{
-curatedTCGAData(diseaseCode = "*", assays = "*", runDate = "20160128",
-  dry.run = TRUE)
+curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE)
 }
 \arguments{
 \item{diseaseCode}{a character vector containing the name(s) of TCGA cohorts}
 
 \item{assays}{a character vector containing the name(s) of TCGA assays}
-
-\item{runDate}{a single string of the TCGA firehose running date}
 
 \item{dry.run}{logical (default TRUE) whether to return the dataset names
 before actual download}
@@ -23,6 +20,12 @@ cancer codes
 }
 \description{
 Create a MultiAssayExperiment from specific assays and cohorts
+}
+\details{
+This function will check against available resources in
+ExperimentHub. Currently, only the latest runDate ("2016-01-28") is
+supported. Use the \code{dry.run = FALSE} to download remote datasets and
+build an integrative \linkS4class{MultiAssayExperiment} object.
 }
 \examples{
 curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
