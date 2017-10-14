@@ -10,48 +10,48 @@ A document describing the TCGA cancer code
 \preformatted{
 > experiments( SKCM )
 ExperimentList class object of length 8: 
- [1] CNASeq: RaggedExperiment with 31416 rows and 238 columns 
- [2] CNASNP: RaggedExperiment with 452114 rows and 938 columns 
- [3] CNVSNP: RaggedExperiment with 108084 rows and 937 columns 
- [4] Methylation: SummarizedExperiment with 485577 rows and 475 columns 
- [5] miRNASeqGene: SummarizedExperiment with 1046 rows and 452 columns 
- [6] Mutation: RaggedExperiment with 290322 rows and 345 columns 
- [7] RNASeq2GeneNorm: SummarizedExperiment with 20501 rows and 473 columns 
- [8] RPPAArray: SummarizedExperiment with 208 rows and 355 columns 
+ [1] CNASeq-20160128: RaggedExperiment with 31416 rows and 238 columns 
+ [2] CNASNP-20160128: RaggedExperiment with 452114 rows and 938 columns 
+ [3] CNVSNP-20160128: RaggedExperiment with 108084 rows and 937 columns 
+ [4] Methylation-20160128: SummarizedExperiment with 485577 rows and 475 columns 
+ [5] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 452 columns 
+ [6] Mutation-20160128: RaggedExperiment with 290322 rows and 345 columns 
+ [7] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 473 columns 
+ [8] RPPAArray-20160128: SummarizedExperiment with 208 rows and 355 columns 
 
 > rownames( SKCM )
 CharacterList of length 8
-[["CNASeq"]] character(0)
-[["CNASNP"]] character(0)
-[["CNVSNP"]] character(0)
-[["Methylation"]] cg00000029 cg00000108 cg00000109 ... rs966367 rs9839873
-[["miRNASeqGene"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99a hsa-mir-99b
-[["Mutation"]] character(0)
-[["RNASeq2GeneNorm"]] A1BG A1CF A2BP1 A2LD1 A2ML1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["RPPAArray"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK p90RSK_pT359_S363
+[["CNASeq-20160128"]] character(0)
+[["CNASNP-20160128"]] character(0)
+[["CNVSNP-20160128"]] character(0)
+[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
+[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["Mutation-20160128"]] character(0)
+[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
+[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
 
 > colnames( SKCM )
 CharacterList of length 8
-[["CNASeq"]] TCGA-BF-A1PU-01A-11D-A18Z-02 ... TCGA-HR-A2OH-10A-01D-A190-02
-[["CNASNP"]] TCGA-3N-A9WB-06A-11D-A38F-01 ... TCGA-Z2-AA3V-10A-01D-A399-01
-[["CNVSNP"]] TCGA-3N-A9WB-06A-11D-A38F-01 ... TCGA-Z2-AA3V-10A-01D-A399-01
-[["Methylation"]] TCGA-3N-A9WB-06A-11D-A38H-05 ... TCGA-Z2-AA3V-06A-11D-A398-05
-[["miRNASeqGene"]] TCGA-3N-A9WC-06A-11R-A38N-13 ...
-[["Mutation"]] TCGA-BF-A1PU-01A-11D-A19A-08 ... TCGA-RP-A695-06A-11D-A30X-08
-[["RNASeq2GeneNorm"]] TCGA-3N-A9WB-06A-11R-A38C-07 ...
-[["RPPAArray"]] TCGA-3N-A9WC-06A-21-A444-20 ... TCGA-Z2-AA3V-06A-21-A444-20
+[["CNASeq-20160128"]] TCGA-BF-A1PU-01A-11D-A18Z-02 ...
+[["CNASNP-20160128"]] TCGA-3N-A9WB-06A-11D-A38F-01 ...
+[["CNVSNP-20160128"]] TCGA-3N-A9WB-06A-11D-A38F-01 ...
+[["Methylation-20160128"]] TCGA-3N-A9WB-06A-11D-A38H-05 ...
+[["miRNASeqGene-20160128"]] TCGA-3N-A9WC-06A-11R-A38N-13 ...
+[["Mutation-20160128"]] TCGA-BF-A1PU-01A-11D-A19A-08 ...
+[["RNASeq2GeneNorm-20160128"]] TCGA-3N-A9WB-06A-11R-A38C-07 ...
+[["RPPAArray-20160128"]] TCGA-3N-A9WC-06A-21-A444-20 ...
 
 Sizes of each ExperimentList element:
 
-            assay  size.Mb
-1          CNASeq   0.9 Mb
-2          CNASNP  12.3 Mb
-3          CNVSNP   3.1 Mb
-4     Methylation  67.5 Mb
-5    miRNASeqGene   0.1 Mb
-6        Mutation 290.6 Mb
-7 RNASeq2GeneNorm   1.2 Mb
-8       RPPAArray     0 Mb
+                     assay  size.Mb
+1          CNASeq-20160128   0.9 Mb
+2          CNASNP-20160128  12.3 Mb
+3          CNVSNP-20160128   3.1 Mb
+4     Methylation-20160128  67.5 Mb
+5    miRNASeqGene-20160128   0.1 Mb
+6        Mutation-20160128 290.6 Mb
+7 RNASeq2GeneNorm-20160128   1.2 Mb
+8       RPPAArray-20160128     0 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -133,8 +133,8 @@ nationwide children's hospital
                            470 
 
 admin.day_of_dcc_upload:
-  1  21 
-469   1 
+ 21 
+470 
 
 admin.disease_code:
 skcm 
@@ -142,8 +142,8 @@ skcm
 
 
 admin.month_of_dcc_upload:
-  5  10 
-  1 469 
+  1 
+470 
 
 admin.patient_withdrawal.withdrawn:
 false 
@@ -154,7 +154,7 @@ tcga
  470 
 
 admin.year_of_dcc_upload:
-2015 
+2016 
  470 
 
 patient.age_at_initial_pathologic_diagnosis:
@@ -165,38 +165,6 @@ patient.age_at_initial_pathologic_diagnosis:
 patient.breslow_depth_value:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
   0.000   1.300   3.000   5.585   6.950  75.000     111 
-
-patient.clinical_cqcf.consent_or_death_status:
-  consented    deceased exemption 4        NA's 
-        390          57          18           5 
-
-
-patient.clinical_cqcf.days_to_consent:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- -226.0     8.0   114.0   916.6  1184.5 10837.0      91 
-
-patient.clinical_cqcf.days_to_death:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    151     808    1026    2169    2927   10870     413 
-
-patient.clinical_cqcf.history_of_neoadjuvant_treatment:
-                                              no 
-                                             451 
-yes, pharmaceutical treatment prior to resection 
-                                              19 
-
-patient.clinical_cqcf.normal_tissue_anatomic_site:
-other  skin  NA's 
-    6     3   461 
-
-patient.clinical_cqcf.normal_tissue_proximity:
-distal (>2cm)          NA's 
-            9           461 
-
-
-patient.clinical_cqcf.tumor_type:
-metastatic    primary 
-       366        104 
 
 patient.day_of_form_completion:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -239,18 +207,18 @@ patient.drugs.drug.2.day_of_form_completion:
 
 patient.drugs.drug.2.days_to_drug_therapy_end:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   52.0   247.2   929.5  1458.3  1766.5  6814.0     424 
+   52.0   268.5  1006.0  1473.4  1766.0  6814.0     423 
 
 patient.drugs.drug.2.days_to_drug_therapy_start:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   13.0   135.0   825.5  1282.6  1665.2  6660.0     414 
+     13     151     828    1312    1665    6660     414 
 
 
 patient.drugs.drug.2.measure_of_response:
 clinical progressive disease            complete response 
-                          21                           12 
+                          22                           12 
             partial response               stable disease 
-                           5                            2 
+                           5                            1 
                         NA's 
                          430 
 
@@ -260,36 +228,36 @@ patient.drugs.drug.2.month_of_form_completion:
 
 patient.drugs.drug.2.number_cycles:
    1    2 NA's 
-   1    1  468 
+   1    2  467 
 
 patient.drugs.drug.2.prescribed_dose:
-   1  480 NA's 
-   1    1  468 
+   1 NA's 
+   1  469 
 
 patient.drugs.drug.2.prescribed_dose_units:
-g/day    mg  NA's 
-    1     1   468 
+g/day  NA's 
+    1   469 
 
 patient.drugs.drug.2.regimen_indication:
    adjuvant progression        NA's 
-          2           2         466 
+          1           3         466 
 
 patient.drugs.drug.2.regimen_number:
-08-144      6   NA's 
-     1      1    468 
+10-095      6   NA's 
+     2      1    467 
 
 patient.drugs.drug.2.route_of_administrations.route_of_administration:
-intravenous (iv)             NA's 
-               1              469 
+  iv NA's 
+   1  469 
 
 patient.drugs.drug.2.therapy_ongoing:
   no  yes NA's 
-  51    6  413 
+  52    5  413 
 
 
 patient.drugs.drug.2.tx_on_clinical_trial:
   no  yes NA's 
-  37   16  417 
+  36   17  417 
 
 patient.drugs.drug.2.year_of_form_completion:
 2012 2013 2014 2015 NA's 
@@ -304,18 +272,18 @@ patient.drugs.drug.3.day_of_form_completion:
 
 patient.drugs.drug.3.days_to_drug_therapy_end:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   92.0   310.5  1034.0  1255.4  1655.0  6440.0     447 
+     92     280    1034    1277    1687    6440     449 
 
 patient.drugs.drug.3.days_to_drug_therapy_start:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-     20     384     894    1088    1492    6355     441 
+     20     247     889    1055    1492    6355     441 
 
 
 patient.drugs.drug.3.measure_of_response:
 clinical progressive disease            complete response 
-                          12                            7 
+                          11                            7 
             partial response               stable disease 
-                           1                            1 
+                           1                            2 
                         NA's 
                          449 
 
@@ -323,25 +291,21 @@ patient.drugs.drug.3.month_of_form_completion:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
   1.000   4.250   6.500   6.333   7.750  12.000     440 
 
-patient.drugs.drug.3.number_cycles:
-   4 NA's 
+patient.drugs.drug.3.prescribed_dose:
+ 480 NA's 
+   1  469 
+
+patient.drugs.drug.3.prescribed_dose_units:
+  mg NA's 
    1  469 
 
 patient.drugs.drug.3.regimen_indication:
 progression        NA's 
           2         468 
 
-patient.drugs.drug.3.regimen_number:
-08-144 10-095   NA's 
-     1      1    468 
-
-patient.drugs.drug.3.route_of_administrations.route_of_administration:
-intravenous (iv)             NA's 
-               1              469 
-
 patient.drugs.drug.3.therapy_ongoing:
   no  yes NA's 
-  26    4  440 
+  24    6  440 
 
 
 patient.drugs.drug.3.tx_on_clinical_trial:
@@ -613,11 +577,11 @@ patient.drugs.drug.day_of_form_completion:
 
 patient.drugs.drug.days_to_drug_therapy_end:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-     24     321     761    1253    1639    6869     357 
+     24     321     702    1241    1634    6869     356 
 
 patient.drugs.drug.days_to_drug_therapy_start:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-      6     153     632    1172    1491   11015     329 
+      6     140     578    1167    1485   11015     329 
 
 
 patient.drugs.drug.measure_of_response:
@@ -634,7 +598,7 @@ patient.drugs.drug.month_of_form_completion:
 
 patient.drugs.drug.number_cycles:
    1    2    4 NA's 
-   2    4    2  462 
+   2    3    3  462 
 
 patient.drugs.drug.prescribed_dose:
    1   20  400 NA's 
@@ -645,27 +609,23 @@ patient.drugs.drug.prescribed_dose_units:
      1      1      1    467 
 
 patient.drugs.drug.regimen_indication:
-               adjuvant other: specify in notes             progression 
-                      6                       1                       9 
+               adjuvant other, specify in notes             progression 
+                      7                       1                       8 
              recurrence                    NA's 
                       3                     451 
 
-patient.drugs.drug.regimen_indication_notes:
-at same time as surgery                    NA's 
-                      1                     469 
-
 
 patient.drugs.drug.route_of_administrations.route_of_administration:
- intravenous (iv)              oral subcutaneous (sc)              NA's 
-                6                 1                 1               462 
+  iv   po   sc NA's 
+   7    1    1  461 
 
 patient.drugs.drug.route_of_administrations.route_of_administration.2:
-subcutaneous (sc)              NA's 
-                1               469 
+  sc NA's 
+   1  469 
 
 patient.drugs.drug.therapy_ongoing:
   no  yes NA's 
- 124   22  324 
+ 125   21  324 
 
 
 patient.drugs.drug.therapy_types.therapy_type_notes:
@@ -674,7 +634,7 @@ isolated limb perfusion (ilp)                          NA's
 
 patient.drugs.drug.tx_on_clinical_trial:
   no  yes NA's 
-  82   44  344 
+  83   43  344 
 
 patient.drugs.drug.year_of_form_completion:
 2012 2013 2014 2015 NA's 
@@ -706,6 +666,14 @@ patient.follow_ups.follow_up.2.month_of_form_completion:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
   1.000   3.000   3.000   5.204   9.000  12.000     416 
 
+patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.2.additional_pharmaceutical_therapy:
+  no NA's 
+   1  469 
+
+patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.2.additional_radiation_therapy:
+  no NA's 
+   1  469 
+
 patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.2.days_to_new_tumor_event_additional_surgery_procedure:
 5286 NA's 
    1  469 
@@ -722,17 +690,17 @@ patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.2.new_non_melano
  bcc NA's 
    1  469 
 
-patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.2.new_tumor_additional_rad_tx:
-  no NA's 
-   1  469 
-
-patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.2.new_tumor_additional_rx_tx:
-  no NA's 
-   1  469 
-
 patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.2.new_tumor_event_additional_surgery_procedure:
  yes NA's 
    1  469 
+
+patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.additional_pharmaceutical_therapy:
+  no NA's 
+   5  465 
+
+patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.additional_radiation_therapy:
+  no  yes NA's 
+   4    1  465 
 
 patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.days_to_new_tumor_event_additional_surgery_procedure:
 1697 3515 5286 NA's 
@@ -755,14 +723,6 @@ patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.new_neoplasm_eve
 patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.new_non_melanoma_event_histologic_type_text:
  scc NA's 
    1  469 
-
-patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.new_tumor_additional_rad_tx:
-  no  yes NA's 
-   4    1  465 
-
-patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.new_tumor_additional_rx_tx:
-  no NA's 
-   5  465 
 
 patient.follow_ups.follow_up.2.new_tumor_events.new_tumor_event.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
@@ -892,6 +852,14 @@ patient.follow_ups.follow_up.month_of_form_completion:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
   1.000   3.000   8.000   7.103  11.000  12.000     149 
 
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.additional_pharmaceutical_therapy:
+  no NA's 
+   1  469 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.additional_radiation_therapy:
+  no NA's 
+   1  469 
+
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.days_to_new_tumor_event_after_initial_treatment:
 2367 NA's 
    1  469 
@@ -899,14 +867,6 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.days_to_new_tum
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.new_neoplasm_event_type:
 distant metastasis               NA's 
                  1                469 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.new_tumor_additional_rad_tx:
-  no NA's 
-   1  469 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.new_tumor_additional_rx_tx:
-  no NA's 
-   1  469 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.new_tumor_event_additional_surgery_procedure:
   no NA's 
@@ -919,6 +879,14 @@ other, specify           NA's
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.10.new_tumor_metastasis_anatomic_site_other_text:
 ln left pelvic           NA's 
              1            469 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.2.additional_pharmaceutical_therapy:
+  no  yes NA's 
+  13   19  438 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.2.additional_radiation_therapy:
+  no  yes NA's 
+  31    2  437 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.2.days_to_new_tumor_event_additional_surgery_procedure:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -942,19 +910,19 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.2.new_non_melanoma
          adenocarcinoma adenocarcinoma pancreas                    NA's 
                       1                       1                     468 
 
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.2.new_tumor_additional_rad_tx:
-  no  yes NA's 
-  31    2  437 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.2.new_tumor_additional_rx_tx:
-  no  yes NA's 
-  13   19  438 
-
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.2.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
   26    9  435 
 
 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.3.additional_pharmaceutical_therapy:
+  no  yes NA's 
+  10   10  450 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.3.additional_radiation_therapy:
+  no  yes NA's 
+  19    1  450 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.3.days_to_new_tumor_event_additional_surgery_procedure:
  1328  1965  3896 11007  NA's 
@@ -970,14 +938,6 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.3.new_neoplasm_eve
                    NA's 
                     450 
 
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.3.new_tumor_additional_rad_tx:
-  no  yes NA's 
-  19    1  450 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.3.new_tumor_additional_rx_tx:
-  no  yes NA's 
-  10   10  450 
-
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.3.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
   16    4  450 
@@ -986,6 +946,14 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.3.new_tumor_metast
           bone          liver           lung other, specify           NA's 
              5              2              2              7            454 
 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.4.additional_pharmaceutical_therapy:
+  no  yes NA's 
+   6    7  457 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.4.additional_radiation_therapy:
+  no  yes NA's 
+  12    1  457 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.4.days_to_new_tumor_event_additional_surgery_procedure:
  6218 10916  NA's 
@@ -999,14 +967,6 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.4.new_neoplasm_eve
  distant metastasis regional lymph node                NA's 
                  12                   1                 457 
 
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.4.new_tumor_additional_rad_tx:
-  no  yes NA's 
-  12    1  457 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.4.new_tumor_additional_rx_tx:
-  no  yes NA's 
-   6    7  457 
-
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.4.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
   11    2  457 
@@ -1015,6 +975,14 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.4.new_tumor_metast
          brain          liver           lung other, specify           NA's 
              1              1              3              7            458 
 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.5.additional_pharmaceutical_therapy:
+  no  yes NA's 
+   4    7  459 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.5.additional_radiation_therapy:
+  no NA's 
+  11  459 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.5.days_to_new_tumor_event_additional_surgery_procedure:
  771 1828 2085 6218 NA's 
@@ -1028,19 +996,19 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.5.new_neoplasm_eve
      distant metastasis locoregional recurrence                    NA's 
                      10                       1                     459 
 
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.5.new_tumor_additional_rad_tx:
-  no NA's 
-  11  459 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.5.new_tumor_additional_rx_tx:
-  no  yes NA's 
-   4    7  459 
-
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.5.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
    7    4  459 
 
 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.additional_pharmaceutical_therapy:
+  no  yes NA's 
+   3    5  462 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.additional_radiation_therapy:
+  no  yes NA's 
+   7    1  462 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.days_to_new_tumor_event_additional_surgery_procedure:
 1800 2253 6253 NA's 
@@ -1053,14 +1021,6 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.days_to_new_tumo
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.new_neoplasm_event_type:
      distant metastasis locoregional recurrence                    NA's 
                       7                       1                     462 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.new_tumor_additional_rad_tx:
-  no  yes NA's 
-   7    1  462 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.new_tumor_additional_rx_tx:
-  no  yes NA's 
-   3    5  462 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
@@ -1076,6 +1036,14 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.6.new_tumor_metast
                              spleen                                NA's 
                                   1                                 467 
 
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.7.additional_pharmaceutical_therapy:
+  no  yes NA's 
+   2    2  466 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.7.additional_radiation_therapy:
+  no  yes NA's 
+   4    1  465 
+
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.7.days_to_new_tumor_event_additional_surgery_procedure:
 2408 NA's 
    1  469 
@@ -1087,14 +1055,6 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.7.days_to_new_tumo
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.7.new_neoplasm_event_type:
 distant metastasis               NA's 
                  5                465 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.7.new_tumor_additional_rad_tx:
-  no  yes NA's 
-   4    1  465 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.7.new_tumor_additional_rx_tx:
-  no  yes NA's 
-   2    2  466 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.7.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
@@ -1114,6 +1074,14 @@ left occipito-parietal scalp - skin and soft tissue
                                                NA's 
                                                 467 
 
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.additional_pharmaceutical_therapy:
+  no NA's 
+   2  468 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.additional_radiation_therapy:
+  no NA's 
+   3  467 
+
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.days_to_new_tumor_event_additional_surgery_procedure:
 2455 6505 NA's 
    1    1  468 
@@ -1125,14 +1093,6 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.days_to_new_tumo
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.new_neoplasm_event_type:
 distant metastasis               NA's 
                  3                467 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.new_tumor_additional_rad_tx:
-  no NA's 
-   3  467 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.new_tumor_additional_rx_tx:
-  no NA's 
-   2  468 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
@@ -1146,6 +1106,14 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.8.new_tumor_metast
  ln right neck posterior neck           NA's 
              1              1            468 
 
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.9.additional_pharmaceutical_therapy:
+  no NA's 
+   2  468 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.9.additional_radiation_therapy:
+  no NA's 
+   2  468 
+
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.9.days_to_new_tumor_event_after_initial_treatment:
 2367 6525 NA's 
    1    1  468 
@@ -1153,14 +1121,6 @@ patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.9.days_to_new_tumo
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.9.new_neoplasm_event_type:
 distant metastasis               NA's 
                  2                468 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.9.new_tumor_additional_rad_tx:
-  no NA's 
-   2  468 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.9.new_tumor_additional_rx_tx:
-  no NA's 
-   2  468 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.9.new_tumor_event_additional_surgery_procedure:
   no NA's 
@@ -1175,6 +1135,14 @@ right head - skin and soft tissue                       small bowel
                                 1                                 1 
                              NA's 
                               468 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.additional_pharmaceutical_therapy:
+  no  yes NA's 
+  40   33  397 
+
+patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.additional_radiation_therapy:
+  no  yes NA's 
+  55   18  397 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.days_to_new_tumor_event_additional_surgery_procedure:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -1201,16 +1169,8 @@ squamous cell carcinoma                    NA's
                       1                     465 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.new_primary_melanoma_anatomic_site:
-  extremities head and neck          NA's 
-            2             1           467 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.new_tumor_additional_rad_tx:
-  no  yes NA's 
-  55   18  397 
-
-patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.new_tumor_additional_rx_tx:
-  no  yes NA's 
-  40   33  397 
+extremities head & neck        NA's 
+          2           1         467 
 
 patient.follow_ups.follow_up.new_tumor_events.new_tumor_event.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
@@ -1644,8 +1604,8 @@ patient.new_tumor_events.new_tumor_event.2.new_neoplasm_event_type:
 
 
 patient.new_tumor_events.new_tumor_event.2.new_primary_melanoma_anatomic_site:
-  extremities head and neck         trunk          NA's 
-            4             3             3           460 
+extremities head & neck       trunk        NA's 
+          4           3           3         460 
 
 patient.new_tumor_events.new_tumor_event.2.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
@@ -1896,8 +1856,8 @@ patient.new_tumor_events.new_tumor_event.4.new_non_melanoma_event_histologic_typ
                       1                       1                     468 
 
 patient.new_tumor_events.new_tumor_event.4.new_primary_melanoma_anatomic_site:
-  extremities head and neck         trunk          NA's 
-            2             1             1           466 
+extremities head & neck       trunk        NA's 
+          2           1           1         466 
 
 patient.new_tumor_events.new_tumor_event.4.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
@@ -1967,8 +1927,8 @@ patient.new_tumor_events.new_tumor_event.6.days_to_new_tumor_event_after_initial
   250.0   703.8  1689.5  2133.6  3126.5  7512.0     432 
 
 patient.new_tumor_events.new_tumor_event.6.new_neoplasm_event_occurrence_anatomic_site:
-head and neck      prostate          NA's 
-            1             1           468 
+head & neck    prostate        NA's 
+          1           1         468 
 
 patient.new_tumor_events.new_tumor_event.6.new_neoplasm_event_type:
      distant metastasis locoregional recurrence    new primary melanoma 
@@ -2025,8 +1985,8 @@ basal cell carcinoma                 NA's
                    1                  469 
 
 patient.new_tumor_events.new_tumor_event.7.new_primary_melanoma_anatomic_site:
-head and neck          NA's 
-            1           469 
+head & neck        NA's 
+          1         469 
 
 patient.new_tumor_events.new_tumor_event.7.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
@@ -2121,23 +2081,20 @@ patient.new_tumor_events.new_tumor_event.9.primary_anatomic_site_count:
 
 patient.new_tumor_events.new_tumor_event.additional_pharmaceutical_therapy:
   no  yes NA's 
- 134   61  275 
+ 135   61  274 
 
 patient.new_tumor_events.new_tumor_event.additional_radiation_therapy:
   no  yes NA's 
- 159   38  273 
+ 160   38  272 
 
 patient.new_tumor_events.new_tumor_event.days_to_new_tumor_event_additional_surgery_procedure:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    0.0   333.5   858.5  1259.9  1590.8  8113.0     342 
+      0     329     850    1252    1582    8113     341 
 
 patient.new_tumor_events.new_tumor_event.days_to_new_tumor_event_after_initial_treatment:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-      0     208     646    1177    1442   10334     247 
+    0.0   205.5   634.0  1172.3  1441.5 10334.0     246 
 
-patient.new_tumor_events.new_tumor_event.new_neoplasm_event_occurrence_anatomic_site:
-      bladder   extremities head and neck          lung          NA's 
-            1             1             2             1           465 
 
 patient.new_tumor_events.new_tumor_event.new_neoplasm_event_type:
      distant metastasis locoregional recurrence    new primary melanoma 
@@ -2147,12 +2104,12 @@ patient.new_tumor_events.new_tumor_event.new_neoplasm_event_type:
 
 
 patient.new_tumor_events.new_tumor_event.new_primary_melanoma_anatomic_site:
-  extremities head and neck         trunk          NA's 
-            8             4            10           448 
+extremities head & neck       trunk        NA's 
+          8           4          10         448 
 
 patient.new_tumor_events.new_tumor_event.new_tumor_event_additional_surgery_procedure:
   no  yes NA's 
-  76  130  264 
+  76  131  263 
 
 
 
@@ -2163,6 +2120,10 @@ patient.new_tumor_events.new_tumor_event.primary_anatomic_site_count:
 patient.new_tumor_events.new_tumor_event_after_initial_treatment:
   no  yes NA's 
  119  338   13 
+
+patient.other_dx:
+ no yes 
+448  22 
 
 
 patient.person_neoplasm_cancer_status:
@@ -2177,17 +2138,13 @@ patient.primary_neoplasm_melanoma_dx:
  no yes 
  47 423 
 
-patient.prior_dx:
- no yes 
-448  22 
-
 patient.prior_systemic_therapy_types.prior_systemic_therapy_type:
          chemotherapy immunotherapy/vaccine            interferon 
                     2                     3                    29 
                 other                  NA's 
                     1                   435 
 
-patient.race:
+patient.race_list.race:
                     asian black or african american                     white 
                        12                         1                       447 
                      NA's 
@@ -2206,11 +2163,11 @@ patient.radiations.radiation.2.day_of_form_completion:
 
 patient.radiations.radiation.2.days_to_radiation_therapy_end:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  158.0   457.5  1025.5  1191.8  1326.0  4462.0     450 
+  158.0   457.5  1025.5  1203.8  1490.5  4462.0     450 
 
 patient.radiations.radiation.2.days_to_radiation_therapy_start:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  158.0   447.8  1018.5  1181.0  1301.2  4458.0     450 
+  158.0   447.8  1018.5  1193.2  1478.5  4458.0     450 
 
 patient.radiations.radiation.2.measure_of_response:
                complete response radiographic progressive disease 
@@ -2224,7 +2181,7 @@ patient.radiations.radiation.2.month_of_form_completion:
 
 patient.radiations.radiation.2.numfractions:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.000   4.500   5.000   7.062  10.000  20.000     454 
+    1.0     4.0     5.0     7.2    10.0    20.0     455 
 
 patient.radiations.radiation.2.radiation_dosage:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -2525,11 +2482,11 @@ patient.radiations.radiation.day_of_form_completion:
 
 patient.radiations.radiation.days_to_radiation_therapy_end:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   31.0   262.5   766.0  1324.8  1931.5  8137.0     359 
+   31.0   262.5   766.0  1322.6  1931.5  8137.0     359 
 
 patient.radiations.radiation.days_to_radiation_therapy_start:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-     11     231     736    1291    1865    8128     357 
+     11     231     736    1289    1865    8128     357 
 
 patient.radiations.radiation.measure_of_response:
                complete response                 partial response 
@@ -2545,7 +2502,7 @@ patient.radiations.radiation.month_of_form_completion:
 
 patient.radiations.radiation.numfractions:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   1.00    5.00    9.00   12.41   20.00   33.00     382 
+   1.00    5.00    8.00   12.33   20.00   33.00     381 
 
 patient.radiations.radiation.radiation_dosage:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -2622,8 +2579,8 @@ regional cutaneous or subcutaneous tissue (includes satellite and in-transit met
                                                                                        3 
 
 patient.vital_status:
-alive  dead 
-  313   157 
+alive  dead  NA's 
+  313   156     1 
 
 patient.weight:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -2658,317 +2615,6 @@ germline comparison                NA's
 patient.bcr_canonical_check.bcr_patient_canonical_status:
        canonical canonical - plus 
              465                5 
-
-patient.biospecimen_cqcf.consent_or_death_status:
-  consented    deceased exemption 4        NA's 
-        390          57          18           5 
-
-
-patient.biospecimen_cqcf.days_to_pathology_review:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-      0     215    1329    2039    2972   11724      11 
-
-patient.biospecimen_cqcf.days_to_sample_procurement:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  -25.0    23.5   360.0  1032.0  1372.5 10847.0      11 
-
-patient.biospecimen_cqcf.digital_image_submitted:
- no yes 
-447  23 
-
-patient.biospecimen_cqcf.ethnicity:
-    hispanic or latino not hispanic or latino                   NA's 
-                     6                    160                    304 
-
-patient.biospecimen_cqcf.ffpe_tumor_slide_submitted:
-digital image         slide          NA's 
-           41           216           213 
-
-patient.biospecimen_cqcf.frozen_specimen_anatomic_site:
-cutaneous or subcutaneous tissue; regional 
-                                        68 
-                   lymph node(s); regional 
-                                       224 
-                       metastasis; distant 
-                                        67 
-                                      skin 
-                                       111 
-
-patient.biospecimen_cqcf.history_of_neoadjuvant_treatment:
-                                              no 
-                                             451 
-yes, pharmaceutical treatment prior to resection 
-                                              19 
-
-patient.biospecimen_cqcf.method_of_sample_procurement:
-     excisional biopsy other (please specify)     surgical resection 
-                    41                      9                    420 
-
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.days_to_normal_sample_procurement:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    -20      40     426    1390    1746   10847     441 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.extracted_dna.ncedna_dna_conc:
-    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
-  0.0190   0.0553   0.1060  12.9643   0.2220 205.0000      454 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.extracted_dna.ncedna_dna_qm:
-            cdrop          nanodrop spectrophotometer              NA's 
-                6                 2                 8               454 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.extracted_dna.ncedna_dna_qty:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  4.442  11.625  15.000  36.398  20.400 317.400     454 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.extracted_dna.ncedna_dna_vol:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   33.0   133.0   176.7   224.7   300.0   600.0     454 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.method_of_normal_sample_procurement:
-        blood draw  excisional biopsy surgical resection               NA's 
-                25                  1                  4                440 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.normal_tissue.normal_tissue_anatomic_site:
-other  NA's 
-    5   465 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.normal_tissue.normal_tissue_proximity:
-distal (>2cm)          NA's 
-            5           465 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.2.vial_number:
-   1    2 NA's 
-  27   12  431 
-
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.days_to_normal_sample_procurement:
-  19   27 1132 NA's 
-   1    1    1  467 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.extracted_dna.ncedna_dna_conc:
-0.0189   NA's 
-     1    469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.extracted_dna.ncedna_dna_qm:
-cdrop  NA's 
-    1   469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.extracted_dna.ncedna_dna_qty:
-3.213  NA's 
-    1   469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.extracted_dna.ncedna_dna_vol:
- 170 NA's 
-   1  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.method_of_normal_sample_procurement:
-        blood draw surgical resection               NA's 
-                 2                  1                467 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.normal_tissue.normal_tissue_anatomic_site:
-other  skin  NA's 
-    2     1   467 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.normal_tissue.normal_tissue_proximity:
-distal (>2cm)          NA's 
-            3           467 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.3.vial_number:
-   1    2 NA's 
-   3    2  465 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.4.bcr_sample_uuid:
-e54d1844-c1c5-49cb-8417-211d4951fbc2                                 NA's 
-                                   1                                  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.4.extracted_dna.ncedna_dna_conc:
-0.01346    NA's 
-      1     469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.4.extracted_dna.ncedna_dna_qm:
-cdrop  NA's 
-    1   469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.4.extracted_dna.ncedna_dna_qty:
-2.2882   NA's 
-     1    469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.4.extracted_dna.ncedna_dna_vol:
- 170 NA's 
-   1  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.4.vial_number:
-   3 NA's 
-   1  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.5.bcr_sample_uuid:
-c00d38d3-e65e-42d0-a3df-adbfc33e22c2                                 NA's 
-                                   1                                  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.5.extracted_dna.ncedna_dna_conc:
-0.02755    NA's 
-      1     469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.5.extracted_dna.ncedna_dna_qm:
-cdrop  NA's 
-    1   469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.5.extracted_dna.ncedna_dna_qty:
-4.6835   NA's 
-     1    469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.5.extracted_dna.ncedna_dna_vol:
- 170 NA's 
-   1  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.5.vial_number:
-   4 NA's 
-   1  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.6.bcr_sample_uuid:
-71fe001a-1cd9-4cc8-9857-88277a67a91a                                 NA's 
-                                   1                                  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.6.extracted_dna.ncedna_dna_conc:
-0.00544    NA's 
-      1     469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.6.extracted_dna.ncedna_dna_qm:
-cdrop  NA's 
-    1   469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.6.extracted_dna.ncedna_dna_qty:
-0.37536    NA's 
-      1     469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.6.extracted_dna.ncedna_dna_vol:
-  69 NA's 
-   1  469 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.6.vial_number:
-   5 NA's 
-   1  469 
-
-
-patient.biospecimen_cqcf.normal_controls.normal_control.days_to_normal_sample_procurement:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- -455.0    14.5   281.0  1047.1  1305.5 10837.0      19 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.extracted_dna.ncedna_dna_conc:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- 0.0140  0.0766  0.1220  0.5627  0.2795 76.0000     271 
-
-
-patient.biospecimen_cqcf.normal_controls.normal_control.extracted_dna.ncedna_dna_qty:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  10.00   16.00   20.00   20.47   25.00   50.40     271 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.extracted_dna.ncedna_dna_vol:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   33.0    60.0   160.0   205.8   300.0   600.0     271 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.method_of_normal_sample_procurement:
-        blood draw  excisional biopsy surgical resection               NA's 
-               457                  2                  1                 10 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.normal_tissue.normal_tissue_anatomic_site:
-other  skin  NA's 
-    1     3   466 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.normal_tissue.normal_tissue_proximity:
-distal (>2cm)          NA's 
-            3           467 
-
-patient.biospecimen_cqcf.normal_controls.normal_control.vial_number:
-   1    2 NA's 
- 459    5    6 
-
-
-
-patient.biospecimen_cqcf.path_confirm_diagnosis_matching:
- no yes 
-  1 469 
-
-patient.biospecimen_cqcf.path_confirm_report_attached:
- no yes 
- 35 435 
-
-patient.biospecimen_cqcf.path_confirm_tumor_necrosis_metrics:
-yes 
-470 
-
-patient.biospecimen_cqcf.path_confirm_tumor_nuclei_metrics:
-yes 
-470 
-
-patient.biospecimen_cqcf.race:
-asian white  NA's 
-    6   155   309 
-
-patient.biospecimen_cqcf.sample_prescreened:
-yes 
-470 
-
-patient.biospecimen_cqcf.site_of_disease:
-cutaneous or subcutaneous tissue; regional 
-                                        68 
-                    lymph node(s) regional 
-                                       224 
-                       metastasis; distant 
-                                        67 
-                                      skin 
-                                       103 
-                                      NA's 
-                                         8 
-
-patient.biospecimen_cqcf.submitted_for_lce:
-  no  yes NA's 
- 213   26  231 
-
-patient.biospecimen_cqcf.top_slide_submitted:
- no yes 
- 28 442 
-
-
-patient.biospecimen_cqcf.tumor_samples.tumor_sample.2.tumor_necrosis_percent:
-   0    5   30 NA's 
-   2    4    1  463 
-
-patient.biospecimen_cqcf.tumor_samples.tumor_sample.2.tumor_nuclei_percent:
-  60   70   80   95 NA's 
-   1    2    2    2  463 
-
-patient.biospecimen_cqcf.tumor_samples.tumor_sample.2.tumor_weight:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   40.0   142.5   150.0   162.1   215.0   230.0     463 
-
-patient.biospecimen_cqcf.tumor_samples.tumor_sample.2.vial_number:
-   1    2 NA's 
-   4    3  463 
-
-
-patient.biospecimen_cqcf.tumor_samples.tumor_sample.tumor_necrosis_percent:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  0.000   0.000   0.000   4.483   7.000  30.000 
-
-patient.biospecimen_cqcf.tumor_samples.tumor_sample.tumor_nuclei_percent:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  20.00   75.00   85.00   81.67   90.00  100.00 
-
-patient.biospecimen_cqcf.tumor_samples.tumor_sample.tumor_weight:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    1.0   160.0   200.0   338.3   345.2  2773.0 
-
-patient.biospecimen_cqcf.tumor_samples.tumor_sample.vial_number:
-  1   2 
-469   1 
-
-patient.biospecimen_cqcf.vessel_used:
-biospecimen storage bag                cassette                cryomold 
-                      5                      54                     118 
-               cryovial  other (please specify) 
-                    138                     155 
 
 patient.days_to_index:
    0 NA's 
@@ -3135,10 +2781,6 @@ patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.vo
 patient.samples.sample.2.portions.portion.analytes.analyte.2.aliquots.aliquot.year_of_shipment:
 2011 2012 2013 2014 NA's 
    2  268   84  103   13 
-
-patient.samples.sample.2.portions.portion.analytes.analyte.2.amount:
- 3.26 16.98 40.95  NA's 
-    1     1     1   467 
 
 patient.samples.sample.2.portions.portion.analytes.analyte.2.analyte_type:
 repli-g (qiagen) dna                  rna                 NA's 
@@ -3558,10 +3200,6 @@ patient.samples.sample.2.portions.portion.analytes.analyte.aliquots.aliquot.year
 2011 2012 2013 2014 NA's 
  216   69   86   98    1 
 
-patient.samples.sample.2.portions.portion.analytes.analyte.amount:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   4.98   11.57   18.18   24.65   34.03  144.40       1 
-
 patient.samples.sample.2.portions.portion.analytes.analyte.analyte_type:
  dna NA's 
  469    1 
@@ -3975,10 +3613,6 @@ patient.samples.sample.3.portions.portion.analytes.analyte.2.aliquots.aliquot.ye
 2012 2013 NA's 
    5    1  464 
 
-patient.samples.sample.3.portions.portion.analytes.analyte.2.amount:
- 9.91 21.78  NA's 
-    1     1   468 
-
 patient.samples.sample.3.portions.portion.analytes.analyte.2.analyte_type:
 repli-g (qiagen) dna                  rna                 NA's 
                    4                    2                  464 
@@ -4318,10 +3952,6 @@ patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.volu
 patient.samples.sample.3.portions.portion.analytes.analyte.aliquots.aliquot.year_of_shipment:
 2011 2012 2013 NA's 
    4    1    1  464 
-
-patient.samples.sample.3.portions.portion.analytes.analyte.amount:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  12.20   14.75   16.17   17.62   21.31   23.88     464 
 
 patient.samples.sample.3.portions.portion.analytes.analyte.analyte_type:
  dna NA's 
@@ -4698,10 +4328,6 @@ patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.volu
 patient.samples.sample.portions.portion.analytes.analyte.2.aliquots.aliquot.year_of_shipment:
 2011 2012 2013 2014 
  218   69   98   85 
-
-patient.samples.sample.portions.portion.analytes.analyte.2.amount:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   5.26   12.24   18.21   20.61   26.63   64.21 
 
 patient.samples.sample.portions.portion.analytes.analyte.2.analyte_type:
 rna 
@@ -5136,10 +4762,6 @@ patient.samples.sample.portions.portion.analytes.analyte.aliquots.aliquot.year_o
 2011 2012 2013 2014 
  218   69   86   97 
 
-patient.samples.sample.portions.portion.analytes.analyte.amount:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   7.16   32.95   42.94   44.95   57.31   83.73 
-
 patient.samples.sample.portions.portion.analytes.analyte.analyte_type:
 dna 
 470 
@@ -5305,6 +4927,904 @@ metastatic       NA's
 patient.samples.sample.vial_number:
   a   b 
 468   2 
+
+
+
+patient.omfs.omf.2.day_of_form_completion:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   8.00   13.75   23.50   19.67   25.00   27.00     464 
+
+patient.omfs.omf.2.days_to_other_malignancy_dx:
+-2070    46  NA's 
+    1     1   468 
+
+patient.omfs.omf.2.drug_tx.administered_drug.drug_name:
+bacillus calmette-guerin                     NA's 
+                       1                      469 
+
+patient.omfs.omf.2.drug_tx.days_to_drug_therapy_start:
+-2070  NA's 
+    1   469 
+
+patient.omfs.omf.2.drug_tx.drug_tx_extent:
+locoregional         NA's 
+           1          469 
+
+patient.omfs.omf.2.drug_tx.drug_tx_indicator:
+  no  yes NA's 
+   5    1  464 
+
+patient.omfs.omf.2.malignancy_type:
+      prior malignancy synchronous malignancy                   NA's 
+                     5                      1                    464 
+
+patient.omfs.omf.2.month_of_form_completion:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  4.000   5.250   7.500   7.667   9.750  12.000     464 
+
+
+patient.omfs.omf.2.other_malignancy_anatomic_site_text:
+nose, skin       NA's 
+         1        469 
+
+patient.omfs.omf.2.other_malignancy_histological_type:
+                          basaloid squamous cell 
+                                               1 
+                                  other, specify 
+                                               2 
+squamous cell carcinoma, not otherwise specified 
+                                               2 
+                                            NA's 
+                                             465 
+
+patient.omfs.omf.2.other_malignancy_histological_type_text:
+basal cell carcinoma         fibrosarcoma                 NA's 
+                   1                    1                  468 
+
+patient.omfs.omf.2.other_malignancy_laterality:
+ left right  NA's 
+    2     2   466 
+
+patient.omfs.omf.2.radiation_tx.radiation_tx_indicator:
+  no NA's 
+   6  464 
+
+patient.omfs.omf.2.surgery.days_to_surgical_resection:
+  46 NA's 
+   1  469 
+
+patient.omfs.omf.2.surgery.surgery_indicator:
+  no  yes NA's 
+   2    1  467 
+
+patient.omfs.omf.2.surgery.surgery_type:
+excision     NA's 
+       1      469 
+
+patient.omfs.omf.2.year_of_form_completion:
+2011 2013 2014 NA's 
+   3    1    2  464 
+
+patient.omfs.omf.3.bcr_omf_barcode:
+tcga-d3-a3ml-o19484                NA's 
+                  1                 469 
+
+patient.omfs.omf.3.bcr_omf_uuid:
+c4e381e0-58e3-4bc9-92eb-7a51f814b2ea                                 NA's 
+                                   1                                  469 
+
+patient.omfs.omf.3.day_of_form_completion:
+   8 NA's 
+   1  469 
+
+patient.omfs.omf.3.drug_tx.drug_tx_indicator:
+  no NA's 
+   1  469 
+
+patient.omfs.omf.3.malignancy_type:
+prior malignancy             NA's 
+               1              469 
+
+patient.omfs.omf.3.month_of_form_completion:
+  12 NA's 
+   1  469 
+
+patient.omfs.omf.3.other_malignancy_anatomic_site:
+other  NA's 
+    1   469 
+
+patient.omfs.omf.3.other_malignancy_anatomic_site_text:
+face & trunk         NA's 
+           1          469 
+
+patient.omfs.omf.3.other_malignancy_histological_type:
+other, specify           NA's 
+             1            469 
+
+patient.omfs.omf.3.other_malignancy_histological_type_text:
+basal cell carcinoma                 NA's 
+                   1                  469 
+
+patient.omfs.omf.3.radiation_tx.radiation_tx_indicator:
+  no NA's 
+   1  469 
+
+patient.omfs.omf.3.year_of_form_completion:
+2011 NA's 
+   1  469 
+
+
+
+patient.omfs.omf.day_of_form_completion:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    2.0    13.0    22.0    19.5    24.5    31.0     444 
+
+patient.omfs.omf.days_to_other_malignancy_dx:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
+-2802.00  -699.00     0.00   -84.22    49.00  4667.00      461 
+
+patient.omfs.omf.drug_tx.drug_tx_indicator:
+  no NA's 
+  25  445 
+
+patient.omfs.omf.malignancy_type:
+      prior malignancy synchronous malignancy                   NA's 
+                    20                      6                    444 
+
+patient.omfs.omf.month_of_form_completion:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   5.000   7.000   6.923   9.750  12.000     444 
+
+patient.omfs.omf.omf_staging.pathologic_categories.pathologic_m:
+  m0 NA's 
+   3  467 
+
+patient.omfs.omf.omf_staging.pathologic_categories.pathologic_n:
+  n0 NA's 
+   3  467 
+
+patient.omfs.omf.omf_staging.pathologic_categories.pathologic_t:
+        t1        t1b        tis tis (dcis)       NA's 
+         1          1          1          1        466 
+
+patient.omfs.omf.omf_staging.pathologic_stage:
+ stage 0  stage i stage ib     NA's 
+       1        1        1      467 
+
+patient.omfs.omf.omf_staging.system_version:
+ 6th  7th NA's 
+   2    2  466 
+
+
+patient.omfs.omf.other_malignancy_anatomic_site_text:
+skin of chest     skin, nos   soft tissue          NA's 
+            1             1             2           466 
+
+
+
+patient.omfs.omf.other_malignancy_laterality:
+ left right  NA's 
+    6     4   460 
+
+patient.omfs.omf.radiation_tx.days_to_radiation_therapy_start:
+-2800  NA's 
+    1   469 
+
+patient.omfs.omf.radiation_tx.rad_tx_to_site_of_primary_tumor:
+  no NA's 
+   4  466 
+
+patient.omfs.omf.radiation_tx.radiation_tx_extent:
+locoregional         NA's 
+           3          467 
+
+patient.omfs.omf.radiation_tx.radiation_tx_indicator:
+  no  yes NA's 
+  22    3  445 
+
+patient.omfs.omf.surgery.days_to_surgical_resection:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  -1570       5      89    1243    1728    9021     455 
+
+patient.omfs.omf.surgery.surgery_indicator:
+  no  yes NA's 
+   3   10  457 
+
+
+patient.omfs.omf.year_of_form_completion:
+2011 2012 2013 2014 NA's 
+   8    7    6    5  444 
+
+patient.normal_controls.normal_control.2.bcr_sample_uuid:
+27a799c5-81f1-49f0-ba1f-3a3369a198fa 5dc9af4d-a8b0-4d3d-b202-78c7404cac01 
+                                   1                                    1 
+a11876aa-8b69-4335-99e1-8057bf969f75                                 NA's 
+                                   1                                  467 
+
+patient.normal_controls.normal_control.2.days_to_normal_sample_procurement:
+  21  675 1132 NA's 
+   1    1    1  467 
+
+patient.normal_controls.normal_control.2.method_of_normal_sample_procurement:
+       blood draw excisional biopsy              NA's 
+                2                 1               467 
+
+patient.normal_controls.normal_control.2.ncedna_dna_conc:
+0.434 0.551  NA's 
+    1     1   468 
+
+patient.normal_controls.normal_control.2.ncedna_dna_qm:
+   cdrop nanodrop     NA's 
+       1        1      468 
+
+patient.normal_controls.normal_control.2.ncedna_dna_qty:
+  15 18.2 NA's 
+   1    1  468 
+
+patient.normal_controls.normal_control.2.ncedna_dna_vol:
+  33 34.6 NA's 
+   1    1  468 
+
+patient.normal_controls.normal_control.2.normal_control_locations.normal_control_location.normal_tissue_anatomic_site:
+other  NA's 
+    2   468 
+
+patient.normal_controls.normal_control.2.normal_control_locations.normal_control_location.other_anatomic_site_normal_tissue:
+   blood partotid     NA's 
+       1        1      468 
+
+patient.normal_controls.normal_control.2.normal_sample_site_proximity_to_tumor:
+distal (>2cm)          NA's 
+            1           469 
+
+
+patient.normal_controls.normal_control.days_to_normal_sample_procurement:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   -455      13     281    1042    1302   10837      13 
+
+patient.normal_controls.normal_control.method_of_normal_sample_procurement:
+        blood draw  excisional biopsy surgical resection               NA's 
+               463                  1                  1                  5 
+
+patient.normal_controls.normal_control.ncedna_dna_conc:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.0210  0.0800  0.1230  0.5608  0.2792 76.0000     270 
+
+
+patient.normal_controls.normal_control.ncedna_dna_qty:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   9.00   16.00   20.00   20.43   25.00   50.82     270 
+
+patient.normal_controls.normal_control.ncedna_dna_vol:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   39.5    60.0   160.0   204.5   300.0   600.0     270 
+
+patient.normal_controls.normal_control.normal_control_locations.normal_control_location.normal_tissue_anatomic_site:
+other  skin  NA's 
+    2     1   467 
+
+patient.normal_controls.normal_control.normal_control_locations.normal_control_location.other_anatomic_site_normal_tissue:
+axillary ln       blood        NA's 
+          1           1         468 
+
+patient.normal_controls.normal_control.normal_sample_site_proximity_to_tumor:
+distal (>2cm)          NA's 
+            2           468 
+
+patient.tumor_samples.tumor_sample.2.bcr_sample_uuid:
+0a09ec89-6674-448c-999e-212bf3f9c844 11e2f891-251a-4813-aa90-e944f350c54d 
+                                   1                                    1 
+20ecf8d6-2ca9-4c8a-b6ce-8b2a3ba51ae3                                 NA's 
+                                   1                                  467 
+
+patient.tumor_samples.tumor_sample.2.consent_or_death_status:
+consented      NA's 
+        3       467 
+
+patient.tumor_samples.tumor_sample.2.country:
+united states          NA's 
+            3           467 
+
+patient.tumor_samples.tumor_sample.2.days_to_consent:
+  15   21   27 NA's 
+   1    1    1  467 
+
+patient.tumor_samples.tumor_sample.2.days_to_pathology_review:
+ 232 1587 1752 NA's 
+   1    1    1  467 
+
+patient.tumor_samples.tumor_sample.2.days_to_sample_procurement:
+  70  100 1395 NA's 
+   1    1    1  467 
+
+patient.tumor_samples.tumor_sample.2.digital_image_submitted:
+  no NA's 
+   3  467 
+
+patient.tumor_samples.tumor_sample.2.ffpe_tumor_slide_submitted:
+slide  NA's 
+    2   468 
+
+patient.tumor_samples.tumor_sample.2.history_of_neoadjuvant_treatment:
+  no NA's 
+   2  468 
+
+patient.tumor_samples.tumor_sample.2.method_of_sample_procurement:
+other method, specify    surgical resection                  NA's 
+                    1                     2                   467 
+
+patient.tumor_samples.tumor_sample.2.other_dx:
+  no NA's 
+   3  467 
+
+patient.tumor_samples.tumor_sample.2.other_vessel_used:
+biospecimen storage bag                    NA's 
+                      2                     468 
+
+patient.tumor_samples.tumor_sample.2.path_confirm_diagnosis_matching:
+ yes NA's 
+   3  467 
+
+patient.tumor_samples.tumor_sample.2.path_confirm_report_attached:
+ yes NA's 
+   3  467 
+
+patient.tumor_samples.tumor_sample.2.path_confirm_tumor_necrosis_metrics:
+ yes NA's 
+   3  467 
+
+patient.tumor_samples.tumor_sample.2.path_confirm_tumor_nuclei_metrics:
+ yes NA's 
+   3  467 
+
+patient.tumor_samples.tumor_sample.2.sample_prescreened:
+ yes NA's 
+   3  467 
+
+patient.tumor_samples.tumor_sample.2.top_slide_submitted:
+ yes NA's 
+   3  467 
+
+patient.tumor_samples.tumor_sample.2.tumor_histologies.tumor_histology.2.histological_type:
+melanoma     NA's 
+       2      468 
+
+patient.tumor_samples.tumor_sample.2.tumor_histologies.tumor_histology.histological_type:
+melanoma     NA's 
+       3      467 
+
+patient.tumor_samples.tumor_sample.2.tumor_locations.tumor_location.2.site_of_disease:
+lymph node(s) regional                   NA's 
+                     2                    468 
+
+patient.tumor_samples.tumor_sample.2.tumor_locations.tumor_location.site_of_disease:
+lymph node(s) regional                   skin                   NA's 
+                     1                      2                    467 
+
+patient.tumor_samples.tumor_sample.2.tumor_necrosis_percent:
+   5   15 NA's 
+   2    1  467 
+
+patient.tumor_samples.tumor_sample.2.tumor_nuclei_percent:
+  70   80 NA's 
+   1    2  467 
+
+patient.tumor_samples.tumor_sample.2.tumor_weight:
+ 150  230  300 NA's 
+   1    1    1  467 
+
+patient.tumor_samples.tumor_sample.2.vessel_used:
+cryomold    other     NA's 
+       1        2      467 
+
+
+patient.tumor_samples.tumor_sample.consent_or_death_status:
+  consented    deceased exemption 4      waiver        NA's 
+        389          57          18           5           1 
+
+
+patient.tumor_samples.tumor_sample.days_to_consent:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
+ -226.00     7.25   100.50   909.36  1172.50 10837.00       88 
+
+patient.tumor_samples.tumor_sample.days_to_pathology_review:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0     215    1329    2042    2972   11724      11 
+
+patient.tumor_samples.tumor_sample.days_to_sample_procurement:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
+  -25.00    22.25   344.00  1025.69  1372.00 10847.00        8 
+
+patient.tumor_samples.tumor_sample.digital_image_submitted:
+ no yes 
+447  23 
+
+patient.tumor_samples.tumor_sample.ffpe_tumor_slide_submitted:
+digital image         slide          NA's 
+           41           215           214 
+
+patient.tumor_samples.tumor_sample.history_of_neoadjuvant_treatment:
+                                              no 
+                                             409 
+yes, pharmaceutical treatment prior to resection 
+                                              19 
+                                            NA's 
+                                              42 
+
+patient.tumor_samples.tumor_sample.method_of_sample_procurement:
+    excisional biopsy other method, specify    surgical resection 
+                   41                     9                   420 
+
+patient.tumor_samples.tumor_sample.other_dx:
+                                              no 
+                                             446 
+                yes, history of prior malignancy 
+                                              18 
+yes, history of synchronous/bilateral malignancy 
+                                               4 
+                                            NA's 
+                                               2 
+
+
+patient.tumor_samples.tumor_sample.path_confirm_diagnosis_matching:
+ no yes 
+  1 469 
+
+patient.tumor_samples.tumor_sample.path_confirm_report_attached:
+ no yes 
+ 36 434 
+
+patient.tumor_samples.tumor_sample.path_confirm_tumor_necrosis_metrics:
+yes 
+470 
+
+patient.tumor_samples.tumor_sample.path_confirm_tumor_nuclei_metrics:
+yes 
+470 
+
+patient.tumor_samples.tumor_sample.sample_prescreened:
+yes 
+470 
+
+patient.tumor_samples.tumor_sample.submitted_for_lce:
+  no  yes NA's 
+ 213   26  231 
+
+patient.tumor_samples.tumor_sample.top_slide_submitted:
+ no yes 
+ 28 442 
+
+patient.tumor_samples.tumor_sample.tumor_histologies.tumor_histology.2.histological_type:
+melanoma     NA's 
+       2      468 
+
+patient.tumor_samples.tumor_sample.tumor_histologies.tumor_histology.histological_type:
+melanoma 
+     470 
+
+patient.tumor_samples.tumor_sample.tumor_locations.tumor_location.2.site_of_disease:
+lymph node(s) regional                   NA's 
+                     2                    468 
+
+patient.tumor_samples.tumor_sample.tumor_locations.tumor_location.site_of_disease:
+cutaneous or subcutaneous tissue; regional 
+                                        76 
+                    lymph node(s) regional 
+                                       223 
+                       metastasis; distant 
+                                        68 
+                                      skin 
+                                       103 
+
+patient.tumor_samples.tumor_sample.tumor_necrosis_percent:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   0.000   0.000   4.483   6.500  30.000 
+
+patient.tumor_samples.tumor_sample.tumor_nuclei_percent:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  20.00   75.00   85.00   81.63   90.00  100.00 
+
+patient.tumor_samples.tumor_sample.tumor_weight:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    1.0   160.0   200.0   337.9   345.2  2773.0 
+
+patient.tumor_samples.tumor_sample.vessel_used:
+cassette cryomold cryovial    other 
+      54      118      138      160 
+
+ALL_SAMPLES:
+  No  Yes NA's 
+   2   65  403 
+
+MUTATIONSUBTYPES:
+BRAF_Hotspot_Mutants      NF1_Any_Mutants  RAS_Hotspot_Mutants 
+                  32                    5                   11 
+           Triple_WT                 NA's 
+                   8                  414 
+
+ALL_PRIMARY_VS_METASTATIC:
+All_Primaries          NA's 
+           67           403 
+
+REGIONAL_VS_PRIMARY:
+Primary_Disease            NA's 
+             41             429 
+
+UV.signature:
+      not UV UV signature         NA's 
+          14           44          412 
+
+RNASEQ.CLUSTER_CONSENHIER:
+  immune  keratin MITF-low     NA's 
+      12       45        6      407 
+
+MethTypes.201408:
+CpG island-methylated      hyper-methylated       hypo-methylated 
+                   20                    15                    18 
+          normal-like                  NA's 
+                   14                   403 
+
+MIRCluster:
+MIR.type.1 MIR.type.2 MIR.type.3 MIR.type.4       NA's 
+        19         15         21          7        408 
+
+ProteinCluster:
+PROT.type.1 PROT.type.2 PROT.type.3        NA's 
+         18          10           3         439 
+
+
+CDKN2A.cg13601799._meth:
+   0    1 NA's 
+  53   13  404 
+
+KIT.cg10087973._meth:
+   0    1 NA's 
+  62    4  404 
+
+BRAF_cna:
+  -1    0    1    2 NA's 
+   1   23   38    3  405 
+
+NRAS_cna:
+  -1    0    1 NA's 
+  11   42   12  405 
+
+MITF_cna:
+  -1    0    1    2 NA's 
+   6   48    9    2  405 
+
+KIT_cna:
+  -1    0    1    2 NA's 
+  11   44    8    2  405 
+
+PDGFRA_cna:
+  -1    0    1    2 NA's 
+  11   45    8    1  405 
+
+KDR_cna:
+  -1    0    1    2 NA's 
+  12   44    8    1  405 
+
+MYC_cna:
+  -1    0    1    2 NA's 
+   5   28   28    4  405 
+
+CCND1_cna:
+  -1    0    1    2 NA's 
+  20   37    7    1  405 
+
+CDK4_cna:
+  -1    0    1    2 NA's 
+  14   46    4    1  405 
+
+MDM2_cna:
+  -1    0    1    2 NA's 
+   9   45   10    1  405 
+
+TERT_cna:
+  -1    0    1    2 NA's 
+   7   39   14    5  405 
+
+EP300_cna:
+  -1    0    1    2 NA's 
+   4   39   18    4  405 
+
+NOTCH2_cna:
+  -1    0    1    2 NA's 
+  10   41   13    1  405 
+
+CDKN2A_cna:
+  -2   -1    0 NA's 
+  17   35   13  405 
+
+PTEN_cna:
+  -2   -1    0 NA's 
+   2   44   19  405 
+
+TP53_cna:
+  -1    0    1 NA's 
+  23   39    3  405 
+
+PPP6C_cna:
+  -1    0    1    2 NA's 
+  32   31    1    1  405 
+
+ARID2_cna:
+  -1    0    1 NA's 
+  15   46    4  405 
+
+IDH1_cna:
+  -1    0    1 NA's 
+  11   49    5  405 
+
+MAP2K1_cna:
+  -1    0    1 NA's 
+   4   50   11  405 
+
+DDX3X_cna:
+  -1    0    1 NA's 
+  18   40    7  405 
+
+RAC1_cna:
+  -1    0    1    2 NA's 
+   1   29   34    1  405 
+
+NF1_cna:
+  -1    0    1 NA's 
+  16   42    7  405 
+
+CASP8_cna:
+  -1    0    1 NA's 
+  11   49    5  405 
+
+CTNNB1_cna:
+  -1    0    1 NA's 
+   7   49    9  405 
+
+PCDHGA1_cna:
+  -1    0    1 NA's 
+  24   35    6  405 
+
+SERPINB3_cna:
+  -1    0    1 NA's 
+  15   37   13  405 
+
+IRF7_cna:
+  -1    0    1 NA's 
+  24   36    5  405 
+
+HRAS_cna:
+  -1    0    1 NA's 
+  24   36    5  405 
+
+PTPN11_cna:
+  -1    0    1 NA's 
+  15   46    4  405 
+
+KRAS_cna:
+  -1    0    1 NA's 
+   8   43   14  405 
+
+GNA11_cna:
+  -1    0    1 NA's 
+  17   41    7  405 
+
+GNAQ_cna:
+  -1    0    1 NA's 
+  36   27    2  405 
+
+AKT1_cna:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+-2.0000 -1.0000  0.0000 -0.2308  0.0000  2.0000     405 
+
+APC_cna:
+  -1    0    1 NA's 
+  18   40    7  405 
+
+EZH2_cna:
+  -1    0    1    2 NA's 
+   2   23   38    2  405 
+
+FBXW7_cna:
+  -1    0    1    2 NA's 
+  15   44    5    1  405 
+
+GNAS_cna:
+  -1    0    1    2 NA's 
+   1   37   26    1  405 
+
+PIK3CA_cna:
+  -1    0    1 NA's 
+   7   51    7  405 
+
+
+
+NRAS_mut:
+Q61K; Q61L; Q61R;    wt  NA's 
+    2     1     6    49   412 
+
+KRAS_mut:
+  wt NA's 
+  58  412 
+
+HRAS_mut:
+G13S; Q61K;    wt  NA's 
+    1     1    56   412 
+
+
+IDH1_mut:
+ P33S; R132C;     wt   NA's 
+     1      3     54    412 
+
+GNA11_mut:
+  wt NA's 
+  58  412 
+
+GNAQ_mut:
+ H63R; Q209P; V340L;     wt   NA's 
+     1      1      1     55    412 
+
+CDK4_mut:
+  wt NA's 
+  58  412 
+
+CDKN2A_mut:
+E88fs;  H83Y; P114L;     wt   NA's 
+     1      1      1     55    412 
+
+DDX3X_mut:
+D658Y; L559F;     wt   NA's 
+     1      1     56    412 
+
+KIT_mut:
+K642E; V559A;     wt   NA's 
+     2      1     55    412 
+
+MAP2K1_mut:
+P124L; P124S;     wt   NA's 
+     1      2     55    412 
+
+PPP6C_mut:
+ H92Y; P296S; R301C;     wt   NA's 
+     1      1      3     53    412 
+
+
+RAC1_mut:
+P29S;    wt  NA's 
+    1    57   412 
+
+RB1_mut:
+ A525T; K143fs; L165fs;      wt    NA's 
+      1       1       1      55     412 
+
+
+TERT_MUT:
+C228T C250T    WT  NA's 
+    2     7     6   455 
+
+rnaseq_TERT.RSEM.NORM_DATA:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   2.718   8.079  31.222  19.586 726.109     406 
+
+rppa_LCK.LCK.R.V:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+-0.9089 -0.4106 -0.1290 -0.0653  0.1979  0.9960     437 
+
+rppa_SYK.SYK.M.V:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+-2.5731 -0.7695 -0.3638 -0.3416  0.0048  1.4725     437 
+
+PIGMENT.SCORE:
+   0    1    2    3 NA's 
+  35   21    4    7  403 
+
+NECROSIS:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   0.000   0.000   5.388   0.500  70.000     403 
+
+Tumour.content........nuceli.that.are.tumour.cells......0.100..:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  10.00   80.00   85.00   82.51   90.00   98.00     403 
+
+LYMPHOCYTE.DISTRIBUTION:
+   0    1    2    3 NA's 
+  26   17    7   17  403 
+
+LYMPHOCYTE.DENSITY:
+   0    1    2    3 NA's 
+  26   23   15    3  403 
+
+LYMPHOCYTE.SCORE:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   0.000   2.000   2.149   4.000   6.000     403 
+
+PURITY..ABSOLUTE.:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.190   0.580   0.740   0.688   0.860   0.970     416 
+
+PLOIDY..ABSOLUTE.:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.710   1.913   2.045   2.449   2.585   5.620     416 
+
+TOTAL.MUTATIONS:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  19.00   99.75  386.00  511.21  622.25 2315.00     412 
+
+UV.RATE:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.3684  0.7584  0.8447  0.7833  0.8868  0.9251     412 
+
+CURATED_AGE_AT_INITIAL_PATHOLOGIC_DIAGNOSIS:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  24.00   53.50   63.00   61.93   73.00   90.00     427 
+
+
+GENDER:
+FEMALE   MALE   NA's 
+    15     29    426 
+
+CURATED_KNOWN_PRIMARY:
+ YES NA's 
+  44  426 
+
+
+
+
+CURATED_ULCERATION:
+        [ERROR] [Not Available]              NO             YES            NA's 
+              1               1               6              36             426 
+
+
+CURATED_T_STAGE_AT_DIAGNOSIS_SIMPLE:
+  T2   T3   T4 NA's 
+   2    2   40  426 
+
+
+
+CURATED_M_STAGE_AT_DIAGNOSIS_COMPLEX:
+[Not Available]              M0             M1b             M1c            NA's 
+              1              41               1               1             426 
+
+CURATED_M_STAGE_AT_DIAGNOSIS_SIMPLE:
+[Not Available]              M0              M1            NA's 
+              1              41               2             426 
+
+
+
+CURATED_TCGA_SPECIMEN_SITE:
+[Not Available]   Primary Tumor            NA's 
+              1              43             426 
+
+CURATED_DISTANT_ANATOMIC_SITE:
+[Not Available]            NA's 
+             44             426 
+
+CURATED_VITAL_STATUS:
+Alive  Dead  NA's 
+   37     7   426 
+
+
+
+CURATED_MELANOMA_SPECIFIC_VITAL_STATUS..0....ALIVE.OR.CENSORED...1....DEAD.OF.MELANOMA..:
+   0    1 NA's 
+  37    7  426 
+
+CURATED_TCGA_SPECIMEN_Distant:
+Primary Tumor          NA's 
+           43           427 
+
+CC.TT.nTotal.Mut:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.0000  0.0095  0.0357  0.0374  0.0556  0.1414     412 
+
+DIPYRIM.C.T.nTotal.Mut:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.0556  0.5911  0.7471  0.6589  0.8259  0.8906     412 
+
+DIPYRIM.C.T.n.C.T..mut:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.1667  0.9287  0.9777  0.8942  0.9906  1.0000     412 
+
 
 }}
 \keyword{datasets}
