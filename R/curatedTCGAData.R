@@ -1,7 +1,7 @@
 .assaysAvailable <- function() {
     assaysAvailable <- c("RNASeqGene", "RNASeq2GeneNorm", "miRNASeqGene",
-        "CNASNP", "CNVSNP", "CNASeq", "Methylation", "CNACGH", "RPPAArray",
-        "Mutation", "GISTICA", "GISTICT")
+        "CNASNP", "CNVSNP", "CNASeq", "CNACGH", "Methylation", "mRNAArray",
+        "miRNAArray", "RPPAArray", "Mutation", "GISTICA", "GISTICT")
     sort(assaysAvailable)
 }
 
