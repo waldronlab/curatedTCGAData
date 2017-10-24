@@ -15,10 +15,5 @@
 *.[Rr][Dd][Ss]
 *.[Rr][Dd][Aa]
 
-# News/doc Files
-NEWS
-*.md
-inst/doc
-
 # Don't ignore
 !R/sysdata.rda
