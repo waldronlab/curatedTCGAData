@@ -1,6 +1,8 @@
-# curatedTCGAData 0.99.38
+# curatedTCGAData
 
-## New features
+## CHANGES IN VERSION 0.99.38
+
+### New features
 
 * Updated `curatedTCGAData` function
 * Supports multiple cancers
@@ -8,17 +10,19 @@
 * Updated vignette, documentation from new builds
 * Updated metadata from pipeline
 
-## Bug fixes and minor improvements
+### Bug fixes and minor improvements
 
 * Updated NAMESPACE and DESCRIPTION
 * Included test for number of resources in EH and in metadata
 * Improved input handling of main function
 
-# curatedTCGAData 0.2.0
+## CHANGES IN VERSION 0.2.0
+
+### Bug fixes and minor improvements
 
 * Updated `DESCRIPTION` file to reflect authorship.
 * Progress towards submission to ExperimentHub
 
-# curatedTCGAData 0.1.0
+## CHANGES IN VERSION 0.1.0
 
 * Added a `NEWS` file to track changes to the package.
