@@ -1,6 +1,8 @@
 #' @importFrom ExperimentHub loadResources ExperimentHub
+#' @importFrom AnnotationHub query
 #' @importFrom utils glob2rx read.csv
-#' @importFrom MultiAssayExperiment ExperimentList MultiAssayExperiment
+#' @importFrom S4Vectors merge
+#' @import MultiAssayExperiment
 NULL
 
 #' curatedTCGAData-package

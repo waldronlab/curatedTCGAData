@@ -2,7 +2,7 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 0.99.57
+Version: 0.99.58
 Author: Marcel Ramos <marcel.ramos@roswellpark.org>,
     Levi Waldron <lwaldron.research@gmail.com>,
     Lucas Schiffer <schiffer.lucas@gmail.com>,
@@ -19,22 +19,17 @@ Description: This package provides publicly available data from The Cancer
 License: Artistic-2.0
 Depends:
     R (>= 3.4.0),
-    ExperimentHub,
-    ExperimentHubData
+    MultiAssayExperiment
 Imports:
-    MultiAssayExperiment,
+    AnnotationHub,
+    ExperimentHub,
+    S4Vectors,
     utils
 Suggests:
-    BiocCheck,
-    BiocInstaller,
-    BiocParallel,
     BiocStyle,
-    dplyr,
     knitr,
-    RaggedExperiment,
     readr,
     rmarkdown,
-    S4Vectors,
     testthat
 VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
