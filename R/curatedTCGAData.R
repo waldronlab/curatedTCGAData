@@ -126,6 +126,13 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
         character(1L), 2L)
 
     if (length(resultCodes) > 1L) {
+        # Save metadata from all datasets
+        colDats <- names(ess_list) %in% "colData"
+        colDatNames <- gsub("\\.rda", "", ess_resources[colDats])
+        metas <- lapply(ess_list[colDats], metadata)
+        names(metas) <- colDatNames
+        metas <- do.call(c, metas)
+
         ess_list <- lapply(ess_names, function(i, grp, funs) {
             grpd <- grepl(grp[i], ess_resources, fixed = TRUE)
             dats <- ess_list[grpd]
@@ -142,8 +149,12 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
                 }
             return(mObj)
             }, grp = names(ess_names), funs = list(merge, rbind, c))
+
+        ## Include all metadata from colData(s)
+        metadata(ess_list[["colData"]]) <- metas
     }
 
-   do.call(MultiAssayExperiment, c(list(experiments = eh_experiments), ess_list))
+    do.call(MultiAssayExperiment,
+        c(list(experiments = eh_experiments), ess_list))
 }
 
