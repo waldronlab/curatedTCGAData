@@ -32,7 +32,9 @@ library(curatedTCGAData)
 library(MultiAssayExperiment)
 ```
 
-Checking available cancer codes and assays:
+# Downloading datasets
+
+Checking available cancer codes and assays in TCGA data:
 
 ```{r}
 curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE)
@@ -44,4 +46,25 @@ Check potential files to be downloaded:
 curatedTCGAData(diseaseCode = "COAD", assays = "RPPA*", dry.run = TRUE)
 ```
 
+## GBM dataset example
+
+```{r, message=FALSE}
+gbm <- curatedTCGAData("GBM", "RPPA*", FALSE)
+gbm
+```
+
+**Note**. For more on how to use a `MultiAssayExperiment` please see the
+`MultiAssayExperiment` vignette.
+
+### Subtype information
+
+Some cancer datasets contain associated subtype information within the
+clinical datasets provided. This subtype information is included in the
+metadata of `colData` of the `MultiAssayExperiment` object. To obtain these
+variable names, run the `metadata` function on the `colData` of the object
+such as:
+
+```{r}
+head(metadata(colData(gbm))[["subtypes"]])
+```
 
