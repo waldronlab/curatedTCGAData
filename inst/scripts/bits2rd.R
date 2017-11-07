@@ -18,6 +18,7 @@
 #' @param aliases A list of aliases
 #' @param descriptions A list of extra lines to be written to the Description
 #'
+#' @author Levi Waldron, Marcel Ramos
 #' @examples
 #' rdaFolder <- file.path("../MultiAssayExperiment-TCGA/data/bits/COAD")
 #' bit2rd(rdaFolder)

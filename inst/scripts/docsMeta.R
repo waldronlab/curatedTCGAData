@@ -1,4 +1,4 @@
-## Script to disassemble and upload MultiAssayExperiment pieces
+## Script to generate metadata and documentation
 ## Run script from project folder (curatedTCGAdata)
 suppressPackageStartupMessages({
     library(curatedTCGAData)
