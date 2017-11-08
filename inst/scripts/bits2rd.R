@@ -51,6 +51,7 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     load("../TCGAutils/data/clinicalNames.rda")
     stdNames <- clinicalNames[[cancerFolder]]
     stdNames <- names(colDat) %in% stdNames
+    numExtraCols <- sum(!stdNames)
     stdColDat <- colDat[, stdNames]
 
     dataFiles <- fileNames[!(vapply(strsplit(names(fileNames), "_|-"),
@@ -147,6 +148,7 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
         }
         cat("\n")
     }
+    cat("Including an additional", numExtraCols, "columns\n")
     cat("}}")
     cat("\n")
     cat("\\keyword{datasets}")
