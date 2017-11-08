@@ -48,8 +48,9 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     stopifnot(S4Vectors::isSingleInteger(coldataIdx))
 
     colDat <- .loadEnvObj(fileNames[coldataIdx])
-    colDataNonblank <- colDat[, apply(colDat, 2, function(x) {
-            !all(is.na(x)) })]
+    load("../TCGAutils/data/clinicalNames.rda")
+    stdNames <- clinicalNames[[cancerFolder]]
+    stdColDat <- colDat[, stdNames]
 
     dataFiles <- fileNames[!(vapply(strsplit(names(fileNames), "_|-"),
             `[`, character(1L), 1L) %in% names(stdObjSlots))]
@@ -134,15 +135,14 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     cat("Available sample meta-data:\n")
     cat("---------------------------\n")
     cat("\n")
-    for (iCol in seq_along(colDataNonblank)) {
-        if (length(unique(colDataNonblank[, iCol])) < 6) {
-            colDataNonblank[, iCol] <-
-                factor(colDataNonblank[, iCol])
-            cat(paste0(colnames(colDataNonblank)[iCol], ":\n"))
-            print(summary(colDataNonblank[, iCol]))
-        } else if (is(colDataNonblank[, iCol], "numeric")) {
-            cat(paste0(colnames(colDataNonblank)[iCol], ":\n"))
-            print(summary(colDataNonblank[, iCol]))
+    for (iCol in seq_along(stdColDat)) {
+        if (length(unique(stdColDat[, iCol])) < 6) {
+            stdColDat[, iCol] <- factor(stdColDat[, iCol])
+            cat(paste0(colnames(stdColDat)[iCol], ":\n"))
+            print(summary(stdColDat[, iCol]))
+        } else if (is(stdColDat[, iCol], "numeric")) {
+            cat(paste0(colnames(stdColDat)[iCol], ":\n"))
+            print(summary(stdColDat[, iCol]))
         }
         cat("\n")
     }
