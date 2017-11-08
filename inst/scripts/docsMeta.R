@@ -4,7 +4,6 @@ suppressPackageStartupMessages({
     library(curatedTCGAData)
     library(RaggedExperiment)
     library(MultiAssayExperiment)
-    library(AnnotationHubData)
     library(BiocParallel)
     library(magrittr)
 })

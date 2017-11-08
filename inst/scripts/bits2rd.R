@@ -50,6 +50,7 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     colDat <- .loadEnvObj(fileNames[coldataIdx])
     load("../TCGAutils/data/clinicalNames.rda")
     stdNames <- clinicalNames[[cancerFolder]]
+    stdNames <- names(colDat) %in% stdNames
     stdColDat <- colDat[, stdNames]
 
     dataFiles <- fileNames[!(vapply(strsplit(names(fileNames), "_|-"),
