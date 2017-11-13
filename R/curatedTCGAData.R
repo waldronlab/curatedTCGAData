@@ -139,11 +139,10 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
             if (identical(funs[[i]], merge)) {
                 dats <- .resolveNames(dats)
                 mObj <- Reduce(function(x, y) {
-                    merge(x, y, by = "row.names", all = TRUE, sort = FALSE)
+                    merge(x, y, by = intersect(names(x), names(y)),
+                        all = TRUE, sort = FALSE)
                     }, dats)
-                    rNames <- mObj[["Row.names"]]
-                    mObj <-  mObj[, -which(names(mObj) == "Row.names")]
-                    rownames(mObj) <- rNames
+                    rownames(mObj) <- mObj[["patientID"]]
                 } else {
                 mObj <- Reduce(funs[[i]], dats)
                 }
