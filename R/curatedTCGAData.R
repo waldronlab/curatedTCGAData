@@ -70,6 +70,7 @@
 curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
     runDate <- "20160128"
     assaysAvail <- .assaysAvailable()
+    diseaseCode <- toupper(diseaseCode)
     tcgaCodes <- diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
 
     assays_file <- system.file("extdata", "metadata.csv",

@@ -1,4 +1,18 @@
 # curatedTCGAData
+---------------------------------------------------------
+
+## CHANGES IN VERSION 1.1.12
+
+### New features
+
+* Released to Bioconductor
+* Supports multiple cancers with auto-merge of `colData`
+* Added full list of data types
+
+### Bug fixes and minor improvements
+
+* Code clean up (helper functions)
+* Use metadata in main function to return list of datasets
 
 ## CHANGES IN VERSION 0.99.38
 

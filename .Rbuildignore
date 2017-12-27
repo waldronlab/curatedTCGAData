@@ -16,6 +16,7 @@
 ^\.Rhistory$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^data-raw$
 
 #----------------------------
 # Documentation files
