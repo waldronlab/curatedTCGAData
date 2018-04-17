@@ -1,9 +1,9 @@
 # curatedTCGAData
 
-`curatedTCGAData` is slated as a `Bioconductor` release version 3.6 experiment
-data package that will use `ExperimentHub` internally to access pre-processed
-and curated data from **T**he **C**ancer **G**enome **A**tlas (**TCGA**) as
-MultiAssayExperiment objects.
+`curatedTCGAData` is an experiment data package in both release and development
+versions of Bioconductor. It makes use of `ExperimentHub` to access
+pre-processed and curated data from **T**he **C**ancer **G**enome **A**tlas
+(**TCGA**) as MultiAssayExperiment objects.
 
 ## Clinical Curation
 
