@@ -30,10 +30,10 @@ oncogenisis.
 
 ## Getting Started
 
-For now, install `curatedTCGAData` via `GitHub` using `devtools`.
+Install `curatedTCGAData` from [Bioconductor][] using `BiocInstaller`:
 
 ```
-devtools::install_github("waldronlab/curatedTCGAData")
+BiocInstaller::biocLite("curatedTCGAData")
 browseVignettes("curatedTCGAData")
 ```
 
@@ -42,6 +42,6 @@ browseVignettes("curatedTCGAData")
 We appreciate all feedback to our experiment data package. 
 Please file an [issue on GitHub][] and we will get to it ASAP.
 
-
 [primary publications]: https://www.zotero.org/groups/tcga_research_network_publications/items
 [issue on GitHub]: https://github.com/waldronlab/curatedTCGAData/issues
+[Bioconductor]: https://bioconductor.org/
