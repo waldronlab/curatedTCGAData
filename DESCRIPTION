@@ -2,13 +2,17 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 1.3.0
-Author: Marcel Ramos <marcel.ramos@roswellpark.org>,
-    Levi Waldron <lwaldron.research@gmail.com>,
-    Lucas Schiffer <schiffer.lucas@gmail.com>,
-    Valerie Obenchain <valerie.obenchain@roswellpark.org>,
-    Morgan Martin <martin.morgan@roswellpark.org>
-Maintainer: Marcel Ramos <marcel.ramos@roswellpark.org>
+Version: 1.3.1
+Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
+    role = c("aut", "cre")),
+    person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
+    role = "ctb"),
+    person("Lucas", "Schiffer", email = "schiffer.lucas@gmail.com",
+    role = "ctb"),
+    person("Valerie", "Obenchain", email = "valerie.obenchain@roswellpark.org",
+    role = "ctb"),
+    person("Martin", "Morgan", email = "martin.morgan@roswellpark.org",
+    role = "ctb"))
 Description: This package provides publicly available data from The Cancer
     Genome Atlas (TCGA) Bioconductor MultiAssayExperiment class objects. These
     objects integrate multiple assays (e.g. RNA-seq, copy number, mutation,
@@ -18,7 +22,7 @@ Description: This package provides publicly available data from The Cancer
     across the entire experiment.
 License: Artistic-2.0
 Depends:
-    R (>= 3.4.0),
+    R (>= 3.5.0),
     MultiAssayExperiment
 Imports:
     AnnotationHub,
@@ -33,5 +37,4 @@ Suggests:
     testthat
 VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
-LazyData: true
 RoxygenNote: 6.0.1

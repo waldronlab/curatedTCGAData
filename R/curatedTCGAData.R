@@ -84,7 +84,7 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
         cat("Available Data Types:\n",
             paste(strwrap(paste(assaysAvail, collapse = " "),
                           width = 46), collapse = "\n "))
-        return(NULL)
+        return(invisible())
     }
 
     resultCodes <- .searchFromInputs(diseaseCode, tcgaCodes)
@@ -104,9 +104,9 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
     fileMatches <- unlist(
         lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE)))
 
-    if (!length(fileMatches)) {
+    if (!length(fileMatches))
         stop("Cancer and data type combination(s) not available")
-    }
+
     if (dry.run) {
         return(fileMatches)
     }

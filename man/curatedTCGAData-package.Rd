@@ -51,3 +51,15 @@ The following are the TCGA cancer codes and full names.
 help(package = "curatedTCGAData")
 
 }
+\author{
+\strong{Maintainer}: Marcel Ramos \email{marcel.ramos@roswellpark.org}
+
+Other contributors:
+\itemize{
+  \item Levi Waldron \email{lwaldron.research@gmail.com} [contributor]
+  \item Lucas Schiffer \email{schiffer.lucas@gmail.com} [contributor]
+  \item Valerie Obenchain \email{valerie.obenchain@roswellpark.org} [contributor]
+  \item Martin Morgan \email{martin.morgan@roswellpark.org} [contributor]
+}
+
+}
