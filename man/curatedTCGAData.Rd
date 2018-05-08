@@ -4,7 +4,7 @@
 \alias{curatedTCGAData}
 \title{Create a MultiAssayExperiment from specific assays and cohorts}
 \usage{
-curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE)
+curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE, ...)
 }
 \arguments{
 \item{diseaseCode}{a character vector containing the name(s) of TCGA cohorts}
@@ -13,6 +13,9 @@ curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE)
 
 \item{dry.run}{logical (default TRUE) whether to return the dataset names
 before actual download}
+
+\item{...}{Additional arguments passed on to the
+\link[ExperimentHub]{ExperimentHub} constructor}
 }
 \value{
 a \linkS4class{MultiAssayExperiment} of the specified assays and

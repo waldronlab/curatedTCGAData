@@ -59,6 +59,8 @@
 #' @param assays a character vector containing the name(s) of TCGA assays
 #' @param dry.run logical (default TRUE) whether to return the dataset names
 #' before actual download
+#' @param ... Additional arguments passed on to the
+#' \link[ExperimentHub]{ExperimentHub} constructor
 #'
 #' @return a \linkS4class{MultiAssayExperiment} of the specified assays and
 #' cancer codes
@@ -67,7 +69,8 @@
 #' @examples
 #' curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
 #'
-curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
+curatedTCGAData <-
+    function(diseaseCode = "*", assays = "*", dry.run = TRUE, ...) {
     runDate <- "20160128"
     assaysAvail <- .assaysAvailable()
     diseaseCode <- toupper(diseaseCode)
@@ -111,7 +114,7 @@ curatedTCGAData <- function(diseaseCode = "*", assays = "*", dry.run = TRUE) {
         return(fileMatches)
     }
 
-    eh <- ExperimentHub()
+    eh <- ExperimentHub(...)
     assay_list <- .getResources(eh, fileMatches)
     names(assay_list) <- .removeExt(fileMatches)
 
