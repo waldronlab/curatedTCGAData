@@ -2,7 +2,8 @@
 
 export(curatedTCGAData)
 export(mirToRanges)
-export(simplifyTCGAData)
+export(qReduceTCGA)
+export(simplifyTCGA)
 export(symbolsToRanges)
 import(MultiAssayExperiment)
 importFrom(AnnotationHub,query)
