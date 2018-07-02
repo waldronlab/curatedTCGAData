@@ -21,8 +21,10 @@ suppressPackageStartupMessages({
 # Installation
 
 ```{r, eval=FALSE}
-source("https://bioconductor.org/biocLite.R")
-BiocInstaller::biocLite("curatedTCGAData")
+if (!require("BiocManager"))
+    install.packages("BiocManager")
+
+BiocManager::install("curatedTCGAData")
 ```
 
 Load packages:

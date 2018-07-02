@@ -30,10 +30,17 @@ oncogenisis.
 
 ## Getting Started
 
-Install `curatedTCGAData` from [Bioconductor][] using `BiocInstaller`:
+Install `curatedTCGAData` from [Bioconductor][] using `BiocManager`:
 
 ```
-BiocInstaller::biocLite("curatedTCGAData")
+if (!require("BiocManager"))
+    install.packages("BiocManager")
+
+library(BiocManager)
+
+install(version = "devel")
+install("curatedTCGAData")
+
 browseVignettes("curatedTCGAData")
 ```
 
