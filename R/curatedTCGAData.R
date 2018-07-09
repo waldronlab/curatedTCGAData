@@ -74,7 +74,8 @@ curatedTCGAData <-
     runDate <- "20160128"
     assaysAvail <- .assaysAvailable()
     diseaseCode <- toupper(diseaseCode)
-    tcgaCodes <- diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
+    tcgaCodes <- diseaseCodes[["Study.Abbreviation"]][
+        diseaseCodes[["Available"]] == "Yes"]
 
     assays_file <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
@@ -86,7 +87,7 @@ curatedTCGAData <-
                           width = 55), collapse = "\n "), "\n")
         cat("Available Data Types:\n",
             paste(strwrap(paste(assaysAvail, collapse = " "),
-                          width = 46), collapse = "\n "))
+                          width = 46), collapse = "\n "), "\n")
         return(invisible())
     }
 
@@ -110,9 +111,7 @@ curatedTCGAData <-
     if (!length(fileMatches))
         stop("Cancer and data type combination(s) not available")
 
-    if (dry.run) {
-        return(fileMatches)
-    }
+    if (dry.run) { return(fileMatches) }
 
     eh <- ExperimentHub(...)
     assay_list <- .getResources(eh, fileMatches)
@@ -157,7 +156,11 @@ curatedTCGAData <-
         metadata(ess_list[["colData"]]) <- metas
     }
 
-    do.call(MultiAssayExperiment,
-        c(list(experiments = eh_experiments), ess_list))
+    MultiAssayExperiment(
+        experiments = eh_experiments,
+        colData = ess_list[["colData"]],
+        sampleMap = ess_list[["sampleMap"]],
+        metadata = ess_list[["metadata"]]
+    )
 }
 
