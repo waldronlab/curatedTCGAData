@@ -6,7 +6,7 @@ make_metadata <- function(bitsFolder) {
     resource_list <- list.files(bitsFolder, recursive = TRUE,
         full.names = TRUE)
     resource_maintainer <- read.dcf("DESCRIPTION", "Maintainer")[[1]]
-    resource_biocVersion <- BiocInstaller::biocVersion()
+    resource_biocVersion <- BiocManager::version()
     metadat <- do.call(dplyr::bind_rows,
            lapply(resource_list, getMetadata,
                     resource_maintainer, resource_biocVersion))
