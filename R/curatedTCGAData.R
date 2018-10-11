@@ -6,7 +6,7 @@
 }
 
 .removeExt <- function(fileNames) {
-    gsub(".rda", "", fileNames, fixed = TRUE)
+    gsub("\\.rd[as]|\\.h5", "", fileNames)
 }
 
 .getComboSort <- function(...) {
@@ -102,8 +102,7 @@ curatedTCGAData <-
         resultAssays <- replace(resultAssays, isGISTIC, fullG)
     }
     codeAssay <- .getComboSort(resultCodes, resultAssays)
-    reg_names <- paste0("^", codeAssay, ".*", runDate, ".rda$")
-    names(reg_names) <- codeAssay
+    reg_names <- setNames(paste0("^", codeAssay, ".*", runDate), codeAssay)
 
     fileMatches <- unlist(
         lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE)))
