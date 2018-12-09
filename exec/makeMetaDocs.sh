@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export REPO="/home/$USER/Documents/github/curatedTCGAData/"
+export REPO="$HOME/github/curatedTCGAData/"
 
-/home/$USER/src/svn/r-release/R/bin/Rscript $REPO/inst/scripts/docsMeta.R --verbose
+$HOME/src/svn/r-devel/R/bin/Rscript $REPO/inst/scripts/docsMeta.R --verbose
 

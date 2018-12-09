@@ -2,7 +2,7 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 1.5.0
+Version: 1.5.1
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
@@ -34,7 +34,9 @@ Suggests:
     knitr,
     readr,
     rmarkdown,
-    testthat
+    testthat,
+    TCGAutils
 VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
+BugReports: https://github.com/waldronlab/curatedTCGAData/issues
 RoxygenNote: 6.0.1
