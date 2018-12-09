@@ -6,7 +6,7 @@
 }
 
 .removeExt <- function(fileNames) {
-    gsub("\\.rd[as]|\\.h5", "", fileNames)
+    gsub("\\.[RrHh][Dd5][AaSs]?$", "", fileNames)
 }
 
 .getComboSort <- function(...) {
@@ -17,7 +17,10 @@
 .getResources <- function(ExperimentHub, fileNames) {
     resourceName <- .removeExt(fileNames)
     resources <- lapply(resourceName, function(res) {
-        loadResources(ExperimentHub, "curatedTCGAData", res)[[1L]]
+        if (grepl("Methyl", res)) {
+        } else {
+            loadResources(ExperimentHub, "curatedTCGAData", res)[[1L]]
+        }
     })
     resources
 }

@@ -6,6 +6,35 @@
     object
 }
 
+.loadMethyl <- function(methyl_folder, ext = "\\.[RrHh][Dd5][Ss]?$") {
+    objFiles <- list.files(methyl_folder, pattern = ext)
+    stdFiles <- gsub(".*(\\.h5)$", "assays\\1", objFiles)
+    stdFiles <- gsub(".*(\\.rds)$", "se\\1", stdFiles)
+    file.rename(
+        file.path(methyl_folder, objFiles),
+        file.path(methyl_folder, stdFiles)
+    )
+    object <- HDF5Array::loadHDF5SummarizedExperiment(methyl_folder)
+    on.exit({
+        file.rename(
+            file.path(methyl_folder, stdFiles),
+            file.path(methyl_folder, objFiles)
+        )
+    })
+    return(object)
+}
+
+.metaList <- function(object) {
+    dims <- dim(object)
+    list(size = format(object.size(object), units = "Mb"),
+        rows = dims[[1L]], columns = dims[[2L]],
+        colnames = colnames(object),
+        rownames = rownames(object),
+        class = class(object),
+        length = length(object))
+}
+
+
 .cleanText <- function(x) {
     gsub("%", "\\%", iconv(x, "latin1", "ASCII", sub = "?"), fixed = TRUE)
 }
@@ -29,14 +58,14 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     stopifnot(S4Vectors::isSingleString(cancerFolder))
     stopifnot(S4Vectors::isSingleString(filename))
 
-    if (length(aliases) > 1L)
-        aliases <- paste(aliases, sep = ", ")
+    aliases <- paste(aliases, sep = ", ")
+    allext <- "\\.[RrHh][Dd5][AaSs]?$"
+
     dataDirs <- "data/bits"
     fileNames <- list.files(file.path("../MultiAssayExperiment-TCGA",
-                            dataDirs, cancerFolder),
-                            full.names = TRUE,
-                            pattern = "*\\.rda$")
-    objectNames <- gsub(".rda", "", basename(fileNames))
+        dataDirs, cancerFolder), full.names = TRUE,
+        pattern = allext, recursive = TRUE)
+    objectNames <- gsub(allext, "", basename(fileNames))
     dataTypes <- gsub("^[A-Z]*_", "", objectNames)
     names(fileNames) <- dataTypes
 
@@ -54,30 +83,33 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     numExtraCols <- sum(!stdNames)
     stdColDat <- colDat[, stdNames]
 
-    dataFiles <- fileNames[!(vapply(strsplit(names(fileNames), "_|-"),
-            `[`, character(1L), 1L) %in% names(stdObjSlots))]
+    dataNames <-
+        vapply(strsplit(names(fileNames), "_|-"), `[`, character(1L), 1L)
+    dataFiles <- fileNames[!dataNames %in% c(names(stdObjSlots), "Methylation")]
 
     dataList <- dataInfo <- vector(mode = "list", length(dataFiles))
     names(dataList) <- names(dataInfo) <- names(dataFiles)
 
     for (i in seq_along(dataFiles)) {
         object <- .loadEnvObj(dataFiles[[i]])
-        dims <- dim(object)
-        dataInfo[[i]] <- list(size = format(object.size(object), units = "Mb"),
-                              rows = dims[[1L]], columns = dims[[2L]],
-                              colnames = colnames(object),
-                              rownames = rownames(object),
-                              class = class(object),
-                              length = length(object))
+        dataInfo[[i]] <- .metaList(object)
         dataList[[i]] <- object
     }
 
-    objSizes <- vapply(dataInfo, function(datType) {
-        datType$size }, character(1L))
+    methylFolders <- unique(dirname(fileNames[dataNames %in% "Methylation"]))
+
+    for (folder in methylFolders) {
+        object <- .loadMethyl(folder)
+        dataInfo[[folder]] <- .metaList(object)
+        dataList[[i]] <- object
+    }
+
+    objSizes <- vapply(dataInfo,
+        function(datType) { datType$size }, character(1L))
 
     stopifnot(identical(names(dataFiles), names(objSizes)))
     objSizesdf <- data.frame(assay = names(dataFiles), size.Mb = objSizes,
-                             row.names = NULL)
+        row.names = NULL)
 
     studyIdx <- which(diseaseCodes[["Study.Abbreviation"]] %in% cancerFolder)
     studyName <- diseaseCodes[["Study.Name"]][studyIdx]
