@@ -8,20 +8,8 @@
 
 .loadMethyl <- function(methyl_folder, ext = "\\.[RrHh][Dd5][Ss]?$") {
     objFiles <- list.files(methyl_folder, pattern = ext)
-    stdFiles <- gsub(".*(\\.h5)$", "assays\\1", objFiles)
-    stdFiles <- gsub(".*(\\.rds)$", "se\\1", stdFiles)
-    file.rename(
-        file.path(methyl_folder, objFiles),
-        file.path(methyl_folder, stdFiles)
-    )
-    object <- HDF5Array::loadHDF5SummarizedExperiment(methyl_folder)
-    on.exit({
-        file.rename(
-            file.path(methyl_folder, stdFiles),
-            file.path(methyl_folder, objFiles)
-        )
-    })
-    return(object)
+    HDF5Array::loadHDF5SummarizedExperiment(methyl_folder,
+        prefix = paste0(basename(methyl_folder), "_"))
 }
 
 .metaList <- function(object) {
