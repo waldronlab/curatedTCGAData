@@ -8,6 +8,9 @@ suppressPackageStartupMessages({
     library(magrittr)
 })
 
+if (identical(Sys.getenv("REPO"), ""))
+    Sys.setenv(REPO = "~/github/curatedTCGAData")
+
 repoDir <- normalizePath(Sys.getenv("REPO"))
 manDir <- file.path("man")
 

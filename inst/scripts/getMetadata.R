@@ -31,7 +31,7 @@ getMetadata <- function(resource_location, resource_maintainer,
     Genome <- ""
     SourceType <- "TXT"
     SourceUrl <- "http://gdac.broadinstitute.org/"
-    SourceVersion <- "1.1.36"
+    SourceVersion <- "1.1.38"
     Species <- "Homo Sapiens"
     TaxonomyId <- "9606"
     Coordinate_1_based <- as.logical(NA)
