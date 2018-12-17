@@ -12,7 +12,6 @@ if (identical(Sys.getenv("REPO"), ""))
     Sys.setenv(REPO = "~/github/curatedTCGAData")
 
 repoDir <- normalizePath(Sys.getenv("REPO"))
-manDir <- file.path("man")
 
 setwd(repoDir)
 
@@ -45,5 +44,5 @@ cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
 # make_metadata(dataBitsLocation)
 
 message("Creating documentation pages")
-lapply(cancerFolders, make_documentation, manDir)
+lapply(cancerFolders, make_documentation)
 
