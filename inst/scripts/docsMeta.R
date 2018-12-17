@@ -44,5 +44,8 @@ cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
 # make_metadata(dataBitsLocation)
 
 message("Creating documentation pages")
+## set width for `cat`
+options(width = 78)
+
 lapply(cancerFolders, make_documentation)
 
