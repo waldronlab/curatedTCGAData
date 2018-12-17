@@ -9,53 +9,57 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( SARC )
-ExperimentList class object of length 9: 
- [1] CNASNP-20160128: RaggedExperiment with 337377 rows and 516 columns 
- [2] CNVSNP-20160128: RaggedExperiment with 106739 rows and 513 columns 
- [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 257 columns 
- [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 257 columns 
- [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 269 columns 
- [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 263 columns 
- [7] Mutation-20160128: RaggedExperiment with 20376 rows and 247 columns 
- [8] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 265 columns 
- [9] RPPAArray-20160128: SummarizedExperiment with 192 rows and 226 columns 
+ExperimentList class object of length 10: 
+ [1] SARC_CNASNP-20160128: RaggedExperiment with 337377 rows and 516 columns 
+ [2] SARC_CNVSNP-20160128: RaggedExperiment with 106739 rows and 513 columns 
+ [3] SARC_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 257 columns 
+ [4] SARC_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 64 rows and 257 columns 
+ [5] SARC_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 257 columns 
+ [6] SARC_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 263 columns 
+ [7] SARC_Mutation-20160128: RaggedExperiment with 20376 rows and 247 columns 
+ [8] SARC_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 265 columns 
+ [9] SARC_RPPAArray-20160128: SummarizedExperiment with 192 rows and 226 columns 
+ [10] SARC_Methylation-20160128: SummarizedExperiment with 485577 rows and 269 columns 
 
 > rownames( SARC )
-CharacterList of length 9
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 10
+[["SARC_CNASNP-20160128"]] character(0)
+[["SARC_CNVSNP-20160128"]] character(0)
+[["SARC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["SARC_GISTIC_Peaks-20160128"]] character(0)
+[["SARC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["SARC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["SARC_Mutation-20160128"]] character(0)
+[["SARC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["SARC_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+[["SARC_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
 
 > colnames( SARC )
-CharacterList of length 9
-[["CNASNP-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
-[["CNVSNP-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
-[["Methylation-20160128"]] TCGA-3B-A9HI-01A-11D-A388-05 ...
-[["miRNASeqGene-20160128"]] TCGA-3B-A9HI-01A-11R-A38N-13 ...
-[["Mutation-20160128"]] TCGA-3B-A9HI-01A-11D-A387-09 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-3B-A9HI-01A-11R-A38C-07 ...
-[["RPPAArray-20160128"]] TCGA-3B-A9HI-01A-21-A456-20 ...
+CharacterList of length 10
+[["SARC_CNASNP-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
+[["SARC_CNVSNP-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
+[["SARC_GISTIC_AllByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
+[["SARC_GISTIC_Peaks-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
+[["SARC_GISTIC_ThresholdedByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01...
+[["SARC_miRNASeqGene-20160128"]] TCGA-3B-A9HI-01A-11R-A38N-13 ...
+[["SARC_Mutation-20160128"]] TCGA-3B-A9HI-01A-11D-A387-09 ...
+[["SARC_RNASeq2GeneNorm-20160128"]] TCGA-3B-A9HI-01A-11R-A38C-07 ...
+[["SARC_RPPAArray-20160128"]] TCGA-3B-A9HI-01A-21-A456-20 ...
+[["SARC_Methylation-20160128"]] TCGA-3B-A9HI-01A-11D-A388-05 ...
 
 Sizes of each ExperimentList element:
 
-                              assay size.Mb
-1                   CNASNP-20160128  9.2 Mb
-2                   CNVSNP-20160128    3 Mb
-3         GISTIC_AllByGene-20160128  4.9 Mb
-4 GISTIC_ThresholdedByGene-20160128  4.9 Mb
-5              Methylation-20160128   75 Mb
-6             miRNASeqGene-20160128  0.1 Mb
-7                 Mutation-20160128 18.1 Mb
-8          RNASeq2GeneNorm-20160128  1.3 Mb
-9                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    SARC_CNASNP-20160128  9.2 Mb
+2                    SARC_CNVSNP-20160128    3 Mb
+3          SARC_GISTIC_AllByGene-20160128  4.9 Mb
+4              SARC_GISTIC_Peaks-20160128  0.1 Mb
+5  SARC_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+6              SARC_miRNASeqGene-20160128  0.1 Mb
+7                  SARC_Mutation-20160128 19.5 Mb
+8           SARC_RNASeq2GeneNorm-20160128  1.3 Mb
+9                 SARC_RPPAArray-20160128    0 Mb
+10              SARC_Methylation-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -108,10 +112,10 @@ residual_tumor:
  155   70    9   26    1 
 
 race:
-                    asian black or african american                     white 
-                        6                        18                       228 
-                     NA's 
-                        9 
+                    asian black or african american 
+                        6                        18 
+                    white                      NA's 
+                      228                         9 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

@@ -9,53 +9,57 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( DLBC )
-ExperimentList class object of length 9: 
- [1] CNASNP-20160128: RaggedExperiment with 44725 rows and 94 columns 
- [2] CNVSNP-20160128: RaggedExperiment with 9343 rows and 94 columns 
- [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 48 columns 
- [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 48 columns 
- [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 48 columns 
- [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 47 columns 
- [7] Mutation-20160128: RaggedExperiment with 16918 rows and 48 columns 
- [8] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 48 columns 
- [9] RPPAArray-20160128: SummarizedExperiment with 192 rows and 33 columns 
+ExperimentList class object of length 10: 
+ [1] DLBC_CNASNP-20160128: RaggedExperiment with 44725 rows and 94 columns 
+ [2] DLBC_CNVSNP-20160128: RaggedExperiment with 9343 rows and 94 columns 
+ [3] DLBC_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 48 columns 
+ [4] DLBC_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 39 rows and 48 columns 
+ [5] DLBC_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 48 columns 
+ [6] DLBC_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 47 columns 
+ [7] DLBC_Mutation-20160128: RaggedExperiment with 16918 rows and 48 columns 
+ [8] DLBC_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 48 columns 
+ [9] DLBC_RPPAArray-20160128: SummarizedExperiment with 192 rows and 33 columns 
+ [10] DLBC_Methylation-20160128: SummarizedExperiment with 485577 rows and 48 columns 
 
 > rownames( DLBC )
-CharacterList of length 9
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 10
+[["DLBC_CNASNP-20160128"]] character(0)
+[["DLBC_CNVSNP-20160128"]] character(0)
+[["DLBC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["DLBC_GISTIC_Peaks-20160128"]] character(0)
+[["DLBC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["DLBC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["DLBC_Mutation-20160128"]] character(0)
+[["DLBC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["DLBC_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+[["DLBC_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
 
 > colnames( DLBC )
-CharacterList of length 9
-[["CNASNP-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
-[["CNVSNP-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
-[["Methylation-20160128"]] TCGA-FA-8693-01A-11D-2399-05 ...
-[["miRNASeqGene-20160128"]] TCGA-FA-8693-01A-11R-2401-13 ...
-[["Mutation-20160128"]] TCGA-FA-8693-01A-11D-2397-10 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-FA-8693-01A-11R-2404-07 ...
-[["RPPAArray-20160128"]] TCGA-FA-8693-01A-21-A45K-20 ...
+CharacterList of length 10
+[["DLBC_CNASNP-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
+[["DLBC_CNVSNP-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
+[["DLBC_GISTIC_AllByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
+[["DLBC_GISTIC_Peaks-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
+[["DLBC_GISTIC_ThresholdedByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01...
+[["DLBC_miRNASeqGene-20160128"]] TCGA-FA-8693-01A-11R-2401-13 ...
+[["DLBC_Mutation-20160128"]] TCGA-FA-8693-01A-11D-2397-10 ...
+[["DLBC_RNASeq2GeneNorm-20160128"]] TCGA-FA-8693-01A-11R-2404-07 ...
+[["DLBC_RPPAArray-20160128"]] TCGA-FA-8693-01A-21-A45K-20 ...
+[["DLBC_Methylation-20160128"]] TCGA-FA-8693-01A-11D-2399-05 ...
 
 Sizes of each ExperimentList element:
 
-                              assay size.Mb
-1                   CNASNP-20160128  1.2 Mb
-2                   CNVSNP-20160128  0.3 Mb
-3         GISTIC_AllByGene-20160128  4.9 Mb
-4 GISTIC_ThresholdedByGene-20160128  4.9 Mb
-5              Methylation-20160128   75 Mb
-6             miRNASeqGene-20160128  0.1 Mb
-7                 Mutation-20160128 12.6 Mb
-8          RNASeq2GeneNorm-20160128  1.3 Mb
-9                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    DLBC_CNASNP-20160128  1.2 Mb
+2                    DLBC_CNVSNP-20160128  0.3 Mb
+3          DLBC_GISTIC_AllByGene-20160128  4.9 Mb
+4              DLBC_GISTIC_Peaks-20160128    0 Mb
+5  DLBC_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+6              DLBC_miRNASeqGene-20160128  0.1 Mb
+7                  DLBC_Mutation-20160128 12.6 Mb
+8           DLBC_RNASeq2GeneNorm-20160128  1.3 Mb
+9                 DLBC_RPPAArray-20160128    0 Mb
+10              DLBC_Methylation-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -111,8 +115,10 @@ diffuse large b-cell lymphoma (dlbcl) nos (any anatomic site nodal or extranodal
                                                                                 4 
 
 race:
-                    asian black or african american                     white 
-                       18                         1                        29 
+                    asian black or african american 
+                       18                         1 
+                    white 
+                       29 
 
 ethnicity:
     hispanic or latino not hispanic or latino 

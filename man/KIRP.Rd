@@ -9,65 +9,67 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( KIRP )
-ExperimentList class object of length 12: 
- [1] CNASNP-20160128: RaggedExperiment with 300681 rows and 593 columns 
- [2] CNVSNP-20160128: RaggedExperiment with 46914 rows and 590 columns 
- [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 288 columns 
- [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 288 columns 
- [5] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 21 columns 
- [6] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 321 columns 
- [7] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 326 columns 
- [8] mRNAArray-20160128: SummarizedExperiment with 17814 rows and 16 columns 
- [9] Mutation-20160128: RaggedExperiment with 15585 rows and 161 columns 
- [10] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 323 columns 
- [11] RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 14 columns 
- [12] RPPAArray-20160128: SummarizedExperiment with 195 rows and 216 columns 
+ExperimentList class object of length 13: 
+ [1] KIRP_CNASNP-20160128: RaggedExperiment with 300681 rows and 593 columns 
+ [2] KIRP_CNVSNP-20160128: RaggedExperiment with 46914 rows and 590 columns 
+ [3] KIRP_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 288 columns 
+ [4] KIRP_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 28 rows and 288 columns 
+ [5] KIRP_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 288 columns 
+ [6] KIRP_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 326 columns 
+ [7] KIRP_mRNAArray-20160128: SummarizedExperiment with 17814 rows and 16 columns 
+ [8] KIRP_Mutation-20160128: RaggedExperiment with 15585 rows and 161 columns 
+ [9] KIRP_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 323 columns 
+ [10] KIRP_RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 14 columns 
+ [11] KIRP_RPPAArray-20160128: SummarizedExperiment with 195 rows and 216 columns 
+ [12] KIRP_Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 21 columns 
+ [13] KIRP_Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 321 columns 
 
 > rownames( KIRP )
-CharacterList of length 12
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
-[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 PNMA1 ... SLC39A6 SNRPD2 AQP7 CTSC
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
+CharacterList of length 13
+[["KIRP_CNASNP-20160128"]] character(0)
+[["KIRP_CNVSNP-20160128"]] character(0)
+[["KIRP_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["KIRP_GISTIC_Peaks-20160128"]] character(0)
+[["KIRP_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["KIRP_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["KIRP_mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 ... SNRPD2 AQP7 CTSC
+[["KIRP_Mutation-20160128"]] character(0)
+[["KIRP_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["KIRP_RNASeqGene-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 ...
-<2 more elements>
+<3 more elements>
 
 > colnames( KIRP )
-CharacterList of length 12
-[["CNASNP-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01 ...
-[["CNVSNP-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01 ...
-[["Methylation_methyl27-20160128"]] TCGA-AL-3466-01A-01D-1191-05 ...
-[["Methylation_methyl450-20160128"]] TCGA-2K-A9WE-01A-11D-A383-05 ...
-[["miRNASeqGene-20160128"]] TCGA-2K-A9WE-01A-11R-A38N-13 ...
-[["mRNAArray-20160128"]] TCGA-AL-3466-01A-01R-1193-07 ...
-[["Mutation-20160128"]] TCGA-A4-7286-01A-11D-2136-08 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-2K-A9WE-01A-11R-A38C-07 ...
+CharacterList of length 13
+[["KIRP_CNASNP-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01 ...
+[["KIRP_CNVSNP-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01 ...
+[["KIRP_GISTIC_AllByGene-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01 ...
+[["KIRP_GISTIC_Peaks-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01 ...
+[["KIRP_GISTIC_ThresholdedByGene-20160128"]] TCGA-2K-A9WE-01A-11D-A381-01...
+[["KIRP_miRNASeqGene-20160128"]] TCGA-2K-A9WE-01A-11R-A38N-13 ...
+[["KIRP_mRNAArray-20160128"]] TCGA-AL-3466-01A-01R-1193-07 ...
+[["KIRP_Mutation-20160128"]] TCGA-A4-7286-01A-11D-2136-08 ...
+[["KIRP_RNASeq2GeneNorm-20160128"]] TCGA-2K-A9WE-01A-11R-A38C-07 ...
+[["KIRP_RNASeqGene-20160128"]] TCGA-AL-3466-01A-02R-1351-07 ...
 ...
-<2 more elements>
+<3 more elements>
 
 Sizes of each ExperimentList element:
 
-                               assay size.Mb
-1                    CNASNP-20160128  8.2 Mb
-2                    CNVSNP-20160128  1.4 Mb
-3          GISTIC_AllByGene-20160128  4.9 Mb
-4  GISTIC_ThresholdedByGene-20160128  4.9 Mb
-5      Methylation_methyl27-20160128  4.9 Mb
-6     Methylation_methyl450-20160128   75 Mb
-7              miRNASeqGene-20160128  0.1 Mb
-8                 mRNAArray-20160128  1.1 Mb
-9                  Mutation-20160128 10.6 Mb
-10          RNASeq2GeneNorm-20160128  1.3 Mb
-11               RNASeqGene-20160128  1.3 Mb
-12                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    KIRP_CNASNP-20160128  8.2 Mb
+2                    KIRP_CNVSNP-20160128  1.4 Mb
+3          KIRP_GISTIC_AllByGene-20160128  4.9 Mb
+4              KIRP_GISTIC_Peaks-20160128  0.1 Mb
+5  KIRP_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+6              KIRP_miRNASeqGene-20160128  0.1 Mb
+7                 KIRP_mRNAArray-20160128  1.1 Mb
+8                  KIRP_Mutation-20160128 10.6 Mb
+9           KIRP_RNASeq2GeneNorm-20160128  1.3 Mb
+10               KIRP_RNASeqGene-20160128  1.3 Mb
+11                KIRP_RPPAArray-20160128    0 Mb
+12     KIRP_Methylation_methyl27-20160128  4.9 Mb
+13    KIRP_Methylation_methyl450-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):

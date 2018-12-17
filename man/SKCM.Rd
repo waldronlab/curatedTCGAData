@@ -9,49 +9,53 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( SKCM )
-ExperimentList class object of length 8: 
- [1] CNASeq-20160128: RaggedExperiment with 31416 rows and 238 columns 
- [2] CNASNP-20160128: RaggedExperiment with 452114 rows and 938 columns 
- [3] CNVSNP-20160128: RaggedExperiment with 108084 rows and 937 columns 
- [4] Methylation-20160128: SummarizedExperiment with 485577 rows and 475 columns 
- [5] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 452 columns 
- [6] Mutation-20160128: RaggedExperiment with 290322 rows and 345 columns 
- [7] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 473 columns 
- [8] RPPAArray-20160128: SummarizedExperiment with 208 rows and 355 columns 
+ExperimentList class object of length 9: 
+ [1] SKCM_CNASeq-20160128: RaggedExperiment with 31416 rows and 238 columns 
+ [2] SKCM_CNASNP-20160128: RaggedExperiment with 452114 rows and 938 columns 
+ [3] SKCM_CNVSNP-20160128: RaggedExperiment with 108084 rows and 937 columns 
+ [4] SKCM_GISTIC-20160128: RangedSummarizedExperiment with 53 rows and 367 columns 
+ [5] SKCM_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 452 columns 
+ [6] SKCM_Mutation-20160128: RaggedExperiment with 290322 rows and 345 columns 
+ [7] SKCM_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 473 columns 
+ [8] SKCM_RPPAArray-20160128: SummarizedExperiment with 208 rows and 355 columns 
+ [9] SKCM_Methylation-20160128: SummarizedExperiment with 485577 rows and 475 columns 
 
 > rownames( SKCM )
-CharacterList of length 8
-[["CNASeq-20160128"]] character(0)
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 9
+[["SKCM_CNASeq-20160128"]] character(0)
+[["SKCM_CNASNP-20160128"]] character(0)
+[["SKCM_CNVSNP-20160128"]] character(0)
+[["SKCM_GISTIC-20160128"]] character(0)
+[["SKCM_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["SKCM_Mutation-20160128"]] character(0)
+[["SKCM_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["SKCM_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+[["SKCM_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
 
 > colnames( SKCM )
-CharacterList of length 8
-[["CNASeq-20160128"]] TCGA-BF-A1PU-01A-11D-A18Z-02 ...
-[["CNASNP-20160128"]] TCGA-3N-A9WB-06A-11D-A38F-01 ...
-[["CNVSNP-20160128"]] TCGA-3N-A9WB-06A-11D-A38F-01 ...
-[["Methylation-20160128"]] TCGA-3N-A9WB-06A-11D-A38H-05 ...
-[["miRNASeqGene-20160128"]] TCGA-3N-A9WC-06A-11R-A38N-13 ...
-[["Mutation-20160128"]] TCGA-BF-A1PU-01A-11D-A19A-08 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-3N-A9WB-06A-11R-A38C-07 ...
-[["RPPAArray-20160128"]] TCGA-3N-A9WC-06A-21-A444-20 ...
+CharacterList of length 9
+[["SKCM_CNASeq-20160128"]] TCGA-BF-A1PU-01A-11D-A18Z-02 ...
+[["SKCM_CNASNP-20160128"]] TCGA-3N-A9WB-06A-11D-A38F-01 ...
+[["SKCM_CNVSNP-20160128"]] TCGA-3N-A9WB-06A-11D-A38F-01 ...
+[["SKCM_GISTIC-20160128"]] TCGA-3N-A9WB-06A-11D-A38F-01 ...
+[["SKCM_miRNASeqGene-20160128"]] TCGA-3N-A9WC-06A-11R-A38N-13 ...
+[["SKCM_Mutation-20160128"]] TCGA-BF-A1PU-01A-11D-A19A-08 ...
+[["SKCM_RNASeq2GeneNorm-20160128"]] TCGA-3N-A9WB-06A-11R-A38C-07 ...
+[["SKCM_RPPAArray-20160128"]] TCGA-3N-A9WC-06A-21-A444-20 ...
+[["SKCM_Methylation-20160128"]] TCGA-3N-A9WB-06A-11D-A38H-05 ...
 
 Sizes of each ExperimentList element:
 
-                     assay  size.Mb
-1          CNASeq-20160128   0.9 Mb
-2          CNASNP-20160128  12.3 Mb
-3          CNVSNP-20160128   3.2 Mb
-4     Methylation-20160128  75.1 Mb
-5    miRNASeqGene-20160128   0.1 Mb
-6        Mutation-20160128 299.6 Mb
-7 RNASeq2GeneNorm-20160128   1.3 Mb
-8       RPPAArray-20160128     0 Mb
+                          assay  size.Mb
+1          SKCM_CNASeq-20160128   0.9 Mb
+2          SKCM_CNASNP-20160128  12.3 Mb
+3          SKCM_CNVSNP-20160128   3.2 Mb
+4          SKCM_GISTIC-20160128   0.1 Mb
+5    SKCM_miRNASeqGene-20160128   0.1 Mb
+6        SKCM_Mutation-20160128 299.6 Mb
+7 SKCM_RNASeq2GeneNorm-20160128   1.3 Mb
+8       SKCM_RPPAArray-20160128     0 Mb
+9     SKCM_Methylation-20160128  75.1 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -118,10 +122,10 @@ radiation_therapy:
  420   49    1 
 
 race:
-                    asian black or african american                     white 
-                       12                         1                       447 
-                     NA's 
-                       10 
+                    asian black or african american 
+                       12                         1 
+                    white                      NA's 
+                      447                        10 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

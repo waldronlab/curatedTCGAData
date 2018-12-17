@@ -9,53 +9,57 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( PCPG )
-ExperimentList class object of length 9: 
- [1] CNASNP-20160128: RaggedExperiment with 297329 rows and 360 columns 
- [2] CNVSNP-20160128: RaggedExperiment with 31256 rows and 346 columns 
- [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 162 columns 
- [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 162 columns 
- [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 187 columns 
- [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 187 columns 
- [7] Mutation-20160128: RaggedExperiment with 4662 rows and 184 columns 
- [8] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 187 columns 
- [9] RPPAArray-20160128: SummarizedExperiment with 192 rows and 82 columns 
+ExperimentList class object of length 10: 
+ [1] PCPG_CNASNP-20160128: RaggedExperiment with 297329 rows and 360 columns 
+ [2] PCPG_CNVSNP-20160128: RaggedExperiment with 31256 rows and 346 columns 
+ [3] PCPG_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 162 columns 
+ [4] PCPG_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 27 rows and 162 columns 
+ [5] PCPG_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 162 columns 
+ [6] PCPG_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 187 columns 
+ [7] PCPG_Mutation-20160128: RaggedExperiment with 4662 rows and 184 columns 
+ [8] PCPG_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 187 columns 
+ [9] PCPG_RPPAArray-20160128: SummarizedExperiment with 192 rows and 82 columns 
+ [10] PCPG_Methylation-20160128: SummarizedExperiment with 485577 rows and 187 columns 
 
 > rownames( PCPG )
-CharacterList of length 9
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 10
+[["PCPG_CNASNP-20160128"]] character(0)
+[["PCPG_CNVSNP-20160128"]] character(0)
+[["PCPG_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["PCPG_GISTIC_Peaks-20160128"]] character(0)
+[["PCPG_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["PCPG_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["PCPG_Mutation-20160128"]] character(0)
+[["PCPG_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["PCPG_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+[["PCPG_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
 
 > colnames( PCPG )
-CharacterList of length 9
-[["CNASNP-20160128"]] TCGA-P7-A5NX-10A-01D-A35A-01 ...
-[["CNVSNP-20160128"]] TCGA-P7-A5NX-10A-01D-A35A-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-P7-A5NY-01A-12D-A35C-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-P7-A5NY-01A-12D-A35C-01 ...
-[["Methylation-20160128"]] TCGA-P7-A5NX-01A-11D-A35E-05 ...
-[["miRNASeqGene-20160128"]] TCGA-P7-A5NX-01A-11R-A35M-13 ...
-[["Mutation-20160128"]] TCGA-P7-A5NX-01A-11D-A35D-08 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-P7-A5NX-01A-11R-A35K-07 ...
-[["RPPAArray-20160128"]] TCGA-P7-A5NX-01A-21-A43B-20 ...
+CharacterList of length 10
+[["PCPG_CNASNP-20160128"]] TCGA-P7-A5NX-10A-01D-A35A-01 ...
+[["PCPG_CNVSNP-20160128"]] TCGA-P7-A5NX-10A-01D-A35A-01 ...
+[["PCPG_GISTIC_AllByGene-20160128"]] TCGA-P7-A5NY-01A-12D-A35C-01 ...
+[["PCPG_GISTIC_Peaks-20160128"]] TCGA-P7-A5NY-01A-12D-A35C-01 ...
+[["PCPG_GISTIC_ThresholdedByGene-20160128"]] TCGA-P7-A5NY-01A-12D-A35C-01...
+[["PCPG_miRNASeqGene-20160128"]] TCGA-P7-A5NX-01A-11R-A35M-13 ...
+[["PCPG_Mutation-20160128"]] TCGA-P7-A5NX-01A-11D-A35D-08 ...
+[["PCPG_RNASeq2GeneNorm-20160128"]] TCGA-P7-A5NX-01A-11R-A35K-07 ...
+[["PCPG_RPPAArray-20160128"]] TCGA-P7-A5NX-01A-21-A43B-20 ...
+[["PCPG_Methylation-20160128"]] TCGA-P7-A5NX-01A-11D-A35E-05 ...
 
 Sizes of each ExperimentList element:
 
-                              assay size.Mb
-1                   CNASNP-20160128  8.1 Mb
-2                   CNVSNP-20160128  0.9 Mb
-3         GISTIC_AllByGene-20160128  4.9 Mb
-4 GISTIC_ThresholdedByGene-20160128  4.9 Mb
-5              Methylation-20160128   75 Mb
-6             miRNASeqGene-20160128  0.1 Mb
-7                 Mutation-20160128  8.4 Mb
-8          RNASeq2GeneNorm-20160128  1.3 Mb
-9                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    PCPG_CNASNP-20160128  8.1 Mb
+2                    PCPG_CNVSNP-20160128  0.9 Mb
+3          PCPG_GISTIC_AllByGene-20160128  4.9 Mb
+4              PCPG_GISTIC_Peaks-20160128    0 Mb
+5  PCPG_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+6              PCPG_miRNASeqGene-20160128  0.1 Mb
+7                  PCPG_Mutation-20160128  8.4 Mb
+8           PCPG_RNASeq2GeneNorm-20160128  1.3 Mb
+9                 PCPG_RPPAArray-20160128    0 Mb
+10              PCPG_Methylation-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):

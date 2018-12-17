@@ -9,65 +9,67 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( STAD )
-ExperimentList class object of length 12: 
- [1] CNASeq-20160128: RaggedExperiment with 31824 rows and 214 columns 
- [2] CNASNP-20160128: RaggedExperiment with 443042 rows and 906 columns 
- [3] CNVSNP-20160128: RaggedExperiment with 118389 rows and 904 columns 
- [4] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 441 columns 
- [5] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 441 columns 
- [6] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 73 columns 
- [7] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 397 columns 
- [8] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 430 columns 
- [9] Mutation-20160128: RaggedExperiment with 148520 rows and 289 columns 
- [10] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 450 columns 
- [11] RNASeqGene-20160128: SummarizedExperiment with 26120 rows and 36 columns 
- [12] RPPAArray-20160128: SummarizedExperiment with 195 rows and 357 columns 
+ExperimentList class object of length 13: 
+ [1] STAD_CNASeq-20160128: RaggedExperiment with 31824 rows and 214 columns 
+ [2] STAD_CNASNP-20160128: RaggedExperiment with 443042 rows and 906 columns 
+ [3] STAD_CNVSNP-20160128: RaggedExperiment with 118389 rows and 904 columns 
+ [4] STAD_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 441 columns 
+ [5] STAD_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 84 rows and 441 columns 
+ [6] STAD_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 441 columns 
+ [7] STAD_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 430 columns 
+ [8] STAD_Mutation-20160128: RaggedExperiment with 148520 rows and 289 columns 
+ [9] STAD_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 450 columns 
+ [10] STAD_RNASeqGene-20160128: SummarizedExperiment with 26120 rows and 36 columns 
+ [11] STAD_RPPAArray-20160128: SummarizedExperiment with 195 rows and 357 columns 
+ [12] STAD_Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 73 columns 
+ [13] STAD_Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 397 columns 
 
 > rownames( STAD )
-CharacterList of length 12
-[["CNASeq-20160128"]] character(0)
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
-[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
+CharacterList of length 13
+[["STAD_CNASeq-20160128"]] character(0)
+[["STAD_CNASNP-20160128"]] character(0)
+[["STAD_CNVSNP-20160128"]] character(0)
+[["STAD_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["STAD_GISTIC_Peaks-20160128"]] character(0)
+[["STAD_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["STAD_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["STAD_Mutation-20160128"]] character(0)
+[["STAD_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["STAD_RNASeqGene-20160128"]] AADACL3 AADACL4 AB007962 ... VCY XKRY ZFY
 ...
-<2 more elements>
+<3 more elements>
 
 > colnames( STAD )
-CharacterList of length 12
-[["CNASeq-20160128"]] TCGA-B7-5816-01A-21D-1598-02 ...
-[["CNASNP-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01 ...
-[["CNVSNP-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01 ...
-[["Methylation_methyl27-20160128"]] TCGA-BR-4183-11A-01D-1129-05 ...
-[["Methylation_methyl450-20160128"]] TCGA-3M-AB46-01A-11D-A411-05 ...
-[["miRNASeqGene-20160128"]] TCGA-3M-AB46-01A-11R-A415-13 ...
-[["Mutation-20160128"]] TCGA-B7-5816-01A-21D-1600-08 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-3M-AB46-01A-11R-A414-31 ...
+CharacterList of length 13
+[["STAD_CNASeq-20160128"]] TCGA-B7-5816-01A-21D-1598-02 ...
+[["STAD_CNASNP-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01 ...
+[["STAD_CNVSNP-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01 ...
+[["STAD_GISTIC_AllByGene-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01 ...
+[["STAD_GISTIC_Peaks-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01 ...
+[["STAD_GISTIC_ThresholdedByGene-20160128"]] TCGA-3M-AB46-01A-11D-A40Z-01...
+[["STAD_miRNASeqGene-20160128"]] TCGA-3M-AB46-01A-11R-A415-13 ...
+[["STAD_Mutation-20160128"]] TCGA-B7-5816-01A-21D-1600-08 ...
+[["STAD_RNASeq2GeneNorm-20160128"]] TCGA-3M-AB46-01A-11R-A414-31 ...
+[["STAD_RNASeqGene-20160128"]] TCGA-BR-4191-01A-02R-1131-13 ...
 ...
-<2 more elements>
+<3 more elements>
 
 Sizes of each ExperimentList element:
 
-                               assay  size.Mb
-1                    CNASeq-20160128   0.9 Mb
-2                    CNASNP-20160128  12.1 Mb
-3                    CNVSNP-20160128   3.4 Mb
-4          GISTIC_AllByGene-20160128   4.9 Mb
-5  GISTIC_ThresholdedByGene-20160128   4.9 Mb
-6      Methylation_methyl27-20160128   4.9 Mb
-7     Methylation_methyl450-20160128    75 Mb
-8              miRNASeqGene-20160128   0.1 Mb
-9                  Mutation-20160128 161.5 Mb
-10          RNASeq2GeneNorm-20160128   1.3 Mb
-11               RNASeqGene-20160128   1.7 Mb
-12                RPPAArray-20160128     0 Mb
+                                    assay  size.Mb
+1                    STAD_CNASeq-20160128   0.9 Mb
+2                    STAD_CNASNP-20160128  12.1 Mb
+3                    STAD_CNVSNP-20160128   3.4 Mb
+4          STAD_GISTIC_AllByGene-20160128   4.9 Mb
+5              STAD_GISTIC_Peaks-20160128   0.1 Mb
+6  STAD_GISTIC_ThresholdedByGene-20160128   4.9 Mb
+7              STAD_miRNASeqGene-20160128   0.1 Mb
+8                  STAD_Mutation-20160128 161.5 Mb
+9           STAD_RNASeq2GeneNorm-20160128   1.3 Mb
+10               STAD_RNASeqGene-20160128   1.7 Mb
+11                STAD_RPPAArray-20160128     0 Mb
+12     STAD_Methylation_methyl27-20160128   4.9 Mb
+13    STAD_Methylation_methyl450-20160128    75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):

@@ -9,67 +9,69 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( LUAD )
-ExperimentList class object of length 13: 
- [1] CNASeq-20160128: RaggedExperiment with 399592 rows and 249 columns 
- [2] CNASNP-20160128: RaggedExperiment with 501475 rows and 1095 columns 
- [3] CNVSNP-20160128: RaggedExperiment with 115836 rows and 1095 columns 
- [4] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 516 columns 
- [5] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 516 columns 
- [6] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 89 columns 
- [7] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 492 columns 
- [8] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 498 columns 
- [9] mRNAArray-20160128: SummarizedExperiment with 17814 rows and 32 columns 
- [10] Mutation-20160128: RaggedExperiment with 72541 rows and 230 columns 
- [11] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 576 columns 
- [12] RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 162 columns 
- [13] RPPAArray-20160128: SummarizedExperiment with 223 rows and 365 columns 
+ExperimentList class object of length 14: 
+ [1] LUAD_CNASeq-20160128: RaggedExperiment with 399592 rows and 249 columns 
+ [2] LUAD_CNASNP-20160128: RaggedExperiment with 501475 rows and 1095 columns 
+ [3] LUAD_CNVSNP-20160128: RaggedExperiment with 115836 rows and 1095 columns 
+ [4] LUAD_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 516 columns 
+ [5] LUAD_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 73 rows and 516 columns 
+ [6] LUAD_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 516 columns 
+ [7] LUAD_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 498 columns 
+ [8] LUAD_mRNAArray-20160128: SummarizedExperiment with 17814 rows and 32 columns 
+ [9] LUAD_Mutation-20160128: RaggedExperiment with 72541 rows and 230 columns 
+ [10] LUAD_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 576 columns 
+ [11] LUAD_RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 162 columns 
+ [12] LUAD_RPPAArray-20160128: SummarizedExperiment with 223 rows and 365 columns 
+ [13] LUAD_Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 89 columns 
+ [14] LUAD_Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 492 columns 
 
 > rownames( LUAD )
-CharacterList of length 13
-[["CNASeq-20160128"]] character(0)
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
-[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 PNMA1 ... SLC39A6 SNRPD2 AQP7 CTSC
-[["Mutation-20160128"]] character(0)
+CharacterList of length 14
+[["LUAD_CNASeq-20160128"]] character(0)
+[["LUAD_CNASNP-20160128"]] character(0)
+[["LUAD_CNVSNP-20160128"]] character(0)
+[["LUAD_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["LUAD_GISTIC_Peaks-20160128"]] character(0)
+[["LUAD_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["LUAD_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["LUAD_mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 ... SNRPD2 AQP7 CTSC
+[["LUAD_Mutation-20160128"]] character(0)
+[["LUAD_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 ...
-<3 more elements>
+<4 more elements>
 
 > colnames( LUAD )
-CharacterList of length 13
-[["CNASeq-20160128"]] TCGA-05-4249-01A-01D-1103-02 ...
-[["CNASNP-20160128"]] TCGA-05-4244-01A-01D-1877-01 ...
-[["CNVSNP-20160128"]] TCGA-05-4244-01A-01D-1877-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-05-4244-01A-01D-1877-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-05-4244-01A-01D-1877-01 ...
-[["Methylation_methyl27-20160128"]] TCGA-05-4244-01A-01D-1104-05 ...
-[["Methylation_methyl450-20160128"]] TCGA-05-4384-01A-01D-1756-05 ...
-[["miRNASeqGene-20160128"]] TCGA-05-4384-01A-01T-1754-13 ...
-[["mRNAArray-20160128"]] TCGA-05-4244-01A-01R-1107-07 ...
-[["Mutation-20160128"]] TCGA-05-4249-01A-01D-1105-08 ...
+CharacterList of length 14
+[["LUAD_CNASeq-20160128"]] TCGA-05-4249-01A-01D-1103-02 ...
+[["LUAD_CNASNP-20160128"]] TCGA-05-4244-01A-01D-1877-01 ...
+[["LUAD_CNVSNP-20160128"]] TCGA-05-4244-01A-01D-1877-01 ...
+[["LUAD_GISTIC_AllByGene-20160128"]] TCGA-05-4244-01A-01D-1877-01 ...
+[["LUAD_GISTIC_Peaks-20160128"]] TCGA-05-4244-01A-01D-1877-01 ...
+[["LUAD_GISTIC_ThresholdedByGene-20160128"]] TCGA-05-4244-01A-01D-1877-01...
+[["LUAD_miRNASeqGene-20160128"]] TCGA-05-4384-01A-01T-1754-13 ...
+[["LUAD_mRNAArray-20160128"]] TCGA-05-4244-01A-01R-1107-07 ...
+[["LUAD_Mutation-20160128"]] TCGA-05-4249-01A-01D-1105-08 ...
+[["LUAD_RNASeq2GeneNorm-20160128"]] TCGA-05-4244-01A-01R-1107-07 ...
 ...
-<3 more elements>
+<4 more elements>
 
 Sizes of each ExperimentList element:
 
-                               assay size.Mb
-1                    CNASeq-20160128 10.8 Mb
-2                    CNASNP-20160128 13.7 Mb
-3                    CNVSNP-20160128  3.4 Mb
-4          GISTIC_AllByGene-20160128  4.9 Mb
-5  GISTIC_ThresholdedByGene-20160128  4.9 Mb
-6      Methylation_methyl27-20160128  4.9 Mb
-7     Methylation_methyl450-20160128 75.1 Mb
-8              miRNASeqGene-20160128  0.1 Mb
-9                 mRNAArray-20160128  1.1 Mb
-10                 Mutation-20160128 92.9 Mb
-11          RNASeq2GeneNorm-20160128  1.3 Mb
-12               RNASeqGene-20160128  1.3 Mb
-13                RPPAArray-20160128  0.1 Mb
+                                    assay size.Mb
+1                    LUAD_CNASeq-20160128 10.8 Mb
+2                    LUAD_CNASNP-20160128 13.7 Mb
+3                    LUAD_CNVSNP-20160128  3.4 Mb
+4          LUAD_GISTIC_AllByGene-20160128  4.9 Mb
+5              LUAD_GISTIC_Peaks-20160128  0.1 Mb
+6  LUAD_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+7              LUAD_miRNASeqGene-20160128  0.1 Mb
+8                 LUAD_mRNAArray-20160128  1.1 Mb
+9                  LUAD_Mutation-20160128 92.9 Mb
+10          LUAD_RNASeq2GeneNorm-20160128  1.3 Mb
+11               LUAD_RNASeqGene-20160128  1.3 Mb
+12                LUAD_RPPAArray-20160128  0.1 Mb
+13     LUAD_Methylation_methyl27-20160128  4.9 Mb
+14    LUAD_Methylation_methyl450-20160128 75.1 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):

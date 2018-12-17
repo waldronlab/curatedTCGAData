@@ -9,57 +9,63 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( PRAD )
-ExperimentList class object of length 10: 
- [1] CNASeq-20160128: RaggedExperiment with 23398 rows and 230 columns 
- [2] CNASNP-20160128: RaggedExperiment with 573776 rows and 1029 columns 
- [3] CNVSNP-20160128: RaggedExperiment with 117345 rows and 1023 columns 
- [4] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 492 columns 
- [5] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 492 columns 
- [6] Methylation-20160128: SummarizedExperiment with 485577 rows and 549 columns 
- [7] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 547 columns 
- [8] Mutation-20160128: RaggedExperiment with 12348 rows and 332 columns 
- [9] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 550 columns 
- [10] RPPAArray-20160128: SummarizedExperiment with 195 rows and 352 columns 
+ExperimentList class object of length 11: 
+ [1] PRAD_CNASeq-20160128: RaggedExperiment with 23398 rows and 230 columns 
+ [2] PRAD_CNASNP-20160128: RaggedExperiment with 573776 rows and 1029 columns 
+ [3] PRAD_CNVSNP-20160128: RaggedExperiment with 117345 rows and 1023 columns 
+ [4] PRAD_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 492 columns 
+ [5] PRAD_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 58 rows and 492 columns 
+ [6] PRAD_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 492 columns 
+ [7] PRAD_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 547 columns 
+ [8] PRAD_Mutation-20160128: RaggedExperiment with 12348 rows and 332 columns 
+ [9] PRAD_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 550 columns 
+ [10] PRAD_RPPAArray-20160128: SummarizedExperiment with 195 rows and 352 columns 
+ [11] PRAD_Methylation-20160128: SummarizedExperiment with 485577 rows and 549 columns 
 
 > rownames( PRAD )
-CharacterList of length 10
-[["CNASeq-20160128"]] character(0)
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 11
+[["PRAD_CNASeq-20160128"]] character(0)
+[["PRAD_CNASNP-20160128"]] character(0)
+[["PRAD_CNVSNP-20160128"]] character(0)
+[["PRAD_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["PRAD_GISTIC_Peaks-20160128"]] character(0)
+[["PRAD_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["PRAD_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["PRAD_Mutation-20160128"]] character(0)
+[["PRAD_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["PRAD_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+...
+<1 more element>
 
 > colnames( PRAD )
-CharacterList of length 10
-[["CNASeq-20160128"]] TCGA-CH-5741-01A-11D-1572-02 ...
-[["CNASNP-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
-[["CNVSNP-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
-[["Methylation-20160128"]] TCGA-2A-A8VL-01A-21D-A378-05 ...
-[["miRNASeqGene-20160128"]] TCGA-2A-A8VL-01A-21R-A37H-13 ...
-[["Mutation-20160128"]] TCGA-2A-A8VL-01A-21D-A377-08 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-2A-A8VL-01A-21R-A37L-07 ...
-[["RPPAArray-20160128"]] TCGA-2A-A8VL-01A-11-A43M-20 ...
+CharacterList of length 11
+[["PRAD_CNASeq-20160128"]] TCGA-CH-5741-01A-11D-1572-02 ...
+[["PRAD_CNASNP-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
+[["PRAD_CNVSNP-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
+[["PRAD_GISTIC_AllByGene-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
+[["PRAD_GISTIC_Peaks-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
+[["PRAD_GISTIC_ThresholdedByGene-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01...
+[["PRAD_miRNASeqGene-20160128"]] TCGA-2A-A8VL-01A-21R-A37H-13 ...
+[["PRAD_Mutation-20160128"]] TCGA-2A-A8VL-01A-21D-A377-08 ...
+[["PRAD_RNASeq2GeneNorm-20160128"]] TCGA-2A-A8VL-01A-21R-A37L-07 ...
+[["PRAD_RPPAArray-20160128"]] TCGA-2A-A8VL-01A-11-A43M-20 ...
+...
+<1 more element>
 
 Sizes of each ExperimentList element:
 
-                               assay size.Mb
-1                    CNASeq-20160128  0.7 Mb
-2                    CNASNP-20160128 15.6 Mb
-3                    CNVSNP-20160128  3.4 Mb
-4          GISTIC_AllByGene-20160128  4.9 Mb
-5  GISTIC_ThresholdedByGene-20160128  4.9 Mb
-6               Methylation-20160128 75.1 Mb
-7              miRNASeqGene-20160128  0.1 Mb
-8                  Mutation-20160128 21.5 Mb
-9           RNASeq2GeneNorm-20160128  1.3 Mb
-10                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    PRAD_CNASeq-20160128  0.7 Mb
+2                    PRAD_CNASNP-20160128 15.6 Mb
+3                    PRAD_CNVSNP-20160128  3.4 Mb
+4          PRAD_GISTIC_AllByGene-20160128  4.9 Mb
+5              PRAD_GISTIC_Peaks-20160128  0.1 Mb
+6  PRAD_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+7              PRAD_miRNASeqGene-20160128  0.1 Mb
+8                  PRAD_Mutation-20160128 21.5 Mb
+9           PRAD_RNASeq2GeneNorm-20160128  1.3 Mb
+10                PRAD_RPPAArray-20160128    0 Mb
+11              PRAD_Methylation-20160128 75.1 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -115,8 +121,10 @@ radiation_therapy:
  395   59   44 
 
 histological_type:
-   prostate adenocarcinoma acinar type prostate adenocarcinoma, other subtype 
-                                   483                                     15 
+   prostate adenocarcinoma acinar type 
+                                   483 
+prostate adenocarcinoma, other subtype 
+                                    15 
 
 residual_tumor:
   r0   r1   r2   rx NA's 
@@ -139,10 +147,10 @@ days_to_psa:
  -164.0   191.0   512.0   685.6   926.0  3447.0      53 
 
 race:
-                    asian black or african american                     white 
-                        2                         7                       147 
-                     NA's 
-                      342 
+                    asian black or african american 
+                        2                         7 
+                    white                      NA's 
+                      147                       342 
 
 ethnicity:
 not hispanic or latino                   NA's 

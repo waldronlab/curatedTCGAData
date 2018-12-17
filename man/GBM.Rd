@@ -9,73 +9,77 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( GBM )
-ExperimentList class object of length 16: 
- [1] CNACGH_CGH_hg_244a-20160128: RaggedExperiment with 81512 rows and 438 columns 
- [2] CNACGH_CGH_hg_415k_g4124a-20160128: RaggedExperiment with 57975 rows and 338 columns 
- [3] CNASNP-20160128: RaggedExperiment with 602338 rows and 1104 columns 
- [4] CNVSNP-20160128: RaggedExperiment with 146852 rows and 1104 columns 
- [5] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 577 columns 
- [6] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 577 columns 
- [7] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 285 columns 
- [8] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 154 columns 
- [9] miRNAArray-20160128: SummarizedExperiment with 534 rows and 565 columns 
- [10] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 0 columns 
- [11] mRNAArray_huex-20160128: SummarizedExperiment with 18632 rows and 431 columns 
- [12] mRNAArray_TX_g4502a-20160128: SummarizedExperiment with 17814 rows and 502 columns 
- [13] mRNAArray_TX_ht_hg_u133a-20160128: SummarizedExperiment with 12042 rows and 528 columns 
- [14] Mutation-20160128: RaggedExperiment with 22073 rows and 290 columns 
- [15] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 166 columns 
- [16] RPPAArray-20160128: SummarizedExperiment with 208 rows and 244 columns 
+ExperimentList class object of length 18: 
+ [1] GBM_CNACGH_CGH_hg_244a-20160128: RaggedExperiment with 81512 rows and 438 columns 
+ [2] GBM_CNACGH_CGH_hg_415k_g4124a-20160128: RaggedExperiment with 57975 rows and 338 columns 
+ [3] GBM_CNASNP-20160128: RaggedExperiment with 602338 rows and 1104 columns 
+ [4] GBM_CNVSNP-20160128: RaggedExperiment with 146852 rows and 1104 columns 
+ [5] GBM_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 577 columns 
+ [6] GBM_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 68 rows and 577 columns 
+ [7] GBM_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 577 columns 
+ [8] GBM_miRNAArray-20160128: SummarizedExperiment with 534 rows and 565 columns 
+ [9] GBM_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 0 columns 
+ [10] GBM_mRNAArray_huex-20160128: SummarizedExperiment with 18632 rows and 431 columns 
+ [11] GBM_mRNAArray_TX_g4502a_1-20160128: SummarizedExperiment with 17814 rows and 401 columns 
+ [12] GBM_mRNAArray_TX_g4502a-20160128: SummarizedExperiment with 17814 rows and 101 columns 
+ [13] GBM_mRNAArray_TX_ht_hg_u133a-20160128: SummarizedExperiment with 12042 rows and 528 columns 
+ [14] GBM_Mutation-20160128: RaggedExperiment with 22073 rows and 290 columns 
+ [15] GBM_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 166 columns 
+ [16] GBM_RPPAArray-20160128: SummarizedExperiment with 208 rows and 244 columns 
+ [17] GBM_Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 285 columns 
+ [18] GBM_Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 154 columns 
 
 > rownames( GBM )
-CharacterList of length 16
-[["CNACGH_CGH_hg_244a-20160128"]] character(0)
-[["CNACGH_CGH_hg_415k_g4124a-20160128"]] character(0)
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
-[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
-[["miRNAArray-20160128"]] ebv-miR-BART1-3p ebv-miR-BART1-5p ... kshv-miR-K12-9*
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+CharacterList of length 18
+[["GBM_CNACGH_CGH_hg_244a-20160128"]] character(0)
+[["GBM_CNACGH_CGH_hg_415k_g4124a-20160128"]] character(0)
+[["GBM_CNASNP-20160128"]] character(0)
+[["GBM_CNVSNP-20160128"]] character(0)
+[["GBM_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["GBM_GISTIC_Peaks-20160128"]] character(0)
+[["GBM_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["GBM_miRNAArray-20160128"]] ebv-miR-BART1-3p ... kshv-miR-K12-9*
+[["GBM_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["GBM_mRNAArray_huex-20160128"]] C9orf152 ELMO2 RPS11 ... CTSC AQP7
 ...
-<6 more elements>
+<8 more elements>
 
 > colnames( GBM )
-CharacterList of length 16
-[["CNACGH_CGH_hg_244a-20160128"]] TCGA-02-0001-01C-01D-0185-02 ...
-[["CNACGH_CGH_hg_415k_g4124a-20160128"]] TCGA-02-2466-01A-01D-0787-02 ...
-[["CNASNP-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
-[["CNVSNP-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
-[["Methylation_methyl27-20160128"]] TCGA-02-0001-01C-01D-0186-05 ...
-[["Methylation_methyl450-20160128"]] TCGA-06-0125-01A-01D-A45W-05 ...
-[["miRNAArray-20160128"]] TCGA-02-0001-01C-01T-0179-07 ...
-[["miRNASeqGene-20160128"]] character(0)
+CharacterList of length 18
+[["GBM_CNACGH_CGH_hg_244a-20160128"]] TCGA-02-0001-01C-01D-0185-02 ...
+[["GBM_CNACGH_CGH_hg_415k_g4124a-20160128"]] TCGA-02-2466-01A-01D-0787-02...
+[["GBM_CNASNP-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["GBM_CNVSNP-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["GBM_GISTIC_AllByGene-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["GBM_GISTIC_Peaks-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["GBM_GISTIC_ThresholdedByGene-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
+[["GBM_miRNAArray-20160128"]] TCGA-02-0001-01C-01T-0179-07 ...
+[["GBM_miRNASeqGene-20160128"]] character(0)
+[["GBM_mRNAArray_huex-20160128"]] TCGA-02-0001-01C-01R-0178-03 ...
 ...
-<6 more elements>
+<8 more elements>
 
 Sizes of each ExperimentList element:
 
-                                assay size.Mb
-1         CNACGH_CGH_hg_244a-20160128  2.3 Mb
-2  CNACGH_CGH_hg_415k_g4124a-20160128  1.7 Mb
-3                     CNASNP-20160128 16.4 Mb
-4                     CNVSNP-20160128  4.2 Mb
-5           GISTIC_AllByGene-20160128  4.9 Mb
-6   GISTIC_ThresholdedByGene-20160128  4.9 Mb
-7       Methylation_methyl27-20160128  4.9 Mb
-8      Methylation_methyl450-20160128   75 Mb
-9                 miRNAArray-20160128  0.1 Mb
-10              miRNASeqGene-20160128  0.1 Mb
-11            mRNAArray_huex-20160128  1.2 Mb
-12       mRNAArray_TX_g4502a-20160128  1.2 Mb
-13  mRNAArray_TX_ht_hg_u133a-20160128  0.8 Mb
-14                  Mutation-20160128   31 Mb
-15           RNASeq2GeneNorm-20160128  1.3 Mb
-16                 RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1         GBM_CNACGH_CGH_hg_244a-20160128  2.3 Mb
+2  GBM_CNACGH_CGH_hg_415k_g4124a-20160128  1.7 Mb
+3                     GBM_CNASNP-20160128 16.4 Mb
+4                     GBM_CNVSNP-20160128  4.2 Mb
+5           GBM_GISTIC_AllByGene-20160128  4.9 Mb
+6               GBM_GISTIC_Peaks-20160128  0.1 Mb
+7   GBM_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+8                 GBM_miRNAArray-20160128  0.1 Mb
+9               GBM_miRNASeqGene-20160128  0.1 Mb
+10            GBM_mRNAArray_huex-20160128  1.2 Mb
+11     GBM_mRNAArray_TX_g4502a_1-20160128  1.1 Mb
+12       GBM_mRNAArray_TX_g4502a-20160128  1.1 Mb
+13  GBM_mRNAArray_TX_ht_hg_u133a-20160128  0.8 Mb
+14                  GBM_Mutation-20160128   31 Mb
+15           GBM_RNASeq2GeneNorm-20160128  1.3 Mb
+16                 GBM_RPPAArray-20160128    0 Mb
+17      GBM_Methylation_methyl27-20160128  4.9 Mb
+18     GBM_Methylation_methyl450-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -136,10 +140,10 @@ untreated primary (de novo) gbm                            NA's
                             544                               4 
 
 race:
-                    asian black or african american                     white 
-                       13                        51                       506 
-                     NA's 
-                       29 
+                    asian black or african american 
+                       13                        51 
+                    white                      NA's 
+                      506                        29 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

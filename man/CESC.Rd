@@ -9,57 +9,63 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( CESC )
-ExperimentList class object of length 10: 
- [1] CNASeq-20160128: RaggedExperiment with 7834 rows and 100 columns 
- [2] CNASNP-20160128: RaggedExperiment with 267855 rows and 586 columns 
- [3] CNVSNP-20160128: RaggedExperiment with 59450 rows and 586 columns 
- [4] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 295 columns 
- [5] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 295 columns 
- [6] Methylation-20160128: SummarizedExperiment with 485577 rows and 312 columns 
- [7] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 312 columns 
- [8] Mutation-20160128: RaggedExperiment with 46547 rows and 194 columns 
- [9] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 309 columns 
- [10] RPPAArray-20160128: SummarizedExperiment with 192 rows and 173 columns 
+ExperimentList class object of length 11: 
+ [1] CESC_CNASeq-20160128: RaggedExperiment with 7834 rows and 100 columns 
+ [2] CESC_CNASNP-20160128: RaggedExperiment with 267855 rows and 586 columns 
+ [3] CESC_CNVSNP-20160128: RaggedExperiment with 59450 rows and 586 columns 
+ [4] CESC_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 295 columns 
+ [5] CESC_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 60 rows and 295 columns 
+ [6] CESC_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 295 columns 
+ [7] CESC_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 312 columns 
+ [8] CESC_Mutation-20160128: RaggedExperiment with 46547 rows and 194 columns 
+ [9] CESC_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 309 columns 
+ [10] CESC_RPPAArray-20160128: SummarizedExperiment with 192 rows and 173 columns 
+ [11] CESC_Methylation-20160128: SummarizedExperiment with 485577 rows and 312 columns 
 
 > rownames( CESC )
-CharacterList of length 10
-[["CNASeq-20160128"]] character(0)
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 11
+[["CESC_CNASeq-20160128"]] character(0)
+[["CESC_CNASNP-20160128"]] character(0)
+[["CESC_CNVSNP-20160128"]] character(0)
+[["CESC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["CESC_GISTIC_Peaks-20160128"]] character(0)
+[["CESC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["CESC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["CESC_Mutation-20160128"]] character(0)
+[["CESC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["CESC_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+...
+<1 more element>
 
 > colnames( CESC )
-CharacterList of length 10
-[["CNASeq-20160128"]] TCGA-C5-A1BQ-01C-11D-A20X-26 ...
-[["CNASNP-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01 ...
-[["CNVSNP-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01 ...
-[["Methylation-20160128"]] TCGA-2W-A8YY-01A-11D-A37Q-05 ...
-[["miRNASeqGene-20160128"]] TCGA-2W-A8YY-01A-11R-A37P-13 ...
-[["Mutation-20160128"]] TCGA-BI-A0VR-01A-11D-A10S-08 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-2W-A8YY-01A-11R-A37O-07 ...
-[["RPPAArray-20160128"]] TCGA-2W-A8YY-01A-21-A40H-20 ...
+CharacterList of length 11
+[["CESC_CNASeq-20160128"]] TCGA-C5-A1BQ-01C-11D-A20X-26 ...
+[["CESC_CNASNP-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01 ...
+[["CESC_CNVSNP-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01 ...
+[["CESC_GISTIC_AllByGene-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01 ...
+[["CESC_GISTIC_Peaks-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01 ...
+[["CESC_GISTIC_ThresholdedByGene-20160128"]] TCGA-2W-A8YY-01A-11D-A37M-01...
+[["CESC_miRNASeqGene-20160128"]] TCGA-2W-A8YY-01A-11R-A37P-13 ...
+[["CESC_Mutation-20160128"]] TCGA-BI-A0VR-01A-11D-A10S-08 ...
+[["CESC_RNASeq2GeneNorm-20160128"]] TCGA-2W-A8YY-01A-11R-A37O-07 ...
+[["CESC_RPPAArray-20160128"]] TCGA-2W-A8YY-01A-21-A40H-20 ...
+...
+<1 more element>
 
 Sizes of each ExperimentList element:
 
-                               assay size.Mb
-1                    CNASeq-20160128  0.3 Mb
-2                    CNASNP-20160128  7.3 Mb
-3                    CNVSNP-20160128  1.8 Mb
-4          GISTIC_AllByGene-20160128  4.9 Mb
-5  GISTIC_ThresholdedByGene-20160128  4.9 Mb
-6               Methylation-20160128   75 Mb
-7              miRNASeqGene-20160128  0.1 Mb
-8                  Mutation-20160128 29.8 Mb
-9           RNASeq2GeneNorm-20160128  1.3 Mb
-10                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    CESC_CNASeq-20160128  0.3 Mb
+2                    CESC_CNASNP-20160128  7.3 Mb
+3                    CESC_CNVSNP-20160128  1.8 Mb
+4          CESC_GISTIC_AllByGene-20160128  4.9 Mb
+5              CESC_GISTIC_Peaks-20160128  0.1 Mb
+6  CESC_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+7              CESC_miRNASeqGene-20160128  0.1 Mb
+8                  CESC_Mutation-20160128 32.9 Mb
+9           CESC_RNASeq2GeneNorm-20160128  1.3 Mb
+10                CESC_RPPAArray-20160128    0 Mb
+11              CESC_Methylation-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):

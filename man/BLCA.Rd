@@ -9,63 +9,65 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( BLCA )
-ExperimentList class object of length 11: 
- [1] CNASeq-20160128: RaggedExperiment with 35692 rows and 232 columns 
- [2] CNASNP-20160128: RaggedExperiment with 479978 rows and 806 columns 
- [3] CNVSNP-20160128: RaggedExperiment with 104349 rows and 797 columns 
- [4] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 408 columns 
- [5] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 408 columns 
- [6] Methylation-20160128: SummarizedExperiment with 485577 rows and 434 columns 
- [7] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 429 columns 
- [8] Mutation-20160128: RaggedExperiment with 39312 rows and 130 columns 
- [9] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 427 columns 
- [10] RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 67 columns 
- [11] RPPAArray-20160128: SummarizedExperiment with 208 rows and 344 columns 
+ExperimentList class object of length 12: 
+ [1] BLCA_CNASeq-20160128: RaggedExperiment with 35692 rows and 232 columns 
+ [2] BLCA_CNASNP-20160128: RaggedExperiment with 479978 rows and 806 columns 
+ [3] BLCA_CNVSNP-20160128: RaggedExperiment with 104349 rows and 797 columns 
+ [4] BLCA_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 408 columns 
+ [5] BLCA_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 71 rows and 408 columns 
+ [6] BLCA_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 408 columns 
+ [7] BLCA_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 429 columns 
+ [8] BLCA_Mutation-20160128: RaggedExperiment with 39312 rows and 130 columns 
+ [9] BLCA_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 427 columns 
+ [10] BLCA_RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 67 columns 
+ [11] BLCA_RPPAArray-20160128: SummarizedExperiment with 208 rows and 344 columns 
+ [12] BLCA_Methylation-20160128: SummarizedExperiment with 485577 rows and 434 columns 
 
 > rownames( BLCA )
-CharacterList of length 11
-[["CNASeq-20160128"]] character(0)
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RNASeqGene-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
+CharacterList of length 12
+[["BLCA_CNASeq-20160128"]] character(0)
+[["BLCA_CNASNP-20160128"]] character(0)
+[["BLCA_CNVSNP-20160128"]] character(0)
+[["BLCA_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["BLCA_GISTIC_Peaks-20160128"]] character(0)
+[["BLCA_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["BLCA_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["BLCA_Mutation-20160128"]] character(0)
+[["BLCA_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["BLCA_RNASeqGene-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 ...
-<1 more element>
+<2 more elements>
 
 > colnames( BLCA )
-CharacterList of length 11
-[["CNASeq-20160128"]] TCGA-BL-A0C8-01A-11D-A10R-02 ...
-[["CNASNP-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
-[["CNVSNP-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
-[["Methylation-20160128"]] TCGA-2F-A9KO-01A-11D-A38H-05 ...
-[["miRNASeqGene-20160128"]] TCGA-2F-A9KO-01A-11R-A38M-13 ...
-[["Mutation-20160128"]] TCGA-BL-A0C8-01A-11D-A10S-08 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-2F-A9KO-01A-11R-A38B-07 ...
-[["RNASeqGene-20160128"]] TCGA-BL-A0C8-01A-11R-A10U-07 ...
+CharacterList of length 12
+[["BLCA_CNASeq-20160128"]] TCGA-BL-A0C8-01A-11D-A10R-02 ...
+[["BLCA_CNASNP-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
+[["BLCA_CNVSNP-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
+[["BLCA_GISTIC_AllByGene-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
+[["BLCA_GISTIC_Peaks-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
+[["BLCA_GISTIC_ThresholdedByGene-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01...
+[["BLCA_miRNASeqGene-20160128"]] TCGA-2F-A9KO-01A-11R-A38M-13 ...
+[["BLCA_Mutation-20160128"]] TCGA-BL-A0C8-01A-11D-A10S-08 ...
+[["BLCA_RNASeq2GeneNorm-20160128"]] TCGA-2F-A9KO-01A-11R-A38B-07 ...
+[["BLCA_RNASeqGene-20160128"]] TCGA-BL-A0C8-01A-11R-A10U-07 ...
 ...
-<1 more element>
+<2 more elements>
 
 Sizes of each ExperimentList element:
 
-                               assay size.Mb
-1                    CNASeq-20160128    1 Mb
-2                    CNASNP-20160128 13.1 Mb
-3                    CNVSNP-20160128    3 Mb
-4          GISTIC_AllByGene-20160128  4.9 Mb
-5  GISTIC_ThresholdedByGene-20160128  4.9 Mb
-6               Methylation-20160128 75.1 Mb
-7              miRNASeqGene-20160128  0.1 Mb
-8                  Mutation-20160128 56.1 Mb
-9           RNASeq2GeneNorm-20160128  1.3 Mb
-10               RNASeqGene-20160128  1.3 Mb
-11                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    BLCA_CNASeq-20160128    1 Mb
+2                    BLCA_CNASNP-20160128 13.1 Mb
+3                    BLCA_CNVSNP-20160128    3 Mb
+4          BLCA_GISTIC_AllByGene-20160128  4.9 Mb
+5              BLCA_GISTIC_Peaks-20160128  0.1 Mb
+6  BLCA_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+7              BLCA_miRNASeqGene-20160128  0.1 Mb
+8                  BLCA_Mutation-20160128 56.1 Mb
+9           BLCA_RNASeq2GeneNorm-20160128  1.3 Mb
+10               BLCA_RNASeqGene-20160128  1.3 Mb
+11                BLCA_RPPAArray-20160128    0 Mb
+12              BLCA_Methylation-20160128 75.1 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -144,10 +146,10 @@ number_of_lymph_nodes:
   0.000   0.000   0.000   2.088   2.000  97.000     115 
 
 race:
-                    asian black or african american                     white 
-                       44                        23                       327 
-                     NA's 
-                       18 
+                    asian black or african american 
+                       44                        23 
+                    white                      NA's 
+                      327                        18 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

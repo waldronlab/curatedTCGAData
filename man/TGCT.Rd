@@ -9,53 +9,57 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( TGCT )
-ExperimentList class object of length 9: 
- [1] CNASNP-20160128: RaggedExperiment with 137968 rows and 271 columns 
- [2] CNVSNP-20160128: RaggedExperiment with 25479 rows and 271 columns 
- [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 134 columns 
- [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 134 columns 
- [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 139 columns 
- [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 139 columns 
- [7] Mutation-20160128: RaggedExperiment with 14672 rows and 138 columns 
- [8] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 139 columns 
- [9] RPPAArray-20160128: SummarizedExperiment with 192 rows and 107 columns 
+ExperimentList class object of length 10: 
+ [1] TGCT_CNASNP-20160128: RaggedExperiment with 137968 rows and 271 columns 
+ [2] TGCT_CNVSNP-20160128: RaggedExperiment with 25479 rows and 271 columns 
+ [3] TGCT_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 134 columns 
+ [4] TGCT_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 48 rows and 134 columns 
+ [5] TGCT_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 134 columns 
+ [6] TGCT_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 139 columns 
+ [7] TGCT_Mutation-20160128: RaggedExperiment with 14672 rows and 138 columns 
+ [8] TGCT_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 139 columns 
+ [9] TGCT_RPPAArray-20160128: SummarizedExperiment with 192 rows and 107 columns 
+ [10] TGCT_Methylation-20160128: SummarizedExperiment with 485577 rows and 139 columns 
 
 > rownames( TGCT )
-CharacterList of length 9
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 10
+[["TGCT_CNASNP-20160128"]] character(0)
+[["TGCT_CNVSNP-20160128"]] character(0)
+[["TGCT_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["TGCT_GISTIC_Peaks-20160128"]] character(0)
+[["TGCT_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["TGCT_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["TGCT_Mutation-20160128"]] character(0)
+[["TGCT_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["TGCT_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+[["TGCT_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
 
 > colnames( TGCT )
-CharacterList of length 9
-[["CNASNP-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
-[["CNVSNP-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
-[["Methylation-20160128"]] TCGA-2G-AAEW-01A-11D-A42Z-05 ...
-[["miRNASeqGene-20160128"]] TCGA-2G-AAEW-01A-11R-A439-13 ...
-[["Mutation-20160128"]] TCGA-2G-AAEW-01A-11D-A42Y-10 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-2G-AAEW-01A-11R-A430-07 ...
-[["RPPAArray-20160128"]] TCGA-2G-AAEW-01A-21-A45P-20 ...
+CharacterList of length 10
+[["TGCT_CNASNP-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
+[["TGCT_CNVSNP-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
+[["TGCT_GISTIC_AllByGene-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
+[["TGCT_GISTIC_Peaks-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
+[["TGCT_GISTIC_ThresholdedByGene-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01...
+[["TGCT_miRNASeqGene-20160128"]] TCGA-2G-AAEW-01A-11R-A439-13 ...
+[["TGCT_Mutation-20160128"]] TCGA-2G-AAEW-01A-11D-A42Y-10 ...
+[["TGCT_RNASeq2GeneNorm-20160128"]] TCGA-2G-AAEW-01A-11R-A430-07 ...
+[["TGCT_RPPAArray-20160128"]] TCGA-2G-AAEW-01A-21-A45P-20 ...
+[["TGCT_Methylation-20160128"]] TCGA-2G-AAEW-01A-11D-A42Z-05 ...
 
 Sizes of each ExperimentList element:
 
-                              assay size.Mb
-1                   CNASNP-20160128  3.8 Mb
-2                   CNVSNP-20160128  0.8 Mb
-3         GISTIC_AllByGene-20160128  4.9 Mb
-4 GISTIC_ThresholdedByGene-20160128  4.9 Mb
-5              Methylation-20160128   75 Mb
-6             miRNASeqGene-20160128  0.1 Mb
-7                 Mutation-20160128   10 Mb
-8          RNASeq2GeneNorm-20160128  1.3 Mb
-9                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    TGCT_CNASNP-20160128  3.8 Mb
+2                    TGCT_CNVSNP-20160128  0.8 Mb
+3          TGCT_GISTIC_AllByGene-20160128  4.9 Mb
+4              TGCT_GISTIC_Peaks-20160128  0.1 Mb
+5  TGCT_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+6              TGCT_miRNASeqGene-20160128  0.1 Mb
+7                  TGCT_Mutation-20160128   10 Mb
+8           TGCT_RNASeq2GeneNorm-20160128  1.3 Mb
+9                 TGCT_RPPAArray-20160128    0 Mb
+10              TGCT_Methylation-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -123,10 +127,10 @@ karnofsky_performance_score:
    5   41   56   32 
 
 race:
-                    asian black or african american                     white 
-                        4                         6                       119 
-                     NA's 
-                        5 
+                    asian black or african american 
+                        4                         6 
+                    white                      NA's 
+                      119                         5 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

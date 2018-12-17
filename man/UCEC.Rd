@@ -9,67 +9,69 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( UCEC )
-ExperimentList class object of length 13: 
- [1] CNASeq-20160128: RaggedExperiment with 36400 rows and 213 columns 
- [2] CNASNP-20160128: RaggedExperiment with 619412 rows and 1083 columns 
- [3] CNVSNP-20160128: RaggedExperiment with 127094 rows and 1078 columns 
- [4] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 539 columns 
- [5] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 539 columns 
- [6] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 118 columns 
- [7] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 466 columns 
- [8] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 433 columns 
- [9] mRNAArray-20160128: SummarizedExperiment with 17814 rows and 54 columns 
- [10] Mutation-20160128: RaggedExperiment with 184861 rows and 248 columns 
- [11] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 380 columns 
- [12] RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 269 columns 
- [13] RPPAArray-20160128: SummarizedExperiment with 208 rows and 440 columns 
+ExperimentList class object of length 14: 
+ [1] UCEC_CNASeq-20160128: RaggedExperiment with 36400 rows and 213 columns 
+ [2] UCEC_CNASNP-20160128: RaggedExperiment with 619412 rows and 1083 columns 
+ [3] UCEC_CNVSNP-20160128: RaggedExperiment with 127094 rows and 1078 columns 
+ [4] UCEC_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 539 columns 
+ [5] UCEC_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 98 rows and 539 columns 
+ [6] UCEC_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 539 columns 
+ [7] UCEC_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 433 columns 
+ [8] UCEC_mRNAArray-20160128: SummarizedExperiment with 17814 rows and 54 columns 
+ [9] UCEC_Mutation-20160128: RaggedExperiment with 184861 rows and 248 columns 
+ [10] UCEC_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 380 columns 
+ [11] UCEC_RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 269 columns 
+ [12] UCEC_RPPAArray-20160128: SummarizedExperiment with 208 rows and 440 columns 
+ [13] UCEC_Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 118 columns 
+ [14] UCEC_Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 466 columns 
 
 > rownames( UCEC )
-CharacterList of length 13
-[["CNASeq-20160128"]] character(0)
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
-[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 PNMA1 ... SLC39A6 SNRPD2 AQP7 CTSC
-[["Mutation-20160128"]] character(0)
+CharacterList of length 14
+[["UCEC_CNASeq-20160128"]] character(0)
+[["UCEC_CNASNP-20160128"]] character(0)
+[["UCEC_CNVSNP-20160128"]] character(0)
+[["UCEC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["UCEC_GISTIC_Peaks-20160128"]] character(0)
+[["UCEC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["UCEC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["UCEC_mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 ... SNRPD2 AQP7 CTSC
+[["UCEC_Mutation-20160128"]] character(0)
+[["UCEC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 ...
-<3 more elements>
+<4 more elements>
 
 > colnames( UCEC )
-CharacterList of length 13
-[["CNASeq-20160128"]] TCGA-A5-A0G5-01A-11D-A043-02 ...
-[["CNASNP-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01 ...
-[["CNVSNP-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01 ...
-[["Methylation_methyl27-20160128"]] TCGA-A5-A0G2-01A-11D-A039-05 ...
-[["Methylation_methyl450-20160128"]] TCGA-2E-A9G8-01A-11D-A409-05 ...
-[["miRNASeqGene-20160128"]] TCGA-2E-A9G8-01A-11R-A404-13 ...
-[["mRNAArray-20160128"]] TCGA-A5-A0G2-01A-11R-A040-07 ...
-[["Mutation-20160128"]] TCGA-A5-A0G3-01A-11W-A062-09 ...
+CharacterList of length 14
+[["UCEC_CNASeq-20160128"]] TCGA-A5-A0G5-01A-11D-A043-02 ...
+[["UCEC_CNASNP-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01 ...
+[["UCEC_CNVSNP-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01 ...
+[["UCEC_GISTIC_AllByGene-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01 ...
+[["UCEC_GISTIC_Peaks-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01 ...
+[["UCEC_GISTIC_ThresholdedByGene-20160128"]] TCGA-2E-A9G8-01A-11D-A402-01...
+[["UCEC_miRNASeqGene-20160128"]] TCGA-2E-A9G8-01A-11R-A404-13 ...
+[["UCEC_mRNAArray-20160128"]] TCGA-A5-A0G2-01A-11R-A040-07 ...
+[["UCEC_Mutation-20160128"]] TCGA-A5-A0G3-01A-11W-A062-09 ...
+[["UCEC_RNASeq2GeneNorm-20160128"]] TCGA-A5-A0G1-01A-11R-A118-07 ...
 ...
-<3 more elements>
+<4 more elements>
 
 Sizes of each ExperimentList element:
 
-                               assay size.Mb
-1                    CNASeq-20160128    1 Mb
-2                    CNASNP-20160128 16.9 Mb
-3                    CNVSNP-20160128  3.7 Mb
-4          GISTIC_AllByGene-20160128  4.9 Mb
-5  GISTIC_ThresholdedByGene-20160128  4.9 Mb
-6      Methylation_methyl27-20160128  4.9 Mb
-7     Methylation_methyl450-20160128 75.1 Mb
-8              miRNASeqGene-20160128  0.1 Mb
-9                 mRNAArray-20160128  1.1 Mb
-10                 Mutation-20160128 73.1 Mb
-11          RNASeq2GeneNorm-20160128  1.3 Mb
-12               RNASeqGene-20160128  1.3 Mb
-13                RPPAArray-20160128  0.1 Mb
+                                    assay size.Mb
+1                    UCEC_CNASeq-20160128    1 Mb
+2                    UCEC_CNASNP-20160128 16.9 Mb
+3                    UCEC_CNVSNP-20160128  3.7 Mb
+4          UCEC_GISTIC_AllByGene-20160128  4.9 Mb
+5              UCEC_GISTIC_Peaks-20160128  0.1 Mb
+6  UCEC_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+7              UCEC_miRNASeqGene-20160128  0.1 Mb
+8                 UCEC_mRNAArray-20160128  1.1 Mb
+9                  UCEC_Mutation-20160128 73.1 Mb
+10          UCEC_RNASeq2GeneNorm-20160128  1.3 Mb
+11               UCEC_RNASeqGene-20160128  1.3 Mb
+12                UCEC_RPPAArray-20160128  0.1 Mb
+13     UCEC_Methylation_methyl27-20160128  4.9 Mb
+14    UCEC_Methylation_methyl450-20160128 75.1 Mb
 
 
 ---------------------------
@@ -101,8 +103,10 @@ radiation_therapy:
  295  228   25 
 
 histological_type:
-endometrioid endometrial adenocarcinoma           mixed serous and endometrioid 
-                                    411                                      22 
+endometrioid endometrial adenocarcinoma 
+                                    411 
+          mixed serous and endometrioid 
+                                     22 
       serous endometrial adenocarcinoma 
                                     115 
 

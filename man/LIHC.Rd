@@ -9,57 +9,63 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( LIHC )
-ExperimentList class object of length 10: 
- [1] CNASNP-20160128: RaggedExperiment with 363628 rows and 760 columns 
- [2] CNVSNP-20160128: RaggedExperiment with 93328 rows and 760 columns 
- [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 370 columns 
- [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 370 columns 
- [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 429 columns 
- [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 424 columns 
- [7] Mutation-20160128: RaggedExperiment with 27892 rows and 198 columns 
- [8] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 423 columns 
- [9] RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 26 columns 
- [10] RPPAArray-20160128: SummarizedExperiment with 219 rows and 184 columns 
+ExperimentList class object of length 11: 
+ [1] LIHC_CNASNP-20160128: RaggedExperiment with 363628 rows and 760 columns 
+ [2] LIHC_CNVSNP-20160128: RaggedExperiment with 93328 rows and 760 columns 
+ [3] LIHC_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 370 columns 
+ [4] LIHC_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 59 rows and 370 columns 
+ [5] LIHC_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 370 columns 
+ [6] LIHC_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 424 columns 
+ [7] LIHC_Mutation-20160128: RaggedExperiment with 27892 rows and 198 columns 
+ [8] LIHC_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 423 columns 
+ [9] LIHC_RNASeqGene-20160128: SummarizedExperiment with 20502 rows and 26 columns 
+ [10] LIHC_RPPAArray-20160128: SummarizedExperiment with 219 rows and 184 columns 
+ [11] LIHC_Methylation-20160128: SummarizedExperiment with 485577 rows and 429 columns 
 
 > rownames( LIHC )
-CharacterList of length 10
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RNASeqGene-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZEF1 ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 11
+[["LIHC_CNASNP-20160128"]] character(0)
+[["LIHC_CNVSNP-20160128"]] character(0)
+[["LIHC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["LIHC_GISTIC_Peaks-20160128"]] character(0)
+[["LIHC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["LIHC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["LIHC_Mutation-20160128"]] character(0)
+[["LIHC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["LIHC_RNASeqGene-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["LIHC_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+...
+<1 more element>
 
 > colnames( LIHC )
-CharacterList of length 10
-[["CNASNP-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01 ...
-[["CNVSNP-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01 ...
-[["Methylation-20160128"]] TCGA-2V-A95S-01A-11D-A36Y-05 ...
-[["miRNASeqGene-20160128"]] TCGA-2V-A95S-01A-11R-A37G-13 ...
-[["Mutation-20160128"]] TCGA-BC-4073-01B-02D-A12Z-10 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-2V-A95S-01A-11R-A37K-07 ...
-[["RNASeqGene-20160128"]] TCGA-BC-4073-01B-02R-A131-07 ...
-[["RPPAArray-20160128"]] TCGA-BC-4072-01B-21-A40L-20 ...
+CharacterList of length 11
+[["LIHC_CNASNP-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01 ...
+[["LIHC_CNVSNP-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01 ...
+[["LIHC_GISTIC_AllByGene-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01 ...
+[["LIHC_GISTIC_Peaks-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01 ...
+[["LIHC_GISTIC_ThresholdedByGene-20160128"]] TCGA-2V-A95S-01A-11D-A36W-01...
+[["LIHC_miRNASeqGene-20160128"]] TCGA-2V-A95S-01A-11R-A37G-13 ...
+[["LIHC_Mutation-20160128"]] TCGA-BC-4073-01B-02D-A12Z-10 ...
+[["LIHC_RNASeq2GeneNorm-20160128"]] TCGA-2V-A95S-01A-11R-A37K-07 ...
+[["LIHC_RNASeqGene-20160128"]] TCGA-BC-4073-01B-02R-A131-07 ...
+[["LIHC_RPPAArray-20160128"]] TCGA-BC-4072-01B-21-A40L-20 ...
+...
+<1 more element>
 
 Sizes of each ExperimentList element:
 
-                               assay size.Mb
-1                    CNASNP-20160128  9.9 Mb
-2                    CNVSNP-20160128  2.7 Mb
-3          GISTIC_AllByGene-20160128  4.9 Mb
-4  GISTIC_ThresholdedByGene-20160128  4.9 Mb
-5               Methylation-20160128 75.1 Mb
-6              miRNASeqGene-20160128  0.1 Mb
-7                  Mutation-20160128 16.8 Mb
-8           RNASeq2GeneNorm-20160128  1.3 Mb
-9                RNASeqGene-20160128  1.3 Mb
-10                RPPAArray-20160128    0 Mb
+                                    assay size.Mb
+1                    LIHC_CNASNP-20160128  9.9 Mb
+2                    LIHC_CNVSNP-20160128  2.7 Mb
+3          LIHC_GISTIC_AllByGene-20160128  4.9 Mb
+4              LIHC_GISTIC_Peaks-20160128  0.1 Mb
+5  LIHC_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+6              LIHC_miRNASeqGene-20160128  0.1 Mb
+7                  LIHC_Mutation-20160128 16.8 Mb
+8           LIHC_RNASeq2GeneNorm-20160128  1.3 Mb
+9                LIHC_RNASeqGene-20160128  1.3 Mb
+10                LIHC_RPPAArray-20160128    0 Mb
+11              LIHC_Methylation-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):

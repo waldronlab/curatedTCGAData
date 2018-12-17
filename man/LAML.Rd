@@ -9,45 +9,49 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( LAML )
-ExperimentList class object of length 7: 
- [1] CNASNP-20160128: RaggedExperiment with 874897 rows and 392 columns 
- [2] CNVSNP-20160128: RaggedExperiment with 28324 rows and 380 columns 
- [3] Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 194 columns 
- [4] Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 194 columns 
- [5] Mutation-20160128: RaggedExperiment with 2585 rows and 197 columns 
- [6] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 173 columns 
- [7] RNASeqGene-20160128: SummarizedExperiment with 19990 rows and 179 columns 
+ExperimentList class object of length 8: 
+ [1] LAML_CNASNP-20160128: RaggedExperiment with 874897 rows and 392 columns 
+ [2] LAML_CNVSNP-20160128: RaggedExperiment with 28324 rows and 380 columns 
+ [3] LAML_GISTIC-20160128: RangedSummarizedExperiment with 16 rows and 191 columns 
+ [4] LAML_Mutation-20160128: RaggedExperiment with 2585 rows and 197 columns 
+ [5] LAML_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 173 columns 
+ [6] LAML_RNASeqGene-20160128: SummarizedExperiment with 19990 rows and 179 columns 
+ [7] LAML_Methylation_methyl27-20160128: SummarizedExperiment with 27578 rows and 194 columns 
+ [8] LAML_Methylation_methyl450-20160128: SummarizedExperiment with 485577 rows and 194 columns 
 
 > rownames( LAML )
-CharacterList of length 7
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["Methylation_methyl27-20160128"]] cg00000292 cg00002426 ... cg27665659
-[["Methylation_methyl450-20160128"]] cg00000029 cg00000108 ... rs9839873
-[["Mutation-20160128"]] character(0)
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RNASeqGene-20160128"]] AADACL3 AADACL4 ABCA4 ABCB10 ... VCY XGPY2 XKRY2 ZFY
+CharacterList of length 8
+[["LAML_CNASNP-20160128"]] character(0)
+[["LAML_CNVSNP-20160128"]] character(0)
+[["LAML_GISTIC-20160128"]] character(0)
+[["LAML_Mutation-20160128"]] character(0)
+[["LAML_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["LAML_RNASeqGene-20160128"]] AADACL3 AADACL4 ABCA4 ... XGPY2 XKRY2 ZFY
+[["LAML_Methylation_methyl27-20160128"]] cg00000292 ... cg27665659
+[["LAML_Methylation_methyl450-20160128"]] cg00000029 ... rs9839873
 
 > colnames( LAML )
-CharacterList of length 7
-[["CNASNP-20160128"]] TCGA-AB-2802-03A-01D-0756-21 ...
-[["CNVSNP-20160128"]] TCGA-AB-2803-03A-01D-0756-21 ...
-[["Methylation_methyl27-20160128"]] TCGA-AB-2802-03A-01D-0741-05 ...
-[["Methylation_methyl450-20160128"]] TCGA-AB-2802-03A-01D-0741-05 ...
-[["Mutation-20160128"]] TCGA-AB-2802-03B-01W-0728-08 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-AB-2803-03A-01T-0734-13 ...
-[["RNASeqGene-20160128"]] TCGA-AB-2803-03A-01T-0734-13 ...
+CharacterList of length 8
+[["LAML_CNASNP-20160128"]] TCGA-AB-2802-03A-01D-0756-21 ...
+[["LAML_CNVSNP-20160128"]] TCGA-AB-2803-03A-01D-0756-21 ...
+[["LAML_GISTIC-20160128"]] TCGA-AB-2803-03A-01D-0756-21 ...
+[["LAML_Mutation-20160128"]] TCGA-AB-2802-03B-01W-0728-08 ...
+[["LAML_RNASeq2GeneNorm-20160128"]] TCGA-AB-2803-03A-01T-0734-13 ...
+[["LAML_RNASeqGene-20160128"]] TCGA-AB-2803-03A-01T-0734-13 ...
+[["LAML_Methylation_methyl27-20160128"]] TCGA-AB-2802-03A-01D-0741-05 ...
+[["LAML_Methylation_methyl450-20160128"]] TCGA-AB-2802-03A-01D-0741-05 ...
 
 Sizes of each ExperimentList element:
 
-                           assay size.Mb
-1                CNASNP-20160128 23.5 Mb
-2                CNVSNP-20160128  0.9 Mb
-3  Methylation_methyl27-20160128  4.9 Mb
-4 Methylation_methyl450-20160128   75 Mb
-5              Mutation-20160128  2.6 Mb
-6       RNASeq2GeneNorm-20160128  1.3 Mb
-7            RNASeqGene-20160128  1.3 Mb
+                                assay size.Mb
+1                LAML_CNASNP-20160128 23.5 Mb
+2                LAML_CNVSNP-20160128  0.9 Mb
+3                LAML_GISTIC-20160128    0 Mb
+4              LAML_Mutation-20160128  2.8 Mb
+5       LAML_RNASeq2GeneNorm-20160128  1.3 Mb
+6            LAML_RNASeqGene-20160128  1.3 Mb
+7  LAML_Methylation_methyl27-20160128  4.9 Mb
+8 LAML_Methylation_methyl450-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -94,10 +98,10 @@ date_of_initial_pathologic_diagnosis:
    2001    2004    2006    2006    2008    2010 
 
 race:
-                    asian black or african american                     white 
-                        2                        15                       181 
-                     NA's 
-                        2 
+                    asian black or african american 
+                        2                        15 
+                    white                      NA's 
+                      181                         2 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

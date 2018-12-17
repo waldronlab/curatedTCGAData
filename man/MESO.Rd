@@ -9,49 +9,53 @@ A document describing the TCGA cancer code
 \details{
 \preformatted{
 > experiments( MESO )
-ExperimentList class object of length 8: 
- [1] CNASNP-20160128: RaggedExperiment with 90003 rows and 173 columns 
- [2] CNVSNP-20160128: RaggedExperiment with 18335 rows and 172 columns 
- [3] GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 87 columns 
- [4] GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 87 columns 
- [5] Methylation-20160128: SummarizedExperiment with 485577 rows and 87 columns 
- [6] miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 87 columns 
- [7] RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 87 columns 
- [8] RPPAArray-20160128: SummarizedExperiment with 193 rows and 63 columns 
+ExperimentList class object of length 9: 
+ [1] MESO_CNASNP-20160128: RaggedExperiment with 90003 rows and 173 columns 
+ [2] MESO_CNVSNP-20160128: RaggedExperiment with 18335 rows and 172 columns 
+ [3] MESO_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 87 columns 
+ [4] MESO_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 21 rows and 87 columns 
+ [5] MESO_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 87 columns 
+ [6] MESO_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 87 columns 
+ [7] MESO_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 87 columns 
+ [8] MESO_RPPAArray-20160128: SummarizedExperiment with 193 rows and 63 columns 
+ [9] MESO_Methylation-20160128: SummarizedExperiment with 485577 rows and 87 columns 
 
 > rownames( MESO )
-CharacterList of length 8
-[["CNASNP-20160128"]] character(0)
-[["CNVSNP-20160128"]] character(0)
-[["GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
-[["GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
-[["miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
-[["RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
+CharacterList of length 9
+[["MESO_CNASNP-20160128"]] character(0)
+[["MESO_CNVSNP-20160128"]] character(0)
+[["MESO_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["MESO_GISTIC_Peaks-20160128"]] character(0)
+[["MESO_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
+[["MESO_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
+[["MESO_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["MESO_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+[["MESO_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
 
 > colnames( MESO )
-CharacterList of length 8
-[["CNASNP-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
-[["CNVSNP-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
-[["GISTIC_AllByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
-[["GISTIC_ThresholdedByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
-[["Methylation-20160128"]] TCGA-3H-AB3K-01A-11D-A39S-05 ...
-[["miRNASeqGene-20160128"]] TCGA-3H-AB3K-01A-11R-A404-13 ...
-[["RNASeq2GeneNorm-20160128"]] TCGA-3H-AB3K-01A-11R-A40A-07 ...
-[["RPPAArray-20160128"]] TCGA-3H-AB3K-01A-21-A45O-20 ...
+CharacterList of length 9
+[["MESO_CNASNP-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
+[["MESO_CNVSNP-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
+[["MESO_GISTIC_AllByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
+[["MESO_GISTIC_Peaks-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
+[["MESO_GISTIC_ThresholdedByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01...
+[["MESO_miRNASeqGene-20160128"]] TCGA-3H-AB3K-01A-11R-A404-13 ...
+[["MESO_RNASeq2GeneNorm-20160128"]] TCGA-3H-AB3K-01A-11R-A40A-07 ...
+[["MESO_RPPAArray-20160128"]] TCGA-3H-AB3K-01A-21-A45O-20 ...
+[["MESO_Methylation-20160128"]] TCGA-3H-AB3K-01A-11D-A39S-05 ...
 
 Sizes of each ExperimentList element:
 
-                              assay size.Mb
-1                   CNASNP-20160128  2.5 Mb
-2                   CNVSNP-20160128  0.6 Mb
-3         GISTIC_AllByGene-20160128  4.9 Mb
-4 GISTIC_ThresholdedByGene-20160128  4.9 Mb
-5              Methylation-20160128   75 Mb
-6             miRNASeqGene-20160128  0.1 Mb
-7          RNASeq2GeneNorm-20160128  1.3 Mb
-8                RPPAArray-20160128    0 Mb
+                                   assay size.Mb
+1                   MESO_CNASNP-20160128  2.5 Mb
+2                   MESO_CNVSNP-20160128  0.6 Mb
+3         MESO_GISTIC_AllByGene-20160128  4.9 Mb
+4             MESO_GISTIC_Peaks-20160128    0 Mb
+5 MESO_GISTIC_ThresholdedByGene-20160128  4.9 Mb
+6             MESO_miRNASeqGene-20160128  0.1 Mb
+7          MESO_RNASeq2GeneNorm-20160128  1.3 Mb
+8                MESO_RPPAArray-20160128    0 Mb
+9              MESO_Methylation-20160128   75 Mb
 
 ---------------------------
 Overall survival time-to-event summary (in years):
@@ -126,8 +130,10 @@ residual_tumor:
   17    3   15   11   41 
 
 race:
-                    asian black or african american                     white 
-                        1                         1                        85 
+                    asian black or african american 
+                        1                         1 
+                    white 
+                       85 
 
 ethnicity:
 not hispanic or latino                   NA's 
