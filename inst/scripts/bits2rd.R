@@ -1,13 +1,17 @@
-.loadEnvObj <- function(filepath, ext = ".rda") {
+.loadEnvObj <- function(filepath, name) {
     OBJENV <- new.env(parent = emptyenv())
     load(filepath, envir = OBJENV)
-    objName <- gsub(ext, "", basename(filepath))
-    object <- OBJENV[[objName]]
+    object <- OBJENV[[name]]
     object
 }
 
-.loadMethyl <- function(methyl_folder, ext = "\\.[RrHh][Dd5][Ss]?$") {
-    objFiles <- list.files(methyl_folder, pattern = ext)
+.loadData <- function(dataname, package) {
+    local_dat <- new.env(parent = emptyenv())
+    data(list = dataname, package = package, envir = local_dat)
+    local_dat[[dataname]]
+}
+
+.loadMethyl <- function(methyl_folder) {
     HDF5Array::loadHDF5SummarizedExperiment(methyl_folder,
         prefix = paste0(basename(methyl_folder), "_"))
 }
@@ -22,10 +26,47 @@
         length = length(object))
 }
 
+.makeMetaDF <- function(filepaths) {
+    namespat <- "^[A-Z]*_(.*)"
+
+    methLogic <- grepl("Methyl", filepaths)
+    basefiles <- gsub(allextpat, "", basename(filepaths))
+
+    if (any(methLogic)) {
+        fpaths <- filepaths[!methLogic]
+        fpaths <- unname(as(fpaths, "List"))
+
+        basefiles <- basefiles[!methLogic]
+
+        methylpaths <- filepaths[methLogic]
+        methylbase <- unique(basename(dirname(methylpaths)))
+        methfiles <- unname(splitAsList(methylpaths,
+            basename(dirname(methylpaths))))
+
+        filepaths <- c(fpaths, methfiles)
+        basefiles <- c(basefiles, methylbase)
+    }
+
+    DataFrame(files = as(filepaths, "List"),
+        objectNames = basefiles,
+        dataNames = gsub(namespat, "\\1", basefiles),
+        dataTypes = vapply(
+            strsplit(basefiles, "[_-]"), `[[`, character(1L), 2L)
+    )
+}
+
+.selectInRow <- function(dataframe, term, outcol, colname = NULL) {
+    if (!is.null(colname))
+        unlist(dataframe[unlist(dataframe[[colname]] == term), outcol])
+    else
+        unlist(dataframe[term, outcol])
+}
 
 .cleanText <- function(x) {
     gsub("%", "\\%", iconv(x, "latin1", "ASCII", sub = "?"), fixed = TRUE)
 }
+
+allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
 
 #' Write an Rd man page for a collection of MultiAssayExperiment bits
 #'
@@ -47,56 +88,60 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     stopifnot(S4Vectors::isSingleString(filename))
 
     aliases <- paste(aliases, sep = ", ")
-    allext <- "\\.[RrHh][Dd5][AaSs]?$"
-
     dataDirs <- "data/bits"
+
     fileNames <- list.files(file.path("../MultiAssayExperiment-TCGA",
         dataDirs, cancerFolder), full.names = TRUE,
-        pattern = allext, recursive = TRUE)
-    objectNames <- gsub(allext, "", basename(fileNames))
-    dataTypes <- gsub("^[A-Z]*_", "", objectNames)
-    names(fileNames) <- dataTypes
+        pattern = allextpat, recursive = TRUE)
+
+    datadata <- .makeMetaDF(fileNames)
 
     slots <- c("metadata", "colData", "sampleMap")
-    stdObjSlots <- paste0(cancerFolder, "_", slots)
-    names(stdObjSlots) <- slots
+    datadata[["experimentFiles"]] <-
+        !datadata[["dataTypes"]] %in% c(slots, "Methylation")
 
-    coldataIdx <- grep(stdObjSlots[["colData"]], objectNames, fixed = TRUE)
-    stopifnot(S4Vectors::isSingleInteger(coldataIdx))
-
-    colDat <- .loadEnvObj(fileNames[coldataIdx])
-    load("../TCGAutils/data/clinicalNames.rda")
+    coldatfile <- unlist(datadata[datadata[["dataTypes"]] == "colData", "files"])
+    colDataName <- .selectInRow(datadata, "colData", "objectNames", "dataTypes")
+    colDat <- .loadEnvObj(coldatfile, colDataName)
+    clinicalNames <- .loadData("clinicalNames", "TCGAutils")
     stdNames <- clinicalNames[[cancerFolder]]
     stdNames <- names(colDat) %in% stdNames
     numExtraCols <- sum(!stdNames)
     stdColDat <- colDat[, stdNames]
 
-    dataNames <-
-        vapply(strsplit(names(fileNames), "_|-"), `[`, character(1L), 1L)
-    dataFiles <- fileNames[!dataNames %in% c(names(stdObjSlots), "Methylation")]
+    objnames <- .selectInRow(datadata, datadata[["experimentFiles"]],
+        "objectNames")
 
-    dataList <- dataInfo <- vector(mode = "list", length(dataFiles))
-    names(dataList) <- names(dataInfo) <- names(dataFiles)
+    rdafiles <- .selectInRow(datadata, datadata[["experimentFiles"]], "files")
+    dataInfo <- lapply(rdafiles, function(dpath) {
+        oname <- .selectInRow(datadata, dpath, "objectNames", "files")
+        object <- .loadEnvObj(dpath, oname)
+        .metaList(object)
+    })
+    names(dataInfo) <- objnames
 
-    for (i in seq_along(dataFiles)) {
-        object <- .loadEnvObj(dataFiles[[i]])
-        dataInfo[[i]] <- .metaList(object)
-        dataList[[i]] <- object
-    }
+    dataList <- lapply(rdafiles, function(dpath) {
+        oname <- .selectInRow(datadata, dpath, "objectNames", "files")
+        .loadEnvObj(dpath, oname)
+    })
+    names(dataList) <- objnames
 
-    methylFolders <- unique(dirname(fileNames[dataNames %in% "Methylation"]))
+    methylFolders <- .selectInRow(datadata, "Methylation", "objectNames",
+        "dataTypes")
 
     for (folder in methylFolders) {
-        object <- .loadMethyl(folder)
+        methFiles <- .selectInRow(datadata, folder, "files", "objectNames")
+        pathfold <- unique(dirname(methFiles))
+        object <- .loadMethyl(pathfold)
         dataInfo[[folder]] <- .metaList(object)
-        dataList[[i]] <- object
+        dataList[[folder]] <- object
     }
 
     objSizes <- vapply(dataInfo,
         function(datType) { datType$size }, character(1L))
 
-    stopifnot(identical(names(dataFiles), names(objSizes)))
-    objSizesdf <- data.frame(assay = names(dataFiles), size.Mb = objSizes,
+    stopifnot(identical(names(dataList), names(objSizes)))
+    objSizesdf <- data.frame(assay = names(dataList), size.Mb = objSizes,
         row.names = NULL)
 
     studyIdx <- which(diseaseCodes[["Study.Abbreviation"]] %in% cancerFolder)
