@@ -18,6 +18,7 @@
     resourceName <- .removeExt(fileNames)
     resources <- lapply(resourceName, function(res) {
         if (grepl("Methyl", res)) {
+        ## WIP
         } else {
             loadResources(ExperimentHub, "curatedTCGAData", res)[[1L]]
         }

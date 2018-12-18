@@ -3,13 +3,8 @@ make_metadata <- function(bitsFolder) {
         dir.create("inst/extdata")
     if (file.exists("inst/extdata/metadata.csv"))
         file.remove("inst/extdata/metadata.csv")
-    resource_list <- list.files(bitsFolder, recursive = TRUE,
-        full.names = TRUE)
-    resource_maintainer <- read.dcf("DESCRIPTION", "Maintainer")[[1]]
-    resource_biocVersion <- BiocManager::version()
     metadat <- do.call(dplyr::bind_rows,
            lapply(resource_list, getMetadata,
                     resource_maintainer, resource_biocVersion))
-    readr::write_csv(metadat, "inst/extdata/metadata.csv", append = TRUE,
-                     col_names = TRUE)
+    readr::write_csv(metadat, "inst/extdata/metadata.csv", col_names = TRUE)
 }

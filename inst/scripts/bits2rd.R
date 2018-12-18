@@ -1,72 +1,4 @@
-.loadEnvObj <- function(filepath, name) {
-    OBJENV <- new.env(parent = emptyenv())
-    load(filepath, envir = OBJENV)
-    object <- OBJENV[[name]]
-    object
-}
-
-.loadData <- function(dataname, package) {
-    local_dat <- new.env(parent = emptyenv())
-    data(list = dataname, package = package, envir = local_dat)
-    local_dat[[dataname]]
-}
-
-.loadMethyl <- function(methyl_folder) {
-    HDF5Array::loadHDF5SummarizedExperiment(methyl_folder,
-        prefix = paste0(basename(methyl_folder), "_"))
-}
-
-.metaList <- function(object) {
-    dims <- dim(object)
-    list(size = format(object.size(object), units = "Mb"),
-        rows = dims[[1L]], columns = dims[[2L]],
-        colnames = colnames(object),
-        rownames = rownames(object),
-        class = class(object),
-        length = length(object))
-}
-
-.makeMetaDF <- function(filepaths) {
-    namespat <- "^[A-Z]*_(.*)"
-
-    methLogic <- grepl("Methyl", filepaths)
-    basefiles <- gsub(allextpat, "", basename(filepaths))
-
-    if (any(methLogic)) {
-        fpaths <- filepaths[!methLogic]
-        fpaths <- unname(as(fpaths, "List"))
-
-        basefiles <- basefiles[!methLogic]
-
-        methylpaths <- filepaths[methLogic]
-        methylbase <- unique(basename(dirname(methylpaths)))
-        methfiles <- unname(splitAsList(methylpaths,
-            basename(dirname(methylpaths))))
-
-        filepaths <- c(fpaths, methfiles)
-        basefiles <- c(basefiles, methylbase)
-    }
-
-    DataFrame(files = as(filepaths, "List"),
-        objectNames = basefiles,
-        dataNames = gsub(namespat, "\\1", basefiles),
-        dataTypes = vapply(
-            strsplit(basefiles, "[_-]"), `[[`, character(1L), 2L)
-    )
-}
-
-.selectInRow <- function(dataframe, term, outcol, colname = NULL) {
-    if (!is.null(colname))
-        unlist(dataframe[unlist(dataframe[[colname]] == term), outcol])
-    else
-        unlist(dataframe[term, outcol])
-}
-
-.cleanText <- function(x) {
-    gsub("%", "\\%", iconv(x, "latin1", "ASCII", sub = "?"), fixed = TRUE)
-}
-
-allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
+source("inst/scripts/tools.R")
 
 #' Write an Rd man page for a collection of MultiAssayExperiment bits
 #'
@@ -96,10 +28,6 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
 
     datadata <- .makeMetaDF(fileNames)
 
-    slots <- c("metadata", "colData", "sampleMap")
-    datadata[["experimentFiles"]] <-
-        !datadata[["dataTypes"]] %in% c(slots, "Methylation")
-
     coldatfile <- unlist(datadata[datadata[["dataTypes"]] == "colData", "files"])
     colDataName <- .selectInRow(datadata, "colData", "objectNames", "dataTypes")
     colDat <- .loadEnvObj(coldatfile, colDataName)
@@ -109,36 +37,14 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     numExtraCols <- sum(!stdNames)
     stdColDat <- colDat[, stdNames]
 
-    objnames <- .selectInRow(datadata, datadata[["experimentFiles"]],
-        "objectNames")
+    dataList <- .loadRDAList(datadata)
+    dataList <- .addMethylation(datadata, dataList)
 
-    rdafiles <- .selectInRow(datadata, datadata[["experimentFiles"]], "files")
-    dataInfo <- lapply(rdafiles, function(dpath) {
-        oname <- .selectInRow(datadata, dpath, "objectNames", "files")
-        object <- .loadEnvObj(dpath, oname)
-        .metaList(object)
-    })
-    names(dataInfo) <- objnames
-
-    dataList <- lapply(rdafiles, function(dpath) {
-        oname <- .selectInRow(datadata, dpath, "objectNames", "files")
-        .loadEnvObj(dpath, oname)
-    })
-    names(dataList) <- objnames
-
-    methylFolders <- .selectInRow(datadata, "Methylation", "objectNames",
-        "dataTypes")
-
-    for (folder in methylFolders) {
-        methFiles <- .selectInRow(datadata, folder, "files", "objectNames")
-        pathfold <- unique(dirname(methFiles))
-        object <- .loadMethyl(pathfold)
-        dataInfo[[folder]] <- .metaList(object)
-        dataList[[folder]] <- object
-    }
-
-    objSizes <- vapply(dataInfo,
-        function(datType) { datType$size }, character(1L))
+    objSizes <- vapply(
+        dataList,
+        function(obj) { format(object.size(obj), units = "Mb") },
+        character(1L)
+    )
 
     stopifnot(identical(names(dataList), names(objSizes)))
     objSizesdf <- data.frame(assay = names(dataList), size.Mb = objSizes,

@@ -1,21 +1,13 @@
-.get_ResourceClass <- function(resource_location) {
-    load(resource_location)
-    objName <- gsub(".rda", "", ignore.case = TRUE,
-        basename(resource_location))
-    as.character(class(get(objName)))
+.getDataFiles <-
+function(directory = "~/github/MultiAssayExperiment-TCGA/",
+    dataDir = "data/bits", cancerFolder, pattern = allextpat) {
+    location <- file.path(directory, dataDirs, cancerFolder)
+    list.files(location, pattern = pattern, full.names = TRUE, recursive = TRUE)
 }
 
-.get_Description <- function(resource_name) {
-    dataName <- unlist(strsplit(gsub(".rda", "", ignore.case = TRUE,
-        resource_name), "_"))
-    paste(dataName[2], "data specific to the", toupper(dataName[1]),
+.get_Description <- function(data_name, cancer) {
+    paste(data_name, "data specific to the", toupper(cancer),
            "cohort of the TCGA project")
-}
-
-.get_DispatchClass <- function(resource_name) {
-    if (grepl(".rda", resource_name)) {
-        return("Rda")
-    }
 }
 
 getMetadata <- function(resource_location, resource_maintainer,

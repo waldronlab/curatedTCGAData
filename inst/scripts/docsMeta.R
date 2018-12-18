@@ -40,8 +40,8 @@ dataBitsLocation <- file.path(repoDir,
 cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
 
 ## create metadata.csv in inst/extdata folder
-# message("Generating metadata...")
-# make_metadata(dataBitsLocation)
+message("Generating metadata...")
+make_metadata(dataBitsLocation)
 
 message("Creating documentation pages")
 ## set width for `cat`
