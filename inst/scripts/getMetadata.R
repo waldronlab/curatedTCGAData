@@ -1,7 +1,7 @@
 .getDataFiles <-
 function(directory = "~/github/MultiAssayExperiment-TCGA/",
     dataDir = "data/bits", cancerFolder, pattern = allextpat) {
-    location <- file.path(directory, dataDirs, cancerFolder)
+    location <- file.path(directory, dataDir, cancerFolder)
     list.files(location, pattern = pattern, full.names = TRUE, recursive = TRUE)
 }
 
@@ -10,31 +10,69 @@ function(directory = "~/github/MultiAssayExperiment-TCGA/",
            "cohort of the TCGA project")
 }
 
-getMetadata <- function(resource_location, resource_maintainer,
-                         resource_biocVersion, verbose = TRUE) {
-    stopifnot(is.character(resource_maintainer) &&
-              is.character(resource_location))
-    if (verbose)
-        message("Working on: ", resource_location)
-    ResourceName <- basename(resource_location)
-    Title <- gsub(".rda", "", ignore.case = TRUE, ResourceName)
-    Description <- .get_Description(ResourceName)
-    BiocVersion <- as.character(resource_biocVersion)
-    Genome <- ""
-    SourceType <- "TXT"
-    SourceUrl <- "http://gdac.broadinstitute.org/"
-    SourceVersion <- "1.1.38"
-    Species <- "Homo Sapiens"
-    TaxonomyId <- "9606"
-    Coordinate_1_based <- as.logical(NA)
-    DataProvider <- "Eli and Edythe L. Broad Institute of Harvard and MIT"
-    Maintainer <- resource_maintainer
-    RDataPath <- file.path("curatedTCGAData", ResourceName)
-    RDataClass <- .get_ResourceClass(resource_location)
-    DispatchClass <- .get_DispatchClass(ResourceName)
-    data.frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
-               SourceVersion, Species, TaxonomyId, Coordinate_1_based,
-               DataProvider, Maintainer, RDataClass, DispatchClass,
-               ResourceName, RDataPath, stringsAsFactors = FALSE)
+.getRDataClass <- function(dataList) {
+    unlist(
+    lapply(names(dataList), function(dataName) {
+        if (grepl("Methyl", dataName))
+            rep(class(dataList[[dataName]]), 2L)
+        else
+            class(dataList[[dataName]])
+    })
+    )
+}
+
+.get_DispatchClass <- function(resource_files) {
+    ext_map <- data.frame(
+    ext_pattern = c("\\.[Rr][Dd][Aa]$", "\\.[Rr][Dd][Ss]$", "\\.[Hh]5$"),
+    Dispatch = c("Rda", "Rds", "H5File"),
+    stringsAsFactors = FALSE
+    )
+    hitMatrix <- vapply(ext_map[["ext_pattern"]],
+        function(pat) grepl(pat, resource_files),
+        logical(length(resource_files)))
+    ext_map[["Dispatch"]][apply(hitMatrix, 1L, which)]
+}
+
+
+getMetadata <-
+function(directory, dataDir, ext_pattern, resource_maintainer,
+    resource_biocVersion) {
+
+    cancerFolders <- dir(file.path(directory, dataDir))
+    stopifnot(S4Vectors::isSingleString(directory),
+        S4Vectors::isSingleString(dataDir))
+
+    metasets <- lapply(cancerFolders, function(cancer) {
+        message("Working on: ", cancer)
+        datafilepaths <- .getDataFiles(directory = directory,
+            dataDir = dataDir, cancerFolder = cancer, pattern = ext_pattern)
+        dfmeta <- .makeMetaDF(datafilepaths, TRUE)
+        dataList <- .loadRDAList(dfmeta)
+        dataList <- .addMethylation(dfmeta, dataList)
+        replen <- length(datafilepaths)
+
+        ResourceName <- basename(datafilepaths)
+        Title <- gsub(ext_pattern, "", ResourceName)
+        Description <- .get_Description(Title, cancer)
+        BiocVersion <- rep(as.character(resource_biocVersion), replen)
+        Genome <- rep("", replen)
+        SourceType <- rep("TXT", replen)
+        SourceUrl <- rep("http://gdac.broadinstitute.org/", replen)
+        SourceVersion <- rep("1.1.38", replen)
+        Species <- rep("Homo Sapiens", replen)
+        TaxonomyId <- rep("9606", replen)
+        Coordinate_1_based <- rep(as.logical(NA), replen)
+        DataProvider <-
+            rep("Eli and Edythe L. Broad Institute of Harvard and MIT", replen)
+        Maintainer <- rep(resource_maintainer, replen)
+        RDataPath <- file.path("curatedTCGAData", ResourceName)
+        RDataClass <- .getRDataClass(dataList)
+        DispatchClass <- .get_DispatchClass(ResourceName)
+        data.frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
+                   SourceVersion, Species, TaxonomyId, Coordinate_1_based,
+                   DataProvider, Maintainer, RDataClass, DispatchClass,
+                   ResourceName, RDataPath, stringsAsFactors = FALSE)
+    })
+    do.call(rbind, metasets)
 }
 

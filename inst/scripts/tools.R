@@ -7,7 +7,7 @@ allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
     object
 }
 
-.loadData <- function(dataname, package) {
+.loadPkgData <- function(dataname, package) {
     local_dat <- new.env(parent = emptyenv())
     data(list = dataname, package = package, envir = local_dat)
     local_dat[[dataname]]
@@ -48,68 +48,7 @@ allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
     data_list
 }
 
-.getRDataClass <- function(dataList) {
-    unlist(
-    lapply(names(dataList), function(dataName) {
-        if (grepl("Methyl", dataName))
-            rep(class(dataList[[dataName]]), 2L)
-        else
-            class(dataList[[dataName]])
-    })
-    )
-}
-
-.get_DispatchClass(resource_file) {
-    ext_map <- data.frame(
-    ext_pattern = c("\\.[Rr][Dd][Aa]$", "\\.[Rr][Dd][Ss]$", "\\.[Hh]5$"),
-    Dispatch = c("Rda", "Rds", "H5File")
-    )
-    ext_map[["Dispatch"]][
-        vapply(ext_map[["ext_pattern"]],
-            function(pat) grepl(pat, resource_file),
-            logical(3L))
-    ]
-}
-
-
-.metadataFrame <-
-function(directory = "~/github/MultiAssayExperiment-TCGA/",
-    dataDir = "data/bits", cancerFolder, ext_pattern = allextpat,
-    resource_maintainer = read.dcf("DESCRIPTION", "Maintainer")[[1]],
-    resource_biocVersion = BiocManager::version()) {
-
-    lapply(cancerFolder, function(cancer) {
-        datafilepaths <- .getDataFiles(directory = directory, dataDir = dataDir,
-            cancerFolder = cancer, pattern = ext_pattern)
-        dfmeta <- .makeMetaDF(datafilepaths)
-            # RDataClass = class(object)
-        dataList <- .loadRDAList(dfmeta)
-        dataList <- .addMethylation(dfmeta, dataList)
-
-        ResourceName <- basename(datafilepaths)
-        Title <- gsub(ext_pattern, "", ResourceName)
-        Description <- .get_Description(ResourceName, cancer)
-        BiocVersion <- as.character(resource_biocVersion)
-        Genome <- ""
-        SourceType <- "TXT"
-        SourceUrl <- "http://gdac.broadinstitute.org/"
-        SourceVersion <- "1.1.38"
-        Species <- "Homo Sapiens"
-        TaxonomyId <- "9606"
-        Coordinate_1_based <- as.logical(NA)
-        DataProvider <- "Eli and Edythe L. Broad Institute of Harvard and MIT"
-        Maintainer <- resource_maintainer
-        RDataPath <- file.path("curatedTCGAData", ResourceName)
-        RDataClass <- .getRDataClass(dataList)
-        DispatchClass <- .get_DispatchClass(ResourceName)
-        data.frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
-                   SourceVersion, Species, TaxonomyId, Coordinate_1_based,
-                   DataProvider, Maintainer, RDataClass, DispatchClass,
-                   ResourceName, RDataPath, stringsAsFactors = FALSE)
-    })
-}
-
-.makeMetaDF <- function(filepaths) {
+.makeMetaDF <- function(filepaths, includeSlots = FALSE) {
     namespat <- "^[A-Z]*_(.*)"
 
     methLogic <- grepl("Methyl", filepaths)
@@ -130,7 +69,7 @@ function(directory = "~/github/MultiAssayExperiment-TCGA/",
         basefiles <- c(basefiles, methylbase)
     }
 
-    obj_slots <- c("metadata", "colData", "sampleMap")
+    obj_slots <- if (includeSlots) "" else c("metadata", "colData", "sampleMap")
 
     dfr <- DataFrame(files = as(filepaths, "List"),
         objectNames = basefiles,

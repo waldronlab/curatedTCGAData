@@ -12,12 +12,15 @@ if (identical(Sys.getenv("REPO"), ""))
     Sys.setenv(REPO = "~/github/curatedTCGAData")
 
 repoDir <- normalizePath(Sys.getenv("REPO"))
+dataDir <- "data/bits"
 
 setwd(repoDir)
 
 ## Get all compatible TCGA disease codes
 load("R/sysdata.rda")
 
+## Load helpers to environment
+source("inst/scripts/tools.R")
 ## Source the converter function (MultiAssayExperiment RDS to Rd)
 source("inst/scripts/bits2rd.R")
 # Load document generation function
@@ -33,15 +36,14 @@ TCGAcodes <-
     diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
 
 ## Folder containing cancer folders
-dataBitsLocation <- file.path(repoDir,
-    "../MultiAssayExperiment-TCGA/data/bits")
+cancerPath <- file.path(repoDir, "../MultiAssayExperiment-TCGA/", dataDir)
 
 ## Document by cancer folder
-cancerFolders <- file.path(dataBitsLocation, TCGAcodes)
+cancerFolders <- file.path(cancerPath, TCGAcodes)
 
 ## create metadata.csv in inst/extdata folder
 message("Generating metadata...")
-make_metadata(dataBitsLocation)
+make_metadata()
 
 message("Creating documentation pages")
 ## set width for `cat`

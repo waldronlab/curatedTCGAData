@@ -1,9 +1,8 @@
-source("inst/scripts/tools.R")
-
 #' Write an Rd man page for a collection of MultiAssayExperiment bits
 #'
-#' @param cancerFolder Usually saved in 'MultiAssayExperiment-TCGA/data/bits/'
-#' and contains several 'rda' files. The folder name denotes the cancer code
+#' @param cancerPath Usually saved in 'MultiAssayExperiment-TCGA/data/bits/'
+#' and contains several 'rda', 'rds', and/or 'H5' files. The folder name
+#' denotes the TCGA cancer code.
 #' @param filename Full path of the filename of the .Rd man page to write
 #' @param aliases A list of aliases
 #' @param descriptions A list of extra lines to be written to the Description
@@ -14,16 +13,15 @@ source("inst/scripts/tools.R")
 #' bit2rd(rdaFolder)
 #'
 #' @keywords internal
-bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
+bits2rd <- function(cancerPath, filename, aliases = basename(cancerPath),
         descriptions = "A document describing the TCGA cancer code") {
-    stopifnot(S4Vectors::isSingleString(cancerFolder))
     stopifnot(S4Vectors::isSingleString(filename))
 
     aliases <- paste(aliases, sep = ", ")
-    dataDirs <- "data/bits"
+    cancerFolder <- basename(cancerPath)
+    stopifnot(S4Vectors::isSingleString(cancerFolder))
 
-    fileNames <- list.files(file.path("../MultiAssayExperiment-TCGA",
-        dataDirs, cancerFolder), full.names = TRUE,
+    fileNames <- list.files(cancerPath, full.names = TRUE,
         pattern = allextpat, recursive = TRUE)
 
     datadata <- .makeMetaDF(fileNames)
@@ -31,7 +29,7 @@ bits2rd <- function(cancerFolder, filename, aliases = cancerFolder,
     coldatfile <- unlist(datadata[datadata[["dataTypes"]] == "colData", "files"])
     colDataName <- .selectInRow(datadata, "colData", "objectNames", "dataTypes")
     colDat <- .loadEnvObj(coldatfile, colDataName)
-    clinicalNames <- .loadData("clinicalNames", "TCGAutils")
+    clinicalNames <- .loadPkgData("clinicalNames", "TCGAutils")
     stdNames <- clinicalNames[[cancerFolder]]
     stdNames <- names(colDat) %in% stdNames
     numExtraCols <- sum(!stdNames)
