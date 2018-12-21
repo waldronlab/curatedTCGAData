@@ -16,6 +16,11 @@
                FUN = paste, collapse = "_"))
 }
 
+.conditionToIndex <- function(startVec, testVec, FUN) {
+    logmat <- vapply(startVec, FUN, logical(length(testVec)))
+    apply(logmat, 1L, any)
+}
+
 .getResources <- function(ExperimentHub, fileNames) {
     resourceName <- .removeExt(fileNames)
     resources <- lapply(resourceName, function(res) {
@@ -81,7 +86,8 @@ curatedTCGAData <-
 
     assays_file <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
-    eh_assays <- as.character(read.csv(assays_file)[["ResourceName"]])
+    assay_metadat <- read.csv(assays_file, stringsAsFactors = FALSE)
+    eh_assays <- assay_metadat[["ResourceName"]]
 
     tcgaCodes <- sort(unique(gsub("(^[A-Z]*)_(.*)", "\\1", eh_assays)))
     assaysAvail <- .assaysAvailable(eh_assays)
@@ -104,12 +110,9 @@ curatedTCGAData <-
 
     codeAssay <- .getComboSort(resultCodes, resultAssays)
 
-    fileMatches <- eh_assays[unique(unlist(Filter(length,
-        lapply(codeAssay, function(x) which(startsWith(eh_assays, x))))))]
-    # reg_names <- setNames(paste0("^", codeAssay, ".*", runDate), codeAssay)
-    #
-    # fileMatches <- unlist(
-    #     lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE)))
+    fileIdx <- .conditionToIndex(codeAssay, eh_assays,
+        function(x) startsWith(eh_assays, x))
+    fileMatches <- assay_metadat[["Title"]][fileIdx]
 
     if (!length(fileMatches))
         stop("Cancer and data type combination(s) not available")
