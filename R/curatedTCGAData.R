@@ -1,8 +1,10 @@
-.assaysAvailable <- function() {
-    assaysAvailable <- c("RNASeqGene", "RNASeq2GeneNorm", "miRNASeqGene",
-        "CNASNP", "CNVSNP", "CNASeq", "CNACGH", "Methylation", "mRNAArray",
-        "miRNAArray", "RPPAArray", "Mutation", "GISTICA", "GISTICT")
-    sort(assaysAvailable)
+.assaysAvailable <- function(listfiles) {
+    slots <- c("metadata", "colData", "sampleMap")
+    assaysAvailable <-
+        vapply(strsplit(gsub("(^[A-Z]*_)(.*)", "\\2", listfiles), "-"),
+            `[[`, character(1L), 1L)
+    assaysAvailable <- unique(assaysAvailable)
+    sort(assaysAvailable[!assaysAvailable %in% slots])
 }
 
 .removeExt <- function(fileNames) {
@@ -76,15 +78,15 @@
 curatedTCGAData <-
     function(diseaseCode = "*", assays = "*", dry.run = TRUE, ...) {
     runDate <- "20160128"
-    assaysAvail <- .assaysAvailable()
-    diseaseCode <- toupper(diseaseCode)
-    tcgaCodes <- diseaseCodes[["Study.Abbreviation"]][
-        diseaseCodes[["Available"]] == "Yes"]
 
     assays_file <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
     eh_assays <- as.character(read.csv(assays_file)[["ResourceName"]])
-    if (diseaseCode == "*" && assays == "*" && dry.run) {
+
+    tcgaCodes <- sort(unique(gsub("(^[A-Z]*)_(.*)", "\\1", eh_assays)))
+    assaysAvail <- .assaysAvailable(eh_assays)
+
+    if (identical(diseaseCode, "*") && identical(assays, "*") && dry.run) {
         message("Please see the list below for available cohorts and assays")
         cat("Available Cancer codes:\n",
             paste(strwrap(paste(tcgaCodes, collapse = " "),
@@ -95,21 +97,19 @@ curatedTCGAData <-
         return(invisible())
     }
 
+    diseaseCode <- toupper(diseaseCode)
     resultCodes <- .searchFromInputs(diseaseCode, tcgaCodes)
+
     resultAssays <- .searchFromInputs(assays, assaysAvail)
 
-    isGISTIC <- grepl("^GISTIC", resultAssays)
-    if (any(isGISTIC)) {
-        fullG <- vapply(resultAssays[isGISTIC], function(x)
-            switch(x, GISTICT = "GISTIC_ThresholdedByGene",
-                   GISTICA = "GISTIC_AllByGene"), character(1L))
-        resultAssays <- replace(resultAssays, isGISTIC, fullG)
-    }
     codeAssay <- .getComboSort(resultCodes, resultAssays)
-    reg_names <- setNames(paste0("^", codeAssay, ".*", runDate), codeAssay)
 
-    fileMatches <- unlist(
-        lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE)))
+    fileMatches <- eh_assays[unique(unlist(Filter(length,
+        lapply(codeAssay, function(x) which(startsWith(eh_assays, x))))))]
+    # reg_names <- setNames(paste0("^", codeAssay, ".*", runDate), codeAssay)
+    #
+    # fileMatches <- unlist(
+    #     lapply(reg_names, function(x) grep(x, eh_assays, value = TRUE)))
 
     if (!length(fileMatches))
         stop("Cancer and data type combination(s) not available")
