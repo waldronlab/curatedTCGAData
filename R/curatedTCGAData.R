@@ -21,15 +21,28 @@
     apply(logmat, 1L, any)
 }
 
-.getResources <- function(ExperimentHub, fileNames) {
-    resourceName <- .removeExt(fileNames)
-    resources <- lapply(resourceName, function(res) {
-        if (grepl("Methyl", res)) {
-        ## WIP
-        } else {
-            loadResources(ExperimentHub, "curatedTCGAData", res)[[1L]]
-        }
+.loadMethyl <- function(methylpaths) {
+    fact <- gsub("_assays\\.[Hh]5|_se\\.[Rr][Dd][Ss]", "", methylpaths)
+    methList <- split(sort(methylpaths), fact)
+    names(methList) <- unique(fact)
+    lapply(methList, function(methfile) {
+        assaydat <- query(hub, methfile[1L])[[1L]]
+        se <- query(hub, methfile[2L])[[1L]]
+        h5array <- HDF5Array(assaydat, "assay")
+        assays(se) <- list(counts = h5array)
+        se
     })
+}
+
+.getResources <- function(ExperimentHub, resTable) {
+    fileNames <- setNames(resTable[["RDataPath"]], resTable[["Title"]])
+    anyMeth <- grepl("Methyl", fileNames, ignore.case = TRUE)
+    resources <- lapply(fileNames[!anyMeth], function(res) {
+        query(ExperimentHub, res)[[1L]]
+    })
+
+    if (any(anyMeth))
+        resources <- c(resources, .loadMethyl(fileNames[anyMeth]))
     resources
 }
 
@@ -75,11 +88,11 @@
 #'
 #' @return a \linkS4class{MultiAssayExperiment} of the specified assays and
 #' cancer codes
-#' @export curatedTCGAData
 #'
 #' @examples
 #' curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
 #'
+#' @export curatedTCGAData
 curatedTCGAData <-
     function(diseaseCode = "*", assays = "*", dry.run = TRUE, ...) {
     runDate <- "20160128"
@@ -112,38 +125,34 @@ curatedTCGAData <-
 
     fileIdx <- .conditionToIndex(codeAssay, eh_assays,
         function(x) startsWith(eh_assays, x))
-    fileMatches <- assay_metadat[["Title"]][fileIdx]
+    fileMatches <- assay_metadat[fileIdx, c("Title", "DispatchClass")]
 
-    if (!length(fileMatches))
+    if (!length(nrow(fileMatches)))
         stop("Cancer and data type combination(s) not available")
 
     if (dry.run) { return(fileMatches) }
 
     eh <- ExperimentHub(...)
-    assay_list <- .getResources(eh, fileMatches)
-    names(assay_list) <- .removeExt(fileMatches)
+    assay_list <-
+        .getResources(eh, assay_metadat[fileIdx, c("Title", "RDataPath")])
 
     eh_experiments <- ExperimentList(assay_list)
 
-    ess_names <- c(colData = 1L, sampleMap = 2L, metadata = 3L)
-    ess_resources <- paste0(.getComboSort(resultCodes, names(ess_names)), "-",
-        runDate, ".rda")
-    names(ess_resources) <- gsub("\\.rda", "", ess_resources)
+    ess_names <- c("colData", "metadata", "sampleMap")
+    ess_idx <- .conditionToIndex(.getComboSort(resultCodes, ess_names),
+        eh_assays, function(x) startsWith(eh_assays, x))
 
-    ess_list <- .getResources(eh, ess_resources)
-    names(ess_list) <- vapply(strsplit(ess_resources, "_|-"), `[`,
-        character(1L), 2L)
+    ess_list <- .getResources(eh,
+        assay_metadat[ess_idx, c("Title", "RDataPath")])
 
     if (length(resultCodes) > 1L) {
         # Save metadata from all datasets
-        colDats <- names(ess_list) %in% "colData"
-        colDatNames <- gsub("\\.rda", "", ess_resources[colDats])
-        metas <- lapply(ess_list[colDats], metadata)
-        names(metas) <- colDatNames
+        colDatIdx <- grepl("colData", names(ess_list), ignore.case = TRUE)
+        metas <- lapply(ess_list[colDatIdx], metadata)
         metas <- do.call(c, metas)
 
-        ess_list <- lapply(ess_names, function(i, grp, funs) {
-            grpd <- grepl(grp[i], ess_resources, fixed = TRUE)
+        ess_list <- lapply(seq_along(ess_names), function(i, grp, funs) {
+            grpd <- grepl(grp[i], names(ess_list), fixed = TRUE)
             dats <- ess_list[grpd]
             if (identical(funs[[i]], merge)) {
                 dats <- .resolveNames(dats)
@@ -151,15 +160,18 @@ curatedTCGAData <-
                     merge(x, y, by = intersect(names(x), names(y)),
                         all = TRUE, sort = FALSE)
                     }, dats)
-                    rownames(mObj) <- mObj[["patientID"]]
-                } else {
+                rownames(mObj) <- mObj[["patientID"]]
+            } else {
                 mObj <- Reduce(funs[[i]], dats)
-                }
-            return(mObj)
-            }, grp = names(ess_names), funs = list(merge, rbind, c))
+            }
+            mObj
+        }, grp = ess_names, funs = list(merge, c, rbind))
+        names(ess_list) <- ess_names
 
         ## Include all metadata from colData(s)
         metadata(ess_list[["colData"]]) <- metas
+    } else {
+        names(ess_list) <- gsub("[A-Z]*_(.*)-[0-9]*", "\\1", names(ess_list))
     }
 
     MultiAssayExperiment(
@@ -169,4 +181,3 @@ curatedTCGAData <-
         metadata = ess_list[["metadata"]]
     )
 }
-

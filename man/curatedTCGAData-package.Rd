@@ -51,6 +51,13 @@ The following are the TCGA cancer codes and full names.
 help(package = "curatedTCGAData")
 
 }
+\seealso{
+Useful links:
+\itemize{
+  \item Report bugs at \url{https://github.com/waldronlab/curatedTCGAData/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Marcel Ramos \email{marcel.ramos@roswellpark.org}
 
