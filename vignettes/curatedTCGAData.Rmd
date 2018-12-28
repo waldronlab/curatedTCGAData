@@ -21,7 +21,7 @@ suppressPackageStartupMessages({
 # Installation
 
 ```{r, eval=FALSE}
-if (!require("BiocManager"))
+if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
 BiocManager::install("curatedTCGAData")
@@ -29,9 +29,18 @@ BiocManager::install("curatedTCGAData")
 
 Load packages:
 
+```{r, echo = FALSE}
+suppressPackageStartupMessages({
+    library(curatedTCGAData)
+    library(MultiAssayExperiment)
+    library(TCGAutils)
+})
+```
+
 ```{r, eval = FALSE}
 library(curatedTCGAData)
 library(MultiAssayExperiment)
+library(TCGAutils)
 ```
 
 # Downloading datasets
@@ -48,11 +57,10 @@ Check potential files to be downloaded:
 curatedTCGAData(diseaseCode = "COAD", assays = "RPPA*", dry.run = TRUE)
 ```
 
-## GBM dataset example
+## ACC dataset example
 
 ```{r, message=FALSE}
-gbm <- curatedTCGAData("GBM", "RPPA*", FALSE)
-gbm
+(accmae <- curatedTCGAData("ACC", c("CN*", "Mutation"), FALSE))
 ```
 
 **Note**. For more on how to use a `MultiAssayExperiment` please see the
@@ -67,6 +75,6 @@ variable names, run the `metadata` function on the `colData` of the object
 such as:
 
 ```{r}
-head(metadata(colData(gbm))[["subtypes"]])
+head(metadata(colData(accmae))[["subtypes"]])
 ```
 
