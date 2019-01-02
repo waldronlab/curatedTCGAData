@@ -21,28 +21,29 @@
     apply(logmat, 1L, any)
 }
 
-.loadMethyl <- function(methylpaths) {
+.loadMethyl <- function(ehub, methylpaths) {
     fact <- gsub("_assays\\.[Hh]5|_se\\.[Rr][Dd][Ss]", "", methylpaths)
     methList <- split(sort(methylpaths), fact)
     names(methList) <- unique(fact)
     lapply(methList, function(methfile) {
-        assaydat <- query(hub, methfile[1L])[[1L]]
-        se <- query(hub, methfile[2L])[[1L]]
-        h5array <- HDF5Array(assaydat, "assay")
-        assays(se) <- list(counts = h5array)
+        assaydat <- query(ehub, methfile[1L])[[1L]]
+        se <- query(ehub, methfile[2L])[[1L]]
+        h5array <- HDF5Array::HDF5Array(assaydat, "assay")
+        SummarizedExperiment::`assays<-`(x = se, value = list(counts = h5array))
         se
     })
 }
 
 .getResources <- function(ExperimentHub, resTable) {
-    fileNames <- setNames(resTable[["RDataPath"]], resTable[["Title"]])
+    fileNames <- stats::setNames(resTable[["RDataPath"]], resTable[["Title"]])
     anyMeth <- grepl("Methyl", fileNames, ignore.case = TRUE)
     resources <- lapply(fileNames[!anyMeth], function(res) {
         query(ExperimentHub, res)[[1L]]
     })
 
     if (any(anyMeth))
-        resources <- c(resources, .loadMethyl(fileNames[anyMeth]))
+        resources <-
+            c(resources, .loadMethyl(ExperimentHub, fileNames[anyMeth]))
     resources
 }
 

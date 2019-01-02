@@ -15,6 +15,7 @@ Package: curatedTCGAData
 suppressPackageStartupMessages({
     library(MultiAssayExperiment)
     library(curatedTCGAData)
+    library(TCGAutils)
 })
 ```
 
@@ -28,14 +29,6 @@ BiocManager::install("curatedTCGAData")
 ```
 
 Load packages:
-
-```{r, echo = FALSE}
-suppressPackageStartupMessages({
-    library(curatedTCGAData)
-    library(MultiAssayExperiment)
-    library(TCGAutils)
-})
-```
 
 ```{r, eval = FALSE}
 library(curatedTCGAData)
@@ -71,10 +64,45 @@ curatedTCGAData(diseaseCode = "COAD", assays = "RPPA*", dry.run = TRUE)
 Some cancer datasets contain associated subtype information within the
 clinical datasets provided. This subtype information is included in the
 metadata of `colData` of the `MultiAssayExperiment` object. To obtain these
-variable names, run the `metadata` function on the `colData` of the object
-such as:
+variable names, use the `getSubtypeMap` function from TCGA utils:
 
 ```{r}
-head(metadata(colData(accmae))[["subtypes"]])
+head(getSubtypeMap(accmae))
+```
+
+### Typical clinical variables
+
+Another helper function provided by TCGAutils allows users to obtain a set
+of consistent clinical variable names across several cancer types.
+Use the `getClinicalNames` function to obtain a character vector of common
+clinical variables such as vital status, years to birth, days to death, etc.
+
+```{r}
+head(getClinicalNames("ACC"))
+
+colData(accmae)[, getClinicalNames("ACC")][1:5, 1:5]
+```
+
+### Samples in Assays
+
+The `sampleTables` function gives an overview of sample types / codes
+present in the data:
+
+```{r}
+sampleTables(accmae)
+```
+
+
+Often, an analysis is performed comparing two groups of samples to each other.
+To facilitate the separation of samples, the `splitAssays` TCGAutils function
+identifies all sample types in the assays and moves each into its own
+assay. By default, all discoverable sample types are separated into
+a separate experiment. In this case we requested only solid tumors and blood
+derived normal samples as seen in the `sampleTypes` reference dataset:
+
+```{r}
+sampleTypes[sampleTypes[["Code"]] %in% c("01", "10"), ]
+
+splitAssays(accmae, c("01", "10"))
 ```
 

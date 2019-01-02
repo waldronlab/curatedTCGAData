@@ -2,7 +2,7 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 1.5.3
+Version: 1.5.4
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
@@ -27,15 +27,18 @@ Depends:
 Imports:
     AnnotationHub,
     ExperimentHub,
+    HDF5Array,
     S4Vectors,
+    stats,
+    SummarizedExperiment,
     utils
 Suggests:
     BiocStyle,
     knitr,
     readr,
     rmarkdown,
-    testthat,
-    TCGAutils
+    TCGAutils,
+    testthat
 VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
 BugReports: https://github.com/waldronlab/curatedTCGAData/issues

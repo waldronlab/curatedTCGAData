@@ -13,7 +13,7 @@ allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
     local_dat[[dataname]]
 }
 
-.loadMethyl <- function(methyl_folder) {
+.localMethyl <- function(methyl_folder) {
     HDF5Array::loadHDF5SummarizedExperiment(methyl_folder,
         prefix = paste0(basename(methyl_folder), "_"))
 }
@@ -41,7 +41,7 @@ allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
             methFiles <- .selectInRow(metadata_frame, folder, "files",
                 "objectNames")
             pathfold <- unique(dirname(methFiles))
-            object <- .loadMethyl(pathfold)
+            object <- .localMethyl(pathfold)
             data_list[[folder]] <- object
         }
     }
