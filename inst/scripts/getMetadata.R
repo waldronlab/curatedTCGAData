@@ -59,7 +59,7 @@ function(directory, dataDir, ext_pattern, resource_maintainer,
         SourceType <- rep("TXT", replen)
         SourceUrl <- rep("http://gdac.broadinstitute.org/", replen)
         SourceVersion <- rep("1.1.38", replen)
-        Species <- rep("Homo Sapiens", replen)
+        Species <- rep("Homo sapiens", replen)
         TaxonomyId <- rep("9606", replen)
         Coordinate_1_based <- rep(as.logical(NA), replen)
         DataProvider <-
