@@ -24,13 +24,15 @@
 .loadMethyl <- function(ehub, methylpaths) {
     fact <- gsub("_assays\\.[Hh]5|_se\\.[Rr][Dd][Ss]", "", methylpaths)
     methList <- split(sort(methylpaths), fact)
-    names(methList) <- unique(fact)
+    fnames <- vapply(strsplit(unique(fact), "/"), `[`, character(1L), 2L)
+    names(methList) <- fnames
     lapply(methList, function(methfile) {
         assaydat <- query(ehub, methfile[1L])[[1L]]
         se <- query(ehub, methfile[2L])[[1L]]
-        h5array <- HDF5Array::HDF5Array(assaydat, "assay")
-        SummarizedExperiment::`assays<-`(x = se, value = list(counts = h5array))
-        se
+        h5array <- HDF5Array::HDF5Array(assaydat, "assay001")
+        SummarizedExperiment::`assays<-`(
+            x = se, value = list(counts = h5array)
+        )
     })
 }
 
