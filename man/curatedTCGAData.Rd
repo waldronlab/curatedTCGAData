@@ -9,7 +9,8 @@ curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE, ...)
 \arguments{
 \item{diseaseCode}{a character vector containing the name(s) of TCGA cohorts}
 
-\item{assays}{a character vector containing the name(s) of TCGA assays}
+\item{assays}{a character vector of TCGA assays, glob matches allowed;
+see below for more details}
 
 \item{dry.run}{logical (default TRUE) whether to return the dataset names
 before actual download}
@@ -30,6 +31,42 @@ ExperimentHub. Currently, only the latest runDate ("2016-01-28") is
 supported. Use the \code{dry.run = FALSE} to download remote datasets and
 build an integrative \linkS4class{MultiAssayExperiment} object.
 }
+\section{Available Assays}{
+
+
+Below is a list of partial ExperimentList assay names and their respective
+description. These assays can be entered as part of the \code{assays}
+argument in the main function. Partial glob matches are allowed such as:
+\code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays.
+\preformatted{
+
+ExperimentList data types   Description
+-------------------------------------------------------------------
+CNASNP                      Copy Number Alterations SNPs
+CNVSNP                      Copy Number Variations SNPs
+GISTIC_AllByGene            All GISTIC regions by gene
+GISTIC_Peaks                GISTIC peak data by ranges
+GISTIC_ThresholdedByGene    GISTIC results over significance
+                                threshold by gene
+miRNASeqGene                Micro RNA sequencing by gene
+Mutation                    Somatic mutations calls
+RNASeq2GeneNorm             Normalized RNA Seq Algorithm V2
+RPPAArray                   Reverse Phase Protein Array
+CNASeq                      CNA for aggregated / segmented regions
+RNASeqGene                  Calculated expression signal of a gene
+Methylation_methyl27        Illumina HumanMethylation 27K BeadChip
+Methylation_methyl450       Infinium HumanMethylation450K BeadChip
+mRNAArray                   Messenger RNA sequencing
+CNACGH_CGH_hg_244a          CNA CGH Agilent Microarray 244A
+CNACGH_CGH_hg_415k_g4124a   CNA CGH Agilent Microarray 415K
+miRNAArray                  Micro RNA sequencing
+mRNAArray_huex              mRNA Affy Human Exon Array
+mRNAArray_TX_g4502a         mRNA 244K Array
+mRNAArray_TX_ht_hg_u133a    mRNA Affymetrix Human Genome U133 Array
+
+}
+}
+
 \examples{
 curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
 
