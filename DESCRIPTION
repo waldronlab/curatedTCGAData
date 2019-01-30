@@ -2,7 +2,7 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 1.4.2
+Version: 1.4.3
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
@@ -37,4 +37,4 @@ Suggests:
     testthat
 VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
