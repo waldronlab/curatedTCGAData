@@ -28,6 +28,10 @@ of the molecular subtype information it becomes possible to examine subtype
 characterization across cohorts and will hopeful provide deeper insight into
 oncogenisis. 
 
+## Genome versions
+
+See the [NCI wiki](https://web.archive.org/web/20170711175956/https://wiki.nci.nih.gov/display/TCGA/Platform#Platform-PlatformsandAssociatedReferenceGenomeAssemblies) for information on genome builds for all aligned data types.
+
 ## Getting Started
 
 Install `curatedTCGAData` from [Bioconductor][] using `BiocManager`:
