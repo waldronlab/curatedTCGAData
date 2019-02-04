@@ -30,7 +30,7 @@ oncogenisis.
 
 ## Genome versions
 
-See the [NCI wiki](https://web.archive.org/web/20170711175956/https://wiki.nci.nih.gov/display/TCGA/Platform#Platform-PlatformsandAssociatedReferenceGenomeAssemblies) for information on genome builds for all aligned data types.
+See the [NCI wiki](https://web.archive.org/web/20170711175956/https://wiki.nci.nih.gov/display/TCGA/Platform#Platform-PlatformsandAssociatedReferenceGenomeAssemblies) and [summary on FireHose](https://confluence.broadinstitute.org/display/GDAC/FAQ#FAQ-Q%C2%A0Whatreferencegenomebuildareyouusing) for information on genome builds for all aligned data types.
 
 ## Getting Started
 
