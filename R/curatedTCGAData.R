@@ -36,16 +36,24 @@
     })
 }
 
+.force_dl <- function(ehub, fnames) {
+    lapply(fnames, function(fn) { query(ehub, fn)[[1L, force = TRUE]] })
+}
+
 .getResources <- function(ExperimentHub, resTable) {
     fileNames <- stats::setNames(resTable[["RDataPath"]], resTable[["Title"]])
     anyMeth <- grepl("Methyl", fileNames, ignore.case = TRUE)
-    resources <- lapply(fileNames[!anyMeth], function(res) {
+    anyGIST <- grepl("GISTIC_Peaks", fileNames, ignore.case = TRUE)
+    resources <- lapply(fileNames[!anyMeth & !anyGIST], function(res) {
         query(ExperimentHub, res)[[1L]]
     })
+    if (any(anyGIST))
+        resources <- c(resources, .force_dl(ExperimentHub, fileNames[anyGIST]))
 
     if (any(anyMeth))
         resources <-
             c(resources, .loadMethyl(ExperimentHub, fileNames[anyMeth]))
+
     resources
 }
 

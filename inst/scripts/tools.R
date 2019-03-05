@@ -69,7 +69,11 @@ allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
         basefiles <- c(basefiles, methylbase)
     }
 
-    obj_slots <- if (includeSlots) "" else c("metadata", "colData", "sampleMap")
+    obj_slots <-
+        if (!includeSlots)
+            c("metadata", "colData", "sampleMap")
+        else
+            NULL
 
     dfr <- DataFrame(files = as(filepaths, "List"),
         objectNames = basefiles,
