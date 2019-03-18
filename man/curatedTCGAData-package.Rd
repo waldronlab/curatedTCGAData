@@ -5,7 +5,23 @@
 \alias{curatedTCGAData-package}
 \title{curatedTCGAData-package}
 \description{
-The following are the TCGA cancer codes and full names.
+The curatedTCGAData package provides a convenient and user-friendly
+interface for The Cancer Genome Atlas data from the Firehose GDAC Pipeline.
+Please note that _most_ of the data from the GDAC Firehose pipeline uses
+the `hg19` reference genome (except for a few cancers; refer to
+\url{https://confluence.broadinstitute.org/display/GDAC/FAQ}).
+
+It is highly recommended to use the 'TCGAutils' companion package.
+It provides convenience functions for manipulating curatedTCGAData objects.
+See package for more details
+(\url{http://bioconductor.org/packages/TCGAutils}).
+}
+\section{diseaseCodes}{
+
+
+The following are the TCGA disease codes and full names as posted on the
+official website
+(\url{https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/tcga-study-abbreviations}).
 
 \preformatted{
 
@@ -47,6 +63,7 @@ The following are the TCGA cancer codes and full names.
 34    UVM                                                    Uveal Melanoma
 }
 }
+
 \examples{
 help(package = "curatedTCGAData")
 
@@ -65,6 +82,7 @@ Other contributors:
 \itemize{
   \item Levi Waldron \email{lwaldron.research@gmail.com} [contributor]
   \item Lucas Schiffer \email{schiffer.lucas@gmail.com} [contributor]
+  \item Ludwig Geistlinger \email{ludwig.geistlinger@sph.cuny.edu} [contributor]
   \item Valerie Obenchain \email{valerie.obenchain@roswellpark.org} [contributor]
   \item Martin Morgan \email{martin.morgan@roswellpark.org} [contributor]
 }

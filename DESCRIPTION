@@ -2,12 +2,14 @@ Package: curatedTCGAData
 Type: Package
 Title: Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
     Objects
-Version: 1.5.9
+Version: 1.5.10
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
     role = "ctb"),
     person("Lucas", "Schiffer", email = "schiffer.lucas@gmail.com",
+    role = "ctb"),
+    person("Ludwig", "Geistlinger", email = "ludwig.geistlinger@sph.cuny.edu",
     role = "ctb"),
     person("Valerie", "Obenchain", email = "valerie.obenchain@roswellpark.org",
     role = "ctb"),

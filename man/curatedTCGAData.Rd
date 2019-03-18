@@ -23,13 +23,20 @@ a \linkS4class{MultiAssayExperiment} of the specified assays and
 cancer codes
 }
 \description{
-Create a MultiAssayExperiment from specific assays and cohorts
+curatedTCGAData assembles data on-the-fly from ExperimentHub
+to provide cohesive \linkS4class{MultiAssayExperiment} container objects.
+All the user has to do is to provide TCGA disease code(s) and assay types.
+It is highly recommended to use the companion package `TCGAutils`,
+developed to work with TCGA data specifically from `curatedTCGAData` and
+some flat files.
 }
 \details{
 This function will check against available resources in
-ExperimentHub. Currently, only the latest runDate ("2016-01-28") is
-supported. Use the \code{dry.run = FALSE} to download remote datasets and
+ExperimentHub. Only the latest runDate ("2016-01-28") is supported.
+Use the \code{dry.run = FALSE} to download remote datasets and
 build an integrative \linkS4class{MultiAssayExperiment} object.
+For a list of 'diseaseCodes', see the \link{curatedTCGAData-package}
+help page.
 }
 \section{Available Assays}{
 
@@ -37,32 +44,51 @@ build an integrative \linkS4class{MultiAssayExperiment} object.
 Below is a list of partial ExperimentList assay names and their respective
 description. These assays can be entered as part of the \code{assays}
 argument in the main function. Partial glob matches are allowed such as:
-\code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays.
+\code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays. Credit: Ludwig G.
 \preformatted{
 
 ExperimentList data types   Description
--------------------------------------------------------------------
-CNASNP                      Copy Number Alterations SNPs
-CNVSNP                      Copy Number Variations SNPs
-GISTIC_AllByGene            All GISTIC regions by gene
-GISTIC_Peaks                GISTIC peak data by ranges
-GISTIC_ThresholdedByGene    GISTIC results over significance
-                                threshold by gene
-miRNASeqGene                Micro RNA sequencing by gene
-Mutation                    Somatic mutations calls
-RNASeq2GeneNorm             Normalized RNA Seq Algorithm V2
-RPPAArray                   Reverse Phase Protein Array
-CNASeq                      CNA for aggregated / segmented regions
-RNASeqGene                  Calculated expression signal of a gene
-Methylation_methyl27        Illumina HumanMethylation 27K BeadChip
-Methylation_methyl450       Infinium HumanMethylation450K BeadChip
-mRNAArray                   Messenger RNA sequencing
-CNACGH_CGH_hg_244a          CNA CGH Agilent Microarray 244A
-CNACGH_CGH_hg_415k_g4124a   CNA CGH Agilent Microarray 415K
-miRNAArray                  Micro RNA sequencing
-mRNAArray_huex              mRNA Affy Human Exon Array
-mRNAArray_TX_g4502a         mRNA 244K Array
-mRNAArray_TX_ht_hg_u133a    mRNA Affymetrix Human Genome U133 Array
+----------------------------------------------------------------------------
+SummarizedExperiment*
+  RNASeqGene                RSEM TPM gene expression values
+  RNASeq2GeneNorm           Upper quartile normalized RSEM TPM gene
+                            expression values
+  miRNAArray                Probe-level  miRNA expression values
+  miRNASeqGene              Gene-level log2 RPM miRNA expression values
+  mRNAArray                 Unified gene-level mRNA expression values
+  mRNAArray_huex            Gene-level mRNA expression values from Affymetrix
+                            Human Exon Array
+  mRNAArray_TX_g4502a       Gene-level mRNA expression values from Agilent
+                            244K Array
+  mRNAArray_TX_ht_hg_u133a  Gene-level mRNA expression values from Affymetrix
+                            Human Genome U133 Array
+  GISTIC_AllByGene          Gene-level GISTIC2 copy number values
+  GISTIC_ThresholdedByGene  Gene-level GISTIC2 thresholded discrete copy
+                            number values
+  RPPAArray                 Reverse Phase Protein Array normalized protein
+                            expression values
+RangedSummarizedExperiment
+  GISTIC_Peaks              GISTIC2 thresholded discrete copy number values
+                            in recurrent peak regions
+SummarizedExperiment with HDF5Array DelayedMatrix
+  Methylation_methyl27      Probe-level methylation beta values from Illumina
+                            HumanMethylation 27K BeadChip
+  Methylation_methyl450     Probe-level methylation beta values from Infinium
+                            HumanMethylation 450K BeadChip
+RaggedExperiment
+  CNASNP                    Segmented somatic Copy Number Alteration calls
+                            from SNP array
+  CNVSNP                    Segmented germline Copy Number Variant calls from
+                            SNP Array
+  CNASeq                    Segmented somatic Copy Number Alteration calls
+                            from low pass DNA Sequencing
+  Mutation*                 Somatic mutations calls
+  CNACGH_CGH_hg_244a        Segmented somatic Copy Number Alteration calls
+                            from CGH Agilent Microarray 244A
+  CNACGH_CGH_hg_415k_g4124a Segmented somatic Copy Number Alteration calls
+                            from CGH Agilent Microarray 415K
+* All can be converted to RangedSummarizedExperiment (except RPPAArray) with
+TCGAutils
 
 }
 }
@@ -70,4 +96,7 @@ mRNAArray_TX_ht_hg_u133a    mRNA Affymetrix Human Genome U133 Array
 \examples{
 curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
 
+}
+\seealso{
+curatedTCGAData-package
 }
