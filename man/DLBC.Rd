@@ -26,13 +26,13 @@ CharacterList of length 10
 [["DLBC_CNASNP-20160128"]] character(0)
 [["DLBC_CNVSNP-20160128"]] character(0)
 [["DLBC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["DLBC_GISTIC_Peaks-20160128"]] character(0)
+[["DLBC_GISTIC_Peaks-20160128"]] chr1:1-48649489 ... chr22:41635693-51304566
 [["DLBC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["DLBC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["DLBC_Mutation-20160128"]] character(0)
 [["DLBC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 [["DLBC_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
-[["DLBC_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["DLBC_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( DLBC )
 CharacterList of length 10
@@ -40,7 +40,7 @@ CharacterList of length 10
 [["DLBC_CNVSNP-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
 [["DLBC_GISTIC_AllByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
 [["DLBC_GISTIC_Peaks-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
-[["DLBC_GISTIC_ThresholdedByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01...
+[["DLBC_GISTIC_ThresholdedByGene-20160128"]] TCGA-FA-8693-01A-11D-2389-01 ...
 [["DLBC_miRNASeqGene-20160128"]] TCGA-FA-8693-01A-11R-2401-13 ...
 [["DLBC_Mutation-20160128"]] TCGA-FA-8693-01A-11D-2397-10 ...
 [["DLBC_RNASeq2GeneNorm-20160128"]] TCGA-FA-8693-01A-11R-2404-07 ...
@@ -115,10 +115,8 @@ diffuse large b-cell lymphoma (dlbcl) nos (any anatomic site nodal or extranodal
                                                                                 4 
 
 race:
-                    asian black or african american 
-                       18                         1 
-                    white 
-                       29 
+                    asian black or african american                     white 
+                       18                         1                        29 
 
 ethnicity:
     hispanic or latino not hispanic or latino 

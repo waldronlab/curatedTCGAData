@@ -26,13 +26,13 @@ CharacterList of length 10
 [["SARC_CNASNP-20160128"]] character(0)
 [["SARC_CNVSNP-20160128"]] character(0)
 [["SARC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["SARC_GISTIC_Peaks-20160128"]] character(0)
+[["SARC_GISTIC_Peaks-20160128"]] chr1:1-5923787 ... chr22:45095899-51304566
 [["SARC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["SARC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["SARC_Mutation-20160128"]] character(0)
 [["SARC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 [["SARC_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
-[["SARC_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["SARC_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( SARC )
 CharacterList of length 10
@@ -40,7 +40,7 @@ CharacterList of length 10
 [["SARC_CNVSNP-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
 [["SARC_GISTIC_AllByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
 [["SARC_GISTIC_Peaks-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
-[["SARC_GISTIC_ThresholdedByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01...
+[["SARC_GISTIC_ThresholdedByGene-20160128"]] TCGA-3B-A9HI-01A-11D-A386-01 ...
 [["SARC_miRNASeqGene-20160128"]] TCGA-3B-A9HI-01A-11R-A38N-13 ...
 [["SARC_Mutation-20160128"]] TCGA-3B-A9HI-01A-11D-A387-09 ...
 [["SARC_RNASeq2GeneNorm-20160128"]] TCGA-3B-A9HI-01A-11R-A38C-07 ...
@@ -112,10 +112,10 @@ residual_tumor:
  155   70    9   26    1 
 
 race:
-                    asian black or african american 
-                        6                        18 
-                    white                      NA's 
-                      228                         9 
+                    asian black or african american                     white 
+                        6                        18                       228 
+                     NA's 
+                        9 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

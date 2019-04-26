@@ -26,13 +26,13 @@ CharacterList of length 10
 [["THYM_CNASNP-20160128"]] character(0)
 [["THYM_CNVSNP-20160128"]] character(0)
 [["THYM_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["THYM_GISTIC_Peaks-20160128"]] character(0)
+[["THYM_GISTIC_Peaks-20160128"]] chr1:208606110-249250621 ...
 [["THYM_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["THYM_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["THYM_Mutation-20160128"]] character(0)
 [["THYM_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 [["THYM_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
-[["THYM_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["THYM_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( THYM )
 CharacterList of length 10
@@ -40,7 +40,7 @@ CharacterList of length 10
 [["THYM_CNVSNP-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01 ...
 [["THYM_GISTIC_AllByGene-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01 ...
 [["THYM_GISTIC_Peaks-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01 ...
-[["THYM_GISTIC_ThresholdedByGene-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01...
+[["THYM_GISTIC_ThresholdedByGene-20160128"]] TCGA-3G-AB0O-01A-22D-A422-01 ...
 [["THYM_miRNASeqGene-20160128"]] TCGA-3G-AB0O-01A-22R-A42W-13 ...
 [["THYM_Mutation-20160128"]] TCGA-3G-AB0O-01A-22D-A423-09 ...
 [["THYM_RNASeq2GeneNorm-20160128"]] TCGA-3G-AB0O-01A-22R-A42C-07 ...
@@ -111,10 +111,10 @@ radiation_therapy:
 
 
 race:
-                    asian black or african american 
-                       13                         6 
-                    white                      NA's 
-                      103                         2 
+                    asian black or african american                     white 
+                       13                         6                       103 
+                     NA's 
+                        2 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

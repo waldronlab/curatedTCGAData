@@ -25,13 +25,13 @@ ExperimentList class object of length 10:
 CharacterList of length 10
 [["ACC_CNASNP-20160128"]] character(0)
 [["ACC_CNVSNP-20160128"]] character(0)
-[["ACC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["ACC_GISTIC_Peaks-20160128"]] character(0)
+[["ACC_GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["ACC_GISTIC_Peaks-20160128"]] chr1:8403012-8925111 ...
 [["ACC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["ACC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["ACC_Mutation-20160128"]] character(0)
 [["ACC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
-[["ACC_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+[["ACC_RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
 [["ACC_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( ACC )
@@ -138,10 +138,10 @@ number_of_lymph_nodes:
   0.000   0.000   0.000   2.548   0.500  52.000      61 
 
 race:
-                    asian black or african american 
-                        2                         1 
-                    white                      NA's 
-                       78                        11 
+                    asian black or african american                     white 
+                        2                         1                        78 
+                     NA's 
+                       11 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

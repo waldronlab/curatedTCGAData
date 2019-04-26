@@ -36,10 +36,10 @@ CharacterList of length 19
 [["OV_CNACGH_CGH_hg_415k_g4124a-20160128"]] character(0)
 [["OV_CNASNP-20160128"]] character(0)
 [["OV_CNVSNP-20160128"]] character(0)
-[["OV_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["OV_GISTIC_Peaks-20160128"]] character(0)
-[["OV_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
-[["OV_miRNAArray-20160128"]] DarkCorner dmr_285 ... SCorner3
+[["OV_GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["OV_GISTIC_Peaks-20160128"]] chr1:26963410-27570286 ...
+[["OV_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
+[["OV_miRNAArray-20160128"]] DarkCorner dmr_285 ... NegativeControl SCorner3
 [["OV_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["OV_mRNAArray_huex-20160128"]] C9orf152 ELMO2 RPS11 ... SLC39A6 CTSC AQP7
 ...

@@ -25,12 +25,12 @@ CharacterList of length 9
 [["MESO_CNASNP-20160128"]] character(0)
 [["MESO_CNVSNP-20160128"]] character(0)
 [["MESO_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["MESO_GISTIC_Peaks-20160128"]] character(0)
+[["MESO_GISTIC_Peaks-20160128"]] chr1:1-31262836 ... chr22:29969457-30128393
 [["MESO_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["MESO_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["MESO_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 [["MESO_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
-[["MESO_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["MESO_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( MESO )
 CharacterList of length 9
@@ -38,7 +38,7 @@ CharacterList of length 9
 [["MESO_CNVSNP-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
 [["MESO_GISTIC_AllByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
 [["MESO_GISTIC_Peaks-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
-[["MESO_GISTIC_ThresholdedByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01...
+[["MESO_GISTIC_ThresholdedByGene-20160128"]] TCGA-3H-AB3K-01A-11D-A39Q-01 ...
 [["MESO_miRNASeqGene-20160128"]] TCGA-3H-AB3K-01A-11R-A404-13 ...
 [["MESO_RNASeq2GeneNorm-20160128"]] TCGA-3H-AB3K-01A-11R-A40A-07 ...
 [["MESO_RPPAArray-20160128"]] TCGA-3H-AB3K-01A-21-A45O-20 ...
@@ -130,10 +130,8 @@ residual_tumor:
   17    3   15   11   41 
 
 race:
-                    asian black or african american 
-                        1                         1 
-                    white 
-                       85 
+                    asian black or african american                     white 
+                        1                         1                        85 
 
 ethnicity:
 not hispanic or latino                   NA's 

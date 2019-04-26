@@ -27,13 +27,13 @@ CharacterList of length 11
 [["UVM_CNASeq-20160128"]] character(0)
 [["UVM_CNASNP-20160128"]] character(0)
 [["UVM_CNVSNP-20160128"]] character(0)
-[["UVM_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["UVM_GISTIC_Peaks-20160128"]] character(0)
+[["UVM_GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["UVM_GISTIC_Peaks-20160128"]] chr1:19073360-24108626 ...
 [["UVM_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["UVM_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["UVM_Mutation-20160128"]] character(0)
 [["UVM_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
-[["UVM_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
+[["UVM_RPPAArray-20160128"]] 14-3-3_beta 14-3-3_epsilon ... p90RSK_pT359_S363
 ...
 <1 more element>
 

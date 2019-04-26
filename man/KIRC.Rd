@@ -13,7 +13,7 @@ ExperimentList class object of length 13:
  [1] KIRC_CNASNP-20160128: RaggedExperiment with 488691 rows and 1059 columns 
  [2] KIRC_CNVSNP-20160128: RaggedExperiment with 85036 rows and 1059 columns 
  [3] KIRC_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 528 columns 
- [4] KIRC_GISTIC_Peaks-20160128: SummarizedExperiment with 27 rows and 528 columns 
+ [4] KIRC_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 26 rows and 528 columns 
  [5] KIRC_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 528 columns 
  [6] KIRC_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 326 columns 
  [7] KIRC_mRNAArray-20160128: SummarizedExperiment with 17814 rows and 72 columns 
@@ -29,13 +29,13 @@ CharacterList of length 13
 [["KIRC_CNASNP-20160128"]] character(0)
 [["KIRC_CNVSNP-20160128"]] character(0)
 [["KIRC_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["KIRC_GISTIC_Peaks-20160128"]] character(0)
+[["KIRC_GISTIC_Peaks-20160128"]] chr1:1-31345223 ... chr14:56181301-107349540
 [["KIRC_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["KIRC_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["KIRC_mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 ... SNRPD2 AQP7 CTSC
+[["KIRC_mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 PNMA1 ... SNRPD2 AQP7 CTSC
 [["KIRC_Mutation-20160128"]] character(0)
 [["KIRC_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
-[["KIRC_RNASeqGene-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["KIRC_RNASeqGene-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
 ...
 <3 more elements>
 
@@ -45,7 +45,7 @@ CharacterList of length 13
 [["KIRC_CNVSNP-20160128"]] TCGA-3Z-A93Z-01A-11D-A36W-01 ...
 [["KIRC_GISTIC_AllByGene-20160128"]] TCGA-3Z-A93Z-01A-11D-A36W-01 ...
 [["KIRC_GISTIC_Peaks-20160128"]] TCGA-3Z-A93Z-01A-11D-A36W-01 ...
-[["KIRC_GISTIC_ThresholdedByGene-20160128"]] TCGA-3Z-A93Z-01A-11D-A36W-01...
+[["KIRC_GISTIC_ThresholdedByGene-20160128"]] TCGA-3Z-A93Z-01A-11D-A36W-01 ...
 [["KIRC_miRNASeqGene-20160128"]] TCGA-3Z-A93Z-01A-11R-A37P-13 ...
 [["KIRC_mRNAArray-20160128"]] TCGA-A3-3306-01A-01R-0864-07 ...
 [["KIRC_Mutation-20160128"]] TCGA-A3-3308-01A-01D-0966-08 ...
@@ -153,10 +153,10 @@ year_of_tobacco_smoking_onset:
    1946    1966    1978    1979    1996    2001     525 
 
 race:
-                    asian black or african american 
-                        8                        56 
-                    white                      NA's 
-                      466                         7 
+                    asian black or african american                     white 
+                        8                        56                       466 
+                     NA's 
+                        7 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

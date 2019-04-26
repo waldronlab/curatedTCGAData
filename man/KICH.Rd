@@ -26,13 +26,13 @@ CharacterList of length 10
 [["KICH_CNASNP-20160128"]] character(0)
 [["KICH_CNVSNP-20160128"]] character(0)
 [["KICH_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["KICH_GISTIC_Peaks-20160128"]] character(0)
+[["KICH_GISTIC_Peaks-20160128"]] chr8:116272008-117149163 chr15:1-66482794
 [["KICH_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["KICH_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["KICH_Mutation-20160128"]] character(0)
 [["KICH_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 [["KICH_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
-[["KICH_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["KICH_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( KICH )
 CharacterList of length 10
@@ -40,7 +40,7 @@ CharacterList of length 10
 [["KICH_CNVSNP-20160128"]] TCGA-KL-8323-01A-21D-2308-01 ...
 [["KICH_GISTIC_AllByGene-20160128"]] TCGA-KL-8323-01A-21D-2308-01 ...
 [["KICH_GISTIC_Peaks-20160128"]] TCGA-KL-8323-01A-21D-2308-01 ...
-[["KICH_GISTIC_ThresholdedByGene-20160128"]] TCGA-KL-8323-01A-21D-2308-01...
+[["KICH_GISTIC_ThresholdedByGene-20160128"]] TCGA-KL-8323-01A-21D-2308-01 ...
 [["KICH_miRNASeqGene-20160128"]] TCGA-KL-8323-01A-21R-2314-13 ...
 [["KICH_Mutation-20160128"]] TCGA-KL-8323-01A-21D-2310-10 ...
 [["KICH_RNASeq2GeneNorm-20160128"]] TCGA-KL-8323-01A-21R-2315-07 ...
@@ -139,10 +139,10 @@ year_of_tobacco_smoking_onset:
    1949    1964    1974    1974    1984    1997      58 
 
 race:
-                    asian black or african american 
-                        2                         4 
-                    white                      NA's 
-                       58                         2 
+                    asian black or african american                     white 
+                        2                         4                        58 
+                     NA's 
+                        2 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

@@ -29,7 +29,7 @@ CharacterList of length 12
 [["ESCA_CNASNP-20160128"]] character(0)
 [["ESCA_CNVSNP-20160128"]] character(0)
 [["ESCA_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["ESCA_GISTIC_Peaks-20160128"]] character(0)
+[["ESCA_GISTIC_Peaks-20160128"]] chr1:23960869-31653987 ... chr22:1-18218209
 [["ESCA_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["ESCA_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["ESCA_Mutation-20160128"]] character(0)
@@ -45,7 +45,7 @@ CharacterList of length 12
 [["ESCA_CNVSNP-20160128"]] TCGA-2H-A9GF-01A-11D-A37B-01 ...
 [["ESCA_GISTIC_AllByGene-20160128"]] TCGA-2H-A9GF-01A-11D-A37B-01 ...
 [["ESCA_GISTIC_Peaks-20160128"]] TCGA-2H-A9GF-01A-11D-A37B-01 ...
-[["ESCA_GISTIC_ThresholdedByGene-20160128"]] TCGA-2H-A9GF-01A-11D-A37B-01...
+[["ESCA_GISTIC_ThresholdedByGene-20160128"]] TCGA-2H-A9GF-01A-11D-A37B-01 ...
 [["ESCA_miRNASeqGene-20160128"]] TCGA-2H-A9GF-01A-11R-A37J-13 ...
 [["ESCA_Mutation-20160128"]] TCGA-2H-A9GF-01A-11D-A37C-09 ...
 [["ESCA_RNASeq2GeneNorm-20160128"]] TCGA-2H-A9GF-01A-11R-A37I-31 ...
@@ -145,10 +145,10 @@ number_of_lymph_nodes:
   0.000   0.000   1.000   2.526   4.000  21.000      50 
 
 race:
-                    asian black or african american 
-                       46                         5 
-                    white                      NA's 
-                      114                        20 
+                    asian black or african american                     white 
+                       46                         5                       114 
+                     NA's 
+                       20 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

@@ -26,13 +26,13 @@ CharacterList of length 10
 [["TGCT_CNASNP-20160128"]] character(0)
 [["TGCT_CNVSNP-20160128"]] character(0)
 [["TGCT_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["TGCT_GISTIC_Peaks-20160128"]] character(0)
+[["TGCT_GISTIC_Peaks-20160128"]] chr1:1-48649489 ... chr22:18613558-22141824
 [["TGCT_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["TGCT_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["TGCT_Mutation-20160128"]] character(0)
 [["TGCT_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 [["TGCT_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
-[["TGCT_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["TGCT_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( TGCT )
 CharacterList of length 10
@@ -40,7 +40,7 @@ CharacterList of length 10
 [["TGCT_CNVSNP-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
 [["TGCT_GISTIC_AllByGene-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
 [["TGCT_GISTIC_Peaks-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
-[["TGCT_GISTIC_ThresholdedByGene-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01...
+[["TGCT_GISTIC_ThresholdedByGene-20160128"]] TCGA-2G-AAEW-01A-11D-A42X-01 ...
 [["TGCT_miRNASeqGene-20160128"]] TCGA-2G-AAEW-01A-11R-A439-13 ...
 [["TGCT_Mutation-20160128"]] TCGA-2G-AAEW-01A-11D-A42Y-10 ...
 [["TGCT_RNASeq2GeneNorm-20160128"]] TCGA-2G-AAEW-01A-11R-A430-07 ...
@@ -127,10 +127,10 @@ karnofsky_performance_score:
    5   41   56   32 
 
 race:
-                    asian black or african american 
-                        4                         6 
-                    white                      NA's 
-                      119                         5 
+                    asian black or african american                     white 
+                        4                         6                       119 
+                     NA's 
+                        5 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

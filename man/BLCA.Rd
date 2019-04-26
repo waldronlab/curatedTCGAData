@@ -29,12 +29,12 @@ CharacterList of length 12
 [["BLCA_CNASNP-20160128"]] character(0)
 [["BLCA_CNVSNP-20160128"]] character(0)
 [["BLCA_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["BLCA_GISTIC_Peaks-20160128"]] character(0)
+[["BLCA_GISTIC_Peaks-20160128"]] chr1:26963410-27155421 ...
 [["BLCA_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["BLCA_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["BLCA_Mutation-20160128"]] character(0)
 [["BLCA_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
-[["BLCA_RNASeqGene-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
+[["BLCA_RNASeqGene-20160128"]] A1BG A1CF A2BP1 A2LD1 ... ZZZ3 psiTPTE22 tAKR
 ...
 <2 more elements>
 
@@ -45,7 +45,7 @@ CharacterList of length 12
 [["BLCA_CNVSNP-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
 [["BLCA_GISTIC_AllByGene-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
 [["BLCA_GISTIC_Peaks-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
-[["BLCA_GISTIC_ThresholdedByGene-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01...
+[["BLCA_GISTIC_ThresholdedByGene-20160128"]] TCGA-2F-A9KO-01A-11D-A38F-01 ...
 [["BLCA_miRNASeqGene-20160128"]] TCGA-2F-A9KO-01A-11R-A38M-13 ...
 [["BLCA_Mutation-20160128"]] TCGA-BL-A0C8-01A-11D-A10S-08 ...
 [["BLCA_RNASeq2GeneNorm-20160128"]] TCGA-2F-A9KO-01A-11R-A38B-07 ...
@@ -146,10 +146,10 @@ number_of_lymph_nodes:
   0.000   0.000   0.000   2.088   2.000  97.000     115 
 
 race:
-                    asian black or african american 
-                       44                        23 
-                    white                      NA's 
-                      327                        18 
+                    asian black or african american                     white 
+                       44                        23                       327 
+                     NA's 
+                       18 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

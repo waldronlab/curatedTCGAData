@@ -35,19 +35,19 @@ CharacterList of length 18
 [["GBM_CNACGH_CGH_hg_415k_g4124a-20160128"]] character(0)
 [["GBM_CNASNP-20160128"]] character(0)
 [["GBM_CNVSNP-20160128"]] character(0)
-[["GBM_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["GBM_GISTIC_Peaks-20160128"]] character(0)
+[["GBM_GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["GBM_GISTIC_Peaks-20160128"]] chr1:3394251-6475685 ...
 [["GBM_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["GBM_miRNAArray-20160128"]] ebv-miR-BART1-3p ... kshv-miR-K12-9*
 [["GBM_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
-[["GBM_mRNAArray_huex-20160128"]] C9orf152 ELMO2 RPS11 ... CTSC AQP7
+[["GBM_mRNAArray_huex-20160128"]] C9orf152 ELMO2 RPS11 ... SLC39A6 CTSC AQP7
 ...
 <8 more elements>
 
 > colnames( GBM )
 CharacterList of length 18
 [["GBM_CNACGH_CGH_hg_244a-20160128"]] TCGA-02-0001-01C-01D-0185-02 ...
-[["GBM_CNACGH_CGH_hg_415k_g4124a-20160128"]] TCGA-02-2466-01A-01D-0787-02...
+[["GBM_CNACGH_CGH_hg_415k_g4124a-20160128"]] TCGA-02-2466-01A-01D-0787-02 ...
 [["GBM_CNASNP-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
 [["GBM_CNVSNP-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
 [["GBM_GISTIC_AllByGene-20160128"]] TCGA-02-0001-01C-01D-0182-01 ...
@@ -140,10 +140,10 @@ untreated primary (de novo) gbm                            NA's
                             544                               4 
 
 race:
-                    asian black or african american 
-                       13                        51 
-                    white                      NA's 
-                      506                        29 
+                    asian black or african american                     white 
+                       13                        51                       506 
+                     NA's 
+                       29 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

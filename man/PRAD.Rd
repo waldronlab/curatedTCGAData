@@ -28,7 +28,7 @@ CharacterList of length 11
 [["PRAD_CNASNP-20160128"]] character(0)
 [["PRAD_CNVSNP-20160128"]] character(0)
 [["PRAD_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["PRAD_GISTIC_Peaks-20160128"]] character(0)
+[["PRAD_GISTIC_Peaks-20160128"]] chr1:63901623-66226788 ...
 [["PRAD_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["PRAD_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["PRAD_Mutation-20160128"]] character(0)
@@ -44,7 +44,7 @@ CharacterList of length 11
 [["PRAD_CNVSNP-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
 [["PRAD_GISTIC_AllByGene-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
 [["PRAD_GISTIC_Peaks-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
-[["PRAD_GISTIC_ThresholdedByGene-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01...
+[["PRAD_GISTIC_ThresholdedByGene-20160128"]] TCGA-2A-A8VL-01A-21D-A376-01 ...
 [["PRAD_miRNASeqGene-20160128"]] TCGA-2A-A8VL-01A-21R-A37H-13 ...
 [["PRAD_Mutation-20160128"]] TCGA-2A-A8VL-01A-21D-A377-08 ...
 [["PRAD_RNASeq2GeneNorm-20160128"]] TCGA-2A-A8VL-01A-21R-A37L-07 ...
@@ -121,10 +121,8 @@ radiation_therapy:
  395   59   44 
 
 histological_type:
-   prostate adenocarcinoma acinar type 
-                                   483 
-prostate adenocarcinoma, other subtype 
-                                    15 
+   prostate adenocarcinoma acinar type prostate adenocarcinoma, other subtype 
+                                   483                                     15 
 
 residual_tumor:
   r0   r1   r2   rx NA's 
@@ -147,10 +145,10 @@ days_to_psa:
  -164.0   191.0   512.0   685.6   926.0  3447.0      53 
 
 race:
-                    asian black or african american 
-                        2                         7 
-                    white                      NA's 
-                      147                       342 
+                    asian black or african american                     white 
+                        2                         7                       147 
+                     NA's 
+                      342 
 
 ethnicity:
 not hispanic or latino                   NA's 

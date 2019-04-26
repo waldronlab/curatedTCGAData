@@ -28,8 +28,8 @@ CharacterList of length 12
 [["LGG_CNASeq-20160128"]] character(0)
 [["LGG_CNASNP-20160128"]] character(0)
 [["LGG_CNVSNP-20160128"]] character(0)
-[["LGG_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["LGG_GISTIC_Peaks-20160128"]] character(0)
+[["LGG_GISTIC_AllByGene-20160128"]] ACAP3 ACTRT2 ... WASIR1|ENSG00000185203.7
+[["LGG_GISTIC_Peaks-20160128"]] chr1:3814904-5625565 ...
 [["LGG_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["LGG_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["LGG_mRNAArray-20160128"]] ELMO2 CREB3L1 RPS11 PNMA1 ... SNRPD2 AQP7 CTSC

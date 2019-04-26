@@ -13,7 +13,7 @@ ExperimentList class object of length 10:
  [1] PAAD_CNASNP-20160128: RaggedExperiment with 203871 rows and 368 columns 
  [2] PAAD_CNVSNP-20160128: RaggedExperiment with 34808 rows and 365 columns 
  [3] PAAD_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 184 columns 
- [4] PAAD_GISTIC_Peaks-20160128: SummarizedExperiment with 53 rows and 184 columns 
+ [4] PAAD_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 52 rows and 184 columns 
  [5] PAAD_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 184 columns 
  [6] PAAD_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 183 columns 
  [7] PAAD_Mutation-20160128: RaggedExperiment with 30357 rows and 150 columns 
@@ -26,13 +26,13 @@ CharacterList of length 10
 [["PAAD_CNASNP-20160128"]] character(0)
 [["PAAD_CNVSNP-20160128"]] character(0)
 [["PAAD_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["PAAD_GISTIC_Peaks-20160128"]] character(0)
+[["PAAD_GISTIC_Peaks-20160128"]] chr1:26795113-27650365 ...
 [["PAAD_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["PAAD_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["PAAD_Mutation-20160128"]] character(0)
 [["PAAD_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 [["PAAD_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
-[["PAAD_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["PAAD_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( PAAD )
 CharacterList of length 10
@@ -40,7 +40,7 @@ CharacterList of length 10
 [["PAAD_CNVSNP-20160128"]] TCGA-2J-AAB1-01A-11D-A40V-01 ...
 [["PAAD_GISTIC_AllByGene-20160128"]] TCGA-2J-AAB1-01A-11D-A40V-01 ...
 [["PAAD_GISTIC_Peaks-20160128"]] TCGA-2J-AAB1-01A-11D-A40V-01 ...
-[["PAAD_GISTIC_ThresholdedByGene-20160128"]] TCGA-2J-AAB1-01A-11D-A40V-01...
+[["PAAD_GISTIC_ThresholdedByGene-20160128"]] TCGA-2J-AAB1-01A-11D-A40V-01 ...
 [["PAAD_miRNASeqGene-20160128"]] TCGA-2J-AAB1-01A-11R-A41G-13 ...
 [["PAAD_Mutation-20160128"]] TCGA-2J-AAB1-01A-11D-A40W-08 ...
 [["PAAD_RNASeq2GeneNorm-20160128"]] TCGA-2J-AAB1-01A-11R-A41B-07 ...
@@ -148,10 +148,10 @@ number_of_lymph_nodes:
   0.000   0.000   2.000   2.989   4.000  16.000       4 
 
 race:
-                    asian black or african american 
-                       11                         7 
-                    white                      NA's 
-                      162                         5 
+                    asian black or african american                     white 
+                       11                         7                       162 
+                     NA's 
+                        5 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 

@@ -13,7 +13,7 @@ ExperimentList class object of length 10:
  [1] CHOL_CNASNP-20160128: RaggedExperiment with 39698 rows and 85 columns 
  [2] CHOL_CNVSNP-20160128: RaggedExperiment with 7570 rows and 85 columns 
  [3] CHOL_GISTIC_AllByGene-20160128: SummarizedExperiment with 24776 rows and 36 columns 
- [4] CHOL_GISTIC_Peaks-20160128: SummarizedExperiment with 20 rows and 36 columns 
+ [4] CHOL_GISTIC_Peaks-20160128: RangedSummarizedExperiment with 19 rows and 36 columns 
  [5] CHOL_GISTIC_ThresholdedByGene-20160128: SummarizedExperiment with 24776 rows and 36 columns 
  [6] CHOL_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 45 columns 
  [7] CHOL_Mutation-20160128: RaggedExperiment with 6755 rows and 35 columns 
@@ -26,13 +26,13 @@ CharacterList of length 10
 [["CHOL_CNASNP-20160128"]] character(0)
 [["CHOL_CNVSNP-20160128"]] character(0)
 [["CHOL_GISTIC_AllByGene-20160128"]] ACAP3 ... WASIR1|ENSG00000185203.7
-[["CHOL_GISTIC_Peaks-20160128"]] character(0)
+[["CHOL_GISTIC_Peaks-20160128"]] chr1:7829287-29140747 ... chr16:1-90354753
 [["CHOL_GISTIC_ThresholdedByGene-20160128"]] ACAP3 ...
 [["CHOL_miRNASeqGene-20160128"]] hsa-let-7a-1 hsa-let-7a-2 ... hsa-mir-99b
 [["CHOL_Mutation-20160128"]] character(0)
 [["CHOL_RNASeq2GeneNorm-20160128"]] A1BG A1CF A2BP1 ... ZZZ3 psiTPTE22 tAKR
 [["CHOL_RPPAArray-20160128"]] 14-3-3_beta ... p90RSK_pT359_S363
-[["CHOL_Methylation-20160128"]] cg00000029 cg00000108 ... rs9839873
+[["CHOL_Methylation-20160128"]] cg00000029 cg00000108 ... rs966367 rs9839873
 
 > colnames( CHOL )
 CharacterList of length 10
@@ -40,7 +40,7 @@ CharacterList of length 10
 [["CHOL_CNVSNP-20160128"]] TCGA-3X-AAV9-01A-72D-A416-01 ...
 [["CHOL_GISTIC_AllByGene-20160128"]] TCGA-3X-AAV9-01A-72D-A416-01 ...
 [["CHOL_GISTIC_Peaks-20160128"]] TCGA-3X-AAV9-01A-72D-A416-01 ...
-[["CHOL_GISTIC_ThresholdedByGene-20160128"]] TCGA-3X-AAV9-01A-72D-A416-01...
+[["CHOL_GISTIC_ThresholdedByGene-20160128"]] TCGA-3X-AAV9-01A-72D-A416-01 ...
 [["CHOL_miRNASeqGene-20160128"]] TCGA-3X-AAV9-01A-72R-A41D-13 ...
 [["CHOL_Mutation-20160128"]] TCGA-3X-AAV9-01A-72D-A417-09 ...
 [["CHOL_RNASeq2GeneNorm-20160128"]] TCGA-3X-AAV9-01A-72R-A41I-07 ...
@@ -133,10 +133,8 @@ r0 r1 rx
 28  5  3 
 
 race:
-                    asian black or african american 
-                        3                         2 
-                    white 
-                       31 
+                    asian black or african american                     white 
+                        3                         2                        31 
 
 ethnicity:
     hispanic or latino not hispanic or latino                   NA's 
