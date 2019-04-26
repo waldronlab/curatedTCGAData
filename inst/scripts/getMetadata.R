@@ -1,5 +1,5 @@
 .getDataFiles <-
-function(directory = "~/github/MultiAssayExperiment-TCGA/",
+function(directory = "~/github/MultiAssayExperiment.TCGA/",
     dataDir = "data/bits", cancerFolder, pattern = allextpat) {
     location <- file.path(directory, dataDir, cancerFolder)
     list.files(location, pattern = pattern, full.names = TRUE, recursive = TRUE)

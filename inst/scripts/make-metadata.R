@@ -1,6 +1,6 @@
 make_metadata <-
 function(
-    directory = "~/github/MultiAssayExperiment-TCGA/",
+    directory = "~/github/MultiAssayExperiment.TCGA/",
     dataDir = "data/bits",
     ext_pattern = allextpat,
     resource_maintainer = utils::maintainer("curatedTCGAData"),

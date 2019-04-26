@@ -1,6 +1,6 @@
 #' Write an Rd man page for a collection of MultiAssayExperiment bits
 #'
-#' @param cancerPath Usually saved in 'MultiAssayExperiment-TCGA/data/bits/'
+#' @param cancerPath Usually saved in 'MultiAssayExperiment.TCGA/data/bits/'
 #' and contains several 'rda', 'rds', and/or 'H5' files. The folder name
 #' denotes the TCGA cancer code.
 #' @param filename Full path of the filename of the .Rd man page to write
@@ -9,7 +9,7 @@
 #'
 #' @author Levi Waldron, Marcel Ramos
 #' @examples
-#' rdaFolder <- file.path("../MultiAssayExperiment-TCGA/data/bits/COAD")
+#' rdaFolder <- file.path("../MultiAssayExperiment.TCGA/data/bits/COAD")
 #' bit2rd(rdaFolder)
 #'
 #' @keywords internal

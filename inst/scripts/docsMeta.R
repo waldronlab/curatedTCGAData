@@ -36,7 +36,7 @@ TCGAcodes <-
     diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
 
 ## Folder containing cancer folders
-cancerPath <- file.path(repoDir, "../MultiAssayExperiment-TCGA/", dataDir)
+cancerPath <- file.path(repoDir, "../MultiAssayExperiment.TCGA/", dataDir)
 
 ## Document by cancer folder
 cancerFolders <- file.path(cancerPath, TCGAcodes)
