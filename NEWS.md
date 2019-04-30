@@ -1,7 +1,37 @@
 # curatedTCGAData
 ---------------------------------------------------------
 
-## CHANGES IN VERSION 1.1.12
+## CHANGES IN VERSION 1.6.0
+
+### New features
+
+* Methylation data represented as a `DelayedMatrix` with associated HDF5 files
+within a `SummarizedExperiment` object. They can be downloaded using the
+`Methyl*` assay keyword.
+* Big changes to documentation with table added for detailing `ExperimentList`
+data types (thanks to @lgeistlinger)
+* Vignette now includes some helper functions provided by `TCGAutils`
+
+### Bug fixes and minor improvements
+
+* `TCGAutils` is available for use with `curatedTCGAData`
+* 'GISTIC_Peak' datasets are force downloaded due to caching mechanism issues
+* Issue of missing 'GISTIC' data for `LAML` and `SKCM` due to incorrect file
+links has been resolved (#29 @pcheng84)
+* Updated data documentation
+
+## CHANGES IN VERSION 1.4.0
+
+### New features
+
+* `dry.run` argument in `curatedTCGAData` returns a list of metadata file
+matches
+
+### Bug fixes and minor improvements
+
+* Main function now uses the `MultiAssayExperiment` constructor function
+
+## CHANGES IN VERSION 1.2.0
 
 ### New features
 
