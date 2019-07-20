@@ -4,6 +4,8 @@
 [![Travis Build Status](https://api.travis-ci.org/waldronlab/curatedTCGAData.svg?branch=master)](https://travis-ci.org/waldronlab/curatedTCGAData)
 [![Downloads](http://www.bioconductor.org/shields/downloads/curatedTCGAData.svg)](https://bioconductor.org/packages/stats/data-experiment/curatedTCGAData)
 
+## Overview
+
 `curatedTCGAData` is an experiment data package in both release and development
 versions of Bioconductor. It makes use of `ExperimentHub` to access
 pre-processed and curated data from **T**he **C**ancer **G**enome **A**tlas
@@ -60,3 +62,4 @@ Please file an [issue on GitHub][] and we will get to it ASAP.
 [primary publications]: https://www.zotero.org/groups/tcga_research_network_publications/items
 [issue on GitHub]: https://github.com/waldronlab/curatedTCGAData/issues
 [Bioconductor]: https://bioconductor.org/
+
