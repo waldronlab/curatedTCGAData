@@ -1,4 +1,10 @@
-# curatedTCGAData
+# curatedTCGAData <a href='https://waldronlab.io/'><img src='https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/curatedTCGAData/curatedTCGAData.png' align="right" height="139" /></a>
+
+[![BioC status](http://www.bioconductor.org/shields/build/release/data-experiment/curatedTCGAData.svg)](http://bioconductor.org/checkResults/release/data-experiment-LATEST/curatedTCGAData/)
+[![Travis Build Status](https://api.travis-ci.org/waldronlab/curatedTCGAData.svg?branch=master)](https://travis-ci.org/waldronlab/curatedTCGAData)
+[![Downloads](http://www.bioconductor.org/shields/downloads/curatedTCGAData.svg)](https://bioconductor.org/packages/stats/data-experiment/curatedTCGAData)
+
+https://travis-ci.org/waldronlab/curatedTCGAData.svg?branch=RELEASE_3_9
 
 `curatedTCGAData` is an experiment data package in both release and development
 versions of Bioconductor. It makes use of `ExperimentHub` to access

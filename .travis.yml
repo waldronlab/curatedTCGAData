@@ -13,20 +13,6 @@ branches:
   only:
     - master
 
-# Run binary install of testthat
-r_binary_packages:
-  - testthat
-
-r_packages:
-  - rmarkdown
-
-bioc_packages:
-  - AnnotationHub
-  - BiocStyle
-  - ExperimentHub
-  - MultiAssayExperiment
-  - S4Vectors
-
 # Test code coverage
 r_github_packages:
   - jimhester/covr
