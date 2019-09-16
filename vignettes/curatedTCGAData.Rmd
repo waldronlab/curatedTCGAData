@@ -50,6 +50,18 @@ Check potential files to be downloaded:
 curatedTCGAData(diseaseCode = "COAD", assays = "RPPA*", dry.run = TRUE)
 ```
 
+# Caveats for working with TCGA data
+
+Not all TCGA samples are cancer, there are a mix of samples in each of the
+33 cancer types. Use `sampleTables` on the `MultiAssayExperiment` object
+along with `data(sampleTypes, package = "TCGAutils")` to see what samples are
+present in the data. There may be tumors that were used to create multiple
+contributions leading to technical replicates. These should be resolved using
+the appropriate helper functions such as `mergeReplicates`. Primary tumors
+should be selected using `TCGAutils::TCGAsampleSelect` and used as input
+to the subsetting mechanisms. See the "Samples in Assays" section of this
+vignette.
+
 ## ACC dataset example
 
 ```{r, message=FALSE}
@@ -92,7 +104,6 @@ present in the data:
 sampleTables(accmae)
 ```
 
-
 Often, an analysis is performed comparing two groups of samples to each other.
 To facilitate the separation of samples, the `splitAssays` TCGAutils function
 identifies all sample types in the assays and moves each into its own
@@ -104,5 +115,26 @@ derived normal samples as seen in the `sampleTypes` reference dataset:
 sampleTypes[sampleTypes[["Code"]] %in% c("01", "10"), ]
 
 splitAssays(accmae, c("01", "10"))
+```
+
+To obtain a logical vector that could be used for subsetting a
+`MultiAsssayExperiment`, refer to `TCGAsampleSelect`. To select only primary
+tumors, use the function on the colnames of the `MultiAssayExperiment`:
+
+```{r}
+tums <- TCGAsampleSelect(colnames(accmae), "01")
+```
+
+You can subsequently provide this input to the subsetting function to select
+only primary tumors:
+
+```{r}
+accmae[, tums, ]
+```
+
+# Session Information
+
+```{r}
+sessionInfo()
 ```
 
