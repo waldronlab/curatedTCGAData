@@ -1,5 +1,10 @@
-# curatedTCGAData
----------------------------------------------------------
+## CHANGES IN VERSION 1.8.0
+
+### Bug fixes and minor improvements
+
+* Add a caveats section for working with TCGA data in the vignette
+(@vjcitn suggest)
+* Provide examples for `TCGAutils::TCGAsampleSelect` in the vignette
 
 ## CHANGES IN VERSION 1.6.0
 
