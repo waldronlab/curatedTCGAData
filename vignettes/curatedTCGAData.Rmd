@@ -11,14 +11,6 @@ output:
 Package: curatedTCGAData
 ---
 
-```{r, echo = FALSE, warning = FALSE}
-suppressPackageStartupMessages({
-    library(MultiAssayExperiment)
-    library(curatedTCGAData)
-    library(TCGAutils)
-})
-```
-
 # Installation
 
 ```{r, eval=FALSE}
@@ -30,7 +22,7 @@ BiocManager::install("curatedTCGAData")
 
 Load packages:
 
-```{r, eval = FALSE}
+```{r,include=TRUE,results="hide",message=FALSE,warning=FALSE}
 library(curatedTCGAData)
 library(MultiAssayExperiment)
 library(TCGAutils)
@@ -130,6 +122,23 @@ only primary tumors:
 
 ```{r}
 accmae[, tums, ]
+```
+
+## Exporting Data
+
+MultiAssayExperiment provides users with an integrative representation of
+multi-omic TCGA data at the convenience of the user. For those users who
+wish to use alternative environments, we have provided an export function to
+extract all the data from a MultiAssayExperiment instance and write them
+to a series of files:
+
+```{r}
+td <- tempdir()
+tempd <- file.path(td, "ACCMAE")
+if (!dir.exists(tempd))
+    dir.create(tempd)
+
+exportClass(accmae, dir = tempd, fmt = "csv", ext = ".csv")
 ```
 
 # Session Information
