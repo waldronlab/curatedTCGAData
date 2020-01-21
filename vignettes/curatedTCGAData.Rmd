@@ -141,6 +141,10 @@ if (!dir.exists(tempd))
 exportClass(accmae, dir = tempd, fmt = "csv", ext = ".csv")
 ```
 
+This works for all data classes stored (e.g., `RaggedExperiment`, `HDF5Matrix`,
+`SummarizedExperiment`) in the `MultiAssayExperiment` via the `assays` method
+which converts classes to `matrix` format (using individual `assay` methods).
+
 # Session Information
 
 ```{r}
