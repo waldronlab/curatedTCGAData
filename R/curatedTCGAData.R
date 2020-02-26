@@ -31,7 +31,8 @@
         se <- query(ehub, methfile[2L])[[1L]]
         h5array <- HDF5Array::HDF5Array(assaydat, "assay001")
         SummarizedExperiment::`assays<-`(
-            x = se, value = list(counts = h5array)
+            x = se, withDimnames = FALSE,
+            value = list(counts = h5array)
         )
     })
 }
