@@ -17,3 +17,6 @@
 
 # Don't ignore
 !R/sysdata.rda
+
+# secrets
+.httr-oauth
