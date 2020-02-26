@@ -21,12 +21,14 @@
     apply(logmat, 1L, any)
 }
 
-.loadMethyl <- function(ehub, methylpaths) {
+.loadMethyl <- function(ehub, methylpaths, verbose) {
     fact <- gsub("_assays\\.[Hh]5|_se\\.[Rr][Dd][Ss]", "", methylpaths)
     methList <- split(sort(methylpaths), fact)
     fnames <- vapply(strsplit(unique(fact), "/"), `[`, character(1L), 2L)
     names(methList) <- fnames
-    lapply(methList, function(methfile) {
+    lapply(methList, function(methfile, fn) {
+        if (verbose)
+            message("Working on: ", paste(fn, collapse = ",\n "))
         assaydat <- query(ehub, methfile[1L])[[1L]]
         se <- query(ehub, methfile[2L])[[1L]]
         h5array <- HDF5Array::HDF5Array(assaydat, "assay001")
@@ -34,26 +36,33 @@
             x = se, withDimnames = FALSE,
             value = list(counts = h5array)
         )
+    }, fn = names(methList))
+}
+
+.force_dl <- function(ehub, fnames, verbose) {
+    lapply(fnames, function(fn) {
+        if (verbose)
+            message("Working on: ", gsub("\\.rda", "", basename(fn)))
+        query(ehub, fn)[[1L, force = TRUE]]
     })
 }
 
-.force_dl <- function(ehub, fnames) {
-    lapply(fnames, function(fn) { query(ehub, fn)[[1L, force = TRUE]] })
-}
-
-.getResources <- function(ExperimentHub, resTable) {
+.getResources <- function(ExperimentHub, resTable, verbose) {
     fileNames <- stats::setNames(resTable[["RDataPath"]], resTable[["Title"]])
     anyMeth <- grepl("Methyl", fileNames, ignore.case = TRUE)
     anyGIST <- grepl("GISTIC_Peaks", fileNames, ignore.case = TRUE)
     resources <- lapply(fileNames[!anyMeth & !anyGIST], function(res) {
+        if (verbose)
+            message("Working on: ", gsub("\\.rda", "", basename(res)))
         query(ExperimentHub, res)[[1L]]
     })
     if (any(anyGIST))
-        resources <- c(resources, .force_dl(ExperimentHub, fileNames[anyGIST]))
+        resources <- c(resources,
+            .force_dl(ExperimentHub, fileNames[anyGIST], verbose))
 
     if (any(anyMeth))
-        resources <-
-            c(resources, .loadMethyl(ExperimentHub, fileNames[anyMeth]))
+        resources <- c(resources,
+            .loadMethyl(ExperimentHub, fileNames[anyMeth], verbose))
 
     resources
 }
@@ -171,7 +180,10 @@
 #'
 #' @export curatedTCGAData
 curatedTCGAData <-
-    function(diseaseCode = "*", assays = "*", dry.run = TRUE, ...) {
+    function(
+        diseaseCode = "*", assays = "*", dry.run = TRUE, verbose = FALSE, ...
+    )
+{
     runDate <- "20160128"
 
     assays_file <- system.file("extdata", "metadata.csv",
@@ -210,8 +222,9 @@ curatedTCGAData <-
     if (dry.run) { return(fileMatches) }
 
     eh <- ExperimentHub(...)
-    assay_list <-
-        .getResources(eh, assay_metadat[fileIdx, c("Title", "RDataPath")])
+    assay_list <- .getResources(
+        eh, assay_metadat[fileIdx, c("Title", "RDataPath")], verbose
+    )
 
     eh_experiments <- ExperimentList(assay_list)
 
@@ -220,7 +233,7 @@ curatedTCGAData <-
         eh_assays, function(x) startsWith(eh_assays, x))
 
     ess_list <- .getResources(eh,
-        assay_metadat[ess_idx, c("Title", "RDataPath")])
+        assay_metadat[ess_idx, c("Title", "RDataPath")], verbose)
 
     if (length(resultCodes) > 1L) {
         # Save metadata from all datasets
