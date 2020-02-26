@@ -109,13 +109,20 @@
 #' For a list of 'diseaseCodes', see the \link{curatedTCGAData-package}
 #' help page.
 #'
-#' @param diseaseCode a character vector containing the name(s) of TCGA cohorts
-#' @param assays a character vector of TCGA assays, glob matches allowed;
-#'   see below for more details
-#' @param dry.run logical (default TRUE) whether to return the dataset names
-#' before actual download
+#' @param diseaseCode character() A vector containing the name(s) of TCGA
+#'     cohorts
+#'
+#' @param assays character() A vector of TCGA assays, glob matches allowed;
+#'     see below for more details
+#'
+#' @param dry.run logical(1) Whether to return the dataset names
+#'     before actual download (default TRUE)
+#'
 #' @param ... Additional arguments passed on to the
-#' \link[ExperimentHub]{ExperimentHub} constructor
+#'     \link[ExperimentHub]{ExperimentHub} constructor
+#'
+#' @param verbose logical(1) Whether to show the dataset currenlty being
+#'     (down)loaded (default TRUE)
 #'
 #' @section Available Assays:
 #'
@@ -181,7 +188,7 @@
 #' @export curatedTCGAData
 curatedTCGAData <-
     function(
-        diseaseCode = "*", assays = "*", dry.run = TRUE, verbose = FALSE, ...
+        diseaseCode = "*", assays = "*", dry.run = TRUE, verbose = TRUE, ...
     )
 {
     runDate <- "20160128"
