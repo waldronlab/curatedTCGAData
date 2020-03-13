@@ -93,6 +93,18 @@
     }, x = datList)
 }
 
+.test_eh <- function(...) {
+    tryCatch({
+        ExperimentHub(...)
+    }, error = function(e) {
+        emsg <- conditionMessage(e)
+        if (grepl("Timeout", emsg))
+            warning("[experimenthub.bioconductor.org] timeout, localHub=TRUE",
+                call.=FALSE)
+        ExperimentHub(..., localHub = TRUE)
+    })
+}
+
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
 #' @description curatedTCGAData assembles data on-the-fly from ExperimentHub
@@ -228,7 +240,7 @@ curatedTCGAData <-
 
     if (dry.run) { return(fileMatches) }
 
-    eh <- ExperimentHub(...)
+    eh <- .test_eh(...)
     assay_list <- .getResources(
         eh, assay_metadat[fileIdx, c("Title", "RDataPath")], verbose
     )
