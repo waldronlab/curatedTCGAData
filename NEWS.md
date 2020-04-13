@@ -1,3 +1,13 @@
+## CHANGES IN VERSION 1.10.0
+
+### New features
+
+* Control verbosity of `curatedTCGAData` function with the `verbose` argument
+(@lgeistlinger, #35)
+* Fallback added for when `ExperimentHub` service is offline (@vjcitn, #36)
+* Data export section added to main vignette due to new features in
+`MultiAssayExperiment`
+
 ## CHANGES IN VERSION 1.8.0
 
 ### Bug fixes and minor improvements
