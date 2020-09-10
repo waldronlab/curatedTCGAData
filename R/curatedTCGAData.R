@@ -105,6 +105,31 @@
     })
 }
 
+.queryResources <- function(ExperimentHub, resTable, verbose) {
+    fileNames <- stats::setNames(resTable[["RDataPath"]], resTable[["Title"]])
+    lapply(fileNames, function(res) {
+        if (verbose)
+            message("Working on: ", gsub("\\.rda", "", basename(res)))
+        query(ExperimentHub, res)
+    })
+}
+
+.getResourceInfo <- function(ExperimentHub, resTable, verbose) {
+    infos <- .queryResources(ExperimentHub, resTable, verbose)
+    resID <- vapply(infos, names, character(1L))
+    restab <- AnnotationHub::getInfoOnIds(ExperimentHub, resID)
+    restab <-
+        restab[, !names(restab) %in% c("fetch_id", "status", "biocversion")]
+    sizes <- as.numeric(restab[["file_size"]])
+    class(sizes) <- "object_size"
+    restab <- as.data.frame(append(
+        restab,
+        list(file_size = format(sizes, units = "Mb")),
+        which(names(restab) == "title")
+    ))
+    restab[, -length(restab)]
+}
+
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
 #' @description curatedTCGAData assembles data on-the-fly from ExperimentHub
@@ -121,8 +146,8 @@
 #' For a list of 'diseaseCodes', see the \link{curatedTCGAData-package}
 #' help page.
 #'
-#' @param diseaseCode character() A vector containing the name(s) of TCGA
-#'     cohorts
+#' @param diseaseCode character() A vector of TCGA cancer cohort codes
+#'     (e.g., `COAD`)
 #'
 #' @param assays character() A vector of TCGA assays, glob matches allowed;
 #'     see below for more details
@@ -192,10 +217,15 @@
 #' @seealso curatedTCGAData-package
 #'
 #' @return a \linkS4class{MultiAssayExperiment} of the specified assays and
-#' cancer codes
+#' cancer codes or informative data.frame of resources when `dry.run` is `TRUE`
 #'
 #' @examples
+#'
 #' curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
+#'
+#' curatedTCGAData("BRCA", "GISTIC*")
+#'
+#' @md
 #'
 #' @export curatedTCGAData
 curatedTCGAData <-
@@ -213,17 +243,6 @@ curatedTCGAData <-
     tcgaCodes <- sort(unique(gsub("(^[A-Z]*)_(.*)", "\\1", eh_assays)))
     assaysAvail <- .assaysAvailable(eh_assays)
 
-    if (identical(diseaseCode, "*") && identical(assays, "*") && dry.run) {
-        message("Please see the list below for available cohorts and assays")
-        cat("Available Cancer codes:\n",
-            paste(strwrap(paste(tcgaCodes, collapse = " "),
-                          width = 55), collapse = "\n "), "\n")
-        cat("Available Data Types:\n",
-            paste(strwrap(paste(assaysAvail, collapse = " "),
-                          width = 46), collapse = "\n "), "\n")
-        return(invisible())
-    }
-
     diseaseCode <- toupper(diseaseCode)
     resultCodes <- .searchFromInputs(diseaseCode, tcgaCodes)
 
@@ -238,9 +257,14 @@ curatedTCGAData <-
     if (!length(nrow(fileMatches)))
         stop("Cancer and data type combination(s) not available")
 
-    if (dry.run) { return(fileMatches) }
-
     eh <- .test_eh(...)
+
+    if (dry.run) {
+        message("See '?curatedTCGAData' for 'diseaseCode' and 'assays' inputs")
+        return(.getResourceInfo(
+            eh, assay_metadat[fileIdx, c("Title", "RDataPath")], FALSE
+        ))
+    }
     assay_list <- .getResources(
         eh, assay_metadat[fileIdx, c("Title", "RDataPath")], verbose
     )

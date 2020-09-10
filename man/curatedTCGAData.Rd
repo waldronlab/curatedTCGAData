@@ -13,8 +13,8 @@ curatedTCGAData(
 )
 }
 \arguments{
-\item{diseaseCode}{character() A vector containing the name(s) of TCGA
-cohorts}
+\item{diseaseCode}{character() A vector of TCGA cancer cohort codes
+(e.g., \code{COAD})}
 
 \item{assays}{character() A vector of TCGA assays, glob matches allowed;
 see below for more details}
@@ -30,14 +30,14 @@ before actual download (default TRUE)}
 }
 \value{
 a \linkS4class{MultiAssayExperiment} of the specified assays and
-cancer codes
+cancer codes or informative data.frame of resources when \code{dry.run} is \code{TRUE}
 }
 \description{
 curatedTCGAData assembles data on-the-fly from ExperimentHub
 to provide cohesive \linkS4class{MultiAssayExperiment} container objects.
 All the user has to do is to provide TCGA disease code(s) and assay types.
-It is highly recommended to use the companion package `TCGAutils`,
-developed to work with TCGA data specifically from `curatedTCGAData` and
+It is highly recommended to use the companion package \code{TCGAutils},
+developed to work with TCGA data specifically from \code{curatedTCGAData} and
 some flat files.
 }
 \details{
@@ -104,7 +104,10 @@ TCGAutils
 }
 
 \examples{
+
 curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
+
+curatedTCGAData("BRCA", "GISTIC*")
 
 }
 \seealso{
