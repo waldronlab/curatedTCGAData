@@ -1,3 +1,10 @@
+## CHANGES IN VERSION 1.12.0
+
+### Bug fixes and minor improvements
+
+* Check for `RaggedExperiment` dependency when loading data that uses the
+data representation (@vjcitn, #39)
+
 ## CHANGES IN VERSION 1.10.0
 
 ### New features
