@@ -47,6 +47,14 @@
     })
 }
 
+.checkRaggedExperiment <- function(reslist) {
+    reclass <- vapply(reslist, is, logical(1L), "RaggedExperiment")
+    if (any(reclass)) {
+        if (!requireNamespace("RaggedExperiment", quietly = TRUE))
+            stop("Install 'RaggedExperiment' to load these data.")
+    }
+}
+
 .getResources <- function(ExperimentHub, resTable, verbose) {
     fileNames <- stats::setNames(resTable[["RDataPath"]], resTable[["Title"]])
     anyMeth <- grepl("Methyl", fileNames, ignore.case = TRUE)
@@ -63,6 +71,8 @@
     if (any(anyMeth))
         resources <- c(resources,
             .loadMethyl(ExperimentHub, fileNames[anyMeth], verbose))
+
+    .checkRaggedExperiment(resources)
 
     resources
 }
