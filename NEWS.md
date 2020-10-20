@@ -2,6 +2,8 @@
 
 ### Bug fixes and minor improvements
 
+* Output dataset options as table when `dry.run` is enabled in the main
+function.
 * Check for `RaggedExperiment` dependency when loading data that uses the
 data representation (@vjcitn, #39)
 
