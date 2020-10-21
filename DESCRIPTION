@@ -30,6 +30,7 @@ Imports:
     AnnotationHub,
     ExperimentHub,
     HDF5Array,
+    methods,
     S4Vectors,
     stats,
     SummarizedExperiment,
