@@ -47,6 +47,7 @@
     })
 }
 
+#' @importFrom methods is
 .checkRaggedExperiment <- function(reslist) {
     reclass <- vapply(reslist, is, logical(1L), "RaggedExperiment")
     if (any(reclass)) {
@@ -166,7 +167,8 @@
 #'     before actual download (default TRUE)
 #'
 #' @param ... Additional arguments passed on to the
-#'     \link[ExperimentHub]{ExperimentHub} constructor
+#'     \code{\link[ExperimentHub:ExperimentHub-class]{ExperimentHub}}
+#'     constructor
 #'
 #' @param verbose logical(1) Whether to show the dataset currenlty being
 #'     (down)loaded (default TRUE)

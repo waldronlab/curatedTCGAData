@@ -26,7 +26,8 @@ before actual download (default TRUE)}
 (down)loaded (default TRUE)}
 
 \item{...}{Additional arguments passed on to the
-\link[ExperimentHub]{ExperimentHub} constructor}
+\code{\link[ExperimentHub:ExperimentHub-class]{ExperimentHub}}
+constructor}
 }
 \value{
 a \linkS4class{MultiAssayExperiment} of the specified assays and
