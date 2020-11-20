@@ -97,3 +97,17 @@ allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
 .cleanText <- function(x) {
     gsub("%", "\\%", iconv(x, "latin1", "ASCII", sub = "?"), fixed = TRUE)
 }
+
+.addSeeAlso <- function(cancer, version, manDirectory = "man") {
+    stopifnot(
+        is.character(version), length(version) == 1L, !is.na(version)
+    )
+    manname <- file.path(manDirectory, paste0(cancer, ".Rd"))
+    mandoc <- readLines(manname)
+    insert_idx <- grep("keyword", mandoc)
+    seealsotag <- paste0("\\seealso{\\link{",
+        paste(cancer, paste0("v", version), sep = "-"),
+    "}}")
+    mandoc2 <- append(mandoc, seealsotag, after = insert_idx - 1)
+    writeLines(mandoc2, con = file(manname))
+}

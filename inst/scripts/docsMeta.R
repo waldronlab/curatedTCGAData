@@ -1,23 +1,20 @@
 ## Script to generate metadata and documentation
 ## Run script from project folder (curatedTCGAdata)
 suppressPackageStartupMessages({
-    library(curatedTCGAData)
-    library(RaggedExperiment)
-    library(MultiAssayExperiment)
     library(BiocParallel)
-    library(magrittr)
+    library(S4Vectors)
+    library(RaggedExperiment)
+    library(TCGAutils)
+    library(MultiAssayExperiment)
+    library(curatedTCGAData)
 })
 
 if (identical(Sys.getenv("REPO"), ""))
-    Sys.setenv(REPO = "~/github/curatedTCGAData")
+    Sys.setenv(REPO = "~/gh/curatedTCGAData")
 
 repoDir <- normalizePath(Sys.getenv("REPO"))
-dataDir <- "data/bits"
 
 setwd(repoDir)
-
-## Get all compatible TCGA disease codes
-load("R/sysdata.rda")
 
 ## Load helpers to environment
 source("inst/scripts/tools.R")
@@ -32,22 +29,38 @@ source("inst/scripts/make-metadata.R")
 
 ## Generate documents
 ## Get codes from loaded function
-TCGAcodes <-
-    diseaseCodes[["Study.Abbreviation"]][diseaseCodes[["Available"]] == "Yes"]
+data(diseaseCodes, package = "TCGAutils")
+TCGAcodes <- with(diseaseCodes, Study.Abbreviation[Available == "Yes"])
 
 ## Folder containing cancer folders
-cancerPath <- file.path(repoDir, "../MultiAssayExperiment.TCGA/", dataDir)
-
-## Document by cancer folder
-cancerFolders <- file.path(cancerPath, TCGAcodes)
+dataDir <- file.path(repoDir, "../MultiAssayExperiment.TCGA/data/bits/")
 
 ## create metadata.csv in inst/extdata folder
 message("Generating metadata...")
-make_metadata()
+make_metadata(
+    directory = "~/gh/MultiAssayExperiment.TCGA/", dataDir = "data/bits",
+    version = "2.0.0", ext_pattern = allextpat,
+    resource_maintainer = utils::maintainer("curatedTCGAData"),
+    resource_biocVersion = BiocManager::version(),
+    append = TRUE
+)
 
 message("Creating documentation pages")
 ## set width for `cat`
 options(width = 78)
 
-lapply(cancerFolders, make_documentation)
+registered()
+params <- MulticoreParam(
+    workers = 33, stop.on.error = FALSE, progressbar = TRUE
+)
 
+BiocParallel::bplapply(TCGAcodes, function(ccode) {
+    make_documentation(
+        dataDir = "~/gh/MultiAssayExperiment.TCGA/data/bits",
+        cancer = ccode,
+        version = "2.0.0",
+        manDirectory = "man"
+    )
+}, BPPARAM = params)
+
+lapply(TCGAcodes, .addSeeAlso, version = "2.0.0")

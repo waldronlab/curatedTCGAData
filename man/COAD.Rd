@@ -116,4 +116,5 @@ ethnicity:
 
 Including an additional 2604 columns
 }}
+\seealso{\link{COAD-v2.0.0}}
 \keyword{datasets}

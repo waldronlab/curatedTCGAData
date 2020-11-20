@@ -151,4 +151,5 @@ ethnicity:
 
 Including an additional 4368 columns
 }}
+\seealso{\link{GBM-v2.0.0}}
 \keyword{datasets}

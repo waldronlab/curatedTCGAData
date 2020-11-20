@@ -153,4 +153,5 @@ ethnicity:
 
 Including an additional 1390 columns
 }}
+\seealso{\link{STAD-v2.0.0}}
 \keyword{datasets}

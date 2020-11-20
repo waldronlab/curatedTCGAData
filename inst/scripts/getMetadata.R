@@ -1,7 +1,9 @@
 .getDataFiles <-
-function(directory = "~/github/MultiAssayExperiment.TCGA/",
-    dataDir = "data/bits", cancerFolder, pattern = allextpat) {
-    location <- file.path(directory, dataDir, cancerFolder)
+    function(directory, dataDir, version, cancerFolder, pattern = allextpat)
+{
+    stopifnot(!missing(version))
+    location <-
+        file.path(directory, dataDir, paste0("v", version), cancerFolder)
     list.files(location, pattern = pattern, full.names = TRUE, recursive = TRUE)
 }
 
@@ -35,17 +37,23 @@ function(directory = "~/github/MultiAssayExperiment.TCGA/",
 
 
 getMetadata <-
-function(directory, dataDir, ext_pattern, resource_maintainer,
-    resource_biocVersion) {
-
-    cancerFolders <- dir(file.path(directory, dataDir))
+    function(
+        directory, dataDir, version, ext_pattern,
+        resource_maintainer, resource_biocVersion
+    )
+{
     stopifnot(S4Vectors::isSingleString(directory),
         S4Vectors::isSingleString(dataDir))
 
+    location <- file.path(directory, dataDir, paste0("v", version))
+    cancerFolders <- dir(location)
+
     metasets <- lapply(cancerFolders, function(cancer) {
         message("Working on: ", cancer)
-        datafilepaths <- .getDataFiles(directory = directory,
-            dataDir = dataDir, cancerFolder = cancer, pattern = ext_pattern)
+        datafilepaths <- .getDataFiles(
+            directory = directory, dataDir = dataDir, version = version,
+            cancerFolder = cancer, pattern = ext_pattern
+        )
         dfmeta <- .makeMetaDF(datafilepaths, TRUE)
         dataList <- .loadRDAList(dfmeta)
         dataList <- .addMethylation(dfmeta, dataList)
@@ -58,7 +66,7 @@ function(directory, dataDir, ext_pattern, resource_maintainer,
         Genome <- rep("", replen)
         SourceType <- rep("TXT", replen)
         SourceUrl <- rep("http://gdac.broadinstitute.org/", replen)
-        SourceVersion <- rep("1.1.38", replen)
+        SourceVersion <- rep(version, replen)
         Species <- rep("Homo sapiens", replen)
         TaxonomyId <- rep("9606", replen)
         Coordinate_1_based <- rep(as.logical(NA), replen)

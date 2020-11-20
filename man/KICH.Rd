@@ -150,4 +150,5 @@ ethnicity:
 
 Including an additional 718 columns
 }}
+\seealso{\link{KICH-v2.0.0}}
 \keyword{datasets}

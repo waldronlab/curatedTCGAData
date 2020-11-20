@@ -149,4 +149,5 @@ ethnicity:
 
 Including an additional 1218 columns
 }}
+\seealso{\link{LIHC-v2.0.0}}
 \keyword{datasets}

@@ -151,4 +151,5 @@ tumor_size:
 
 Including an additional 1481 columns
 }}
+\seealso{\link{THCA-v2.0.0}}
 \keyword{datasets}

@@ -174,4 +174,5 @@ ethnicity:
 
 Including an additional 2238 columns
 }}
+\seealso{\link{LUSC-v2.0.0}}
 \keyword{datasets}

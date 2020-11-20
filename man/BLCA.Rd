@@ -157,4 +157,5 @@ ethnicity:
 
 Including an additional 1695 columns
 }}
+\seealso{\link{BLCA-v2.0.0}}
 \keyword{datasets}

@@ -160,4 +160,5 @@ ethnicity:
 
 Including an additional 2607 columns
 }}
+\seealso{\link{LUAD-v2.0.0}}
 \keyword{datasets}
