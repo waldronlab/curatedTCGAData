@@ -73,13 +73,20 @@ getMetadata <-
         DataProvider <-
             rep("Eli and Edythe L. Broad Institute of Harvard and MIT", replen)
         Maintainer <- rep(resource_maintainer, replen)
-        RDataPath <- file.path("curatedTCGAData", ResourceName)
+        RDataPath <-
+            file.path("curatedTCGAData", paste0("v", version), ResourceName)
         RDataClass <- .getRDataClass(dataList)
         DispatchClass <- .get_DispatchClass(ResourceName)
-        data.frame(Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
-                   SourceVersion, Species, TaxonomyId, Coordinate_1_based,
-                   DataProvider, Maintainer, RDataClass, DispatchClass,
-                   ResourceName, RDataPath, stringsAsFactors = FALSE)
+        Tags <- vapply(
+            strsplit(ResourceName, "_|-"), `[[`, character(1L), 2L
+        )
+
+        data.frame(
+            Title, Description, BiocVersion, Genome, SourceType, SourceUrl,
+            SourceVersion, Species, TaxonomyId, Coordinate_1_based,
+            DataProvider, Maintainer, RDataClass, DispatchClass,
+            ResourceName, RDataPath, Tags, stringsAsFactors = FALSE
+        )
     })
     do.call(rbind, metasets)
 }

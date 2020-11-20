@@ -35,8 +35,17 @@ TCGAcodes <- with(diseaseCodes, Study.Abbreviation[Available == "Yes"])
 ## Folder containing cancer folders
 dataDir <- file.path(repoDir, "../MultiAssayExperiment.TCGA/data/bits/")
 
+## add Tags to older data
+if (FALSE) {
+    meta <- readr::read_csv("inst/extdata/metadata.csv")
+    meta$Tags <- vapply(
+        strsplit(meta$ResourceName, "_|-"), `[[`, character(1L), 2L
+    )
+    readr::write_csv(meta, file = "inst/extdata/metadata.csv")
+}
+
 ## create metadata.csv in inst/extdata folder
-message("Generating metadata...")
+message("Generating main 'metadata.csv' file...")
 make_metadata(
     directory = "~/gh/MultiAssayExperiment.TCGA/", dataDir = "data/bits",
     version = "2.0.0", ext_pattern = allextpat,
@@ -44,6 +53,11 @@ make_metadata(
     resource_biocVersion = BiocManager::version(),
     append = TRUE
 )
+
+## check metadata.csv
+setwd("..")
+AnnotationHubData::makeAnnotationHubMetadata("curatedTCGAData", "metadata.csv")
+setwd(repoDir)
 
 message("Creating documentation pages")
 ## set width for `cat`
