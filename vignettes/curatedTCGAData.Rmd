@@ -124,6 +124,30 @@ only primary tumors:
 accmae[, tums, ]
 ```
 
+### Example use of RaggedExperiment
+
+The RaggedExperiment representation provides a matrix view of a `GRangesList`
+internal representation. Typical use of a RaggedExperiment involves a number of
+functions to reshape 'ragged' measurements into a matrix-like format. These
+include `sparseAssay`, `compactAssay`, `disjoinAssay`, and `qreduceAssay`.
+See the `RaggedExperiment` vignette for details. In this example, we convert
+entrez gene identifiers to numeric in order to show how we can create a sparse
+matrix representation of any numeric metadata column in the `RaggedExperiment`.
+
+```{r}
+ragex <- accmae[["ACC_Mutation-20160128"]]
+## convert score to numeric
+mcols(ragex)$Entrez_Gene_Id <- as.numeric(mcols(ragex)[["Entrez_Gene_Id"]])
+sparseAssay(ragex, i = "Entrez_Gene_Id", sparse=TRUE)[1:6, 1:3]
+```
+
+Users who would like to use the internal `GRangesList` representation can
+invoke the coercion method:
+
+```{r}
+as(ragex, "GRangesList")
+```
+
 ## Exporting Data
 
 MultiAssayExperiment provides users with an integrative representation of
