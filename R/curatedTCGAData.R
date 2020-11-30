@@ -252,9 +252,11 @@
 #'
 #' @examples
 #'
-#' curatedTCGAData(diseaseCode = c("GBM", "ACC"), assays = "CNASNP")
+#' curatedTCGAData(
+#'     diseaseCode = c("GBM", "ACC"), assays = "CNASNP", version = "2.0.0"
+#' )
 #'
-#' curatedTCGAData("BRCA", "GISTIC*")
+#' curatedTCGAData("BRCA", "GISTIC*", "2.0.0")
 #'
 #' @md
 #'

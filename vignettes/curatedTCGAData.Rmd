@@ -33,13 +33,17 @@ library(TCGAutils)
 Checking available cancer codes and assays in TCGA data:
 
 ```{r}
-curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE)
+curatedTCGAData(
+    diseaseCode = "*", assays = "*", version = "2.0.0", dry.run = TRUE
+)
 ```
 
 Check potential files to be downloaded:
 
 ```{r}
-curatedTCGAData(diseaseCode = "COAD", assays = "RPPA*", dry.run = TRUE)
+curatedTCGAData(
+    diseaseCode = "COAD", assays = "RPPA*", version = "2.0.0", dry.run = TRUE
+)
 ```
 
 # Caveats for working with TCGA data
@@ -57,7 +61,10 @@ vignette.
 ## ACC dataset example
 
 ```{r, message=FALSE}
-(accmae <- curatedTCGAData("ACC", c("CN*", "Mutation"), FALSE))
+(
+accmae <-
+    curatedTCGAData("ACC", c("CN*", "Mutation"), version = "2.0.0", FALSE)
+)
 ```
 
 **Note**. For more on how to use a `MultiAssayExperiment` please see the
