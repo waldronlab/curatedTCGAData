@@ -7,6 +7,7 @@
 curatedTCGAData(
   diseaseCode = "*",
   assays = "*",
+  version,
   dry.run = TRUE,
   verbose = TRUE,
   ...
@@ -18,6 +19,11 @@ curatedTCGAData(
 
 \item{assays}{character() A vector of TCGA assays, glob matches allowed;
 see below for more details}
+
+\item{version}{character(1) Either \verb{1.1.38} or \verb{2.0.0} indicating the
+data version to obtain from \code{ExperimentHub}. Version \verb{2.0.0} includes
+various improvements as well as the addition of the \code{RNASeq2Gene}
+assay. See \code{version} section details.}
 
 \item{dry.run}{logical(1) Whether to return the dataset names
 before actual download (default TRUE)}
@@ -61,7 +67,8 @@ argument in the main function. Partial glob matches are allowed such as:
 ExperimentList data types   Description
 ----------------------------------------------------------------------------
 SummarizedExperiment*
-  RNASeqGene                RSEM TPM gene expression values
+  RNASeqGene                Gene expression values
+  RNASeq2Gene               RSEM TPM gene expression values
   RNASeq2GeneNorm           Upper quartile normalized RSEM TPM gene
                             expression values
   miRNAArray                Probe-level  miRNA expression values
@@ -102,6 +109,21 @@ RaggedExperiment
 TCGAutils
 
 }
+}
+
+\section{version}{
+
+
+The new version \verb{2.0.0} includes various improvements including an
+additional assay that provides \code{RNASeq2Gene} data as RSEM TPM gene
+expression values (issue #38). Additional changes include genomic
+information for \code{RaggedExperiment} type data objects where '37' is now
+'GRCh37' as reported in issue #40. Datasets (e.g., OV, GBM) that contain
+multiple assays that could be merged are now provided as merged assays
+(issue #27). We corrected an issue where \code{mRNAArray} assays were returning
+\code{DataFrame}s instead of \code{matrix} type data (issue #31). Version \verb{1.1.38}
+provides the original run of \code{curatedTCGAData} and is provided due to legacy
+reasons.
 }
 
 \examples{

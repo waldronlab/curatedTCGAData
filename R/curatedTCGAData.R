@@ -163,6 +163,11 @@
 #' @param assays character() A vector of TCGA assays, glob matches allowed;
 #'     see below for more details
 #'
+#' @param version character(1) Either `1.1.38` or `2.0.0` indicating the
+#'     data version to obtain from `ExperimentHub`. Version `2.0.0` includes
+#'     various improvements as well as the addition of the `RNASeq2Gene`
+#'     assay. See `version` section details.
+#'
 #' @param dry.run logical(1) Whether to return the dataset names
 #'     before actual download (default TRUE)
 #'
@@ -184,7 +189,8 @@
 #' ExperimentList data types   Description
 #' ----------------------------------------------------------------------------
 #' SummarizedExperiment*
-#'   RNASeqGene                RSEM TPM gene expression values
+#'   RNASeqGene                Gene expression values
+#'   RNASeq2Gene               RSEM TPM gene expression values
 #'   RNASeq2GeneNorm           Upper quartile normalized RSEM TPM gene
 #'                             expression values
 #'   miRNAArray                Probe-level  miRNA expression values
@@ -226,6 +232,19 @@
 #'
 #' }
 #'
+#' @section version:
+#'
+#' The new version `2.0.0` includes various improvements including an
+#' additional assay that provides `RNASeq2Gene` data as RSEM TPM gene
+#' expression values (issue #38). Additional changes include genomic
+#' information for `RaggedExperiment` type data objects where '37' is now
+#' 'GRCh37' as reported in issue #40. Datasets (e.g., OV, GBM) that contain
+#' multiple assays that could be merged are now provided as merged assays
+#' (issue #27). We corrected an issue where `mRNAArray` assays were returning
+#' `DataFrame`s instead of `matrix` type data (issue #31). Version `1.1.38`
+#' provides the original run of `curatedTCGAData` and is provided due to legacy
+#' reasons.
+#'
 #' @seealso curatedTCGAData-package
 #'
 #' @return a \linkS4class{MultiAssayExperiment} of the specified assays and
@@ -242,14 +261,20 @@
 #' @export curatedTCGAData
 curatedTCGAData <-
     function(
-        diseaseCode = "*", assays = "*", dry.run = TRUE, verbose = TRUE, ...
+        diseaseCode = "*", assays = "*", version,
+        dry.run = TRUE, verbose = TRUE, ...
     )
 {
     runDate <- "20160128"
 
+    if (missing(version) || !version %in% c("1.1.38", "2.0.0"))
+        stop("'version' is not '1.1.38' or '2.0.0'; see '?curatedTCGAData'")
+
     assays_file <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
     assay_metadat <- read.csv(assays_file, stringsAsFactors = FALSE)
+    assay_metadat <-
+        assay_metadat[assay_metadat[["SourceVersion"]] == version, ]
     eh_assays <- assay_metadat[["ResourceName"]]
 
     tcgaCodes <- sort(unique(gsub("(^[A-Z]*)_(.*)", "\\1", eh_assays)))
@@ -273,9 +298,11 @@ curatedTCGAData <-
 
     if (dry.run) {
         message("See '?curatedTCGAData' for 'diseaseCode' and 'assays' inputs")
-        return(.getResourceInfo(
-            eh, assay_metadat[fileIdx, c("Title", "RDataPath")], FALSE
-        ))
+        return(
+            .getResourceInfo(
+                eh, assay_metadat[fileIdx, c("Title", "RDataPath")], FALSE
+            )
+        )
     }
     assay_list <- .getResources(
         eh, assay_metadat[fileIdx, c("Title", "RDataPath")], verbose
