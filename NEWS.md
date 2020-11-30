@@ -1,3 +1,23 @@
+## CHANGES IN VERSION 1.14.0
+
+### New features
+
+* The `version` argument now allows users to select either `1.1.38` or
+`2.0.0`.
+* Version `2.0.0` includes `RNASeq2Gene` data as RSEM TPM gene
+expression values (#38, @mherberg).
+* Genomic information updated for `RaggedExperiment` type data objects where
+'37' is now 'GRCh37' (#40, @vjcitn).
+* Datasets (e.g., OV, GBM) that contain multiple assays that could be merged
+are now provided as merged assays (#27, @lwaldron).
+* The vignette now includes sections on how to use the `TCGAprimaryTumors` and
+`getWithColData` functions.
+
+### Bug fixes and minor improvements
+
+* `mRNAArray` assays now return `matrix` type data instead of `DataFrame`
+(#31, @lgeistlinger, @vjcitn).
+
 ## CHANGES IN VERSION 1.12.0
 
 ### Bug fixes and minor improvements
