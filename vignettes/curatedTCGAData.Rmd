@@ -28,21 +28,60 @@ library(MultiAssayExperiment)
 library(TCGAutils)
 ```
 
-# Downloading datasets
+# Data versions
 
-Checking available cancer codes and assays in TCGA data:
+`curatedTCGAData` now has a version `2.0.0` set of data with a number of
+improvements and bug fixes. To access the previous data release,
+please use version `1.1.38`. This can be added to the
+`curatedTCGAData` function as:
 
 ```{r}
-curatedTCGAData(
-    diseaseCode = "*", assays = "*", version = "2.0.0", dry.run = TRUE
+head(
+    curatedTCGAData(
+        diseaseCode = "COAD", assays = "*", version = "1.1.38"
+    )
 )
 ```
 
-Check potential files to be downloaded:
+## Version 2.0.0
+
+Here is a list of changes to the data provided in version `2.0.0`
+
+* provides `RNASeq2Gene` assays with RSEM gene expression values
+* Genomic information is present in `RaggedExperiment` objects as `GRCh37`
+rather than `37`
+* Assays coming from the same platform are now merged and provided as one
+(e.g., in `OV` and `GBM`)
+* `mRNAArray` data now returns `matrix` data instead of `DataFrame`
+
+# Downloading datasets
+
+To get a neat table of cancer data available in `curatedTCGAData`, see
+the `diseaseCodes` dataset from `TCGAutils`. Availability is indicated by the
+`Available` column in the dataset.
 
 ```{r}
+data('diseaseCodes', package = "TCGAutils")
+head(diseaseCodes)
+```
+
+Alternatively, you can get the full table of data available using wildcards
+`'*'` in the `diseaseCode` argument of the main function:
+
+```{r,eval=FALSE}
 curatedTCGAData(
-    diseaseCode = "COAD", assays = "RPPA*", version = "2.0.0", dry.run = TRUE
+    diseaseCode = "*", assays = "*", version = "2.0.0"
+)
+```
+
+To see what assays are available for a particular TCGA disease code, leave the
+`assays` argument as a wildcard (`'*'`):
+
+```{r}
+head(
+    curatedTCGAData(
+        diseaseCode = "COAD", assays = "*", version = "2.0.0"
+    )
 )
 ```
 
@@ -61,10 +100,9 @@ vignette.
 ## ACC dataset example
 
 ```{r, message=FALSE}
-(
-accmae <-
-    curatedTCGAData("ACC", c("CN*", "Mutation"), version = "2.0.0", FALSE)
-)
+(accmae <- curatedTCGAData(
+    "ACC", c("CN*", "Mutation"), version = "2.0.0", dry.run = FALSE
+))
 ```
 
 **Note**. For more on how to use a `MultiAssayExperiment` please see the
