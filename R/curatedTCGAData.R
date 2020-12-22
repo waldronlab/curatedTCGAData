@@ -24,7 +24,7 @@
 .loadMethyl <- function(ehub, methylpaths, verbose) {
     fact <- gsub("_assays\\.[Hh]5|_se\\.[Rr][Dd][Ss]", "", methylpaths)
     methList <- split(sort(methylpaths), fact)
-    fnames <- vapply(strsplit(unique(fact), "/"), `[`, character(1L), 2L)
+    fnames <- basename(unique(fact))
     names(methList) <- fnames
     lapply(methList, function(methfile, fn) {
         if (verbose)
