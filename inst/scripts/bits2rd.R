@@ -31,7 +31,8 @@
 bits2rd <-
     function(
         dataDir, cancer, filename, version, aliases = cancer,
-        descriptions = "A document describing the TCGA cancer code"
+        descriptions = "A document describing the TCGA cancer code",
+        ext_pattern = "\\.[RrHh][Dd5][AaSs]?$"
     )
 {
     stopifnot(isSingleString(filename), is.character(version))
@@ -47,7 +48,7 @@ bits2rd <-
     stopifnot(S4Vectors::isSingleString(cancerFolder))
 
     fileNames <- list.files(cancerFolder, full.names = TRUE,
-        pattern = allextpat, recursive = TRUE)
+        pattern = ext_pattern, recursive = TRUE)
 
     datadata <- .makeMetaDF(fileNames)
 

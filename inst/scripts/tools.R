@@ -1,5 +1,3 @@
-allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
-
 .loadEnvObj <- function(filepath, name) {
     OBJENV <- new.env(parent = emptyenv())
     load(filepath, envir = OBJENV)
@@ -48,11 +46,13 @@ allextpat <- "\\.[RrHh][Dd5][AaSs]?$"
     data_list
 }
 
-.makeMetaDF <- function(filepaths, includeSlots = FALSE) {
+.makeMetaDF <- function(
+    filepaths, includeSlots = FALSE, ext_pattern = "\\.[RrHh][Dd5][AaSs]?$"
+) {
     namespat <- "^[A-Z]*_(.*)"
 
     methLogic <- grepl("Methyl", filepaths)
-    basefiles <- gsub(allextpat, "", basename(filepaths))
+    basefiles <- gsub(ext_pattern, "", basename(filepaths))
 
     if (any(methLogic)) {
         fpaths <- filepaths[!methLogic]

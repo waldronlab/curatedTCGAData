@@ -12,9 +12,9 @@ suppressPackageStartupMessages({
 if (identical(Sys.getenv("REPO"), ""))
     Sys.setenv(REPO = "~/gh/curatedTCGAData")
 
-repoDir <- normalizePath(Sys.getenv("REPO"))
+repodir <- normalizePath(Sys.getenv("REPO"))
 
-setwd(repoDir)
+setwd(repodir)
 
 ## Load helpers to environment
 source("inst/scripts/tools.R")
@@ -22,8 +22,6 @@ source("inst/scripts/tools.R")
 source("inst/scripts/bits2rd.R")
 # Load document generation function
 source("inst/scripts/make-documentation.R")
-## Load helper function for collecting metadata
-source("inst/scripts/getMetadata.R")
 # Load metadata function
 source("inst/scripts/make-metadata.R")
 
@@ -33,7 +31,7 @@ data(diseaseCodes, package = "TCGAutils")
 TCGAcodes <- with(diseaseCodes, Study.Abbreviation[Available == "Yes"])
 
 ## Folder containing cancer folders
-dataDir <- file.path(repoDir, "../MultiAssayExperiment.TCGA/data/bits/")
+dataDir <- file.path(repodir, "../MultiAssayExperiment.TCGA/data/bits/")
 
 ## add Tags to older data
 if (FALSE) {
@@ -48,16 +46,16 @@ if (FALSE) {
 message("Generating main 'metadata.csv' file...")
 make_metadata(
     directory = "~/gh/MultiAssayExperiment.TCGA/", dataDir = "data/bits",
-    version = "2.0.0", ext_pattern = allextpat,
+    version = "2.0.1",
     resource_maintainer = utils::maintainer("curatedTCGAData"),
     resource_biocVersion = BiocManager::version(),
-    append = TRUE
+    append = FALSE
 )
 
 ## check metadata.csv
 setwd("..")
 AnnotationHubData::makeAnnotationHubMetadata("curatedTCGAData", "metadata.csv")
-setwd(repoDir)
+setwd(repodir)
 
 message("Creating documentation pages")
 ## set width for `cat`
@@ -72,9 +70,9 @@ BiocParallel::bplapply(TCGAcodes, function(ccode) {
     make_documentation(
         dataDir = "~/gh/MultiAssayExperiment.TCGA/data/bits",
         cancer = ccode,
-        version = "2.0.0",
+        version = "2.0.1",
         manDirectory = "man"
     )
 }, BPPARAM = params)
 
-lapply(TCGAcodes, .addSeeAlso, version = "2.0.0")
+lapply(TCGAcodes, .addSeeAlso, version = "2.0.1")
