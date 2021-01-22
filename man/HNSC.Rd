@@ -162,5 +162,5 @@ ethnicity:
 
 Including an additional 1426 columns
 }}
-\seealso{\link{HNSC-v2.0.0}}
+\seealso{\link{HNSC-v2.0.1}}
 \keyword{datasets}

@@ -142,5 +142,5 @@ ethnicity:
 
 Including an additional 622 columns
 }}
-\seealso{\link{CHOL-v2.0.0}}
+\seealso{\link{CHOL-v2.0.1}}
 \keyword{datasets}

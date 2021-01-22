@@ -156,5 +156,5 @@ ethnicity:
 
 Including an additional 940 columns
 }}
-\seealso{\link{ESCA-v2.0.0}}
+\seealso{\link{ESCA-v2.0.1}}
 \keyword{datasets}

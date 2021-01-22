@@ -139,5 +139,5 @@ ethnicity:
 
 Including an additional 1764 columns
 }}
-\seealso{\link{LGG-v2.0.0}}
+\seealso{\link{LGG-v2.0.1}}
 \keyword{datasets}

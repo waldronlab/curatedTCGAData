@@ -151,5 +151,5 @@ ethnicity:
 
 Including an additional 2667 columns
 }}
-\seealso{\link{BRCA-v2.0.0}}
+\seealso{\link{BRCA-v2.0.1}}
 \keyword{datasets}

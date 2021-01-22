@@ -75,4 +75,4 @@ BiocParallel::bplapply(TCGAcodes, function(ccode) {
     )
 }, BPPARAM = params)
 
-lapply(TCGAcodes, .addSeeAlso, version = "2.0.1")
+lapply(TCGAcodes, .addSeeAlso, version = "2.0.1", clean = TRUE)

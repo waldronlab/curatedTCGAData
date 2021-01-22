@@ -122,5 +122,5 @@ ethnicity:
 
 Including an additional 685 columns
 }}
-\seealso{\link{THYM-v2.0.0}}
+\seealso{\link{THYM-v2.0.1}}
 \keyword{datasets}

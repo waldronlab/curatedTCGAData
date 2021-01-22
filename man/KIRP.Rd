@@ -166,5 +166,5 @@ ethnicity:
 
 Including an additional 1686 columns
 }}
-\seealso{\link{KIRP-v2.0.0}}
+\seealso{\link{KIRP-v2.0.1}}
 \keyword{datasets}

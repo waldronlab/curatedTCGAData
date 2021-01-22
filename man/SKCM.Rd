@@ -143,5 +143,5 @@ ethnicity:
 
 Including an additional 1517 columns
 }}
-\seealso{\link{SKCM-v2.0.0}}
+\seealso{\link{SKCM-v2.0.1}}
 \keyword{datasets}

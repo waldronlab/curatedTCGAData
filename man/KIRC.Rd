@@ -164,5 +164,5 @@ ethnicity:
 
 Including an additional 2250 columns
 }}
-\seealso{\link{KIRC-v2.0.0}}
+\seealso{\link{KIRC-v2.0.1}}
 \keyword{datasets}

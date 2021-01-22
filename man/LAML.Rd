@@ -117,5 +117,5 @@ ethnicity:
 
 Including an additional 478 columns
 }}
-\seealso{\link{LAML-v2.0.0}}
+\seealso{\link{LAML-v2.0.1}}
 \keyword{datasets}
