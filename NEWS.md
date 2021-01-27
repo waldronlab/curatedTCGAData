@@ -3,8 +3,8 @@
 ### New features
 
 * The `version` argument now allows users to select either `1.1.38` or
-`2.0.0`.
-* Version `2.0.0` includes `RNASeq2Gene` data as RSEM TPM gene
+`2.0.1`.
+* Version `2.0.1` includes `RNASeq2Gene` data as RSEM TPM gene
 expression values (#38, @mherberg).
 * Genomic information updated for `RaggedExperiment` type data objects where
 '37' is now 'GRCh37' (#40, @vjcitn).
