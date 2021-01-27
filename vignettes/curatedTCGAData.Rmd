@@ -28,18 +28,61 @@ library(MultiAssayExperiment)
 library(TCGAutils)
 ```
 
-# Downloading datasets
+# Data versions
 
-Checking available cancer codes and assays in TCGA data:
+`curatedTCGAData` now has a version `2.0.0` set of data with a number of
+improvements and bug fixes. To access the previous data release,
+please use version `1.1.38`. This can be added to the
+`curatedTCGAData` function as:
 
 ```{r}
-curatedTCGAData(diseaseCode = "*", assays = "*", dry.run = TRUE)
+head(
+    curatedTCGAData(
+        diseaseCode = "COAD", assays = "*", version = "1.1.38"
+    )
+)
 ```
 
-Check potential files to be downloaded:
+## Version 2.0.0
+
+Here is a list of changes to the data provided in version `2.0.0`
+
+* provides `RNASeq2Gene` assays with RSEM gene expression values
+* Genomic information is present in `RaggedExperiment` objects as `GRCh37`
+rather than `37`
+* Assays coming from the same platform are now merged and provided as one
+(e.g., in `OV` and `GBM`)
+* `mRNAArray` data now returns `matrix` data instead of `DataFrame`
+
+# Downloading datasets
+
+To get a neat table of cancer data available in `curatedTCGAData`, see
+the `diseaseCodes` dataset from `TCGAutils`. Availability is indicated by the
+`Available` column in the dataset.
 
 ```{r}
-curatedTCGAData(diseaseCode = "COAD", assays = "RPPA*", dry.run = TRUE)
+data('diseaseCodes', package = "TCGAutils")
+head(diseaseCodes)
+```
+
+Alternatively, you can get the full table of data available using wildcards
+`'*'` in the `diseaseCode` argument of the main function:
+
+```{r,eval=FALSE}
+curatedTCGAData(
+    diseaseCode = "*", assays = "*", version = "2.0.0"
+)
+```
+
+To see what assays are available for a particular TCGA disease code, leave the
+`assays` argument as a wildcard (`'*'`):
+
+```{r}
+head(
+    curatedTCGAData(
+        diseaseCode = "COAD", assays = "*", version = "2.0.0"
+    )
+)
 ```
 
 # Caveats for working with TCGA data
@@ -57,7 +100,9 @@ vignette.
 ## ACC dataset example
 
 ```{r, message=FALSE}
-(accmae <- curatedTCGAData("ACC", c("CN*", "Mutation"), FALSE))
+(accmae <- curatedTCGAData(
+    "ACC", c("CN*", "Mutation"), version = "2.0.0", dry.run = FALSE
+))
 ```
 
 **Note**. For more on how to use a `MultiAssayExperiment` please see the
@@ -87,7 +132,7 @@ head(getClinicalNames("ACC"))
 colData(accmae)[, getClinicalNames("ACC")][1:5, 1:5]
 ```
 
-### Samples in Assays
+### Identifying samples in Assays
 
 The `sampleTables` function gives an overview of sample types / codes
 present in the data:
@@ -95,6 +140,16 @@ present in the data:
 ```{r}
 sampleTables(accmae)
 ```
+
+You can use the reference dataset (`sampleTypes`) from the `TCGAutils` package
+to interpret the TCGA sample codes above. The dataset provides clinically
+meaningful descriptions:
+
+```{r}
+head(sampleTypes)
+```
+
+### Separating samples
 
 Often, an analysis is performed comparing two groups of samples to each other.
 To facilitate the separation of samples, the `splitAssays` TCGAutils function
@@ -117,11 +172,40 @@ tumors, use the function on the colnames of the `MultiAssayExperiment`:
 tums <- TCGAsampleSelect(colnames(accmae), "01")
 ```
 
-You can subsequently provide this input to the subsetting function to select
-only primary tumors:
+### TCGAprimaryTumors convenience
+
+If interested in only the primary tumor samples, `TCGAutils` provides a
+convenient operation to extract primary tumors from the MultiAssayExperiment
+representation. The `TCGAprimaryTumors` function will return only
+samples with primary tumor (either solid tissue or blood) samples using
+the above operations in the background:
 
 ```{r}
-accmae[, tums, ]
+(primaryTumors <- TCGAprimaryTumors(accmae))
+```
+
+To view the results, run `sampleTables` again on the output:
+
+```{r}
+sampleTables(primaryTumors)
+```
+
+### Keeping colData in an extracted Assay
+
+When extracting a single assay from the `MultiAssayExperiment` the user
+can conveniently choose to keep the `colData` from the `MultiAssayExperiment`
+in the extracted assay **given** that the class of the extracted assay
+supports `colData` storage and operations. `SummarizedExperiment` and its
+derived data representations support this operation. In this example, we
+extract the mutation data as represented by a `RaggedExperiment` which was
+designed to have `colData` functionality. The default replacement method
+is to 'append' the `MultiAssayExperiment` `colData` to the `RaggedExperiment`
+assay. The `mode` argument can also completely replace the `colData` when set
+to 'replace'.
+
+```{r}
+(accmut <- getWithColData(accmae, "ACC_Mutation-20160128", mode = "append"))
+head(colData(accmut)[, 1:4])
 ```
 
 ### Example use of RaggedExperiment
