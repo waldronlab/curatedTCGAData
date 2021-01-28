@@ -30,7 +30,7 @@ library(TCGAutils)
 
 # Data versions
 
-`curatedTCGAData` now has a version `2.0.0` set of data with a number of
+`curatedTCGAData` now has a version `2.0.1` set of data with a number of
 improvements and bug fixes. To access the previous data release,
 please use version `1.1.38`. This can be added to the
 `curatedTCGAData` function as:
@@ -43,9 +43,9 @@ head(
 )
 ```
 
-## Version 2.0.0
+## Version 2.0.1
 
-Here is a list of changes to the data provided in version `2.0.0`
+Here is a list of changes to the data provided in version `2.0.1`
 
 * provides `RNASeq2Gene` assays with RSEM gene expression values
 * Genomic information is present in `RaggedExperiment` objects as `GRCh37`
@@ -70,7 +70,7 @@ Alternatively, you can get the full table of data available using wildcards
 
 ```{r,eval=FALSE}
 curatedTCGAData(
-    diseaseCode = "*", assays = "*", version = "2.0.0"
+    diseaseCode = "*", assays = "*", version = "2.0.1"
 )
 ```
 
@@ -80,7 +80,7 @@ To see what assays are available for a particular TCGA disease code, leave the
 ```{r}
 head(
     curatedTCGAData(
-        diseaseCode = "COAD", assays = "*", version = "2.0.0"
+        diseaseCode = "COAD", assays = "*", version = "2.0.1"
     )
 )
 ```
@@ -101,7 +101,7 @@ vignette.
 
 ```{r, message=FALSE}
 (accmae <- curatedTCGAData(
-    "ACC", c("CN*", "Mutation"), version = "2.0.0", dry.run = FALSE
+    "ACC", c("CN*", "Mutation"), version = "2.0.1", dry.run = FALSE
 ))
 ```
 
