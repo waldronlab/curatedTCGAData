@@ -146,6 +146,7 @@ to interpret the TCGA sample codes above. The dataset provides clinically
 meaningful descriptions:
 
 ```{r}
+data(sampleTypes, package = "TCGAutils")
 head(sampleTypes)
 ```
 
