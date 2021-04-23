@@ -104,6 +104,7 @@ a separate experiment. In this case we requested only solid tumors and blood
 derived normal samples as seen in the `sampleTypes` reference dataset:
 
 ```{r}
+data(sampleTypes, package = "TCGAutils")
 sampleTypes[sampleTypes[["Code"]] %in% c("01", "10"), ]
 
 splitAssays(accmae, c("01", "10"))
