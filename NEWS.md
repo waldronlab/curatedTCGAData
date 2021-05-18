@@ -17,6 +17,8 @@ are now provided as merged assays (#27, @lwaldron).
 
 * `mRNAArray` assays now return `matrix` type data instead of `DataFrame`
 (#31, @lgeistlinger, @vjcitn).
+* Removed force download of GISTIC resources
+* Published article now available with `citation("curatedTCGAData")`
 
 ## CHANGES IN VERSION 1.12.0
 
