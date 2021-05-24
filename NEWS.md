@@ -1,4 +1,4 @@
-## CHANGES IN VERSION 1.14.0
+## Changes in version 1.14.0
 
 ### New features
 
@@ -20,7 +20,7 @@ are now provided as merged assays (#27, @lwaldron).
 * Removed force download of GISTIC resources
 * Published article now available with `citation("curatedTCGAData")`
 
-## CHANGES IN VERSION 1.12.0
+## Changes in version 1.12.0
 
 ### Bug fixes and minor improvements
 
@@ -29,7 +29,7 @@ function.
 * Check for `RaggedExperiment` dependency when loading data that uses the
 data representation (@vjcitn, #39)
 
-## CHANGES IN VERSION 1.10.0
+## Changes in version 1.10.0
 
 ### New features
 
@@ -39,7 +39,7 @@ data representation (@vjcitn, #39)
 * Data export section added to main vignette due to new features in
 `MultiAssayExperiment`
 
-## CHANGES IN VERSION 1.8.0
+## Changes in version 1.8.0
 
 ### Bug fixes and minor improvements
 
@@ -47,7 +47,7 @@ data representation (@vjcitn, #39)
 (@vjcitn suggest)
 * Provide examples for `TCGAutils::TCGAsampleSelect` in the vignette
 
-## CHANGES IN VERSION 1.6.0
+## Changes in version 1.6.0
 
 ### New features
 
@@ -66,7 +66,7 @@ data types (thanks to @lgeistlinger)
 links has been resolved (#29 @pcheng84)
 * Updated data documentation
 
-## CHANGES IN VERSION 1.4.0
+## Changes in version 1.4.0
 
 ### New features
 
@@ -77,7 +77,7 @@ matches
 
 * Main function now uses the `MultiAssayExperiment` constructor function
 
-## CHANGES IN VERSION 1.2.0
+## Changes in version 1.2.0
 
 ### New features
 
@@ -90,7 +90,7 @@ matches
 * Code clean up (helper functions)
 * Use metadata in main function to return list of datasets
 
-## CHANGES IN VERSION 0.99.38
+## Changes in version 0.99.38
 
 ### New features
 
@@ -106,13 +106,13 @@ matches
 * Included test for number of resources in EH and in metadata
 * Improved input handling of main function
 
-## CHANGES IN VERSION 0.2.0
+## Changes in version 0.2.0
 
 ### Bug fixes and minor improvements
 
 * Updated `DESCRIPTION` file to reflect authorship.
 * Progress towards submission to ExperimentHub
 
-## CHANGES IN VERSION 0.1.0
+## Changes in version 0.1.0
 
 * Added a `NEWS` file to track changes to the package.
