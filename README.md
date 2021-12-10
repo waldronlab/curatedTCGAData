@@ -1,7 +1,7 @@
 # curatedTCGAData <a href='https://waldronlab.io/'><img src='https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/curatedTCGAData/curatedTCGAData.png' align="right" height="139" /></a>
 
 [![BioC status](http://www.bioconductor.org/shields/build/release/data-experiment/curatedTCGAData.svg)](http://bioconductor.org/checkResults/release/data-experiment-LATEST/curatedTCGAData/)
-[![Travis Build Status](https://api.travis-ci.org/waldronlab/curatedTCGAData.svg?branch=master)](https://travis-ci.org/waldronlab/curatedTCGAData)
+[![Travis Build Status](https://api.travis-ci.org/waldronlab/curatedTCGAData.svg?branch=devel)](https://travis-ci.org/waldronlab/curatedTCGAData)
 [![Downloads](http://www.bioconductor.org/shields/downloads/curatedTCGAData.svg)](https://bioconductor.org/packages/stats/data-experiment/curatedTCGAData)
 
 ## Overview
@@ -32,7 +32,7 @@ by hand and where supplemental information was not available in a publication
 the coresponding author was emailed and asked to provide it. With the addition
 of the molecular subtype information it becomes possible to examine subtype
 characterization across cohorts and will hopeful provide deeper insight into
-oncogenisis. 
+oncogenisis.
 
 ## Genome versions
 
@@ -56,7 +56,7 @@ browseVignettes("curatedTCGAData")
 
 ## Reporting Bugs
 
-We appreciate all feedback to our experiment data package. 
+We appreciate all feedback to our experiment data package.
 Please file an [issue on GitHub][] and we will get to it ASAP.
 
 [primary publications]: https://www.zotero.org/groups/tcga_research_network_publications/items

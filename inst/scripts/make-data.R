@@ -4,7 +4,7 @@
 
 ## Note: The `MultiAssayExperiment.TCGA` package has a number of package
 ## dependencies. See the `DESCRIPTION` file:
-# browseURL("https://github.com/waldronlab/MultiAssayExperiment.TCGA/blob/master/DESCRIPTION")
+# browseURL("https://github.com/waldronlab/MultiAssayExperiment.TCGA/blob/devel/DESCRIPTION")
 
 ## Some manual work may be required when downloaded the curated datasets
 ## After all data is downloaded and in the proper folders, the user
