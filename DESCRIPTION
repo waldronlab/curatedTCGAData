@@ -46,5 +46,5 @@ Suggests:
 VignetteBuilder: knitr
 biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData, ExperimentHub
 BugReports: https://github.com/waldronlab/curatedTCGAData/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Encoding: UTF-8
