@@ -157,16 +157,16 @@ head(sampleTypes)
 ### Separating samples
 
 Often, an analysis is performed comparing two groups of samples to each other.
-To facilitate the separation of samples, the `splitAssays` TCGAutils function
-identifies all sample types in the assays and moves each into its own
-assay. By default, all discoverable sample types are separated into
-a separate experiment. In this case we requested only solid tumors and blood
+To facilitate the separation of samples, the `TCGAsplitAssays` function from
+`TCGAutils` identifies all sample types in the assays and moves each into its
+own assay. By default, all discoverable sample types are separated into a
+separate experiment. In this case we requested only solid tumors and blood
 derived normal samples as seen in the `sampleTypes` reference dataset:
 
 ```{r}
 sampleTypes[sampleTypes[["Code"]] %in% c("01", "10"), ]
 
-splitAssays(accmae, c("01", "10"))
+TCGAsplitAssays(accmae, c("01", "10"))
 ```
 
 To obtain a logical vector that could be used for subsetting a
