@@ -1,3 +1,11 @@
+## Changes in version 1.20.0 
+
+### Bug fixes and minor improvements
+
+* When the `assays` argument was `RNASeq2Gene`, `curatedTCGAData` would
+incorrectly include `RNASeq2GeneNorm` assays. Users who want to return both
+assay types should enter `RNASeq2Gene*` instead (with an asterisk).
+
 ## Changes in version 1.14.0
 
 ### New features
