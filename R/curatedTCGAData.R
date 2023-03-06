@@ -16,8 +16,9 @@
                FUN = paste, collapse = "_"))
 }
 
-.conditionToIndex <- function(startVec, testVec, FUN) {
-    logmat <- vapply(startVec, FUN, logical(length(testVec)))
+.conditionToIndex <- function(FUN, reference, position) {
+    reference <- vapply(strsplit(reference, "-"), head, character(1L), 1L)
+    logmat <- vapply(position, FUN, logical(length(reference)), x = reference)
     apply(logmat, 1L, any)
 }
 
@@ -277,8 +278,7 @@ curatedTCGAData <-
 
     codeAssay <- .getComboSort(resultCodes, resultAssays)
 
-    fileIdx <- .conditionToIndex(codeAssay, eh_assays,
-        function(x) startsWith(eh_assays, x))
+    fileIdx <- .conditionToIndex(endsWith, eh_assays, codeAssay)
     fileMatches <- assay_metadat[fileIdx, c("Title", "DispatchClass")]
 
     if (!length(nrow(fileMatches)))
@@ -301,8 +301,9 @@ curatedTCGAData <-
     eh_experiments <- ExperimentList(assay_list)
 
     ess_names <- c("colData", "metadata", "sampleMap")
-    ess_idx <- .conditionToIndex(.getComboSort(resultCodes, ess_names),
-        eh_assays, function(x) startsWith(eh_assays, x))
+    ess_idx <- .conditionToIndex(
+        startsWith, eh_assays, .getComboSort(resultCodes, ess_names)
+    )
 
     ess_list <- .getResources(eh,
         assay_metadat[ess_idx, c("Title", "RDataPath")], verbose)
