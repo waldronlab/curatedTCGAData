@@ -68,7 +68,7 @@
         SourceUrl <- rep("http://gdac.broadinstitute.org/", replen)
         SourceVersion <- rep(version, replen)
         Species <- rep("Homo sapiens", replen)
-        TaxonomyId <- rep("9606", replen)
+        TaxonomyId <- rep(9606, replen)
         Coordinate_1_based <- rep(as.logical(NA), replen)
         DataProvider <-
             rep("Eli and Edythe L. Broad Institute of Harvard and MIT", replen)
@@ -91,24 +91,25 @@
     do.call(rbind, metasets)
 }
 
-make_metadata <-
-function(
+make_metadata <- function(
     directory,
     dataDir,
     version,
     ext_pattern = "\\.[RrHh][Dd5][AaSs]?$",
     resource_maintainer = utils::maintainer("curatedTCGAData"),
     resource_biocVersion = BiocManager::version(),
-    append = FALSE
-)
-{
+    fill = TRUE,
+    append = fill
+) {
     exdata <- "inst/extdata"
     metafile <- file.path(exdata, "metadata.csv")
 
     if (!dir.exists(exdata))
         dir.create(exdata)
 
-    if (file.exists(metafile) && !append)
+    if (file.exists(metafile) && !append && fill)
+        stop("Unable to fill without previous metadata")
+    else if (file.exists(metafile) && !append)
         file.remove(metafile)
 
     metadat <- .getMetadata(directory = directory, dataDir = dataDir,
@@ -116,8 +117,23 @@ function(
         resource_maintainer = resource_maintainer,
         resource_biocVersion = resource_biocVersion)
 
-    if (append)
+    if (fill && append) {
+        emeta <- readr::read_csv(
+            metafile,
+            col_types = readr::cols(BiocVersion = readr::col_character())
+        )
+        vmax <- max(package_version(emeta[["SourceVersion"]]))
+        prev <- emeta[emeta[["SourceVersion"]] == vmax, ]
+        newmet <- dplyr::anti_join(
+            prev, metadat, by = "ResourceName"
+        )
+        newmet[["SourceVersion"]] <- version
+        newmet[["BiocVersion"]] <- as.character(resource_biocVersion)
+        allmet <- bind_rows(newmet, metadat)
+        metadat <- bind_rows(emeta, allmet)
+    } else if (append) {
         metadat <- rbind(readr::read_csv(metafile), metadat)
+    }
 
     readr::write_csv(metadat, "inst/extdata/metadata.csv", col_names = TRUE)
 }

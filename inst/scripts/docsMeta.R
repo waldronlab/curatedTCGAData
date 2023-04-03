@@ -46,10 +46,10 @@ if (FALSE) {
 message("Generating main 'metadata.csv' file...")
 make_metadata(
     directory = "~/gh/MultiAssayExperiment.TCGA/", dataDir = "data/bits",
-    version = "2.0.1",
+    version = "2.1.0",
     resource_maintainer = utils::maintainer("curatedTCGAData"),
     resource_biocVersion = BiocManager::version(),
-    append = FALSE
+    fill = TRUE
 )
 
 ## check metadata.csv
