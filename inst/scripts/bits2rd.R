@@ -32,7 +32,8 @@ bits2rd <-
     function(
         dataDir, cancer, filename, version, aliases = cancer,
         descriptions = "A document describing the TCGA cancer code",
-        ext_pattern = "\\.[RrHh][Dd5][AaSs]?$"
+        ext_pattern = "\\.[RrHh][Dd5][AaSs]?$",
+        fill = FALSE
     )
 {
     stopifnot(isSingleString(filename), is.character(version))
@@ -45,6 +46,10 @@ bits2rd <-
     aliases <- paste0(cancer, vtag)
     cancerFolder <- file.path(dataDir, cancer)
 
+    vers <- list.dirs(dirname(dataDir), recursive = FALSE, full.names = FALSE)
+    overs <- vers[!vers %in% dataver]
+    oldver <- max(package_version(gsub("^v", "", overs)))
+
     stopifnot(S4Vectors::isSingleString(cancerFolder))
 
     fileNames <- list.files(cancerFolder, full.names = TRUE,
@@ -55,6 +60,17 @@ bits2rd <-
     coldatfile <- unlist(
         datadata[datadata[["dataTypes"]] == "colData", "files"]
     )
+    if (!length(coldatfile) && fill) {
+        oldCF <- file.path(dirname(dataDir), paste0("v", oldver), cancer)
+        oldfnames <- list.files(oldCF, full.names = TRUE,
+            pattern = ext_pattern, recursive = TRUE)
+        oldfnames <- oldfnames[!basename(oldfnames) %in% basename(fileNames)]
+        olddata <- .makeMetaDF(oldfnames)
+        datadata <- rbind(olddata, datadata)
+        coldatfile <- unlist(
+            datadata[datadata[["dataTypes"]] == "colData", "files"]
+        )
+    }
     colDataName <- .selectInRow(
         datadata, "colData", "objectNames", "dataTypes"
     )

@@ -1,5 +1,5 @@
 make_documentation <-
-    function(dataDir, cancer, version, manDirectory = "man")
+    function(dataDir, cancer, version, fill, manDirectory = "man")
 {
     dataver <- character(1L)
     if (!missing(version))
@@ -11,6 +11,7 @@ make_documentation <-
         dataDir = dataDir,
         cancer = cancer,
         filename = manname,
-        version = version
+        version = version,
+        fill = fill
     )
 }
