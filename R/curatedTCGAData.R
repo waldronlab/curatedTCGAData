@@ -258,8 +258,11 @@ curatedTCGAData <-
 {
     runDate <- "20160128"
 
-    if (missing(version) || !version %in% c("1.1.38", "2.0.1"))
-        stop("'version' is not '1.1.38' or '2.0.1'; see '?curatedTCGAData'")
+    if (missing(version) || !version %in% c("1.1.38", "2.0.1", "2.1.0"))
+        stop(
+            "'version' is not one of '1.1.38', '2.0.1', '2.1.0';",
+            " see '?curatedTCGAData'"
+        )
 
     assays_file <- system.file("extdata", "metadata.csv",
         package = "curatedTCGAData", mustWork = TRUE)
