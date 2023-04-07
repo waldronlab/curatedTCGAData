@@ -88,9 +88,11 @@
 }
 
 .selectInRow <- function(dataframe, term, outcol, colname = NULL) {
-    if (!is.null(colname))
-        unlist(dataframe[unlist(dataframe[[colname]] == term), outcol])
-    else
+    if (!is.null(colname)) {
+        term <- dataframe[[colname]] == term
+        if (is(term, "LogicalList"))
+            term <- any(term)
+    }
         unlist(dataframe[term, outcol])
 }
 
