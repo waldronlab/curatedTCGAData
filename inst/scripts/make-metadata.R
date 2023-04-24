@@ -129,8 +129,8 @@ make_metadata <- function(
         )
         newmet[["SourceVersion"]] <- version
         newmet[["BiocVersion"]] <- as.character(resource_biocVersion)
-        allmet <- bind_rows(newmet, metadat)
-        metadat <- bind_rows(emeta, allmet)
+        allmet <- dplyr::bind_rows(newmet, metadat)
+        metadat <- dplyr::bind_rows(emeta, allmet)
     } else if (append) {
         metadat <- rbind(readr::read_csv(metafile), metadat)
     }

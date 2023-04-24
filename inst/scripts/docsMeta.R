@@ -7,6 +7,7 @@ suppressPackageStartupMessages({
     library(TCGAutils)
     library(MultiAssayExperiment)
     library(curatedTCGAData)
+    library(dplyr)
 })
 
 if (identical(Sys.getenv("REPO"), ""))
@@ -48,7 +49,7 @@ make_metadata(
     directory = "~/gh/MultiAssayExperiment.TCGA/", dataDir = "data/bits",
     version = "2.1.0",
     resource_maintainer = utils::maintainer("curatedTCGAData"),
-    resource_biocVersion = BiocManager::version(),
+    resource_biocVersion = package_version("3.17"),
     fill = TRUE
 )
 
