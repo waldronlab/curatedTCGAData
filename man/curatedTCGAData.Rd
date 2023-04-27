@@ -20,10 +20,10 @@ curatedTCGAData(
 \item{assays}{character() A vector of TCGA assays, glob matches allowed;
 see below for more details}
 
-\item{version}{character(1) One of \verb{1.1.38}, \verb{2.0.1}, or \verb{2.1.0} indicating
-the data version to obtain from \code{ExperimentHub}. Version \verb{2.1.0} includes
-the latest updates to \code{miRNASeqGene} and \code{RNASeq2GeneNorm} assays. See
-\code{version} section details.}
+\item{version}{character(1) Either \verb{1.1.38} or \verb{2.0.1} indicating the
+data version to obtain from \code{ExperimentHub}. Version \verb{2.0.1} includes
+various improvements as well as the addition of the \code{RNASeq2Gene}
+assay. See \code{version} section details.}
 
 \item{dry.run}{logical(1) Whether to return the dataset names
 before actual download (default TRUE)}
