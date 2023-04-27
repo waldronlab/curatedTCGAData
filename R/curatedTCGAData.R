@@ -180,7 +180,7 @@
 #' SummarizedExperiment*
 #'   RNASeqGene                Gene expression values
 #'   RNASeq2Gene               RSEM TPM gene expression values
-#'   RNASeq2GeneNorm           Upper quartile normalized RSEM TPM gene
+#'   RNASeq2GeneNorm           Upper quartile log2 normalized RSEM TPM gene
 #'                             expression values
 #'   miRNAArray                Probe-level  miRNA expression values
 #'   miRNASeqGene              Gene-level log2 RPM miRNA expression values
@@ -223,6 +223,13 @@
 #'
 #' @section version:
 #'
+#' Version `2.1.0` provides gene-level log2 RPM miRNA expression values for
+#' `miRNASeqGene` data log2 normalized RSEM for `RNASeq2GeneNorm` assays.
+#' Previously, the data provided were read counts and normalized counts,
+#' respectively. See issue [#53 on
+#' GitHub](https://github.com/waldronlab/curatedTCGAData/issues/53) for
+#' additional details.
+#'
 #' The new version `2.0.1` includes various improvements including an
 #' additional assay that provides `RNASeq2Gene` data as RSEM TPM gene
 #' expression values (issue #38). Additional changes include genomic
@@ -260,8 +267,8 @@ curatedTCGAData <-
 
     if (missing(version) || !version %in% c("1.1.38", "2.0.1", "2.1.0"))
         stop(
-            "'version' is not one of '1.1.38', '2.0.1', '2.1.0';",
-            " see '?curatedTCGAData'"
+            "'version' must be one of '1.1.38', '2.0.1', '2.1.0'; ",
+            "see '?curatedTCGAData'"
         )
 
     assays_file <- system.file("extdata", "metadata.csv",

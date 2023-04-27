@@ -20,10 +20,10 @@ curatedTCGAData(
 \item{assays}{character() A vector of TCGA assays, glob matches allowed;
 see below for more details}
 
-\item{version}{character(1) Either \verb{1.1.38} or \verb{2.0.1} indicating the
-data version to obtain from \code{ExperimentHub}. Version \verb{2.0.1} includes
-various improvements as well as the addition of the \code{RNASeq2Gene}
-assay. See \code{version} section details.}
+\item{version}{character(1) One of \verb{1.1.38}, \verb{2.0.1}, or \verb{2.1.0} indicating
+the data version to obtain from \code{ExperimentHub}. Version \verb{2.1.0} includes
+the latest updates to \code{miRNASeqGene} and \code{RNASeq2GeneNorm} assays. See
+\code{version} section details.}
 
 \item{dry.run}{logical(1) Whether to return the dataset names
 before actual download (default TRUE)}
@@ -69,7 +69,7 @@ ExperimentList data types   Description
 SummarizedExperiment*
   RNASeqGene                Gene expression values
   RNASeq2Gene               RSEM TPM gene expression values
-  RNASeq2GeneNorm           Upper quartile normalized RSEM TPM gene
+  RNASeq2GeneNorm           Upper quartile log2 normalized RSEM TPM gene
                             expression values
   miRNAArray                Probe-level  miRNA expression values
   miRNASeqGene              Gene-level log2 RPM miRNA expression values
@@ -113,6 +113,12 @@ TCGAutils
 
 \section{version}{
 
+
+Version \verb{2.1.0} provides gene-level log2 RPM miRNA expression values for
+\code{miRNASeqGene} data log2 normalized RSEM for \code{RNASeq2GeneNorm} assays.
+Previously, the data provided were read counts and normalized counts,
+respectively. See issue \href{https://github.com/waldronlab/curatedTCGAData/issues/53}{#53 on GitHub} for
+additional details.
 
 The new version \verb{2.0.1} includes various improvements including an
 additional assay that provides \code{RNASeq2Gene} data as RSEM TPM gene
