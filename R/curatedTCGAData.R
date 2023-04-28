@@ -16,6 +16,7 @@
                FUN = paste, collapse = "_"))
 }
 
+#' @importFrom utils head
 .conditionToIndex <- function(FUN, reference, position) {
     reference <- vapply(strsplit(reference, "-"), head, character(1L), 1L)
     logmat <- vapply(position, FUN, logical(length(reference)), x = reference)
