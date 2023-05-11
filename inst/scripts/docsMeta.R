@@ -66,15 +66,15 @@ params <- MulticoreParam(
 )
 
 res <- bptry({
-    BiocParallel::bplapply(TCGAcodes, function(ccode) {
+    BiocParallel::bplapply(c("OV", "SKCM"), function(ccode) {
         make_documentation(
             dataDir = "~/gh/MultiAssayExperiment.TCGA/data/bits",
             cancer = ccode,
-            version = "2.1.0",
+            version = "2.1.1",
             manDirectory = "man",
             fill = TRUE
         )
     }, BPPARAM = params)
 })
 
-lapply(TCGAcodes, .addSeeAlso, version = "2.0.1", clean = TRUE)
+lapply(c("OV", "SKCM"), .addSeeAlso, version = "2.0.1", clean = TRUE)

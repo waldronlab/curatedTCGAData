@@ -130,6 +130,9 @@
     restab[, -length(restab)]
 }
 
+.VALID_VERSIONS <- c("1.1.38", "2.0.1", "2.1.0", "2.1.1")
+.VALID_VERSIONS_DISPLAY <- paste(.VALID_VERSIONS, collapse = ", ")
+
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
 #' @description curatedTCGAData assembles data on-the-fly from ExperimentHub
@@ -223,6 +226,12 @@
 #'
 #' @section version:
 #'
+#' Version `2.1.1` provides a couple of corrections to the `colData` for ovarian
+#' cancer (`OV`) and skin cancer (`SKCM`). In these new data, the cancer
+#' subtype variables are fully available. One get obtain the mapping of columns
+#' to subtypes in the `colData` with the `getSubtypeMap` function in
+#' `TCGAutils`.
+#'
 #' Version `2.1.0` provides gene-level log2 RPM miRNA expression values for
 #' `miRNASeqGene` data log2 normalized RSEM for `RNASeq2GeneNorm` assays.
 #' Previously, the data provided were read counts and normalized counts,
@@ -265,9 +274,9 @@ curatedTCGAData <-
 {
     runDate <- "20160128"
 
-    if (missing(version) || !version %in% c("1.1.38", "2.0.1", "2.1.0"))
+    if (missing(version) || !version %in% .VALID_VERSIONS)
         stop(
-            "'version' must be one of '1.1.38', '2.0.1', '2.1.0'; ",
+            "'version' must be one of ", .VALID_VERSIONS_DISPLAY," ; ",
             "see '?curatedTCGAData'"
         )
 

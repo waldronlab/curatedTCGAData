@@ -114,6 +114,12 @@ TCGAutils
 \section{version}{
 
 
+Version \verb{2.1.1} provides a couple of corrections to the \code{colData} for ovarian
+cancer (\code{OV}) and skin cancer (\code{SKCM}). In these new data, the cancer
+subtype variables are fully available. One get obtain the mapping of columns
+to subtypes in the \code{colData} with the \code{getSubtypeMap} function in
+\code{TCGAutils}.
+
 Version \verb{2.1.0} provides gene-level log2 RPM miRNA expression values for
 \code{miRNASeqGene} data log2 normalized RSEM for \code{RNASeq2GeneNorm} assays.
 Previously, the data provided were read counts and normalized counts,
