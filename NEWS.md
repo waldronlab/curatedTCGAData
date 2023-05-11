@@ -1,5 +1,11 @@
 ## Changes in version 1.22.0 
 
+### New features
+
+* Data version 2.1.1 is now availble. It contains updates to `RNASeq2GeneNorm`, 
+and `RNASeq2Gene*`, as well as fixes to the curated subtypes in the `colData`
+for `OV` and `SKCM`.
+
 ### Bug fixes and minor improvements
 
 * When the `assays` argument was `RNASeq2Gene`, `curatedTCGAData` would
