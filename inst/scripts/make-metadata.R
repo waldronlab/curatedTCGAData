@@ -32,6 +32,12 @@
     hitMatrix <- vapply(ext_map[["ext_pattern"]],
         function(pat) grepl(pat, resource_files),
         logical(length(resource_files)))
+    if (is.null(dim(hitMatrix)))
+        hitMatrix <- matrix(
+            data = hitMatrix,
+            ncol = length(ext_map[["ext_pattern"]]),
+            dimnames = list(resource_files, ext_map[["ext_pattern"]])
+        )
     ext_map[["Dispatch"]][apply(hitMatrix, 1L, which)]
 }
 
