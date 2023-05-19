@@ -155,10 +155,10 @@
 #' @param assays character() A vector of TCGA assays, glob matches allowed;
 #'     see below for more details
 #'
-#' @param version character(1) Either `1.1.38` or `2.0.1` indicating the
-#'     data version to obtain from `ExperimentHub`. Version `2.0.1` includes
-#'     various improvements as well as the addition of the `RNASeq2Gene`
-#'     assay. See `version` section details.
+#' @param version character(1) One of `1.1.38`, `2.0.1`, `2.1.0`, or `2.1.1`
+#'   indicating the data version to obtain from `ExperimentHub`. Version `2.1.1`
+#'   includes various improvements as well as the addition of the `RNASeq2Gene`
+#'   assay and subtype updates. See `version` section details.
 #'
 #' @param dry.run logical(1) Whether to return the dataset names
 #'     before actual download (default TRUE)
@@ -172,7 +172,7 @@
 #'
 #' @section Available Assays:
 #'
-#' Below is a list of partial ExperimentList assay names and their respective
+#' Below is a list of partial `ExperimentList` assay names and their respective
 #' description. These assays can be entered as part of the \code{assays}
 #' argument in the main function. Partial glob matches are allowed such as:
 #' \code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays. Credit: Ludwig G.

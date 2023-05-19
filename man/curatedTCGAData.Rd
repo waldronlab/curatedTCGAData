@@ -20,10 +20,10 @@ curatedTCGAData(
 \item{assays}{character() A vector of TCGA assays, glob matches allowed;
 see below for more details}
 
-\item{version}{character(1) Either \verb{1.1.38} or \verb{2.0.1} indicating the
-data version to obtain from \code{ExperimentHub}. Version \verb{2.0.1} includes
-various improvements as well as the addition of the \code{RNASeq2Gene}
-assay. See \code{version} section details.}
+\item{version}{character(1) One of \verb{1.1.38}, \verb{2.0.1}, \verb{2.1.0}, or \verb{2.1.1}
+indicating the data version to obtain from \code{ExperimentHub}. Version \verb{2.1.1}
+includes various improvements as well as the addition of the \code{RNASeq2Gene}
+assay and subtype updates. See \code{version} section details.}
 
 \item{dry.run}{logical(1) Whether to return the dataset names
 before actual download (default TRUE)}
@@ -58,7 +58,7 @@ help page.
 \section{Available Assays}{
 
 
-Below is a list of partial ExperimentList assay names and their respective
+Below is a list of partial \code{ExperimentList} assay names and their respective
 description. These assays can be entered as part of the \code{assays}
 argument in the main function. Partial glob matches are allowed such as:
 \code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays. Credit: Ludwig G.
