@@ -20,10 +20,9 @@ curatedTCGAData(
 \item{assays}{character() A vector of TCGA assays, glob matches allowed;
 see below for more details}
 
-\item{version}{character(1) Either \verb{1.1.38} or \verb{2.0.1} indicating the
-data version to obtain from \code{ExperimentHub}. Version \verb{2.0.1} includes
-various improvements as well as the addition of the \code{RNASeq2Gene}
-assay. See \code{version} section details.}
+\item{version}{character(1) One of \verb{1.1.38}, \verb{2.0.1}, or \verb{2.1.0} indicating
+the data version to obtain from \code{ExperimentHub}. See \code{version} section
+details.}
 
 \item{dry.run}{logical(1) Whether to return the dataset names
 before actual download (default TRUE)}
@@ -58,10 +57,13 @@ help page.
 \section{Available Assays}{
 
 
-Below is a list of partial ExperimentList assay names and their respective
+Below is a list of partial \code{ExperimentList} assay names and their respective
 description. These assays can be entered as part of the \code{assays}
-argument in the main function. Partial glob matches are allowed such as:
-\code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays. Credit: Ludwig G.
+argument in the main function. Partial glob matches are allowed and
+encouraged such as: \code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays.
+\emph{Note} that \code{glob2rx} is used internally and inputs \strong{without} wildcards
+i.e., \code{*} will be converted to regular expressions that end with \code{$}.
+Therefore, it is advised to use open ended searches such as \code{"Mutation*"}.
 \preformatted{
 
 ExperimentList data types   Description
@@ -69,7 +71,7 @@ ExperimentList data types   Description
 SummarizedExperiment*
   RNASeqGene                Gene expression values
   RNASeq2Gene               RSEM TPM gene expression values
-  RNASeq2GeneNorm           Upper quartile normalized RSEM TPM gene
+  RNASeq2GeneNorm           Upper quartile log2 normalized RSEM TPM gene
                             expression values
   miRNAArray                Probe-level  miRNA expression values
   miRNASeqGene              Gene-level log2 RPM miRNA expression values
@@ -109,10 +111,17 @@ RaggedExperiment
 TCGAutils
 
 }
+Credit: Ludwig G.
 }
 
 \section{version}{
 
+
+Version \verb{2.1.0} provides gene-level log2 RPM miRNA expression values for
+\code{miRNASeqGene} data log2 normalized RSEM for \code{RNASeq2GeneNorm} assays.
+Previously, the data provided were read counts and normalized counts,
+respectively. See issue \href{https://github.com/waldronlab/curatedTCGAData/issues/53}{#53 on GitHub} for
+additional details.
 
 The new version \verb{2.0.1} includes various improvements including an
 additional assay that provides \code{RNASeq2Gene} data as RSEM TPM gene

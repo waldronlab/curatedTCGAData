@@ -131,6 +131,28 @@
     restab[, -length(restab)]
 }
 
+.filterRecent <- function(metadf) {
+    metabiocver <- metadf[["BiocVersion"]]
+    if (identical(length(unique(metabiocver)), 1L))
+        return(metadf)
+
+    if (nzchar(system.file(package = "BiocVersion")))
+        biocver <- utils::packageVersion("BiocVersion")[, 1:2]
+    else
+        stop("Bioconductor version not found; see BiocManager vignette")
+
+
+    recentver <- metabiocver == biocver
+    iscurr <- any(recentver)
+    if (!iscurr)
+        recentver <- metabiocver == max(as.package_version(unique(metabiocver)))
+
+    metadf[recentver, ]
+}
+
+.VALID_VERSIONS <- c("1.1.38", "2.0.1", "2.1.0")
+.VALID_VERSIONS_DISPLAY <- paste(.VALID_VERSIONS, collapse = ", ")
+
 #' Create a MultiAssayExperiment from specific assays and cohorts
 #'
 #' @description curatedTCGAData assembles data on-the-fly from ExperimentHub
@@ -153,10 +175,9 @@
 #' @param assays character() A vector of TCGA assays, glob matches allowed;
 #'     see below for more details
 #'
-#' @param version character(1) Either `1.1.38` or `2.0.1` indicating the
-#'     data version to obtain from `ExperimentHub`. Version `2.0.1` includes
-#'     various improvements as well as the addition of the `RNASeq2Gene`
-#'     assay. See `version` section details.
+#' @param version character(1) One of `1.1.38`, `2.0.1`, or `2.1.0` indicating
+#'   the data version to obtain from `ExperimentHub`. See `version` section
+#'   details.
 #'
 #' @param dry.run logical(1) Whether to return the dataset names
 #'     before actual download (default TRUE)
@@ -170,10 +191,13 @@
 #'
 #' @section Available Assays:
 #'
-#' Below is a list of partial ExperimentList assay names and their respective
+#' Below is a list of partial `ExperimentList` assay names and their respective
 #' description. These assays can be entered as part of the \code{assays}
-#' argument in the main function. Partial glob matches are allowed such as:
-#' \code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays. Credit: Ludwig G.
+#' argument in the main function. Partial glob matches are allowed and
+#' encouraged such as: \code{'CN*'} for "CNASeq", "CNASNP", "CNVSNP" assays.
+#' _Note_ that `glob2rx` is used internally and inputs **without** wildcards
+#' i.e., `*` will be converted to regular expressions that end with `$`.
+#' Therefore, it is advised to use open ended searches such as `"Mutation*"`.
 #' \preformatted{
 #'
 #' ExperimentList data types   Description
@@ -181,7 +205,7 @@
 #' SummarizedExperiment*
 #'   RNASeqGene                Gene expression values
 #'   RNASeq2Gene               RSEM TPM gene expression values
-#'   RNASeq2GeneNorm           Upper quartile normalized RSEM TPM gene
+#'   RNASeq2GeneNorm           Upper quartile log2 normalized RSEM TPM gene
 #'                             expression values
 #'   miRNAArray                Probe-level  miRNA expression values
 #'   miRNASeqGene              Gene-level log2 RPM miRNA expression values
@@ -221,8 +245,16 @@
 #' TCGAutils
 #'
 #' }
+#' Credit: Ludwig G.
 #'
 #' @section version:
+#'
+#' Version `2.1.0` provides gene-level log2 RPM miRNA expression values for
+#' `miRNASeqGene` data log2 normalized RSEM for `RNASeq2GeneNorm` assays.
+#' Previously, the data provided were read counts and normalized counts,
+#' respectively. See issue [#53 on
+#' GitHub](https://github.com/waldronlab/curatedTCGAData/issues/53) for
+#' additional details.
 #'
 #' The new version `2.0.1` includes various improvements including an
 #' additional assay that provides `RNASeq2Gene` data as RSEM TPM gene
@@ -259,10 +291,10 @@ curatedTCGAData <-
 {
     runDate <- "20160128"
 
-    if (missing(version) || !version %in% c("1.1.38", "2.0.1", "2.1.0"))
+    if (missing(version) || !version %in% .VALID_VERSIONS)
         stop(
-            "'version' is not one of '1.1.38', '2.0.1', '2.1.0';",
-            " see '?curatedTCGAData'"
+            "'version' must be one of ", .VALID_VERSIONS_DISPLAY," ; ",
+            "see '?curatedTCGAData'"
         )
 
     assays_file <- system.file("extdata", "metadata.csv",
@@ -270,6 +302,7 @@ curatedTCGAData <-
     assay_metadat <- read.csv(assays_file, stringsAsFactors = FALSE)
     assay_metadat <-
         assay_metadat[assay_metadat[["SourceVersion"]] == version, ]
+    assay_metadat <- .filterRecent(assay_metadat)
     eh_assays <- assay_metadat[["ResourceName"]]
 
     tcgaCodes <- sort(unique(gsub("(^[A-Z]*)_(.*)", "\\1", eh_assays)))
