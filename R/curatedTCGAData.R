@@ -17,7 +17,8 @@
 }
 
 .conditionToIndex <- function(FUN, reference, position) {
-    reference <- vapply(strsplit(reference, "-"), head, character(1L), 1L)
+    reference <-
+        vapply(strsplit(reference, "-"), utils::head, character(1L), 1L)
     logmat <- vapply(position, FUN, logical(length(reference)), x = reference)
     apply(logmat, 1L, any)
 }
