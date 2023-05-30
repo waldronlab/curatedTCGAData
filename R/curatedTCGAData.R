@@ -130,6 +130,25 @@
     restab[, -length(restab)]
 }
 
+.filterRecent <- function(metadf) {
+    metabiocver <- metadf[["BiocVersion"]]
+    if (identical(length(unique(metabiocver)), 1L))
+        return(metadf)
+
+    if (nzchar(system.file(package = "BiocVersion")))
+        biocver <- utils::packageVersion("BiocVersion")[, 1:2]
+    else
+        stop("Bioconductor version not found; see BiocManager vignette")
+
+
+    recentver <- metabiocver == biocver
+    iscurr <- any(recentver)
+    if (!iscurr)
+        recentver <- metabiocver == max(as.package_version(unique(metabiocver)))
+
+    metadf[recentver, ]
+}
+
 .VALID_VERSIONS <- c("1.1.38", "2.0.1", "2.1.0", "2.1.1")
 .VALID_VERSIONS_DISPLAY <- paste(.VALID_VERSIONS, collapse = ", ")
 
@@ -285,6 +304,7 @@ curatedTCGAData <-
     assay_metadat <- read.csv(assays_file, stringsAsFactors = FALSE)
     assay_metadat <-
         assay_metadat[assay_metadat[["SourceVersion"]] == version, ]
+    assay_metadat <- .filterRecent(assay_metadat)
     eh_assays <- assay_metadat[["ResourceName"]]
 
     tcgaCodes <- sort(unique(gsub("(^[A-Z]*)_(.*)", "\\1", eh_assays)))
