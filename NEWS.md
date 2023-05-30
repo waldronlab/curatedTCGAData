@@ -11,6 +11,10 @@ for `OV` and `SKCM`.
 * When the `assays` argument was `RNASeq2Gene`, `curatedTCGAData` would
 incorrectly include `RNASeq2GeneNorm` assays. Users who want to return both
 assay types should enter `RNASeq2Gene*` instead (with an asterisk).
+* When more than one `BiocVersion` in the metadata was available, the
+`curatedTCGAData` function would return duplicate results. This has been fixed
+to obtain either the matching `BiocVersion` or the latest version in the
+metadata.
 
 ## Changes in version 1.14.0
 
