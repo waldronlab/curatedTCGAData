@@ -56,7 +56,10 @@ rather than `37`
 
 # Data source
 
-These data were processed by Broad Firehose pipelines and accessed using `r Biocpkg("RTCGAToolbox")`. For details on the preprocessing methods used, see the [Broad GDAC documentation](https://broadinstitute.atlassian.net/wiki/spaces/GDAC/pages/844334346/Documentation). 
+These data were processed by Broad Firehose pipelines and accessed using
+`r BiocStyle::Biocpkg("RTCGAToolbox")`. For details on the preprocessing
+methods used, see the
+[Broad GDAC documentation](https://broadinstitute.atlassian.net/wiki/spaces/GDAC/pages/844334346/Documentation).
 
 # Downloading datasets
 
