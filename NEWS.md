@@ -1,8 +1,16 @@
+## Changes in version 1.24.0 
+
+### Bug fixes and minor improvements
+
+* Create an on-the-fly `sampleMap` for `RNASeq2GeneNorm*` data version `2.1.1`.
+Data source has munged `colnames` and sample maps were not updated in the
+latest upload (#59, @LiNk-NY) 
+
 ## Changes in version 1.22.0 
 
 ### New features
 
-* Data version 2.1.1 is now availble. It contains updates to `RNASeq2GeneNorm`, 
+* Data version 2.1.1 is now availble. It contains updates to `RNASeq2GeneNorm*`, 
 and `RNASeq2Gene*`, as well as fixes to the curated subtypes in the `colData`
 for `OV` and `SKCM`.
 
