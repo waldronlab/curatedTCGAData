@@ -150,6 +150,34 @@
     metadf[recentver, ]
 }
 
+.genSampMap <- function(expname, colnms) {
+    assays <- factor(rep(expname, lengths(colnms)))
+    allnames <- unlist(colnms, use.names = FALSE)
+    primaries <- .part_bcode(allnames)
+    S4Vectors::DataFrame(
+        assay = assays,
+        primary = primaries,
+        colname = allnames
+    )
+}
+
+.onTheFlySampleMap <- function(explist, peripherals) {
+    affected <- grepl("RNASeq2GeneNorm", names(explist), fixed = TRUE)
+    odl <- explist[affected]
+    bydx <- split(odl, gsub("RNASeq2GeneNorm", "sampleMap", names(odl)))
+    sampmaps <- lapply(bydx, function(dxdata) {
+        assayName <- names(dxdata)
+        cnames <- colnames(dxdata)
+        .genSampMap(assayName, cnames)
+    })
+    nmaps <- Map(function(x, y) {
+        x <- x[x[["assay"]] != levels(y[["assay"]]), ]
+        rbind(x, y)
+    }, x = peripherals[names(sampmaps)], y = sampmaps)
+    peripherals[names(nmaps)] <- nmaps
+    peripherals
+}
+
 .VALID_VERSIONS <- c("1.1.38", "2.0.1", "2.1.0", "2.1.1")
 .VALID_VERSIONS_DISPLAY <- paste(.VALID_VERSIONS, collapse = ", ")
 
@@ -347,6 +375,11 @@ curatedTCGAData <-
 
     ess_list <- .getResources(eh,
         assay_metadat[ess_idx, c("Title", "RDataPath")], verbose)
+
+    hasRNAS2GN <- any(grepl("RNASeq2GeneNorm", names(assay_list)))
+
+    if (identical(version, "2.1.1") && hasRNAS2GN)
+        ess_list <- .onTheFlySampleMap(eh_experiments, ess_list)
 
     if (length(resultCodes) > 1L) {
         # Save metadata from all datasets
