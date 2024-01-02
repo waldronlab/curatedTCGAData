@@ -358,7 +358,7 @@ curatedTCGAData <-
         message("See '?curatedTCGAData' for 'diseaseCode' and 'assays' inputs")
         return(
             .getResourceInfo(
-                eh, assay_metadat[fileIdx, c("Title", "RDataPath")], FALSE
+                eh, assay_metadat[fileIdx, c("Title", "RDataPath")], verbose
             )
         )
     }
