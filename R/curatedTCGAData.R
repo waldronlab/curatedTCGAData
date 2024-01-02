@@ -30,7 +30,7 @@
     names(methList) <- fnames
     lapply(methList, function(methfile, fn) {
         if (verbose)
-            message("Working on: ", paste(fn, collapse = ",\n "))
+            message("Loading: ", paste(fn, collapse = ",\n "))
         assaydat <- query(ehub, methfile[1L])[[1L]]
         se <- query(ehub, methfile[2L])[[1L]]
         h5array <- HDF5Array::HDF5Array(assaydat, "assay001")
@@ -55,7 +55,10 @@
     anyMeth <- grepl("Methyl", fileNames, ignore.case = TRUE)
     resources <- lapply(fileNames[!anyMeth], function(res) {
         if (verbose)
-            message("Working on: ", gsub("\\.rda", "", basename(res)))
+            message(
+                "Querying and downloading: ",
+                basename(tools::file_path_sans_ext(res))
+            )
         query(ExperimentHub, res)[[1L]]
     })
 
@@ -110,7 +113,9 @@
     fileNames <- stats::setNames(resTable[["RDataPath"]], resTable[["Title"]])
     lapply(fileNames, function(res) {
         if (verbose)
-            message("Working on: ", gsub("\\.rda", "", basename(res)))
+            message(
+                "Querying EH with: ", basename(tools::file_path_sans_ext(res))
+            )
         query(ExperimentHub, res)
     })
 }
