@@ -32,18 +32,22 @@ library(TCGAutils)
 # Citing `curatedTCGAData`
 
 Your citations are important to the project and help us secure funding. Please
-refer to the [References](#references) section to see the @Ramos2020-cci
-citation. For the BibTeX entry, run the `citation` function (after
-installation):
+refer to the [References](#references) section to see the @Ramos2020-ya and
+@Ramos2017-og citations. For the BibTeX entries, run the `citation` function
+(after installation):
 
 ```{r,eval=FALSE}
 citation("curatedTCGAData")
+citation("MultiAssayExperiment")
 ```
 
-You may also want to see the PDF of our publication on
-[JCO Clinical Cancer Informatics][1].
+`curatedTCGAData` uses `MultiAssayExperiment` to coordinate and represent the
+data. Please cite the `MultiAssayExperiment` [Cancer Research][1] publication.
+You can see the PDF of our public data publication on
+[JCO Clinical Cancer Informatics][2].
 
-[1]: https://ascopubs.org/doi/pdf/10.1200/CCI.19.00119
+[1]: https://cancerres.aacrjournals.org/content/77/21/e39
+[2]: https://ascopubs.org/doi/pdf/10.1200/CCI.19.00119
 
 # Data versions
 
