@@ -9,6 +9,7 @@ output:
   BiocStyle::html_document:
     toc_float: true
 Package: curatedTCGAData
+bibliography: ../inst/REFERENCES.bib
 ---
 
 # Installation
@@ -27,6 +28,22 @@ library(curatedTCGAData)
 library(MultiAssayExperiment)
 library(TCGAutils)
 ```
+
+# Citing `curatedTCGAData`
+
+Your citations are important to the project and help us secure funding. Please
+refer to the [References](#references) section to see the @Ramos2020-cci
+citation. For the BibTeX entry, run the `citation` function (after
+installation):
+
+```{r,eval=FALSE}
+citation("curatedTCGAData")
+```
+
+You may also want to see the PDF of our publication on
+[JCO Clinical Cancer Informatics][1].
+
+[1]: https://ascopubs.org/doi/pdf/10.1200/CCI.19.00119
 
 # Data versions
 
@@ -261,9 +278,14 @@ This works for all data classes stored (e.g., `RaggedExperiment`, `HDF5Matrix`,
 `SummarizedExperiment`) in the `MultiAssayExperiment` via the `assays` method
 which converts classes to `matrix` format (using individual `assay` methods).
 
-# Session Information
+# Session Information {.unnumbered}
+
+<details> <summary> Click here to expand </summary>
 
 ```{r}
 sessionInfo()
 ```
 
+</details>
+
+# References {.unnumbered}

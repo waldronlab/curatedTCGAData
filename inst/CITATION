@@ -2,26 +2,27 @@ citHeader("To cite curatedTCGAData in publications, use:")
 
 bibentry(
     bibtype = "Article",
-    title = "Multiomic Integration of Public Oncology Databases in Bioconductor",
-    author = personList(
-        as.person("Marcel Ramos"),
-        as.person("Ludwig Geistlinger"),
-        as.person("Sehyun Oh"),
-        as.person("Lucas Schiffer"),
-        as.person("Rimsha Azhar"),
-        as.person("Hanish Kodali"),
-        as.person("Ino de Bruijn"),
-        as.person("Jianjiong Gao"),
-        as.person("Vincent J. Carey"),
-        as.person("Martin Morgan"),
-        as.person("Levi Waldron")
+    title =
+        "Multiomic Integration of Public Oncology Databases in Bioconductor",
+    author = c(
+        person("Marcel", "Ramos"),
+        person("Ludwig", "Geistlinger"),
+        person("Sehyun", "Oh"),
+        person("Lucas", "Schiffer"),
+        person("Rimsha", "Azhar"),
+        person("Hanish", "Kodali"),
+        person("Ino", "de Bruijn"),
+        person("Jianjiong", "Gao"),
+        person("Vincent J.", "Carey"),
+        person("Martin", "Morgan"),
+        person("Levi", "Waldron")
     ),
     journal = "JCO Clinical Cancer Informatics",
+    volume = "1",
     number = "4",
     pages = "958-971",
     year = "2020",
     doi = "10.1200/CCI.19.00119",
     note = "PMID: 33119407",
-    URL = "https://doi.org/10.1200/CCI.19.00119",
-    eprint = "https://doi.org/10.1200/CCI.19.00119"
+    URL = "https://ascopubs.org/doi/pdf/10.1200/CCI.19.00119"
 )
