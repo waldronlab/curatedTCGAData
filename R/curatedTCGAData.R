@@ -402,6 +402,8 @@ curatedTCGAData <-
                         all = TRUE, sort = FALSE)
                     }, dats)
                 rownames(mObj) <- mObj[["patientID"]]
+            } else if (identical(funs[[i]], c)) {
+                mObj <- dats
             } else {
                 mObj <- Reduce(funs[[i]], dats)
             }
@@ -412,6 +414,8 @@ curatedTCGAData <-
         ## Include all metadata from colData(s)
         metadata(ess_list[["colData"]]) <- metas
     } else {
+        meta_idx <- grepl("metadata", names(ess_list), ignore.case = TRUE)
+        ess_list[meta_idx] <- list(metadata = ess_list[meta_idx])
         names(ess_list) <- gsub("[A-Z]*_(.*)-[0-9]*", "\\1", names(ess_list))
     }
 
