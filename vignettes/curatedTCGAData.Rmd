@@ -8,7 +8,7 @@ vignette: |
 output:
   BiocStyle::html_document:
     toc_float: true
-Package: curatedTCGAData
+package: curatedTCGAData
 bibliography: ../inst/REFERENCES.bib
 ---
 
