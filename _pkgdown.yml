@@ -1,0 +1,7 @@
+title: curatedTCGAData
+url: https://waldronlab.github.io/curatedTCGAData
+
+template:
+  bootstrap: 5
+  params:
+    bootswatch: flatly
