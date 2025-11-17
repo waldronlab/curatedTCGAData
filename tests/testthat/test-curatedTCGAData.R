@@ -1,7 +1,6 @@
 context("Test that the localHub works")
 
 test_that("localHub is used when no internet available", {
-
     .ehub <- function(..., localHub = FALSE) {
         if (localHub)
             TRUE
@@ -10,10 +9,11 @@ test_that("localHub is used when no internet available", {
     }
 
     library(ExperimentHub)
-    with_mocked_bindings(ExperimentHub = .ehub, {
-        expect_warning(.test_eh())
-        expect_true(.test_eh())
-    })
-
+    with_mocked_bindings(
+        ExperimentHub = .ehub,
+        {
+            expect_warning(.test_eh())
+            expect_true(.test_eh())
+        }
+    )
 })
-
