@@ -10,7 +10,7 @@ test_that("localHub is used when no internet available", {
     }
 
     library(ExperimentHub)
-    with_mock(ExperimentHub = .ehub, {
+    with_mocked_bindings(ExperimentHub = .ehub, {
         expect_warning(.test_eh())
         expect_true(.test_eh())
     })
