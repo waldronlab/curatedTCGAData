@@ -2,7 +2,7 @@ Type: Package
 Package: curatedTCGAData
 Title: Curated Data from The Cancer Genome Atlas (TCGA) as
     MultiAssayExperiment Objects
-Version: 1.32.0
+Version: 1.32.1
 Authors@R: c(
     person("Marcel", "Ramos", , "marcel.ramos@sph.cuny.edu",
         c("aut", "cre"), c(ORCID = "0000-0002-3242-0582")),
@@ -48,4 +48,4 @@ biocViews: Homo_sapiens_Data, ReproducibleResearch, CancerData,
     ExperimentHub
 Encoding: UTF-8
 RoxygenNote: 7.3.2
-Date: 2024-11-13
+Date: 2025-11-17
