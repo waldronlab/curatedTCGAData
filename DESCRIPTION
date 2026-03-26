@@ -4,13 +4,15 @@ Title: Curated Data from The Cancer Genome Atlas (TCGA) as
     MultiAssayExperiment Objects
 Version: 1.33.1
 Authors@R: c(
-    person("Marcel", "Ramos", , "marcel.ramos@sph.cuny.edu",
-        c("aut", "cre"), c(ORCID = "0000-0002-3242-0582")),
-    person("Levi", "Waldron", , "lwaldron.research@gmail.com", "ctb"),
-    person("Lucas", "Schiffer", , "schiffer.lucas@gmail.com", "ctb"),
-    person("Ludwig", "Geistlinger", , "ludwig.geistlinger@sph.cuny.edu", "ctb"),
-    person("Valerie", "Obenchain", , "valerie.obenchain@roswellpark.org","ctb"),
-    person("Martin", "Morgan", , "martin.morgan@roswellpark.org", "ctb")
+    person("Marcel", "Ramos", , "marcel.ramos@sph.cuny.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-3242-0582")),
+    person("Levi", "Waldron", , "lwaldron.research@gmail.com", role = "ctb"),
+    person("Lucas", "Schiffer", , "schiffer.lucas@gmail.com", role = "ctb"),
+    person("Ludwig", "Geistlinger", , "ludwig.geistlinger@sph.cuny.edu", role = "ctb"),
+    person("Valerie", "Obenchain", , "valerie.obenchain@roswellpark.org", role = "ctb"),
+    person("Martin", "Morgan", , "martin.morgan@roswellpark.org", role = "ctb"),
+    person("NCI", role = "fnd",
+           comment = c(GrantNo. = "U24CA289073"))
   )
 Description: This package provides publicly available data from The Cancer
     Genome Atlas (TCGA) as MultiAssayExperiment objects.
