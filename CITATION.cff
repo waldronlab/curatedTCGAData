@@ -1,0 +1,85 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "curatedTCGAData" in publications use:'
+type: software
+license: Artistic-2.0
+title: 'curatedTCGAData: Curated Data from The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
+  Objects'
+version: 1.35.0
+doi: 10.1200/CCI.19.00119
+abstract: This package provides publicly available data from The Cancer Genome Atlas
+  (TCGA) as MultiAssayExperiment objects. MultiAssayExperiment integrates multiple
+  assays (e.g., RNA-seq, copy number, mutation, microRNA, protein, and others) with
+  clinical / pathological data. It also links assay barcodes with patient identifiers,
+  enabling harmonized subsetting of rows (features) and columns (patients / samples)
+  across the entire multi-'omics experiment.
+authors:
+- family-names: Ramos
+  given-names: Marcel
+  email: marcel.ramos@sph.cuny.edu
+  orcid: https://orcid.org/0000-0002-3242-0582
+preferred-citation:
+  type: article
+  title: Multiomic Integration of Public Oncology Databases in Bioconductor
+  authors:
+  - family-names: Ramos
+    given-names: Marcel
+    email: marcel.ramos@sph.cuny.edu
+    orcid: https://orcid.org/0000-0002-3242-0582
+  - family-names: Geistlinger
+    given-names: Ludwig
+  - family-names: Oh
+    given-names: Sehyun
+  - family-names: Schiffer
+    given-names: Lucas
+  - family-names: Azhar
+    given-names: Rimsha
+  - family-names: Kodali
+    given-names: Hanish
+  - family-names: Bruijn
+    given-names: Ino
+    name-particle: de
+  - family-names: Gao
+    given-names: Jianjiong
+  - family-names: Carey
+    given-names: Vincent J.
+  - family-names: Morgan
+    given-names: Martin
+  - family-names: Waldron
+    given-names: Levi
+  journal: JCO Clinical Cancer Informatics
+  volume: '1'
+  issue: '4'
+  year: '2020'
+  doi: 10.1200/CCI.19.00119
+  notes: 'PMID: 33119407'
+  url: https://ascopubs.org/doi/pdf/10.1200/CCI.19.00119
+  start: 958-971
+repository: https://bioconductor.org/
+repository-code: https://github.com/waldronlab/curatedTCGAData
+url: https://github.com/waldronlab/curatedTCGAData
+date-released: '2024-11-13'
+contact:
+- family-names: Ramos
+  given-names: Marcel
+  email: marcel.ramos@sph.cuny.edu
+  orcid: https://orcid.org/0000-0002-3242-0582
+keywords:
+- bioconductor-package
+- u24ca289073
+references:
+- type: manual
+  title: 'curatedTCGAData: Curated Data from The Cancer Genome Atlas (TCGA) as MultiAssayExperiment
+    Objects'
+  authors:
+  - family-names: Ramos
+    given-names: Marcel
+    email: marcel.ramos@sph.cuny.edu
+    orcid: https://orcid.org/0000-0002-3242-0582
+  year: '2024'
+  notes: R package version 1.35.0
+
