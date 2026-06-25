@@ -36,7 +36,7 @@ latest upload (#59, @LiNk-NY)
 
 ### New features
 
-* Data version 2.1.1 is now availble. It contains updates to `RNASeq2GeneNorm*`,
+* Data version 2.1.1 is now available. It contains updates to `RNASeq2GeneNorm*`,
 and `RNASeq2Gene*`, as well as fixes to the curated subtypes in the `colData`
 for `OV` and `SKCM`.
 
