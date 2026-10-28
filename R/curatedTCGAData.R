@@ -263,9 +263,9 @@
 #'                             HumanMethylation 450K BeadChip
 #' RaggedExperiment
 #'   CNASNP                    Segmented somatic Copy Number Alteration calls
-#'                             from SNP array
-#'   CNVSNP                    Segmented germline Copy Number Variant calls from
-#'                             SNP Array
+#'                             from SNP array (not filtered for germline CNVs)
+#'   CNVSNP                    Segmented somatic Copy Number Alteration calls
+#'                             from SNP array, germline CNVs removed
 #'   CNASeq                    Segmented somatic Copy Number Alteration calls
 #'                             from low pass DNA Sequencing
 #'   Mutation*                 Somatic mutations calls
