@@ -18,9 +18,13 @@
 .CPTAC_FRACTIONS <- c("Proteome", "Phosphoproteome", "Glycoproteome")
 
 ## Rows of CPTACdata::cptacProjects for the requested cohorts and fractions;
-## warns about cohorts without CPTAC data of any requested fraction
-.cptacStudies <- function(diseaseCodes, fractions) {
-    studies <- CPTACdata::cptacProjects
+## warns about cohorts in 'warnCodes' (those the user named explicitly)
+## without CPTAC data of any requested fraction; other cohorts are dropped silently
+.cptacStudies <- function(
+    diseaseCodes, fractions, warnCodes = diseaseCodes,
+    projects = CPTACdata::cptacProjects
+) {
+    studies <- projects
     codes <- sub("^TCGA-", "", studies[["tcga_project"]])
     studies <- studies[
         codes %in% diseaseCodes &
@@ -29,7 +33,10 @@
         drop = FALSE
     ]
     missingCodes <-
-        setdiff(diseaseCodes, sub("^TCGA-", "", studies[["tcga_project"]]))
+        setdiff(
+            intersect(diseaseCodes, warnCodes),
+            sub("^TCGA-", "", studies[["tcga_project"]])
+        )
     if (length(missingCodes))
         warning(
             "No CPTAC ", paste(fractions, collapse = "/"), " data for: ",

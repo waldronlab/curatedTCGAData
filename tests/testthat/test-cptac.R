@@ -76,3 +76,30 @@ test_that("cptacFraction is validated", {
         "should be one of"
     )
 })
+
+test_that("wildcard diseaseCode silently intersects with CPTAC cohorts", {
+    projects <- data.frame(
+        tcga_project = c("TCGA-BRCA", "TCGA-OV"),
+        analytical_fraction = "Proteome",
+        data_type = "x",
+        stringsAsFactors = FALSE
+    )
+    allCodes <- c("ACC", "BRCA", "OV", "UCEC")
+    ## as curatedTCGAData() does for diseaseCode = "*"
+    expect_no_warning(
+        studies <- .cptacStudies(
+            allCodes, "Proteome",
+            warnCodes = intersect(allCodes, "*"), projects = projects
+        )
+    )
+    expect_setequal(studies[["tcga_project"]], c("TCGA-BRCA", "TCGA-OV"))
+    ## explicitly named cohorts still warn
+    expect_warning(
+        .cptacStudies(
+            allCodes, "Proteome",
+            warnCodes = intersect(allCodes, c("BRCA", "ACC")),
+            projects = projects
+        ),
+        "ACC"
+    )
+})

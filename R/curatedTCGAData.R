@@ -390,7 +390,11 @@ curatedTCGAData <-
         cptacFraction <-
             match.arg(cptacFraction, .CPTAC_FRACTIONS, several.ok = TRUE)
         BiocBaseUtils::checkInstalled("CPTACdata")
-        cptacStudies <- .cptacStudies(resultCodes, cptacFraction)
+        ## warn only about cohorts named explicitly, not wildcard matches
+        cptacStudies <- .cptacStudies(
+            resultCodes, cptacFraction,
+            warnCodes = intersect(resultCodes, diseaseCode)
+        )
     }
 
     eh <- .test_eh(...)
