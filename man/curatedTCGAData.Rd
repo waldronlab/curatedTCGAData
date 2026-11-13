@@ -10,6 +10,7 @@ curatedTCGAData(
   version,
   dry.run = TRUE,
   verbose = TRUE,
+  cptacFraction = NULL,
   ...
 )
 }
@@ -30,6 +31,12 @@ before actual download (default TRUE)}
 
 \item{verbose}{logical(1) Whether to show the dataset currenlty being
 (down)loaded (default TRUE)}
+
+\item{cptacFraction}{character() CPTAC proteomics to add from the
+Proteomic Data Commons (PDC), any of \code{"Proteome"}, \code{"Phosphoproteome"},
+or \code{"Glycoproteome"}; passed to the \code{fraction} argument of
+\code{CPTACdata::appendCPTAC()}. The default, \code{NULL}, adds none. Requires the
+\code{CPTACdata} package. See the CPTAC section below.}
 
 \item{...}{Additional arguments passed on to the
 \code{\link[ExperimentHub:ExperimentHub-class]{ExperimentHub}}
@@ -114,6 +121,23 @@ TCGAutils
 }
 }
 
+\section{CPTAC proteomics}{
+
+
+The Clinical Proteomic Tumor Analysis Consortium (CPTAC) profiled a subset
+of TCGA tumors from the \code{BRCA}, \code{OV}, \code{COAD}, and \code{READ} cohorts. With
+\code{cptacFraction}, those data are downloaded from the PDC by
+\code{CPTACdata::appendCPTAC()} and added for the patients already in the
+\code{colData}. Experiments are named by cohort and CPTAC study, e.g.,
+\code{BRCA_CPTAC_Proteome} or \code{OV_CPTAC_PNNL_Phosphoproteome}; see
+\code{CPTACdata::cptacProjects} for the list of studies. Columns are TCGA sample
+barcodes, and the values are PDC Common Data Analysis Pipeline log2 ratios.
+Studies without a quantification matrix in the PDC (currently the colon and
+rectum proteome and the ovarian glycoproteome) are skipped with a warning.
+With \code{dry.run = TRUE}, the CPTAC experiments that would be added are listed
+in a message and nothing is downloaded from the PDC.
+}
+
 \section{version}{
 
 
@@ -148,6 +172,11 @@ curatedTCGAData(
 )
 
 curatedTCGAData("BRCA", "GISTIC*", "2.0.1")
+
+if (requireNamespace("CPTACdata", quietly = TRUE))
+    curatedTCGAData(
+        "BRCA", "RNASeq2GeneNorm", "2.1.1", cptacFraction = "Proteome"
+    )
 
 }
 \seealso{
