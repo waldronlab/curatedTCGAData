@@ -1,3 +1,13 @@
+## Changes in version 1.36.0
+
+### New features
+
+* `curatedTCGAData()` gains a `cptacFraction` argument to add CPTAC
+  proteomics (`"Proteome"`, `"Phosphoproteome"`, `"Glycoproteome"`) from the
+  Proteomic Data Commons for TCGA cohorts profiled by CPTAC (BRCA, OV, COAD,
+  READ) via `CPTACdata::appendCPTAC()`. Experiments are prefixed by cohort,
+  e.g., `BRCA_CPTAC_Proteome`.
+
 ## Changes in version 1.32.0
 
 ### Bug fixes and minor improvements
