@@ -56,7 +56,20 @@
     )
 }
 
+## Studies without a PDC quantification matrix (data_type is NA) are dropped
+## with a warning before calling CPTACdata::appendCPTAC()
 .appendCPTAC <- function(mae, studies, verbose) {
+    noMatrix <- is.na(studies[["data_type"]])
+    if (any(noMatrix))
+        warning(
+            "No PDC quantification matrix; skipped: ",
+            paste(
+                unique(.cptacExperimentNames(studies[noMatrix, , drop = FALSE])),
+                collapse = ", "
+            ),
+            call. = FALSE
+        )
+    studies <- studies[!noMatrix, , drop = FALSE]
     combos <- unique(studies[, c("tcga_project", "analytical_fraction")])
     for (i in seq_len(nrow(combos))) {
         code <- sub("^TCGA-", "", combos[["tcga_project"]][[i]])
