@@ -12,3 +12,62 @@
         dels <- ""
     dels
 }
+
+## CPTAC proteomics from the PDC, added via CPTACdata::appendCPTAC
+
+.CPTAC_FRACTIONS <- c("Proteome", "Phosphoproteome", "Glycoproteome")
+
+## Rows of CPTACdata::cptacProjects for the requested cohorts and fractions;
+## warns about cohorts without CPTAC data of any requested fraction
+.cptacStudies <- function(diseaseCodes, fractions) {
+    studies <- CPTACdata::cptacProjects
+    codes <- sub("^TCGA-", "", studies[["tcga_project"]])
+    studies <- studies[
+        codes %in% diseaseCodes &
+            studies[["analytical_fraction"]] %in% fractions,
+        ,
+        drop = FALSE
+    ]
+    missingCodes <-
+        setdiff(diseaseCodes, sub("^TCGA-", "", studies[["tcga_project"]]))
+    if (length(missingCodes))
+        warning(
+            "No CPTAC ", paste(fractions, collapse = "/"), " data for: ",
+            paste(missingCodes, collapse = ", "),
+            "; see '?CPTACdata::cptacProjects'",
+            call. = FALSE
+        )
+    studies
+}
+
+## Experiment names given to CPTAC studies in the MultiAssayExperiment,
+## prefixed by cohort as with the TCGA assays, e.g., 'BRCA_CPTAC_Proteome'
+.cptacExperimentNames <- function(studies) {
+    paste0(
+        sub("^TCGA-", "", studies[["tcga_project"]]), "_",
+        studies[["experiment"]]
+    )
+}
+
+.appendCPTAC <- function(mae, studies, verbose) {
+    combos <- unique(studies[, c("tcga_project", "analytical_fraction")])
+    for (i in seq_len(nrow(combos))) {
+        code <- sub("^TCGA-", "", combos[["tcga_project"]][[i]])
+        before <- names(mae)
+        mae <- withCallingHandlers(
+            CPTACdata::appendCPTAC(
+                mae, project = code,
+                fraction = combos[["analytical_fraction"]][[i]]
+            ),
+            message = function(m) {
+                if (!verbose)
+                    invokeRestart("muffleMessage")
+            }
+        )
+        expNames <- names(mae)
+        added <- !expNames %in% before
+        expNames[added] <- paste0(code, "_", expNames[added])
+        names(mae) <- expNames
+    }
+    mae
+}

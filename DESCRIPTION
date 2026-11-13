@@ -29,6 +29,7 @@ Depends:
     MultiAssayExperiment
 Imports:
     AnnotationHub,
+    BiocBaseUtils,
     ExperimentHub,
     HDF5Array,
     methods,
@@ -38,6 +39,7 @@ Imports:
     utils
 Suggests:
     BiocStyle,
+    CPTACdata,
     knitr,
     RaggedExperiment,
     readr,
