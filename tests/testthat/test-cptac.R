@@ -1,7 +1,6 @@
 context("CPTAC proteomics integration")
 
 test_that(".cptacStudies selects cohorts and fractions", {
-    skip_if_not_installed("CPTACdata")
     studies <- .cptacStudies(c("BRCA", "OV"), "Proteome")
     expect_setequal(studies[["tcga_project"]], c("TCGA-BRCA", "TCGA-OV"))
     expect_true(all(studies[["analytical_fraction"]] == "Proteome"))
@@ -22,7 +21,6 @@ test_that(".cptacStudies selects cohorts and fractions", {
 })
 
 test_that(".appendCPTAC prefixes added experiments by cohort", {
-    skip_if_not_installed("CPTACdata")
     patients <- c("TCGA-A1-0001", "TCGA-A1-0002", "TCGA-B1-0001")
     samples <- paste0(patients, "-01A")
     mae <- MultiAssayExperiment(
