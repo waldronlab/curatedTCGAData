@@ -224,6 +224,12 @@
 #' @param verbose logical(1) Whether to show the dataset currenlty being
 #'     (down)loaded (default TRUE)
 #'
+#' @param cptacFraction character() CPTAC proteomics to add from the
+#'   Proteomic Data Commons (PDC), any of `"Proteome"`, `"Phosphoproteome"`,
+#'   or `"Glycoproteome"`; passed to the `fraction` argument of
+#'   `CPTACdata::appendCPTAC()`. The default, `NULL`, adds none. Requires the
+#'   `CPTACdata` package. See the CPTAC section below.
+#'
 #' @section Available Assays:
 #'
 #' Below is a list of partial `ExperimentList` assay names and their respective
@@ -278,6 +284,21 @@
 #'
 #' }
 #'
+#' @section CPTAC proteomics:
+#'
+#' The Clinical Proteomic Tumor Analysis Consortium (CPTAC) profiled a subset
+#' of TCGA tumors from the `BRCA`, `OV`, `COAD`, and `READ` cohorts. With
+#' `cptacFraction`, those data are downloaded from the PDC by
+#' `CPTACdata::appendCPTAC()` and added for the patients already in the
+#' `colData`. Experiments are named by cohort and CPTAC study, e.g.,
+#' `BRCA_CPTAC_Proteome` or `OV_CPTAC_PNNL_Phosphoproteome`; see
+#' `CPTACdata::cptacProjects` for the list of studies. Columns are TCGA sample
+#' barcodes, and the values are PDC Common Data Analysis Pipeline log2 ratios.
+#' Studies without a quantification matrix in the PDC (currently the colon and
+#' rectum proteome and the ovarian glycoproteome) are skipped with a warning.
+#' With `dry.run = TRUE`, the CPTAC experiments that would be added are listed
+#' in a message and nothing is downloaded from the PDC.
+#'
 #' @section version:
 #'
 #' Version `2.1.1` provides a couple of corrections to the `colData` for ovarian
@@ -319,13 +340,18 @@
 #'
 #' curatedTCGAData("BRCA", "GISTIC*", "2.0.1")
 #'
+#' if (requireNamespace("CPTACdata", quietly = TRUE))
+#'     curatedTCGAData(
+#'         "BRCA", "RNASeq2GeneNorm", "2.1.1", cptacFraction = "Proteome"
+#'     )
+#'
 #' @md
 #'
 #' @export curatedTCGAData
 curatedTCGAData <-
     function(
         diseaseCode = "*", assays = "*", version,
-        dry.run = TRUE, verbose = TRUE, ...
+        dry.run = TRUE, verbose = TRUE, cptacFraction = NULL, ...
     )
 {
     runDate <- "20160128"
@@ -360,10 +386,35 @@ curatedTCGAData <-
     if (!length(nrow(fileMatches)))
         stop("Cancer and data type combination(s) not available")
 
+    if (!is.null(cptacFraction)) {
+        cptacFraction <-
+            match.arg(cptacFraction, .CPTAC_FRACTIONS, several.ok = TRUE)
+        BiocBaseUtils::checkInstalled("CPTACdata")
+        ## warn only about cohorts named explicitly, not wildcard matches
+        cptacStudies <- .cptacStudies(
+            resultCodes, cptacFraction,
+            warnCodes = intersect(resultCodes, diseaseCode)
+        )
+    }
+
     eh <- .test_eh(...)
 
     if (dry.run) {
         message("See '?curatedTCGAData' for 'diseaseCode' and 'assays' inputs")
+        if (!is.null(cptacFraction) && nrow(cptacStudies))
+            message(
+                "CPTAC experiments to add from the PDC:\n  ",
+                paste(
+                    unique(paste0(
+                        .cptacExperimentNames(cptacStudies),
+                        ifelse(
+                            is.na(cptacStudies[["data_type"]]),
+                            " (no PDC matrix; skipped)", ""
+                        )
+                    )),
+                    collapse = "\n  "
+                )
+            )
         return(
             .getResourceInfo(
                 eh, assay_metadat[fileIdx, c("Title", "RDataPath")], verbose
@@ -422,10 +473,15 @@ curatedTCGAData <-
         names(ess_list) <- gsub("[A-Z]*_(.*)-[0-9]*", "\\1", names(ess_list))
     }
 
-    MultiAssayExperiment(
+    mae <- MultiAssayExperiment(
         experiments = eh_experiments,
         colData = ess_list[["colData"]],
         sampleMap = ess_list[["sampleMap"]],
         metadata = ess_list[["metadata"]]
     )
+
+    if (!is.null(cptacFraction) && nrow(cptacStudies))
+        mae <- .appendCPTAC(mae, cptacStudies, verbose)
+
+    mae
 }

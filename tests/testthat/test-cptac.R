@@ -1,0 +1,170 @@
+test_that(".cptacStudies selects cohorts and fractions", {
+    studies <- .cptacStudies(c("BRCA", "OV"), "Proteome")
+    expect_setequal(studies[["tcga_project"]], c("TCGA-BRCA", "TCGA-OV"))
+    expect_true(all(studies[["analytical_fraction"]] == "Proteome"))
+    expect_setequal(
+        .cptacExperimentNames(studies),
+        c("BRCA_CPTAC_Proteome", "OV_CPTAC_JHU_Proteome",
+            "OV_CPTAC_PNNL_Proteome")
+    )
+    expect_warning(
+        studies <- .cptacStudies(c("BRCA", "ACC"), "Phosphoproteome"),
+        "No CPTAC Phosphoproteome data for: ACC"
+    )
+    expect_identical(studies[["tcga_project"]], "TCGA-BRCA")
+    expect_warning(
+        studies <- .cptacStudies("ACC", .CPTAC_FRACTIONS), "ACC"
+    )
+    expect_identical(nrow(studies), 0L)
+})
+
+test_that(".appendCPTAC prefixes added experiments by cohort", {
+    patients <- c("TCGA-A1-0001", "TCGA-A1-0002", "TCGA-B1-0001")
+    samples <- paste0(patients, "-01A")
+    mae <- MultiAssayExperiment(
+        experiments = ExperimentList(
+            BRCA_RNASeq2GeneNorm = matrix(1:4, 2, dimnames = list(
+                c("g1", "g2"), samples[1:2])),
+            OV_RNASeq2GeneNorm = matrix(1:2, 2, dimnames = list(
+                c("g1", "g2"), samples[3]))
+        ),
+        colData = S4Vectors::DataFrame(row.names = patients),
+        sampleMap = S4Vectors::DataFrame(
+            assay = factor(c(rep("BRCA_RNASeq2GeneNorm", 2L),
+                "OV_RNASeq2GeneNorm")),
+            primary = patients, colname = samples
+        )
+    )
+    calls <- list()
+    fakeAppend <- function(mae, project, fraction, dry_run = FALSE) {
+        calls[[length(calls) + 1L]] <<- c(project, fraction)
+        message("Adding...")
+        sample <- if (project == "BRCA") samples[1] else samples[3]
+        experiment <- matrix(0, 1, dimnames = list("P1", sample))
+        nm <- paste0("CPTAC_", fraction)
+        c(mae, stats::setNames(list(experiment), nm),
+            sampleMap = S4Vectors::DataFrame(
+                assay = factor(nm), primary = substr(sample, 1, 12),
+                colname = sample
+            ))
+    }
+    local_mocked_bindings(appendCPTAC = fakeAppend, .package = "CPTACdata")
+    studies <- .cptacStudies(c("BRCA", "OV"), c("Proteome", "Phosphoproteome"))
+    expect_silent(res <- .appendCPTAC(mae, studies, verbose = FALSE))
+    expect_length(calls, 4L)
+    expect_setequal(
+        names(res),
+        c("BRCA_RNASeq2GeneNorm", "OV_RNASeq2GeneNorm",
+            "BRCA_CPTAC_Proteome", "BRCA_CPTAC_Phosphoproteome",
+            "OV_CPTAC_Proteome", "OV_CPTAC_Phosphoproteome")
+    )
+    expect_identical(
+        colnames(res)[["OV_CPTAC_Proteome"]], "TCGA-B1-0001-01A"
+    )
+    expect_true(validObject(res))
+    expect_message(.appendCPTAC(mae, studies, verbose = TRUE), "Adding")
+})
+
+test_that("cptacFraction is validated", {
+    expect_error(
+        curatedTCGAData("BRCA", "RNASeq2GeneNorm", "2.1.1",
+            cptacFraction = "Lipidome"),
+        "should be one of"
+    )
+})
+
+test_that("wildcard diseaseCode silently intersects with CPTAC cohorts", {
+    projects <- data.frame(
+        tcga_project = c("TCGA-BRCA", "TCGA-OV"),
+        analytical_fraction = "Proteome",
+        data_type = "x",
+        stringsAsFactors = FALSE
+    )
+    allCodes <- c("ACC", "BRCA", "OV", "UCEC")
+    ## as curatedTCGAData() does for diseaseCode = "*"
+    expect_no_warning(
+        studies <- .cptacStudies(
+            allCodes, "Proteome",
+            warnCodes = intersect(allCodes, "*"), projects = projects
+        )
+    )
+    expect_setequal(studies[["tcga_project"]], c("TCGA-BRCA", "TCGA-OV"))
+    ## explicitly named cohorts still warn
+    expect_warning(
+        .cptacStudies(
+            allCodes, "Proteome",
+            warnCodes = intersect(allCodes, c("BRCA", "ACC")),
+            projects = projects
+        ),
+        "ACC"
+    )
+})
+
+test_that(".appendCPTAC skips studies without a PDC matrix with a warning", {
+    studies <- data.frame(
+        tcga_project = c("TCGA-BRCA", "TCGA-COAD", "TCGA-OV"),
+        experiment = c("CPTAC_Proteome", "CPTAC_Proteome",
+            "CPTAC_JHU_Glycoproteome"),
+        analytical_fraction = c("Proteome", "Proteome", "Glycoproteome"),
+        data_type = c("log2_ratio", NA, NA),
+        stringsAsFactors = FALSE
+    )
+    calls <- list()
+    local_mocked_bindings(
+        appendCPTAC = function(mae, project, fraction, dry_run = FALSE) {
+            calls[[length(calls) + 1L]] <<- c(project, fraction)
+            mae
+        },
+        .package = "CPTACdata"
+    )
+    mae <- MultiAssayExperiment()
+    expect_warning(
+        res <- .appendCPTAC(mae, studies, verbose = FALSE),
+        "skipped: COAD_CPTAC_Proteome, OV_CPTAC_JHU_Glycoproteome"
+    )
+    expect_identical(calls, list(c("BRCA", "Proteome")))
+    expect_identical(res, mae)
+})
+
+test_that("dry.run lists CPTAC experiments without downloading", {
+    local_mocked_bindings(
+        .test_eh = function(...) NULL,
+        .getResourceInfo = function(...) data.frame(title = "BRCA")
+    )
+    local_mocked_bindings(
+        appendCPTAC = function(...) stop("PDC contacted during dry.run"),
+        .package = "CPTACdata"
+    )
+    msgs <- capture_messages(
+        res <- curatedTCGAData(
+            c("BRCA", "COAD"), "RNASeq2GeneNorm", "2.1.1",
+            cptacFraction = "Proteome"
+        )
+    )
+    msgs <- paste(msgs, collapse = "")
+    expect_match(msgs, "CPTAC experiments to add from the PDC")
+    expect_match(msgs, "BRCA_CPTAC_Proteome\n", fixed = FALSE)
+    expect_match(msgs, "COAD_CPTAC_Proteome (no PDC matrix; skipped)",
+        fixed = TRUE)
+    expect_identical(res, data.frame(title = "BRCA"))
+})
+
+test_that("missing CPTACdata stops before any download", {
+    checked <- NULL
+    local_mocked_bindings(
+        checkInstalled = function(pkgs) {
+            checked <<- pkgs
+            stop("The calling function requires missing package dependencies")
+        },
+        .package = "BiocBaseUtils"
+    )
+    local_mocked_bindings(
+        .test_eh = function(...) stop("ExperimentHub contacted")
+    )
+    expect_error(
+        curatedTCGAData("BRCA", "RNASeq2GeneNorm", "2.1.1",
+            cptacFraction = "Proteome"),
+        "missing package dependencies"
+    )
+    expect_identical(checked, "CPTACdata")
+})
