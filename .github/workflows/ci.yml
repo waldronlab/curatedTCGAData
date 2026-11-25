@@ -1,20 +1,27 @@
-name: PR CMD check & build site
+# R CMD check and BiocCheck in the Bioconductor container, from
+# https://github.com/Bioconductor/workflows (ci.yml template), with Codecov
+# turned on. Use its workflow generator to add pkgdown or other options:
+# https://bioconductor.github.io/workflows/
+name: Bioconductor CI
 
 on:
-  pull_request:
   push:
-    paths:
-      - 'DESCRIPTION'
-      - '**.yml'
-    branches:
-      - devel
-      - 'RELEASE_*'
+    branches: [ devel, main, master, RELEASE_* ]
+  pull_request:
+    branches: [ devel, main, master, RELEASE_* ]
 
 jobs:
-  ci:
-    uses: waldronlab/.github/.github/workflows/bioc-pr-cmdcheck-pkgdown.yml@devel
-    secrets: inherit
+  bioccheck:
+    # Required only if you set enable_pkgdown: true
     permissions:
-      contents: write
+      contents: read
       pages: write
       id-token: write
+    uses: bioconductor/workflows/.github/workflows/bioccheck.yml@main
+    with:
+      rcmdcheck_error_on: 'warning'
+      enable_pkgdown: true
+    # Test coverage via Codecov, using the waldronlab organization secret.
+    # Delete these two lines to turn coverage off.
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
